@@ -1,0 +1,546 @@
+{% extends "base.html" %} {% load static %} {% block overlay_content %}
+<script>
+  document.documentElement.classList.remove("loading");
+</script>
+<div class="Bird_list_firstbox">
+  <div class="Bird_list_intro">
+    <span class="Bird_list_title_inner"
+      >What’s Blooming? See, Smell & Explore</span
+    >
+  </div>
+  <div class="Bird_list_title">
+    <span class="Bird_list_title_inner">Flora of Hiranandani Estate</span>
+  </div>
+  <div class="Bird_list_subtitle">
+    From shady giants to tiny wildflowers, discover what’s growing in the
+    gardens and along the avenues of Hiranandani Estate, Thane. Sort and filter
+    the list to discover the evergreens, native species and exotic guests. Tap
+    on a plant to learn more about its flowers, fruits and what makes it
+    special.
+  </div>
+</div>
+<div class="Bird_list_secondbox">
+  <div class="filter-ui">
+    <div class="filter-dropdowns">
+      <button class="filter-toggle" id="floraTypeToggle">
+        Flora Type
+        <span class="arrow"></span>
+      </button>
+      <button class="filter-toggle" id="floraOriginToggle">
+        Flora Origin
+        <span class="arrow"></span>
+      </button>
+    </div>
+
+    <div class="filter-options" id="floraTypeOptions" style="display: none">
+      <label>
+        <input type="radio" name="flora_type" value="Deciduous" /> Deciduous
+      </label>
+      <label>
+        <input type="radio" name="flora_type" value="Evergreen" /> Evergreen
+      </label>
+      <label>
+        <input type="radio" name="flora_type" value="Aquatic plant" /> Aquatic
+        plant
+      </label>
+    </div>
+    <div class="filter-options" id="floraOriginOptions" style="display: none">
+      <label>
+        <input type="radio" name="flora_origin" value="Native" /> Native
+      </label>
+      <label>
+        <input type="radio" name="flora_origin" value="Introduced" /> Introduced
+      </label>
+    </div>
+
+    <div id="selectedFilters"></div>
+  </div>
+	<div class="filter-desc">
+	PLANT TYPES<br>
+Evergreen – Stay green all year.<br>
+Deciduous - Shed leaves seasonally.<br>
+Aquatic Plants - Grow in water.
+</div>
+  <div class="Arch-box1">
+    <video autoplay muted loop playsinline>
+      <source src="{% static 'video/floralist.mp4' %}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="Sort-box2 sort-dropdown" onclick="toggleDropdown()">
+    <div class="sort-header">
+      <div class="sort-label">
+        <span id="selected-sort" class="sort-type">
+          Sort by: Alphabetical: A to Z
+        </span>
+      </div>
+      <button class="arrow" aria-label="Down"></button>
+    </div>
+
+    <div id="dropdown-menu" class="dropdown-menu">
+      <div
+        class="drop-content"
+        data-sort="az"
+        onclick="selectSort('A to Z', 'az')"
+      >
+        Sort by: Alphabetical: A to Z
+      </div>
+
+      <div
+        class="drop-content"
+        data-sort="za"
+        onclick="selectSort('Z to A', 'za')"
+      >
+        Sort by: Alphabetical: Z to A
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bird-gallery">
+  {% for flora in floras %}
+  <div class="bird-item">
+    {% if flora.Flora_Button_Media %}
+    <a href="{% url 'flora_detail' flora.id %}">
+      <video
+		class="info-video"
+		muted
+    loop
+		playsinline
+		preload="none"
+		data-src="{{ flora.Flora_Button_Media.url }}"
+		width="460"
+		height="460"
+	></video>
+
+    </a>
+
+    {% endif %}
+
+    <a class="bird-name" href="{% url 'flora_detail' flora.id %}">
+      {{ flora.Flora_Name }}
+    </a>
+  </div>
+  {% empty %}
+  <div class="no-results">
+      “Quiet garden… Try adjusting the filters”
+    </div>
+  {% endfor %}
+</div>
+
+<!-- ... repeat until grid complete (30 or whatever number you want) -->
+
+<div data-page-music="{% static 'audio/Treepage.mp3' %}"></div>
+
+<script>
+  const selected = { flora_type: null, flora_origin: null };
+
+  document.getElementById("floraTypeToggle").onclick = () =>
+    toggleFilter("floraTypeOptions", "floraTypeToggle");
+
+  document.getElementById("floraOriginToggle").onclick = () =>
+    toggleFilter("floraOriginOptions", "floraOriginToggle");
+
+  function toggleFilter(targetId, buttonId) {
+    const box = document.getElementById(targetId);
+    const btn = document.getElementById(buttonId);
+    const isOpen = box.style.display === "grid";
+
+    hideAllOptions();
+
+    if (!isOpen) {
+      box.style.display = "grid";
+      btn.classList.add("open");
+    }
+  }
+
+  function reopenLastSelectedFilter() {
+    const orderedFilters = ["flora_type", "flora_origin"];
+    let lastSelected = null;
+
+    // Check URL in original order → last one found wins
+    const url = new URL(window.location.href);
+    orderedFilters.forEach((f) => {
+      if (url.searchParams.get(f)) lastSelected = f;
+    });
+
+    if (lastSelected) {
+      hideAllOptions();
+      const box = document.getElementById(lastSelected + "Options");
+      const btn = document.getElementById(lastSelected + "Toggle");
+
+      box.style.display = "grid";
+      btn.classList.add("open");
+    }
+  }
+
+  function hideAllOptions() {
+    document
+      .querySelectorAll(".filter-options")
+      .forEach((opt) => (opt.style.display = "none"));
+    document
+      .querySelectorAll(".filter-toggle")
+      .forEach((btn) => btn.classList.remove("open"));
+  }
+
+  function updateSelectedFilters() {
+    const container = document.getElementById("selectedFilters");
+    container.innerHTML = "";
+
+    Object.keys(selected).forEach((key) => {
+      if (selected[key]) {
+        const chip = document.createElement("div");
+        chip.className = "selected-chip";
+        chip.textContent = selected[key];
+
+        const x = document.createElement("span");
+        x.className = "chip-close";
+        x.textContent = "×";
+
+        x.onclick = function () {
+          selected[key] = null;
+          const checked = document.querySelector(
+            `input[name="${key}"]:checked`,
+          );
+          if (checked) checked.checked = false;
+
+          const url = new URL(window.location.href);
+          url.searchParams.delete(key);
+          window.location.href = url.toString();
+        };
+
+        chip.appendChild(x);
+        container.appendChild(chip);
+      }
+    });
+  }
+
+  ["flora_type", "flora_origin"].forEach((filter) => {
+    document.querySelectorAll(`input[name="${filter}"]`).forEach((radio) => {
+      radio.onchange = function () {
+        selected[filter] = radio.value;
+        updateSelectedFilters();
+
+        const url = new URL(window.location.href);
+        url.searchParams.set(filter, radio.value);
+
+        window.location.href = url.toString();
+      };
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const url = new URL(window.location.href);
+
+    ["flora_type", "flora_origin"].forEach((filter) => {
+      const value = url.searchParams.get(filter);
+      if (value) {
+        const radio = document.querySelector(
+          `input[name="${filter}"][value="${value}"]`,
+        );
+        if (radio) radio.checked = true;
+        selected[filter] = value;
+      }
+    });
+
+    updateSelectedFilters();
+    reopenLastSelectedFilter(); // ⭐ only the latest filter stays open
+  });
+
+  document.addEventListener("click", function (e) {
+    if (
+      !e.target.closest(".filter-toggle") &&
+      !e.target.closest(".filter-options")
+    ) {
+      hideAllOptions();
+    }
+  });
+
+  /* ---------------------------------------------------
+   SORT DROPDOWN
+--------------------------------------------------- */
+  function toggleDropdown() {
+    document.querySelector(".Sort-box2").classList.toggle("open");
+  }
+
+  /* ---------------- APPLY SORT ---------------- */
+  function selectSort(labelType, sortCode) {
+    const label = document.getElementById("selected-sort");
+
+    if (sortCode === "za") {
+      label.innerText = "Sort by: Alphabetical: Z to A";
+    } else {
+      label.innerText = "Sort by: Alphabetical: A to Z";
+    }
+
+    document.querySelector(".Sort-box2").classList.remove("open");
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("sort", sortCode);
+    window.location.href = url.toString();
+  }
+
+  /* ---------------- RESTORE SORT ON LOAD ---------------- */
+  document.addEventListener("DOMContentLoaded", () => {
+    const url = new URL(window.location.href);
+    const sort = url.searchParams.get("sort") || "az";
+
+    const label = document.getElementById("selected-sort");
+    const options = document.querySelectorAll(".drop-content");
+
+    // Set heading text
+    if (sort === "za") {
+      label.innerText = "Sort by: Alphabetical: Z to A";
+    } else {
+      label.innerText = "Sort by: Alphabetical: A to Z";
+    }
+
+    // Hide active option from dropdown
+    options.forEach((opt) => {
+      opt.style.display = opt.getAttribute("onclick")?.includes(`'${sort}'`)
+        ? "none"
+        : "flex";
+    });
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const videos = document.querySelectorAll(".info-video");
+
+  if (!('IntersectionObserver' in window)) {
+    videos.forEach(video => {
+      loadAndPlay(video);
+    });
+    return;
+  }
+
+  const options = {
+    root: null,
+    rootMargin: '200px 0px',
+    threshold: 0.25          
+  };
+
+  const observer = new IntersectionObserver(handleIntersections, options);
+
+  videos.forEach(v => {
+    v.removeAttribute('autoplay');
+    observer.observe(v);
+  });
+
+  function handleIntersections(entries) {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        if (!video.dataset.loaded) {
+          const src = video.dataset.src;
+          if (src) {
+            const source = document.createElement('source');
+            source.src = src;
+            video.appendChild(source);
+            video.dataset.loaded = "true";
+            video.load();
+          }
+        }
+
+        video.play().catch(() => {  });
+      } else {
+        if (!video.paused) {
+          video.pause();
+        }
+
+      }
+    });
+  }
+
+  function unloadVideo(video) {
+    if (video.dataset.loaded) {
+      video.pause();
+      const sources = video.querySelectorAll('source');
+      sources.forEach(s => s.remove());
+      try {
+        video.removeAttribute('src');
+        video.load();
+      } catch (e) {}
+      delete video.dataset.loaded;
+    }
+  }
+});
+</script>
+
+<script>
+  /* =====================================================
+   HIDE PAGE UNTIL GSAP IS READY
+===================================================== */
+  document.documentElement.classList.add("loading");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    requestAnimationFrame(() => {
+      gsap.set("body", { visibility: "visible" });
+      document.documentElement.classList.remove("loading");
+
+      /* =====================================================
+       HERO / HEADER TIMELINE
+    ===================================================== */
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.fromTo(
+        ".Bird_list_title_inner",
+        { yPercent: 100, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.6 },
+      )
+
+        .fromTo(
+          ".Bird_list_intro",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 },
+          0.5,
+        )
+
+        .fromTo(
+          ".Bird_list_subtitle",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 },
+          0.5,
+        )
+
+        .fromTo(
+          ".filter-toggle,.filter-options,#selectedFilters",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.5, stagger: 0.15 },
+          0.5,
+        )
+
+        .fromTo(
+          ".Arch-box1",
+          { opacity: 0, scale: 0.95 },
+          { opacity: 1, scale: 1, duration: 0.6 },
+          0.5,
+        )
+				.fromTo(
+          ".filter-desc",
+          { opacity: 0},
+          { opacity: 1,duration: 0.5 },
+          '-=0.55',
+        );
+
+      /* =====================================================
+       BIRD GRID — ROW BASED ANIMATION
+    ===================================================== */
+      const items = [...document.querySelectorAll(".bird-item")];
+      let rows = [];
+      let currentRowTop = null;
+
+      items.forEach((item) => {
+        const top = item.getBoundingClientRect().top;
+
+        if (currentRowTop === null || Math.abs(top - currentRowTop) < 8) {
+          if (!rows.length) rows.push([]);
+          rows[rows.length - 1].push(item);
+          currentRowTop = top;
+        } else {
+          rows.push([item]);
+          currentRowTop = top;
+        }
+      });
+
+      // FIRST ROW — PLAY IMMEDIATELY
+      if (rows.length) {
+        const firstRowTl = gsap.timeline({ delay: 0.5 });
+
+        firstRowTl.fromTo(
+          rows[0],
+          {
+            y: 40,
+            scale: 0.7,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.6,
+            ease: "back.out(2.5)",
+            stagger: 0.12,
+          },
+        );
+      }
+
+      // OTHER ROWS — SCROLL IN + REVERSE ON SCROLL UP
+      rows.slice(1).forEach((row) => {
+        gsap.fromTo(
+          row,
+          { y: 40, scale: 0.7, opacity: 0 },
+          {
+            y: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.6,
+            ease: "back.out(1.7)",
+            stagger: 0.12,
+            scrollTrigger: {
+              trigger: row[0],
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      });
+
+      /* =====================================================
+       SORT BOX — WIDTH SCALE FROM CENTER
+    ===================================================== */
+      gsap.utils.toArray(".Sort-box2").forEach((btn) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        tl.fromTo(
+          btn,
+          { "--reveal": 0 },
+          {
+            "--reveal": 1.15,
+            duration: 0.45,
+            ease: "power2.out",
+          },
+        ).to(
+          btn,
+          {
+            "--reveal": 1,
+            duration: 0.25,
+            ease: "back.out(1.4)",
+          },
+          "-=0.2",
+        );
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bg = document.querySelector(".Bird-image");
+    if (!bg) return;
+
+    gsap.fromTo(
+      bg,
+      { yPercent: 5 },
+      {
+        yPercent: -20,
+        ease: "none",
+        scrollTrigger: {
+          start: 0,
+          end: () => ScrollTrigger.maxScroll(window),
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      },
+    );
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,660 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Echoes of Nature</title>
+		<link rel="preload" as="video" href="{% static 'video/EchoesPortal.webm' %}" type="video/webm">
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'css/style.css' %}"
+		/>
+		<script>
+  document.documentElement.dataset.videoLoading = "true";
+</script>
+
+		<link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+	</head>
+	<body>
+		{% include "partial/background_audio.html" %}
+		<script>
+			window.addEventListener('unload', () => {});
+		</script>
+		<style>
+  body {
+    background-color: #fff3e6;
+  }
+  .deepdive-bg {
+    opacity: 1;
+  }
+</style>
+
+		<div id="Bird_3840_x_2160_1__1">
+			<header class="top-nav">
+				<img
+					id="Logo"
+					src="{% static 'img/Logo.png' %}"
+					srcset="{% static 'img/Logo@2x.png' %} 2x"
+					alt="Logo"
+				/>
+
+				<nav class="nav-icons">
+					<a href="{% url 'home' %}">
+						<img
+							class="nav-icon"
+							id="Home_2"
+							src="{% static 'img/icons/Home.png' %}"
+							data-default="{% static 'img/icons/Home.png' %}"
+							data-active="{% static 'img/icons/Home_active.png' %}"
+							alt="Home"
+						/>
+					</a>
+
+					<a href="#" id="backBtn">
+						<img
+							class="nav-icon"
+							id="Back_2"
+							src="{% static 'img/icons/Back.png' %}"
+							data-default="{% static 'img/icons/Back.png' %}"
+							data-active="{% static 'img/icons/Back_active.png' %}"
+							alt="Back"
+						/>
+					</a>
+
+					<a href="#">
+						<img
+							class="nav-icon"
+							id="Audio_On_2"
+							src="{% static 'img/icons/Audio_On.png' %}"
+							data-default="{% static 'img/icons/Audio_On.png' %}"
+							data-active="{% static 'img/icons/Audio_On_active.png' %}"
+							alt="Audio On"
+						/>
+					</a>
+
+					<a href="#" id="menuBtn" class="menu-btn">
+						<img
+							class="nav-icon"
+							id="Menu"
+							src="{% static 'img/icons/Menu.png' %}"
+							data-default="{% static 'img/icons/Menu.png' %}"
+							data-active="{% static 'img/icons/Menu_active.png' %}"
+							alt="Menu"
+						/>
+					</a>
+
+					<!-- Dropdown Overlay -->
+					<div class="dropdown-mask">
+						<div id="customDropdown" class="dropdown-content">
+							<div class="menu-bg">
+								<a href="{% url 'home' %}" class="menu-item">Home</a>
+								<a href="{% url 'Deepdive' %}" class="menu-item">
+									Echoes of Nature
+								</a>
+								<a href="{% url 'birds_list' %}" class="menu-item">
+									Birds of Hiranandani, Thane
+								</a>
+								<a href="{% url 'flora_list' %}" class="menu-item">
+									Trees of Hiranandani, Thane
+								</a>
+								<a href="{% url 'Naturetrail' %}" class="menu-item">
+									Nature Trail
+								</a>
+								<a href="{% url 'Birdwatching' %}" class="menu-item">
+									Birdwatching
+								</a>
+								<a href="{% url 'Urbanlegends' %}" class="menu-item">
+									Urban Legends
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+		</div>
+
+		<div class="page-content">
+			<div class="deepdive-bg">
+				<video
+					id="deepdivePortalVideo"
+					class="portal-video"
+					autoplay
+					muted
+					loop
+					playsinline
+					preload="auto"
+				>
+					<source src="{% static 'video/EchoesPortal.webm' %}" type="video/webm" />
+				</video>
+
+			</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('deepdivePortalVideo');
+  const t = localStorage.getItem('portalVideoTime');
+
+  if (!video) {
+    document.documentElement.dataset.videoLoading = "false";
+    return;
+  }
+
+  if (t) {
+    video.currentTime = parseFloat(t);
+  }
+
+  const reveal = () => {
+    document.documentElement.dataset.videoLoading = "false";
+  };
+
+  // ✅ first decoded frame
+  if (video.readyState >= 2) {
+    reveal();
+  } else {
+    video.addEventListener('loadeddata', reveal, { once: true });
+  }
+});
+</script>
+
+
+
+			<div class="deepdive-container">
+				<div class="left-section">
+					<div class="fade-section echoes-flower">
+						<img src="{% static 'img/Echoes-flower.png' %}" />
+					</div>
+					<div class="fade-section left_1">
+						<span>Nature is the source of all true knowledge</span>
+						<span>— Leonardo da Vinci</span>
+					</div>
+					<div class="fade-section left_2">
+						<span class="inner2">Echoes of Nature</span>
+					</div>
+					<div class="fade-section left_3">
+						<div class="play-button">
+							<img
+									id="playPauseBtn"
+									src="{% static 'img/Play.png' %}"
+									data-play-icon="{% static 'img/Play.png' %}"
+									data-pause-icon="{% static 'img/Pause.png' %}"
+									alt="Play/Pause"
+							/>
+						</div>
+
+						<div class="audio" id="waveform">
+							<!-- prettier-ignore -->
+							<svg id="audioWave"
+                        viewBox="0 0 864 154"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <mask id="progressMask">
+                          <rect id="maskRect"
+                                x="0"
+                                y="0"
+                                width="0"
+                                height="154"
+                                fill="white" />
+                        </mask>
+                      </defs>
+                      <g id="baseWave" stroke="#b58f7a" stroke-width="5" stroke-linecap="round">
+
+                        <line x1="28" y1="73.5" x2="28" y2="80.5"/>
+                        <line x1="38" y1="72.0" x2="38" y2="82.0"/>
+                        <line x1="48" y1="70.0" x2="48" y2="84.0"/>
+                        <line x1="59" y1="68.5" x2="59" y2="85.5"/>
+                        <line x1="69" y1="66.5" x2="69" y2="87.5"/>
+                        <line x1="79" y1="68.5" x2="79" y2="85.5"/>
+                        <line x1="89" y1="72.0" x2="89" y2="82.0"/>
+                        <line x1="99" y1="65.5" x2="99" y2="88.5"/>
+                        <line x1="110" y1="59.5" x2="110" y2="94.5"/>
+                        <line x1="120" y1="61.5" x2="120" y2="92.5"/>
+                        <line x1="130" y1="55.0" x2="130" y2="99.0"/>
+                        <line x1="140" y1="57.5" x2="140" y2="96.5"/>
+                        <line x1="150" y1="61.5" x2="150" y2="92.5"/>
+                        <line x1="161" y1="65.0" x2="161" y2="89.0"/>
+                        <line x1="171" y1="70.5" x2="171" y2="83.5"/>
+                        <line x1="181" y1="73.5" x2="181" y2="80.5"/>
+                        <line x1="191" y1="68.5" x2="191" y2="85.5"/>
+                        <line x1="201" y1="58.5" x2="201" y2="95.5"/>
+                        <line x1="212" y1="53.0" x2="212" y2="101.0"/>
+                        <line x1="222" y1="38.0" x2="222" y2="116.0"/>
+                        <line x1="232" y1="43.5" x2="232" y2="110.5"/>
+                        <line x1="242" y1="48.5" x2="242" y2="105.5"/>
+                        <line x1="253" y1="63.5" x2="253" y2="90.5"/>
+                        <line x1="263" y1="70.5" x2="263" y2="83.5"/>
+                        <line x1="273" y1="67.5" x2="273" y2="86.5"/>
+                        <line x1="283" y1="58.5" x2="283" y2="95.5"/>
+                        <line x1="293" y1="49.5" x2="293" y2="104.5"/>
+                        <line x1="304" y1="42.0" x2="304" y2="112.0"/>
+                        <line x1="314" y1="37.5" x2="314" y2="116.5"/>
+                        <line x1="324" y1="31.5" x2="324" y2="122.5"/>
+                        <line x1="334" y1="34.5" x2="334" y2="119.5"/>
+                        <line x1="345" y1="42.0" x2="345" y2="112.0"/>
+                        <line x1="355" y1="48.0" x2="355" y2="106.0"/>
+                        <line x1="365" y1="46.5" x2="365" y2="107.5"/>
+                        <line x1="375" y1="43.5" x2="375" y2="110.5"/>
+                        <line x1="385" y1="39.0" x2="385" y2="115.0"/>
+                        <line x1="396" y1="39.0" x2="396" y2="115.0"/>
+                        <line x1="406" y1="51.5" x2="406" y2="102.5"/>
+                        <line x1="416" y1="56.5" x2="416" y2="97.5"/>
+                        <line x1="426" y1="47.5" x2="426" y2="106.5"/>
+                        <line x1="436" y1="43.5" x2="436" y2="110.5"/>
+                        <line x1="447" y1="28.0" x2="447" y2="126.0"/>
+                        <line x1="457" y1="23.0" x2="457" y2="131.0"/>
+                        <line x1="467" y1="35.5" x2="467" y2="118.5"/>
+                        <line x1="477" y1="37.0" x2="477" y2="117.0"/>
+                        <line x1="487" y1="42.0" x2="487" y2="112.0"/>
+                        <line x1="498" y1="52.0" x2="498" y2="102.0"/>
+                        <line x1="508" y1="46.5" x2="508" y2="107.5"/>
+                        <line x1="518" y1="54.0" x2="518" y2="100.0"/>
+                        <line x1="528" y1="59.0" x2="528" y2="95.0"/>
+                        <line x1="539" y1="62.5" x2="539" y2="91.5"/>
+                        <line x1="549" y1="67.0" x2="549" y2="87.0"/>
+                        <line x1="559" y1="64.0" x2="559" y2="90.0"/>
+                        <line x1="569" y1="61.5" x2="569" y2="92.5"/>
+                        <line x1="579" y1="59.0" x2="579" y2="95.0"/>
+                        <line x1="590" y1="63.5" x2="590" y2="90.5"/>
+                        <line x1="600" y1="67.5" x2="600" y2="86.5"/>
+                        <line x1="610" y1="71.5" x2="610" y2="82.5"/>
+                        <line x1="620" y1="73.5" x2="620" y2="80.5"/>
+                        <line x1="630" y1="73.5" x2="630" y2="80.5"/>
+                        <line x1="641" y1="71.5" x2="641" y2="82.5"/>
+                        <line x1="651" y1="66.5" x2="651" y2="87.5"/>
+                        <line x1="661" y1="60.0" x2="661" y2="94.0"/>
+                        <line x1="671" y1="47.5" x2="671" y2="106.5"/>
+                        <line x1="682" y1="44.5" x2="682" y2="109.5"/>
+                        <line x1="692" y1="52.0" x2="692" y2="102.0"/>
+                        <line x1="702" y1="47.5" x2="702" y2="106.5"/>
+                        <line x1="712" y1="45.5" x2="712" y2="108.5"/>
+                        <line x1="722" y1="49.5" x2="722" y2="104.5"/>
+                        <line x1="733" y1="55.0" x2="733" y2="99.0"/>
+                        <line x1="743" y1="53.0" x2="743" y2="101.0"/>
+                        <line x1="753" y1="57.5" x2="753" y2="96.5"/>
+                        <line x1="763" y1="63.5" x2="763" y2="90.5"/>
+                        <line x1="773" y1="67.5" x2="773" y2="86.5"/>
+                        <line x1="784" y1="73.0" x2="784" y2="81.0"/>
+                        <line x1="794" y1="69.5" x2="794" y2="84.5"/>
+                        <line x1="804" y1="64.5" x2="804" y2="89.5"/>
+                        <line x1="814" y1="68.5" x2="814" y2="85.5"/>
+                        <line x1="825" y1="71.0" x2="825" y2="83.0"/>
+                        <line x1="835" y1="73.5" x2="835" y2="80.5"/>
+
+                      </g>
+                      <g id="filledWave"
+                        stroke="#802650"
+                        stroke-width="5"
+                        stroke-linecap="round"
+                        mask="url(#progressMask)">
+                        <line x1="28" y1="73.5" x2="28" y2="80.5"/>
+                        <line x1="38" y1="72.0" x2="38" y2="82.0"/>
+                        <line x1="48" y1="70.0" x2="48" y2="84.0"/>
+                        <line x1="59" y1="68.5" x2="59" y2="85.5"/>
+                        <line x1="69" y1="66.5" x2="69" y2="87.5"/>
+                        <line x1="79" y1="68.5" x2="79" y2="85.5"/>
+                        <line x1="89" y1="72.0" x2="89" y2="82.0"/>
+                        <line x1="99" y1="65.5" x2="99" y2="88.5"/>
+                        <line x1="110" y1="59.5" x2="110" y2="94.5"/>
+                        <line x1="120" y1="61.5" x2="120" y2="92.5"/>
+                        <line x1="130" y1="55.0" x2="130" y2="99.0"/>
+                        <line x1="140" y1="57.5" x2="140" y2="96.5"/>
+                        <line x1="150" y1="61.5" x2="150" y2="92.5"/>
+                        <line x1="161" y1="65.0" x2="161" y2="89.0"/>
+                        <line x1="171" y1="70.5" x2="171" y2="83.5"/>
+                        <line x1="181" y1="73.5" x2="181" y2="80.5"/>
+                        <line x1="191" y1="68.5" x2="191" y2="85.5"/>
+                        <line x1="201" y1="58.5" x2="201" y2="95.5"/>
+                        <line x1="212" y1="53.0" x2="212" y2="101.0"/>
+                        <line x1="222" y1="38.0" x2="222" y2="116.0"/>
+                        <line x1="232" y1="43.5" x2="232" y2="110.5"/>
+                        <line x1="242" y1="48.5" x2="242" y2="105.5"/>
+                        <line x1="253" y1="63.5" x2="253" y2="90.5"/>
+                        <line x1="263" y1="70.5" x2="263" y2="83.5"/>
+                        <line x1="273" y1="67.5" x2="273" y2="86.5"/>
+                        <line x1="283" y1="58.5" x2="283" y2="95.5"/>
+                        <line x1="293" y1="49.5" x2="293" y2="104.5"/>
+                        <line x1="304" y1="42.0" x2="304" y2="112.0"/>
+                        <line x1="314" y1="37.5" x2="314" y2="116.5"/>
+                        <line x1="324" y1="31.5" x2="324" y2="122.5"/>
+                        <line x1="334" y1="34.5" x2="334" y2="119.5"/>
+                        <line x1="345" y1="42.0" x2="345" y2="112.0"/>
+                        <line x1="355" y1="48.0" x2="355" y2="106.0"/>
+                        <line x1="365" y1="46.5" x2="365" y2="107.5"/>
+                        <line x1="375" y1="43.5" x2="375" y2="110.5"/>
+                        <line x1="385" y1="39.0" x2="385" y2="115.0"/>
+                        <line x1="396" y1="39.0" x2="396" y2="115.0"/>
+                        <line x1="406" y1="51.5" x2="406" y2="102.5"/>
+                        <line x1="416" y1="56.5" x2="416" y2="97.5"/>
+                        <line x1="426" y1="47.5" x2="426" y2="106.5"/>
+                        <line x1="436" y1="43.5" x2="436" y2="110.5"/>
+                        <line x1="447" y1="28.0" x2="447" y2="126.0"/>
+                        <line x1="457" y1="23.0" x2="457" y2="131.0"/>
+                        <line x1="467" y1="35.5" x2="467" y2="118.5"/>
+                        <line x1="477" y1="37.0" x2="477" y2="117.0"/>
+                        <line x1="487" y1="42.0" x2="487" y2="112.0"/>
+                        <line x1="498" y1="52.0" x2="498" y2="102.0"/>
+                        <line x1="508" y1="46.5" x2="508" y2="107.5"/>
+                        <line x1="518" y1="54.0" x2="518" y2="100.0"/>
+                        <line x1="528" y1="59.0" x2="528" y2="95.0"/>
+                        <line x1="539" y1="62.5" x2="539" y2="91.5"/>
+                        <line x1="549" y1="67.0" x2="549" y2="87.0"/>
+                        <line x1="559" y1="64.0" x2="559" y2="90.0"/>
+                        <line x1="569" y1="61.5" x2="569" y2="92.5"/>
+                        <line x1="579" y1="59.0" x2="579" y2="95.0"/>
+                        <line x1="590" y1="63.5" x2="590" y2="90.5"/>
+                        <line x1="600" y1="67.5" x2="600" y2="86.5"/>
+                        <line x1="610" y1="71.5" x2="610" y2="82.5"/>
+                        <line x1="620" y1="73.5" x2="620" y2="80.5"/>
+                        <line x1="630" y1="73.5" x2="630" y2="80.5"/>
+                        <line x1="641" y1="71.5" x2="641" y2="82.5"/>
+                        <line x1="651" y1="66.5" x2="651" y2="87.5"/>
+                        <line x1="661" y1="60.0" x2="661" y2="94.0"/>
+                        <line x1="671" y1="47.5" x2="671" y2="106.5"/>
+                        <line x1="682" y1="44.5" x2="682" y2="109.5"/>
+                        <line x1="692" y1="52.0" x2="692" y2="102.0"/>
+                        <line x1="702" y1="47.5" x2="702" y2="106.5"/>
+                        <line x1="712" y1="45.5" x2="712" y2="108.5"/>
+                        <line x1="722" y1="49.5" x2="722" y2="104.5"/>
+                        <line x1="733" y1="55.0" x2="733" y2="99.0"/>
+                        <line x1="743" y1="53.0" x2="743" y2="101.0"/>
+                        <line x1="753" y1="57.5" x2="753" y2="96.5"/>
+                        <line x1="763" y1="63.5" x2="763" y2="90.5"/>
+                        <line x1="773" y1="67.5" x2="773" y2="86.5"/>
+                        <line x1="784" y1="73.0" x2="784" y2="81.0"/>
+                        <line x1="794" y1="69.5" x2="794" y2="84.5"/>
+                        <line x1="804" y1="64.5" x2="804" y2="89.5"/>
+                        <line x1="814" y1="68.5" x2="814" y2="85.5"/>
+                        <line x1="825" y1="71.0" x2="825" y2="83.0"/>
+                        <line x1="835" y1="73.5" x2="835" y2="80.5"/>
+                        </g>
+                    </svg>
+						</div>
+
+						<audio
+							id="audioPlayer"
+							src="{% static 'audio/deepdive.mp3' %}"
+						></audio>
+					</div>
+
+					<div class="left_4">
+						<a href="{% url 'birds_list' %}" class="media-link">
+							<div class="bird-video">
+								<div class="video-container bounce-up">
+									<video autoplay muted loop playsinline>
+										<source
+											src="{% static 'video/Bird-button.webm' %}"
+											type="video/webm"
+										/>
+										Your browser does not support the video tag.
+									</video>
+								</div>
+							</div>
+
+							<div class="fade-section video-text">WANT TO KNOW</div>
+
+							<div class="video-text-2">
+								<span class="inner2">WHO'S CHIRPING?</span>
+							</div>
+
+							<div class="fade-section video-text-3">
+								<span>
+									Meet the colourful, feathered residents
+									<br />
+									and discover more about them.
+								</span>
+							</div>
+						</a>
+					</div>
+
+					<div class="fade-section left_5">
+						There are over 40 different varieties of birds to be seen almost
+						every day at Hiranandani Estate, Thane. Come learn which of these
+						birds is awake at night, which eat fish or drink nectare and who has
+						travelled thousands of miles to spend the winter here.
+					</div>
+				</div>
+				<div class="right-section">
+					<div class="fade-section right_1">A Living Landscape</div>
+					<div class="fade-section right_2">
+						Welcome to Echoes of Nature, an interactive experience that reflects
+						the House of Hiranandani’s vision of harmony between modern living
+						and the natural environment. Located within the ecological corridor
+						between Thane Creek and Sanjay Gandhi National Park, Hiranandani
+						Estate, Thane is a 375 acre green haven supporting a rich diversity
+						of plants, trees, birds, butterflies, and small wildlife; made
+						possible through thoughtful landscaping, preservation of native
+						species, intentional creation of green spaces and revitalization of
+						existing water bodies.
+						<br />
+						<br />
+
+						Echoes of Nature invites visitors to discover the stories of
+						tree-shaded walkways, butterfly-filled gardens, and birds nesting by
+						the lake, highlighting the House of Hiranandani’s commitment to
+						protecting biodiversity and helping people reconnect with nature
+						every day.
+					</div>
+					<div class="right_3">
+						<a href="{% url 'flora_list' %}" class="media-link">
+							<div class="bird-video bounce-up">
+								<div class="video-container">
+									<video autoplay muted loop playsinline>
+										<source
+											src="{% static 'video/Tree-Button.webm' %}"
+											type="video/webm"
+										/>
+										Your browser does not support the video tag.
+									</video>
+								</div>
+							</div>
+
+							<div class="fade-section video-text">COME MEET</div>
+
+							<div class="video-text-2">
+								<span class="inner2">THE GREEN GIANTS!</span>
+							</div>
+
+							<div class="fade-section video-text-3">
+								<span>
+									Get to know the leafy locals, from shady trees to beautiful
+									blooms and amazing herbs.
+								</span>
+							</div>
+						</a>
+					</div>
+
+					<div class="fade-section right_4">
+						Figure out which trees bloom in summer, which fruit is loved by
+						bats, and which barks and flowers can be used for medicine. Along
+						the way, you will also discover some unique and exotic species, that
+						have been carefully nurtured and now flourish.
+					</div>
+				</div>
+			</div>
+			<div class="middle-section">
+				<div class="fog-bg">
+					<video>
+						<source src="{% static 'video/cloud2.webm' %}" type="video/webm" />
+						Your browser does not support the video tag.
+					</video>
+				</div>
+				<div class="hiranandani-box">
+					<div class="hiranandani-img-box bounce-up">
+						<img src="{% static 'img/Hiranandani.png' %}" />
+					</div>
+					<div class="hiranandani-text-box">
+						<div class="hiranandani-text-1 fade-section">GREEN VISIONARY</div>
+						<div class="hiranandani-text-2">
+							<span class="inner2">Surendra Hiranandani</span>
+						</div>
+						<div class="hiranandani-text-3 fade-section">
+							Entrepreneur, Founder and Managing Director
+						</div>
+						<div class="hiranandani-text-4 fade-section">
+							Driven by a lifelong passion for horticulture, Mr. Surendra
+							Hiranandani has played a hands-on role in researching and
+							selecting the plant species best suited to the soil and climate of
+							Hiranandani Estate, Thane, thus shaping the landscape into a
+							thriving oasis of beauty and sustainability.
+						</div>
+						<!--<a class="MD-message-link btn-fill-left" href="{% url 'MDGallery' %}">
+                    <span>HIS PHILOSOPHY</span>
+                </a>-->
+					</div>
+				</div>
+			</div>
+			<div class="deepdive-container2">
+				<div class="left-section2">
+					<div class="left_6">
+						<div class="naturetrail-imgblock">
+							<video autoplay muted loop playsinline>
+								<source
+									src="{% static 'video/Naturetrail2.webm' %}"
+									type="video/webm"
+								/>
+								Your browser does not support the video tag.
+							</video>
+						</div>
+						<div class="naturetrail-textblock">
+							<div class="fade-section naturetrail-text1">
+								LET'S GO ON AN ADVENTURE
+							</div>
+							<div class="naturetrail-text2">
+								<span class="inner2">Nature Trail</span>
+							</div>
+							<div class="fade-section naturetrail-text3">
+								A fun-filled, refreshing guided walk for every age!
+							</div>
+							<div class="fade-section naturetrail-text4">
+								Join our team of naturalists as they take you on an exciting
+								adventure through Hiranandani Estate, Thane’s wonderful green
+								spaces! Meet some fascinating plants, curious birds and
+								colourful butterflies. Along the way, try your hand at fun,
+								nature-based games and activities and discover how much life
+								thrives all around you!
+							</div>
+							<a
+								class="naturetrail-link btn-fill-left"
+								href="{% url 'Naturetrail' %}"
+							>
+								UPCOMING NATURE TRAILS
+							</a>
+						</div>
+					</div>
+					<div class="left_7">
+						<div class="naturetrail-imgblock">
+							<video autoplay muted loop playsinline>
+								<source
+									src="{% static 'video/UrbanLegends.webm' %}"
+									type="video/webm"
+								/>
+								Your browser does not support the video tag.
+							</video>
+						</div>
+						<div class="naturetrail-textblock">
+							<div class="fade-section naturetrail-text1">GREEN BEGINNINGS</div>
+							<div class="naturetrail-text2">
+								<span class="inner2">Stories from Nature</span>
+							</div>
+							<div class="fade-section naturetrail-text3">
+								How a shared vision grew into a vibrant urban ecosystem.
+							</div>
+							<div class="fade-section naturetrail-text4">
+								A behind-the-scenes look at how the lush landscapes of
+								Hiranandani Estate, Thane came to life. Discover the untold
+								stories inspiring moments, thoughtful ideas, and creative
+								solutions that shaped these green spaces, and be amazed by the
+								diversity of trees, plants, birds, and butterflies they now
+								support.
+							</div>
+							<a
+								class="urbanlegend-link btn-fill-left"
+								href="{% url 'Urbanlegends' %}"
+							>
+								EXPLORE THE STORIES
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="right-section2">
+					<div class="right_5">
+						<div class="naturetrail-imgblock">
+							<video autoplay muted loop playsinline>
+								<source
+									src="{% static 'video/Birdwatching.webm' %}"
+									type="video/webm"
+								/>
+								Your browser does not support the video tag.
+							</video>
+						</div>
+						<div class="naturetrail-textblock">
+							<div class="fade-section naturetrail-text1">
+								CALLING ALL BIRD ENTHUSIASTS
+							</div>
+							<div class="naturetrail-text2">
+								<span class="inner2">A Birdwatcher's Guide</span>
+							</div>
+							<div class="fade-section naturetrail-text3">
+								Where and when to spot even the most elusive birds
+							</div>
+							<div class="fade-section naturetrail-text4">
+								Follow the chirps and flutters. Can you spot all the feathered
+								residents of the Hiranandani Estate, Thane? Browse thourgh our
+								go-to-guide to know where different species love to perch, nest,
+								or sing. You will also find some handy tips on the best times of
+								the day and seasons in which to spot even the shyest of birds.
+							</div>
+							<a
+								class="fade-section birdwatch-link btn-fill-left"
+								href="{% url 'Birdwatching' %}"
+							>
+								LET'S GO BIRDWATCHING
+							</a>
+						</div>
+					</div>
+					<div class="right_6">
+						<video autoplay muted loop playsinline>
+							<source
+								src="{% static 'video/fountain.webm' %}"
+								type="video/webm"
+							/>
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			</div>
+			<button id="scrollUpBtn" aria-label="Scroll to top">
+				<img
+					src="{% static 'img/Back_2.png' %}"
+					data-default="{% static 'img/Back_2.png' %}"
+					data-active="{% static 'img/Back_2_active.png' %}"
+					alt="Scroll to top"
+				/>
+			</button>
+
+			<footer class="footer">
+				<div class="footer-img">
+					<video class="footer-video" autoplay loop muted playsinline>
+						<source src="{% static 'video/Footer.webm' %}" type="video/webm" />
+						Your browser does not support the video tag.
+					</video>
+				</div>
+				<div class="footer-text">
+					© 2026 House of Hiranandani. All rights reserved.
+					<br />
+					<span>
+						Echoes of Nature is part of the House of Hiranandani’s CSR
+						initiative, created for public education and non-commercial display.
+						<br />
+						<span class="footer-credits">Credits & Usage Notice</span>
+					</span>
+				</div>
+			</footer>
+		</div>
+<script src="{% static 'js/main.js' %}"></script>
+	</body>
+</html>

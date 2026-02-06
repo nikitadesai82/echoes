@@ -1,0 +1,185 @@
+{% load static %}
+
+<!-- ===============================
+     GLOBAL BACKGROUND MUSIC
+================================ -->
+<audio
+  id="bgMusic"
+  src="{% static 'Audio/background.mp3' %}"
+  autoplay
+  loop
+  preload="auto"
+></audio>
+
+<!-- ===============================
+     PAGE-SPECIFIC MUSIC (OPTIONAL)
+================================ -->
+<audio
+  id="pageMusic"
+  preload="auto"
+  loop
+></audio>
+
+<!-- ===============================
+     SECTION MUSIC (OPTIONAL)
+================================ -->
+<audio
+  id="sectionMusic"
+  preload="auto"
+></audio>
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const bgMusic = document.getElementById("bgMusic");
+  const pageMusic = document.getElementById("pageMusic");
+  const sectionMusic = document.getElementById("sectionMusic");
+
+  if (!bgMusic) return;
+
+  /* ===============================
+     INITIAL AUDIO STATE (KIOSK SAFE)
+  =============================== */
+  bgMusic.muted = false;
+  bgMusic.volume = 0;
+
+  pageMusic.muted = false;
+  pageMusic.volume = 0;
+
+  sectionMusic.muted = false;
+  sectionMusic.volume = 0;
+
+  /* ===============================
+     AUTOPLAY (NO USER GESTURE)
+  =============================== */
+  bgMusic.play().catch(() => {});
+  gsap.to(bgMusic, {
+    volume: 0.3,
+    duration: 3,
+    ease: "power2.out"
+  });
+
+  /* ===============================
+     PAGE-SPECIFIC MUSIC
+  =============================== */
+  const pageMusicEl = document.querySelector("[data-page-music]");
+  if (pageMusicEl) {
+    pageMusic.src = pageMusicEl.getAttribute("data-page-music");
+    pageMusic.play().catch(() => {});
+    gsap.to(pageMusic, {
+      volume: 0.2,
+      duration: 2,
+      ease: "power2.out"
+    });
+  }
+
+  /* ===============================
+     SECTION MUSIC — FOUNTAIN
+  =============================== */
+  if (document.querySelector(".right_6")) {
+    sectionMusic.src = "{% static 'Audio/Fountain.mp3' %}";
+    sectionMusic.loop = true;
+
+    ScrollTrigger.create({
+      trigger: ".right_6",
+      start: "top 75%",
+
+      onEnter: () => {
+        sectionMusic.play().catch(() => {});
+        gsap.to(sectionMusic, {
+          volume: 0.1,
+          duration: 1.2,
+          ease: "power2.out"
+        });
+      },
+
+      onLeave: () => {
+        gsap.to(sectionMusic, {
+          volume: 0,
+          duration: 1,
+          ease: "power2.in",
+          onComplete: () => sectionMusic.pause()
+        });
+      },
+
+      onEnterBack: () => {
+        sectionMusic.play().catch(() => {});
+        gsap.to(sectionMusic, {
+          volume: 0.1,
+          duration: 1.2,
+          ease: "power2.out"
+        });
+      },
+
+      onLeaveBack: () => {
+        gsap.to(sectionMusic, {
+          volume: 0,
+          duration: 1,
+          ease: "power2.in",
+          onComplete: () => sectionMusic.pause()
+        });
+      }
+    });
+  }
+
+  /* ===============================
+     SECTION MUSIC — BIRD PAGE (PLAY ONCE)
+  =============================== */
+  if (document.querySelector(".bird-page-main-bg")) {
+    sectionMusic.src = "{% static 'Audio/Capture.mp3' %}";
+    sectionMusic.loop = false;
+
+    let hasPlayed = false;
+
+    ScrollTrigger.create({
+      trigger: ".bird-page-main-bg",
+      start: "top 30%",
+
+      onEnter: () => {
+        if (!hasPlayed) {
+          sectionMusic.currentTime = 0;
+          sectionMusic.play().catch(() => {});
+          hasPlayed = true;
+        }
+
+        gsap.to(sectionMusic, {
+          volume: 0.1,
+          duration: 1.2,
+          ease: "power2.out"
+        });
+      },
+
+      onLeave: () => {
+        gsap.to(sectionMusic, {
+          volume: 0,
+          duration: 1,
+          ease: "power2.in",
+          onComplete: () => sectionMusic.pause()
+        });
+      },
+
+      onEnterBack: () => {
+        gsap.to(sectionMusic, {
+          volume: 0.1,
+          duration: 1.2,
+          ease: "power2.out"
+        });
+      },
+
+      onLeaveBack: () => {
+        gsap.to(sectionMusic, {
+          volume: 0,
+          duration: 1,
+          ease: "power2.in",
+          onComplete: () => sectionMusic.pause()
+        });
+      }
+    });
+  }
+
+});
+</script>

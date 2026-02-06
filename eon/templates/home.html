@@ -1,0 +1,770 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<title>Echoes of Nature</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'css/style.css' %}"
+		/>
+		<link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
+		<link rel="stylesheet" href="https://use.typekit.net/qnc6veg.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	</head>
+
+	<body>
+		{% include "partial/background_audio.html" %}
+		<div id="Bird_3840_x_2160_1__1">
+			<header class="top-nav">
+				<a href="{% url 'home' %}">
+					<img
+						id="Logo"
+						src="{% static 'img/Logo.png' %}"
+						srcset="{% static 'img/Logo@2x.png' %} 2x"
+						alt="Logo"
+					/>
+				</a>
+
+				<nav class="nav-icons">
+					<a href="{% url 'home' %}">
+						<img
+							class="nav-icon"
+							id="Home_2"
+							src="{% static 'img/icons/Home.png' %}"
+							data-default="{% static 'img/icons/Home.png' %}"
+							data-active="{% static 'img/icons/Home_active.png' %}"
+							alt="Home"
+						/>
+					</a>
+
+					<a href="javascript:history.back()">
+						<img
+							class="nav-icon"
+							id="Back_2"
+							src="{% static 'img/icons/Back.png' %}"
+							data-default="{% static 'img/icons/Back.png' %}"
+							data-active="{% static 'img/icons/Back_active.png' %}"
+							alt="Back"
+						/>
+					</a>
+
+					<a href="javascript:void(0)">
+						<img
+							id="Audio_On_2"
+							src="{% static 'img/icons/Audio_On.png' %}"
+							data-on="{% static 'img/icons/Audio_On.png' %}"
+							data-on-active="{% static 'img/icons/Audio_On_active.png' %}"
+							data-off="{% static 'img/icons/Audio_off.png' %}"
+							data-off-active="{% static 'img/icons/Audio_off_active.png' %}"
+							alt="Audio Toggle"
+						/>
+					</a>
+
+					<a href="#" id="menuBtn" class="menu-btn">
+						<img
+							class="nav-icon"
+							id="Menu"
+							src="{% static 'img/icons/Menu.png' %}"
+							data-default="{% static 'img/icons/Menu.png' %}"
+							data-active="{% static 'img/icons/Menu_active.png' %}"
+							alt="Menu"
+						/>
+					</a>
+
+					<!-- Dropdown Overlay -->
+					<div class="dropdown-mask">
+						<div id="customDropdown" class="dropdown-content">
+							<div class="menu-bg">
+								<a href="{% url 'home' %}" class="menu-item">Home</a>
+								<a href="{% url 'Deepdive' %}" class="menu-item">
+									Echoes of Nature
+								</a>
+								<a href="{% url 'birds_list' %}" class="menu-item">
+									Birds of Hiranandani Estate
+								</a>
+								<a href="{% url 'flora_list' %}" class="menu-item">
+									Flora of Hiranandani Estate
+								</a>
+								<a href="{% url 'Naturetrail' %}" class="menu-item">
+									Nature Trail
+								</a>
+								<a href="{% url 'Birdwatching' %}" class="menu-item">
+									Birdwatcher's Guide
+								</a>
+								<a href="{% url 'Urbanlegends' %}" class="menu-item">
+									Building with Nature
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+		</div>
+		<div class="page-content">
+			<div class="home-container">
+				<div class="home-ui">
+					<div class="left-bird">
+						<video autoplay muted loop playsinline>
+							<source
+								src="{% static 'video/Bird-left-home.mp4' %}"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+
+					<div class="left-text">
+						Commitment.
+						<br />
+						Consciousness.
+						<br />
+						Care.
+					</div>
+				</div>
+				<div class="treespagelink">
+					<a href="{% url 'birds_list' %}">
+						<div class="treebox">
+							<div class="birdspagelink_1">
+								<video autoplay muted loop playsinline>
+									<source
+										src="{% static 'video/Bird-button.mp4' %}"
+										type="video/mp4"
+									/>
+								</video>
+							</div>
+							<div class="video-text">WANT TO KNOW</div>
+							<div class="video-text-2">WHO'S CHIRPING?</div>
+							<div class="video-text-3">
+								<span>
+									Meet the colourful, feathered residents
+									<br />
+									and discover more about them.
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="center-container">
+					<!-- Portal video -->
+					<img
+						class="portal-mask"
+						src="{% static 'img/Home.png' %}">
+					>
+
+					<!-- TITLE BETWEEN VIDEO AND OVERLAY -->
+					<div id="Echoes_of_Nature_home">Echoes of Nature</div>
+
+					<div class="animation-box">
+						<div class="animation-inner">
+							<video autoplay muted loop playsinline>
+								<source src="{% static 'video/homeeanimation.webm' %}" />
+							</video>
+						</div>
+					</div>
+				</div>
+
+				<a class="btn-fill-circle deepdive-link" href="{% url 'Deepdive' %}">
+					DEEP DIVE
+				</a>
+
+				<div class="home-ui">
+					<div class="right-text">
+						Step into Hiranandani Estate, Thane and experience a thriving urban
+						ecosystem of trees, plants, birds and butterflies. Here, every
+						pathway and garden tells a story of thoughtfully nurtured flora and
+						fauna.
+					</div>
+				</div>
+				<div class="birdspagelink">
+					<a href="{% url 'flora_list' %}">
+						<div class="treebox">
+							<div class="birdspagelink_1">
+								<video autoplay muted loop playsinline>
+									<source
+										src="{% static 'video/Tree-Button.mp4' %}"
+										type="video/mp4"
+									/>
+								</video>
+							</div>
+
+							<div class="video-text">COME MEET</div>
+							<div class="video-text-2">THE GREEN GIANTS!</div>
+							<div class="video-text-3">
+								<span>
+									Get to know the leafy locals, from shady trees to beautiful
+									blooms and amazing herbs.
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="home-ui">
+					<div class="right-bird">
+						<video autoplay muted loop playsinline>
+							<source
+								src="{% static 'video/birdright.mp4' %}"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const buttons = document.querySelectorAll('img[data-active]');
+
+				// Normalize path (works for / and /home/)
+				const currentPath = window.location.pathname.replace(/\/$/, '');
+				const homePaths = ['', '/', '/home']; // add more if needed
+
+				buttons.forEach((btn) => {
+					const defaultSrc = btn.dataset.default;
+					const activeSrc = btn.dataset.active;
+					const isHomeIcon = btn.id === 'Home_2';
+
+					// ✅ If this is the home page → keep Home active
+					if (isHomeIcon && homePaths.includes(currentPath)) {
+						btn.src = activeSrc;
+						btn.classList.add('active');
+						return; // ⛔ skip hover/touch logic
+					}
+
+					/* ---- Hover (Desktop) ---- */
+					btn.addEventListener('mouseenter', () => {
+						btn.src = activeSrc;
+					});
+
+					btn.addEventListener('mouseleave', () => {
+						btn.src = defaultSrc;
+					});
+
+					/* ---- Mouse Click ---- */
+					btn.addEventListener('mousedown', () => {
+						btn.src = activeSrc;
+					});
+
+					btn.addEventListener('mouseup', () => {
+						btn.src = defaultSrc;
+					});
+
+					/* ---- Touch (Mobile) ---- */
+					btn.addEventListener('touchstart', () => {
+						btn.src = activeSrc;
+					});
+
+					btn.addEventListener('touchend', () => {
+						btn.src = defaultSrc;
+					});
+				});
+			});
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const menuBtn = document.getElementById('menuBtn');
+				const menuIcon = menuBtn?.querySelector('img');
+				const mask = document.querySelector('.dropdown-mask');
+				const dropdown = document.querySelector('.dropdown-content');
+
+				if (!menuBtn || !menuIcon || !mask || !dropdown) return;
+
+				const defaultSrc = menuIcon.dataset.default;
+				const activeSrc = menuIcon.dataset.active;
+
+				// Start hidden inside mask
+				gsap.set(dropdown, {
+					yPercent: -100,
+					opacity: 0,
+				});
+
+				const tl = gsap.timeline({
+					paused: true,
+					onStart: () => {
+						mask.style.pointerEvents = 'auto';
+						menuIcon.src = activeSrc; // 🔥 menu open → active icon
+					},
+					onReverseComplete: () => {
+						mask.style.pointerEvents = 'none';
+						menuIcon.src = defaultSrc; // 🔥 menu closed → default icon
+					},
+				});
+
+				tl.to(dropdown, {
+					yPercent: 0,
+					opacity: 1,
+					duration: 0.4,
+					ease: 'power3.out',
+				});
+
+				let isOpen = false;
+
+				menuBtn.addEventListener('click', (e) => {
+					e.preventDefault();
+					e.stopPropagation();
+
+					isOpen ? tl.reverse() : tl.play();
+					isOpen = !isOpen;
+
+					menuBtn.classList.toggle('is-open', isOpen);
+				});
+
+				document.addEventListener('click', () => {
+					if (!isOpen) return;
+					tl.reverse();
+					isOpen = false;
+					menuBtn.classList.remove('is-open');
+				});
+
+				mask.addEventListener('click', (e) => e.stopPropagation());
+			});
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const master = gsap.timeline({
+					defaults: { ease: 'power3.out' },
+				});
+				master.fromTo(
+					'.btn-fill-circle',
+					{
+						'--circle': 0,
+					},
+					{
+						'--circle': 1.2, // slightly more to cover shape
+						duration: 0.7,
+						ease: 'power2.out',
+						stagger: 0.12,
+					},
+					'-=0.2', // runs after previous timeline step
+				);
+				master.fromTo(
+					'.left-bird',
+					{ xPercent: -100, opacity: 0 },
+					{ xPercent: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+					'-=0.3',
+				);
+				master.fromTo(
+					'.right-bird',
+					{ xPercent: 100, opacity: 0 },
+					{ xPercent: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+					'<',
+				);
+
+				/* STEP 2 — BOX FADE INS */
+				master.fromTo(
+					'.right-text',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6 },
+					'-=0.2',
+				);
+				master
+					.fromTo(
+						'.left-text',
+						{ opacity: 0 },
+						{ opacity: 1, duration: 0.6 },
+						'<',
+					)
+					.fromTo(
+						'.birdspagelink_1',
+						{
+							y: 40,
+							scale: 0.7,
+							opacity: 0,
+						},
+						{
+							y: 0,
+							scale: 1,
+							opacity: 1,
+							duration: 0.6,
+							ease: 'back.out(2.5)',
+						},
+						'-=0.2', // slight overlap after titles
+					)
+					.fromTo(
+						'.video-text-2',
+						{
+							opacity: 0,
+							'--circle': 0,
+						},
+						{
+							opacity: 1,
+							'--circle': 1.2, // slightly more to cover shape
+							duration: 0.7,
+							ease: 'power2.out',
+							stagger: 0.12,
+						},
+						'-=0.2', // runs after previous timeline step
+					)
+					.fromTo(
+						'.video-text',
+						{
+							opacity: 0,
+							y: 40,
+						},
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.5,
+						},
+						'-=0.1', // starts after Info-detail
+					)
+					.fromTo(
+						'.video-text-3',
+						{
+							opacity: 0,
+							y: 40,
+						},
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.5,
+						},
+						'-=0.4', // starts after Info-detail
+					)
+
+					.fromTo(
+						'.Info-title',
+						{ opacity: 0 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.6,
+					)
+					.fromTo(
+						'.Info-detail',
+						{ opacity: 0 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.6,
+					)
+					.fromTo(
+						'.Info-details-text2 .Info-detail-text2',
+						{ opacity: 0 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.6,
+					)
+
+					.fromTo(
+						'.Info-detail-text2',
+						{ opacity: 0 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.9,
+					)
+
+					.fromTo(
+						'.conservation-svg',
+						{ opacity: 0 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						1.1,
+					)
+					.fromTo(
+						'.Tree-animation',
+						{
+							opacity: 0,
+							y: 20,
+							scale: 0.9,
+						},
+						{
+							opacity: 1,
+							y: 0,
+							scale: 1,
+							duration: 0.6,
+							ease: 'back.out(2.5)',
+						},
+						0.9,
+					)
+
+					.fromTo(
+						'.bird-map',
+						{ opacity: 0, scale: 0.9 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+						},
+						0.9,
+					)
+					.fromTo(
+						'.icon',
+						{ opacity: 0, scale: 0.9 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.9,
+					)
+					.fromTo(
+						'.media-head',
+						{ opacity: 0, scale: 0.9 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+							stagger: 0.15,
+						},
+						0.9,
+					)
+					.fromTo(
+						'.Tree-base',
+						{ opacity: 0, y: 50 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.6,
+							ease: 'power3.out',
+						},
+						1.2,
+					);
+
+				gsap.utils.toArray('.reveal').forEach((el) => {
+					gsap.from(el, {
+						opacity: 0,
+						scale: 0.95,
+						transformOrigin: '50% 50%',
+						duration: 1.4,
+						ease: 'expo.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 85%',
+							end: 'top 30%',
+							toggleActions: 'play none none reverse',
+						},
+					});
+				});
+
+				gsap.utils.toArray('.fade-section').forEach((el) => {
+					gsap.from(el, {
+						opacity: 0,
+						y: 50,
+						duration: 0.6,
+						ease: 'power3.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 85%',
+							end: 'top 30%',
+							toggleActions: 'play none none reverse',
+						},
+					});
+				});
+
+				gsap.utils.toArray('.fadeUpOnScroll').forEach((el) => {
+					gsap.from(el, {
+						opacity: 0,
+						y: 50,
+						duration: 0.6,
+						ease: 'power3.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 85%',
+							end: 'top 30%',
+							toggleActions: 'play none none reverse',
+						},
+					});
+				});
+			});
+		</script>
+		<audio id="globalClickSound" preload="auto">
+			<source src="{% static 'audio/click.wav' %}" type="audio/mpeg" />
+		</audio>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const sound = document.getElementById('globalClickSound');
+				if (!sound) return;
+
+				let unlocked = false;
+
+				// 🔓 unlock audio once
+				function unlock() {
+					if (unlocked) return;
+					sound.volume = 0.25;
+					sound
+						.play()
+						.then(() => {
+							sound.pause();
+							sound.currentTime = 0;
+							unlocked = true;
+						})
+						.catch(() => {});
+					document.removeEventListener('pointerdown', unlock, true);
+				}
+
+				document.addEventListener('pointerdown', unlock, true);
+
+				// 🔊 PLAY SOUND ON POINTERDOWN (NOT CLICK)
+				document.addEventListener(
+					'pointerdown',
+					(e) => {
+						if (!unlocked) return;
+
+						if (
+							e.target.closest(
+								'.top-nav a, .menu-item,#Back_2,#Home_2,.deepdive-link,.birdspagelink_1',
+							)
+						) {
+							sound.currentTime = 0;
+							sound.play().catch(() => {});
+						}
+					},
+					true,
+				);
+			});
+		</script>
+		<script>
+			window.addEventListener('pageshow', (event) => {
+				if (event.persisted) {
+					const dropdown = document.querySelector('.dropdown-content');
+					const mask = document.querySelector('.dropdown-mask');
+					const menuBtn = document.getElementById('menuBtn');
+					const menuIcon = menuBtn?.querySelector('img');
+
+					if (!dropdown || !mask || !menuBtn || !menuIcon) return;
+
+					// Reset GSAP state HARD
+					gsap.set(dropdown, {
+						yPercent: -100,
+						opacity: 0,
+					});
+
+					mask.style.pointerEvents = 'none';
+					menuBtn.classList.remove('is-open');
+
+					// Reset icon
+					menuIcon.src = menuIcon.dataset.default;
+				}
+			});
+		</script>
+		<script>
+			(function () {
+				const STORAGE_KEY = 'kioskMuted';
+				const audioBtn = document.getElementById('Audio_On_2');
+
+				if (!audioBtn) return;
+
+				function isMuted() {
+					return localStorage.getItem(STORAGE_KEY) === 'true';
+				}
+
+				function setMuted(value) {
+					localStorage.setItem(STORAGE_KEY, value);
+				}
+
+				function applyMuteState() {
+					const muted = isMuted();
+					document.querySelectorAll('audio, video').forEach((media) => {
+						media.muted = muted;
+					});
+				}
+
+				function updateAudioIcon(active = false) {
+					if (isMuted()) {
+						audioBtn.src = active
+							? audioBtn.dataset.offActive
+							: audioBtn.dataset.off;
+					} else {
+						audioBtn.src = active
+							? audioBtn.dataset.onActive
+							: audioBtn.dataset.on;
+					}
+				}
+
+				/* ---------- INITIAL APPLY ---------- */
+				document.addEventListener('DOMContentLoaded', () => {
+					applyMuteState();
+					updateAudioIcon(false);
+				});
+
+				window.addEventListener('pageshow', applyMuteState);
+
+				/* ---------- BUTTON TOGGLE ---------- */
+				audioBtn.addEventListener('click', () => {
+					const muted = !isMuted();
+					setMuted(muted);
+
+					applyMuteState();
+					updateAudioIcon(false);
+
+					// 🔔 Notify page-level audio controllers
+					document.dispatchEvent(
+						new CustomEvent('globalAudioToggle', {
+							detail: { muted },
+						}),
+					);
+				});
+
+				/* ---------- HOVER / TOUCH ---------- */
+				audioBtn.addEventListener('mouseenter', () => updateAudioIcon(true));
+				audioBtn.addEventListener('mouseleave', () => updateAudioIcon(false));
+				audioBtn.addEventListener('mousedown', () => updateAudioIcon(true));
+				audioBtn.addEventListener('mouseup', () => updateAudioIcon(false));
+				audioBtn.addEventListener('touchstart', () => updateAudioIcon(true), {
+					passive: true,
+				});
+				audioBtn.addEventListener('touchend', () => updateAudioIcon(false), {
+					passive: true,
+				});
+
+				/* ---------- SAFETY: mute late media ---------- */
+				document.addEventListener(
+					'play',
+					(e) => {
+						if (e.target instanceof HTMLMediaElement && isMuted()) {
+							e.target.muted = true;
+						}
+					},
+					true,
+				);
+
+				const observer = new MutationObserver(applyMuteState);
+				observer.observe(document.documentElement, {
+					childList: true,
+					subtree: true,
+				});
+			})();
+		</script>
+
+		<script src="{% static 'js/kioskhome.js' %}"></script>
+		
+	</body>
+</html>

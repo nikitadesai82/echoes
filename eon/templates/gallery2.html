@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% load static %} {% block overlay_content %}
+<script>
+  document.documentElement.classList.remove("loading");
+</script>
+<div class="gallery-mainbox">
+  <div class="gallery-box1"></div>
+  <div class="gallery-box2">
+    <!-- VIDEO CONTENT -->
+    <div id="videoBox" class="gallery-media-section">
+      <video controls autoplay muted loop playsinline>
+        <source src="{% static 'video/a.mp4' %}" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+  <div class="gallery-extra">
+    <img src="{% static 'img/gallery.png' %}" />
+  </div>
+  <div class="gallery-box3">
+    <div class="close-icon" id="closeBtn">
+      <img src="{% static 'img/Close.png' %}" alt="close" />
+    </div>
+
+    <div class="gallery-ani">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'video/gallery.webm' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+<script>
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    // Go back to previous page AND restore scroll
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = "/"; // fallback if user opened gallery directly
+    }
+  });
+</script>
+
+{% endblock %}

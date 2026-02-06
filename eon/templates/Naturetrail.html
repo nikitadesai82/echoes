@@ -1,0 +1,1057 @@
+{% extends "base.html" %} {% load static %} {% block overlay_content %}
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+  document.documentElement.classList.remove("loading");
+</script>
+<script>
+  window.activeVideo = null;
+</script>
+
+<div class="Birdpage-bg">
+  <img
+    class="Bird-image"
+    src="{% static 'img/bg4.jpg' %}"
+    alt="White-throated Kingfisher"
+  />
+</div>
+<div class="Bird_list_firstbox">
+  <div class="Bird_list_intro">LET'S GO ON AN ADVENTURE</div>
+  <div class="Bird_list_title">
+    <span class="Bird_list_title_inner">Nature Trail</span>
+  </div>
+  <div class="Bird_list_subtitle">
+    Check out the upcoming nature trail dates and join us for an adventure
+    through Hiranandani Estate, Thane’s green spaces, meeting plants, birds,
+    butterflies and more!
+  </div>
+</div>
+<div class="naturetrailbox1">
+  {% for s in schedules %}
+  <div class="timeanddate">
+    <div class="day">{{ s.day }}</div>
+    <div class="date">{{ s.date|date:"M j, Y" }}</div>
+    <div class="time">
+      TIME: {{ s.start_time|time:"g:i a" }} to {{ s.end_time|time:"g:i a" }}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<div class="Naturetrail-map-video">
+  <video autoplay muted loop playsinline>
+    <source src="{% static 'video/Naturetrail.mp4' %}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+<div class="Naturetrail-map">
+  <img src="{% static 'img/HOH-map.png' %}" />
+</div>
+
+<div class="naturetrailbox2">
+  <div class="fade-section column3">
+    <div class="fade-section stop">
+      Start<br>SALES GALLERY, WESTGATE
+    </div>
+    <div class="fade-section stop-time">Time: 7:00 am</div>
+		<div class="fade-section birds-to-watch">Say Hello to your fellow participants, meet the tour guides and naturalists. A quick briefing about what to expect, board the buses and we'll be on our way!<br>
+
+
+</div>
+    <div class="fade-section activity">Set off Together</div>
+  </div>
+  <div class="column3">
+    <div class="fade-section stop">Stop 1<br> KAVESAR LAKE</div>
+    <div class="fade-section stop-time">20:00 mins</div>
+    <div class="fade-section birds-to-watch">
+      Birds to look for: <a href="/birds/barn-owl/">Barn Owl</a>,
+			<a href="/birds/black-crowned-night-heron/">Black Crowned Night Heron</a>,
+			<a href="/birds/lesser-whistling-teal/"> Lesser Whistling Teal</a>,
+      <a href="/birds/little-cormorant/">Little Cormorant</a>,
+			<a href="/birds/red-wattled-lapwing/">Red Wattled Lapwing</a>,
+			<a href="/birds/spot-billed-duck/">Spot-billed Duck</a>,
+			<a href="/birds/white-breasted-waterhen/">White Breasted Waterhen</a>
+    </div>
+    <div class="fade-section activity">Vegetable Tasting</div>
+  </div>
+    <div class="column3">
+    <div class="fade-section stop">Stop 2<br> NURSERY</div>
+    <div class="fade-section stop-time">20:00 mins</div>
+    <div class="fade-section birds-to-watch">
+      Birds to look for:
+      <a href="/birds/asian-paradise-flycatcher/">Asian Paradise Flycatcher</a>,
+			<a href="/birds/common-kingfisher/">Common Kingfisher</a>,
+			<a href="/birds/common-swift/">Common Swift</a>,
+			<a href="/birds/long-tailed-shrike/">Long Tailed Shrike</a>,
+			<a href="/birds/purple-rumped-sunbird/">Purple Rumped Sunbird</a>,
+			<a href="/birds/purple-sunbird/">Purple Sunbird</a>,
+			<a href="/birds/rose-ringed-parakeet/">Rose-ringed Parakeet</a>
+    </div>
+    <div class="fade-section activity">Vegetable Tasting</div>
+  </div>
+	<div class="column3">
+			<div class="fade-section stop">Stop 3<br> CENTRAL PARK</div>
+			<div class="fade-section stop-time">20:00 mins</div>
+			<div class="fade-section birds-to-watch">
+      Birds to look for: <a href="/birds/ashy-prinia/">Ashy Prinia</a>,
+			<a href="/birds/asian-pied-starling/">Asian Pied Starling</a>,
+			<a href="/birds/eurasian-golden-oriole/"> Eurasian Golden Oriole</a>,
+      <a href="/birds/red-vented-bulbul/">Red Vented Bulbul</a>,
+			<a href="/birds/scaly-breasted-munia/">Scaly Breasted Munia</a>,
+			<a href="/birds/spotted-dove/">Spotted Dove</a>,
+			<a href="/birds/white-throated-kingfisher/">White Throated Kingfisher</a>
+    </div>
+			<div class="fade-section activity">Nature-based Activity</div>
+		</div>
+	</div>
+<div class="naturetrailbox2">
+  <div class="fade-section column3 hidden">
+  </div>
+  <div class="column3">
+    <div class="fade-section stop">Stop 4<br> NORTH POINT</div>
+    <div class="fade-section stop-time">20:00 mins</div>
+    <div class="fade-section activity">Breakfast Break</div>
+  </div>
+  <div class="column3">
+    <div class="fade-section stop">Conclusion<br> SALES GALLERY, WESTGATE</div>
+    <div class="fade-section stop-time">20:00 mins</div>
+    <div class="fade-section activity">Immersive Activity</div>
+  </div>
+  <div class="column3 hidden">
+  </div>
+</div>
+<div class="naturetrailbox3">
+  <div class="nature-tips">
+    <video autoplay muted loop playsinline>
+      <source src="{% static 'video/Tips.mp4' %}" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="fade-section birdwatching-box-left1">Walk Smart, Pack Light</div>
+  <div class="fade-section birdwatching-box-left2">
+    <span class="inner">Plan Your Trip </span>
+  </div>
+  <div class="fade-section birdwatching-box-left5">
+    Get trail-ready with a few simple tips on what to bring, how to dress and
+    how to be a thoughtful explorer.
+  </div>
+  <div class="fade-section bottom-container">
+    <div class="column1">
+      <div class="fade-section row row-top">1. Dress Comfortably</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Wear light, breathable clothes and sturdy walking shoes.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">2. Hat & Sunglasses</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Perfect for the sunny stretches of the Trail.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">3. Stay Hydrated</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Carry a water bottle and keep refreshed as you explore.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">4. Keep Close to your Guide</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        They know all the secret spots and hidden wonders.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">5. Take Notes</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        A notebook or a phone to jot down the fun facts shared by your guide.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">6. Handy Camera</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        To capture the moments. Just remember, no flash photography!
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">7. Insect Repellent</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Choose something eco-friendly to keep the bites away.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">8. Binoculars</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        For that up-close look at our feathered friends.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">9. Keep Your Voice Low</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Speak softly so you can enjoy the birdsong.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">10.Respect the Trail</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Stay on the path, tread lightly and don’t pluck leaves or flowers.
+      </div>
+    </div>
+    <div class="column1">
+      <div class="fade-section row row-top">11.Leave Only Footprints</div>
+      <div class="fade-section row birdwatching-row-bottom">
+        Carry out all litter, keep the trail as beautiful as you found it.
+      </div>
+    </div>
+  </div>
+</div>
+<div class="naturetrailbox4">
+  <div class="fade-section birdwatching-box-left1">A Walk to Remember</div>
+  <div class="fade-section birdwatching-box-left2">
+    <span class="inner"> Glimpses from the Trail </span>
+  </div>
+  <div class="fade-section birdwatching-box-left5">
+    Catch a peek at the smiles and discoveries of our curious explorers that
+    make every walk special
+  </div>
+</div>
+
+<div class="naturetrail-gallery-mainbox">
+  <!-- BACKGROUND -->
+
+  <!-- LEFT INFO BOX -->
+  <div class="gallery-box1">
+    <!-- NOTE: labels corrected logically -->
+    <div class="btn-fill-circle naturetrail-gallery-picturetab" id="videoTab">
+      WATCH VIDEO
+    </div>
+    <div class="btn-fill-circle naturetrail-gallery-videotab" id="photoTab">SEE PHOTO</div>
+  </div>
+
+  <!-- RIGHT MEDIA BOX -->
+
+  <div class="gallery-box2">
+    <!-- PHOTO -->
+    <div id="photoBox" class="gallery-media-section">
+      {% for item in media %} {% if item.media_type == 'image' %}
+      <div class="gallery-slide">
+        <img src="{{ item.file.url }}" alt="" />
+      </div>
+      {% endif %} {% endfor %}
+    </div>
+
+    <!-- VIDEO -->
+<div id="videoBox" class="gallery-media-section" style="display:none">
+
+  {% for item in media %}
+    {% if item.media_type == 'video' %}
+      <div class="gallery-slide">
+        <video class="galleryVideo" playsinline preload="metadata">
+          <source src="{{ item.file.url }}" type="video/mp4" />
+        </video>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <!-- ✅ ONE GLOBAL CONTROLLER -->
+  <div class="video-controls-wrapper hidden">
+    <div class="custom-video-controls">
+      <button class="playPauseBtn">
+        <img class="playPauseIcon" src="{% static 'img/play.png' %}">
+      </button>
+
+      <input type="range" class="seekBar" value="0" min="0" max="100">
+      <span class="timeDisplay">00:00 / 00:00</span>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+  <div class="gallery-extra">
+    <img src="{% static 'img/gallery.png' %}" />
+  </div>
+  <div class="prev-next">
+    <img
+      src="{% static 'img/prev.png' %}"
+      class="bg-nav-btn bg-prev"
+      id="bg-prev"
+      alt="Previous"
+      tabindex="0"/>
+
+    <img
+      src="{% static 'img/next.png' %}"
+      class="bg-nav-btn bg-next"
+      id="bg-next"
+      alt="Next"
+      role="button"
+      tabindex="0"/>
+  </div>
+  <!-- dots -->
+  <div id="dotContainer" class="gallery-dots2"></div>
+</div>
+
+<div class="naturetrailbox5">
+  <div class="naturetrailbox5_1">
+    <div class="naturetrail-img2">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'video/Birdwatching.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="naturetrail-text22">
+      <div class="fade-section naturetrail-text1">
+        CALLING ALL BIRD ENTHUSIASTS
+      </div>
+      <div class="fade-section naturetrail-text2">
+        <span class="inner">A Birdwatcher's Guide</span>
+      </div>
+      <div class="fade-section naturetrail-text3">
+        Where and when to spot even the most elusive birds
+      </div>
+      <div class="fade-section naturetrail-text4">
+        Follow the chirps and flutters. Can you spot all the feathered residents
+        of the Hiranandani Estate, Thane? Browse thourgh our go-to-guide to know
+        where different species love to perch, nest, or sing. You will also find
+        some handy tips on the best times of the day and seasons in which to
+        spot even the shyest of birds.
+      </div>
+      
+			<a class="fade-section btn-fill-left MD-message-link"
+        href="{% url 'Birdwatching' %}">
+        LET'S GO BIRDWATCHING
+      </a>
+    </div>
+  </div>
+  <div class="naturewatching-box-right">
+    <video autoplay muted loop playsinline>
+      <source
+        src="{% static 'video/naturetrailgirl.mp4' %}"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const bg = document.querySelector(".Bird-image");
+    if (!bg) return;
+
+    gsap.fromTo(
+      bg,
+      { yPercent: 2 },
+      {
+        yPercent: -50,
+        ease: "none",
+        scrollTrigger: {
+          start: 0,
+          end: () => ScrollTrigger.maxScroll(window),
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      },
+    );
+  });
+</script>
+<script>
+  let isAnimating = false;
+
+  function showSlide(index, direction = "next") {
+    const slides = getActiveSlides();
+    if (!slides.length || isAnimating) return;
+
+    if (!slides[currentIndex]) currentIndex = 0;
+
+    const currentSlide = slides[currentIndex];
+    const nextSlide = slides[index];
+
+    if (currentSlide === nextSlide) return;
+
+    isAnimating = true;
+
+    // Pause outgoing video
+    const vid = currentSlide.querySelector("video");
+    if (vid) vid.pause();
+
+    const fromX = direction === "next" ? "100%" : "-100%";
+    const toX = direction === "next" ? "-100%" : "100%";
+
+    /* 🔑 ACTIVE CLASS HANDLING */
+    currentSlide.classList.remove("active");
+    nextSlide.classList.add("active");
+
+    gsap.set(nextSlide, {
+      display: "block",
+      x: fromX,
+    });
+
+    gsap
+      .timeline({
+        onComplete: () => {
+				slides.forEach((s, i) => {
+					if (i !== index) {
+						gsap.set(s, { display: "none", x: 0 });
+					}
+				});
+
+				const activeVideo = nextSlide.querySelector("video");
+				if (activeVideo) {
+					activeVideo.currentTime = 0;
+					activeVideo.play().catch(() => {});
+					initCustomPlayer(activeVideo); // ✅ KEY LINE
+				}
+
+				currentIndex = index;
+				isAnimating = false;
+			},
+      })
+      .to(currentSlide, {
+        x: toX,
+        duration: 0.6,
+        ease: "power2.inOut",
+      })
+      .to(
+        nextSlide,
+        {
+          x: "0%",
+          duration: 0.6,
+          ease: "power2.inOut",
+        },
+        "<",
+      );
+
+    document.querySelectorAll(".gallery-dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+</script>
+
+<script>
+  const photoTab = document.getElementById("photoTab");
+  const videoTab = document.getElementById("videoTab");
+
+  const photoBox = document.getElementById("photoBox");
+  const videoBox = document.getElementById("videoBox");
+
+  const nextBtn = document.getElementById("bg-next");
+  const prevBtn = document.getElementById("bg-prev");
+  const dotContainer = document.getElementById("dotContainer");
+
+  let currentIndex = 0;
+
+  /* =======================
+     GET ACTIVE SLIDES
+     ======================= */
+  function getActiveSlides() {
+    return photoBox.style.display === "block"
+      ? photoBox.querySelectorAll(".gallery-slide")
+      : videoBox.querySelectorAll(".gallery-slide");
+  }
+
+  /* =======================
+     CREATE DOTS (PHOTO ONLY)
+     ======================= */
+  function createDots() {
+    if (!dotContainer) return;
+
+    if (photoBox.style.display !== "block") {
+      dotContainer.innerHTML = "";
+      dotContainer.style.display = "none";
+      return;
+    }
+
+    const slides = photoBox.querySelectorAll(".gallery-slide");
+    if (slides.length <= 1) {
+      dotContainer.style.display = "none";
+      return;
+    }
+
+    dotContainer.innerHTML = "";
+    dotContainer.style.display = "flex";
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.classList.add("gallery-dot");
+      if (index === 0) dot.classList.add("active");
+
+      dot.addEventListener("click", () => {
+        const direction = index > currentIndex ? "next" : "prev";
+        showSlide(index, direction);
+      });
+
+      dotContainer.appendChild(dot);
+    });
+  }
+
+  /* =======================
+     RESET SLIDES
+     ======================= */
+  function resetSlides() {
+    const slides = getActiveSlides();
+
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+
+      gsap.set(slide, {
+        display: "none",
+        x: 0,
+      });
+
+      if (i === 0) {
+        slide.classList.add("active");
+        gsap.set(slide, { display: "block" });
+      }
+    });
+
+    currentIndex = 0;
+    createDots();
+  }
+
+  /* =======================
+     TAB HANDLERS
+     ======================= */
+		function showPhoto() {
+  if (window.activeVideo) {
+    window.activeVideo.pause();
+    window.activeVideo.currentTime = 0;
+    window.activeVideo = null;
+  }
+	if (nextBtn && prevBtn) {
+		nextBtn.style.display = 'block';
+		prevBtn.style.display = 'block';
+	}
+
+  const wrapper = document.querySelector(".video-controls-wrapper");
+  if (wrapper) wrapper.classList.add("hidden");
+
+  videoBox.style.display = "none";
+  photoBox.style.display = "block";
+
+  photoTab.classList.add("active");
+  videoTab.classList.remove("active");
+
+  // ✅ Rebuild dots for photos
+  resetSlides();
+}
+
+
+
+
+		function showVideo() {
+  photoBox.style.display = "none";
+  videoBox.style.display = "block";
+
+  videoTab.classList.add("active");
+  photoTab.classList.remove("active");
+
+	if (nextBtn && prevBtn) {
+		nextBtn.style.display = 'none';
+		prevBtn.style.display = 'none';
+	}
+
+
+  // ❌ Hide dots for video
+  if (dotContainer) {
+    dotContainer.style.display = "none";
+    dotContainer.innerHTML = "";
+  }
+	
+
+
+  const firstSlide = videoBox.querySelector(".gallery-slide");
+  if (!firstSlide) return;
+
+  const video = firstSlide.querySelector("video");
+  if (!video) return;
+
+  const wrapper = document.querySelector(".video-controls-wrapper");
+  if (wrapper) wrapper.classList.remove("hidden");
+
+  video.currentTime = 0;
+  video.play().catch(() => {});
+  initCustomPlayer(video);
+}
+
+
+
+
+  /* =======================
+     NEXT / PREV BUTTONS
+     ======================= */
+  function nextSlide() {
+    const slides = getActiveSlides();
+    if (!slides.length) return;
+
+    const nextIndex = (currentIndex + 1) % slides.length;
+    showSlide(nextIndex, "next");
+  }
+
+  function prevSlide() {
+    const slides = getActiveSlides();
+    if (!slides.length) return;
+
+    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(prevIndex, "prev");
+  }
+
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+
+    nextBtn.addEventListener("keydown", (e) => e.key === "Enter" && nextSlide());
+    prevBtn.addEventListener("keydown", (e) => e.key === "Enter" && prevSlide());
+  }
+
+  /* =======================
+     TAB EVENTS
+     ======================= */
+  if (photoTab && videoTab) {
+    photoTab.addEventListener("click", showPhoto);
+    videoTab.addEventListener("click", showVideo);
+  }
+
+  /* =======================
+     AUTO TAB FROM URL
+     ======================= */
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get("type");
+
+  type === "video" ? showVideo() : showPhoto();
+</script>
+
+
+<script>
+let controlsTimeout = null;
+
+function initCustomPlayer(video) {
+	if (!video) return;
+
+	const wrapper = document.querySelector(".video-controls-wrapper");
+	if (!wrapper) return;
+
+	const playBtn = wrapper.querySelector(".playPauseBtn");
+	const icon = wrapper.querySelector(".playPauseIcon");
+	const seekBar = wrapper.querySelector(".seekBar");
+	const time = wrapper.querySelector(".timeDisplay");
+
+	if (!playBtn || !icon || !seekBar || !time) return;
+
+	window.activeVideo = video;
+
+	/* ---------- helpers ---------- */
+	function formatTime(sec) {
+		if (isNaN(sec)) return "00:00";
+		const m = Math.floor(sec / 60);
+		const s = Math.floor(sec % 60);
+		return `${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
+	}
+
+	function showControls() {
+		wrapper.classList.remove("hidden");
+		clearTimeout(controlsTimeout);
+
+		if (!video.paused && !video.ended) {
+			controlsTimeout = setTimeout(() => {
+				wrapper.classList.add("hidden");
+			}, 2500);
+		}
+	}
+
+	function hideIfIdle() {
+		const idle =
+			video.ended ||
+			(video.paused && video.currentTime === 0);
+
+		if (idle) wrapper.classList.add("hidden");
+	}
+
+	/* ---------- reset UI ---------- */
+	wrapper.classList.remove("hidden");
+	icon.src = "{% static 'img/play.png' %}";
+	seekBar.value = 0;
+	time.textContent = "00:00 / 00:00";
+
+	/* ---------- play / pause ---------- */
+	playBtn.onclick = () => {
+		if (video.paused) {
+			video.play();
+		} else {
+			video.pause();
+		}
+		showControls();
+	};
+
+	video.addEventListener("play", () => {
+		icon.src = "{% static 'img/pause.png' %}";
+		showControls();
+	});
+
+	video.addEventListener("pause", () => {
+		icon.src = "{% static 'img/play.png' %}";
+		hideIfIdle();
+	});
+
+	video.addEventListener("ended", () => {
+		icon.src = "{% static 'img/play.png' %}";
+		hideIfIdle();
+	});
+
+	/* ---------- time / seek ---------- */
+	video.addEventListener("loadedmetadata", () => {
+		time.textContent = `00:00 / ${formatTime(video.duration)}`;
+	});
+
+	video.addEventListener("timeupdate", () => {
+		if (!video.duration) return;
+
+		seekBar.value =
+			(video.currentTime / video.duration) * 100;
+
+		time.textContent =
+			`${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+	});
+
+	seekBar.oninput = () => {
+		if (!video.duration) return;
+		video.currentTime =
+			(seekBar.value / 100) * video.duration;
+	};
+
+	/* ---------- hover / touch ---------- */
+	const videoBox = video.closest("#videoBox") || video.parentElement;
+
+// Mouse + touch anywhere on video area
+["mousemove", "touchstart"].forEach(evt => {
+	videoBox.addEventListener(evt, showControls);
+});
+
+// Click fallback (desktop + mobile)
+video.addEventListener("click", showControls);
+
+}
+</script>
+
+
+
+
+
+<script>
+  /* =====================================================
+      HIDE PAGE UNTIL GSAP IS READY
+    ===================================================== */
+  document.documentElement.classList.add("loading");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    requestAnimationFrame(() => {
+      gsap.set("body", { visibility: "visible" });
+      document.documentElement.classList.remove("loading");
+
+      /* =====================================================
+          HERO / HEADER TIMELINE (NO SCROLL)
+        ===================================================== */
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+      tl.fromTo(
+        ".Bird_list_title_inner",
+        { yPercent: 100, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.6 },
+      )
+        .fromTo(
+          ".Bird_list_intro",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 },
+          0.5,
+        )
+        .fromTo(
+          ".Bird_list_subtitle",
+          { opacity: 0 },
+          { opacity: 1, duration: 0.6 },
+          0.5,
+        )
+        .fromTo(
+          ".naturetrailbox1",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          0.5,
+        )
+        .fromTo(
+          ".timeanddate",
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.15,
+          },
+          0.6,
+        )
+        .fromTo(
+          ".Naturetrail-map,.Naturetrail-map-video",
+          {
+            opacity: 0,
+            scale: 0.95,
+            transformOrigin: "50% 50%",
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 1.4,
+            ease: "expo.out",
+          },
+          "-=0.4",
+        );
+
+      const galleryTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".gallery-box2",
+          start: "top 85%",
+          end: "top 30%",
+          scrub: 1,
+        },
+      });
+
+      galleryTL
+        .fromTo(
+          ".gallery-box2",
+          { "--reveal": 0 },
+          {
+            "--reveal": 1,
+            ease: "none",
+          },
+        )
+        .fromTo(
+          ".naturetrailbox4-bgimg2",
+          { opacity: 0 },
+          {
+            opacity: 1,
+            ease: "none",
+            duration: 0.6,
+          },
+          0.4,
+        );
+
+      gsap.fromTo(
+        ".naturewatching-box-right",
+        {
+          opacity: 0,
+          transformOrigin: "50% 50%",
+        },
+        {
+          opacity: 1,
+          y: 20,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".naturewatching-box-right",
+            start: "top 75%",
+            end: "top 25%",
+            scrub: 1,
+          },
+        },
+      );
+      gsap.fromTo(
+        ".nature-tips",
+        {
+          opacity: 0,
+          y: 80,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".nature-tips",
+            start: "top 85%",
+            end: "top 45%",
+            scrub: 1,
+          },
+        },
+      );
+      gsap.fromTo(
+        ".naturetrail-img2",
+        {
+          opacity: 0,
+          y: 80,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".naturetrail-img2",
+            start: "top 85%",
+            end: "top 45%",
+            scrub: 1,
+          },
+        },
+      );
+
+      gsap.utils.toArray(".inner").forEach((el) => {
+        gsap.fromTo(
+          el,
+          {
+            yPercent: 100,
+            opacity: 0,
+          },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              toggleActions: 'play none none none',
+      once: true
+            },
+          },
+        );
+      });
+
+      gsap.utils.toArray(".btn-fill-left").forEach((btn) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 80%",
+            toggleActions: 'play none none none',
+      once: true
+          },
+        });
+
+        tl.fromTo(
+          btn,
+          { "--reveal": 0 },
+          {
+            "--reveal": 1.08,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+        ).to(
+          btn,
+          {
+            "--reveal": 1,
+            duration: 0.25,
+            ease: "back.out(1.4)",
+          },
+          "-=0.2",
+        );
+      });
+
+      gsap.utils.toArray(".btn-fill-circle").forEach((btn) => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 85%",
+            end: "top 30%",
+            toggleActions: 'play none none none',
+      once: true
+          },
+        });
+
+        tl.fromTo(
+          btn,
+          { "--circle": 0 },
+          {
+            "--circle": 1.2, // slightly more than 1 to cover rectangle
+            duration: 0.7,
+            ease: "power2.out",
+          },
+        );
+      });
+
+      /* =====================================================
+          GLOBAL FADE-IN ON SCROLL
+        ===================================================== */
+      gsap.utils.toArray(".reveal").forEach((el) => {
+        gsap.from(el, {
+          opacity: 0,
+          scale: 0.95,
+          transformOrigin: "50% 50%",
+          duration: 1.4,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            end: "top 30%",
+            toggleActions: 'play none none none',
+      once: true
+          },
+        });
+      });
+
+      gsap.utils.toArray(".fade-section").forEach((el) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 50,
+          duration: 0.6,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            end: "top 30%",
+            toggleActions: 'play none none none',
+      once: true
+          },
+        });
+      });
+
+      /* =====================================================
+          STAGGER CHILD ELEMENTS (OPTIONAL)
+        ===================================================== */
+      gsap.utils.toArray(".stagger-box").forEach((box) => {
+        gsap.from(box.children, {
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: box,
+            start: "top 90%",
+          },
+        });
+      });
+    });
+  });
+</script>
+<script>
+let touchStartX = 0;
+let touchEndX = 0;
+const SWIPE_THRESHOLD = 50; // px
+
+function handleSwipe() {
+    // Only allow swipe on PHOTO mode
+    if (getComputedStyle(photoBox).display === "none") return;
+
+    const deltaX = touchEndX - touchStartX;
+
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
+
+    if (deltaX < 0) {
+        nextSlide(); // 👉 swipe left
+    } else {
+        prevSlide(); // 👈 swipe right
+    }
+}
+
+// Attach swipe listeners to photoBox
+photoBox.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+photoBox.addEventListener("touchend", e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+</script>
+
+
+{% endblock %}

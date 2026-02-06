@@ -1,0 +1,222 @@
+{% extends "base.html" %} {% load static %} {% block overlay_content %}
+<div class="page-content">
+  <div class="Birdpage-bg">
+    <img
+      class="Bird-image"
+      src="{% static 'img/bird-bg.jpg' %}"
+      alt="White-throated Kingfisher"
+    />
+  </div>
+  <div class="Birdpage-firstbox">
+    <div class="Bird_namebox">
+      <div class="Scientific_name">HALCYON SMYRNENSIS</div>
+      <div class="Bird_name">White-throated Kingfisher</div>
+      <div class="Other_names">
+        AKA: Mountain Dove, Pearl-necked Dove, Lace-necked Dove and Spotted
+        Turtle-Dove
+      </div>
+    </div>
+    <div class="Bird-smallimagebox">#image of the small bird</div>
+  </div>
+  <div class="Bird-basicinfo">
+    <div class="Info-titles">
+      <div class="Info-title">SPECIES</div>
+      <div class="Info-title">WINGSPAN</div>
+      <div class="Info-title">WEIGHT</div>
+      <div class="Info-title">LIFESPAN</div>
+    </div>
+    <div class="Info-details">
+      <div class="Info-detail">12</div>
+      <div class="Info-detail">40-43cm</div>
+      <div class="Info-detail">13-17gm</div>
+      <div class="Info-detail">4-5years</div>
+    </div>
+    <div class="Info-details-text">
+      <div class="Info-detail-text">
+        species are found in India; White-throated Kingfisher is one of them
+      </div>
+      <div class="Info-detail-text"></div>
+      <div class="Info-detail-text">
+        13-17 grams (males) and 12-15 grams (females)
+      </div>
+      <div class="Info-detail-text">
+        There are records of individuals living up to 21 years
+      </div>
+    </div>
+  </div>
+  <div class="Birdpage-secondbox">
+    <div class="Birdpage-secondbox_1">
+      <div class="Info-title">GEOGRAPHIC RANGE</div>
+      <div class="Info-detail-text2">
+        Found year-round across India, Pakistan, Sri Lanka, Nepal, and Myanmar.
+      </div>
+      <div class="bird-map">
+        <img src="{% static 'img/Map.png' %}" alt="Bird Geographic Range" />
+      </div>
+    </div>
+    <div class="Birdpage-secondbox_1">
+      <div class="Info-detail-text2">
+        <video
+          id="birdVideo"
+          class="info-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source src="{% static 'video/bird.mp4' %}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="Birdpage-secondbox_1">
+      <div class="Info-title">CONSERVATION STATUS</div>
+      <div class="Info-detail-text2">Least Concern on the IUCN Red List</div>
+      <div class="conservation-svg"></div>
+    </div>
+    <div class="media-box">
+      <div class="media-box1">
+        <div class="icon">
+          <img src="{% static 'img/music.png' %}" alt="Play sound" />
+        </div>
+        <div class="media-head">Hear Bird Call</div>
+      </div>
+      <div class="media-box1">
+        <div class="icon">
+          <img src="{% static 'img/photo.png' %}" alt="View photos" />
+        </div>
+        <div class="media-head">See Photo</div>
+      </div>
+      <div class="media-box1">
+        <div class="icon">
+          <img src="{% static 'img/video.png' %}" alt="Watch video" />
+        </div>
+        <div class="media-head">Watch Video</div>
+      </div>
+    </div>
+  </div>
+  <div class="bird-page-main-bg">
+    <img src="{% static 'img/bird-bg2.jpg'%}" />
+  </div>
+  <div class="girl-image">
+    <img src="{% static 'img/girl.png'%}" />
+  </div>
+  <div class="bottom-box">
+    <div class="bottom-box-col">
+      <div class="Info-title">AREA OF SIGHTING</div>
+      <div class="Info-detail-text3">
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type.
+      </div>
+      <div class="Bottom-Info-title">ACTIVE TIME</div>
+      <div class="Info-detail-text3">
+        Bimodal: Morning (0700–1200h) and afternoon (1400–1800h), avoids noon
+      </div>
+      <a
+        class="bird-watch-link"
+        href="#"
+        aria-label="Bird Watching at Hiranandani"
+      >
+        BIRD WATCHING AT HIRANANDANI
+      </a>
+      <div class="doyouknow">
+        <img src="{% static 'img/flowers.jpg' %}" alt="DO YOU KNOW?" />
+        <div class="doyouknow-text">DO YOU KNOW?</div>
+      </div>
+      <div class="doyouknow-detail">
+        The genus name Halcyon comes from Greek myth: Alcyone, who in myth threw
+        herself into the sea after her husband drowned; the gods transformed
+        them into kingfishers. In that myth the kingfisher nests by the sea, and
+        calm seas (“halcyon days”) were said to be granted so she could lay eggs
+        without disruption from waves.
+      </div>
+    </div>
+    <div class="bottom-box-col">
+      <div class="Info-title">MIGRATION</div>
+      <div class="Info-detail-text3">
+        Kingfisher is a resident over much of its range, although some
+        populations may make short distance movements.
+      </div>
+      <div class="Bottom-Info-title">HABITAT</div>
+      <div class="Info-detail-text3">
+        It usually keeps in pairs or trios in well-watered open country,
+        ploughed fields, grazing land, and margins and dry beds of tanks and
+        puddles. They occasionally form large flocks, ranging from 26 to 200
+        birds. It is also found in forest clearings around rain-filled
+        depressions. It runs about in short spurts and dips forward obliquely
+        (with unflexed legs) to pick up food in a typical plover manner. They
+        are said to feed at night being especially active around the full moon.
+        They are uncannily and ceaselessly vigilant, day or night, and is the
+        first to detect intrusions and raise an alarm, and were therefore
+        considered a nuisance by hunters. Flight rather slow, with deliberate
+        flaps, but capable of remarkable agility when defending nest or being
+        hunted by a hawk. Its striking appearance is supplemented by its noisy
+        nature, with a loud and scolding did-he-do-it call, uttered both in the
+        day and night.
+      </div>
+      <div class="Bottom-Info-title">NESTING & MATING BEHAVIOUR</div>
+      <div class="Info-detail-text3">
+        SEASON: Breeding begins at the onset of the monsoons.<br /><br />DISPLAY:
+        Males perch on prominent high posts in their territory and call in the
+        early morning. The tail may be flicked now and in its courtship display
+        the wings are stiffly flicked open for a second or two exposing the
+        white wing mirrors. They also raise their bill high and display the
+        white throat and front. The female in invitation makes a rapid and
+        prolonged kit-kit-kit call.<br /><br />NEST TYPE: The nest is a tunnel
+        (50 cm long, but a nest with a 3 foot tunnel has been noted) in an earth
+        bank. The nest building begins with both birds flying into a suitable
+        mud wall until an indentation is made where they can find a perch hold.
+        They subsequently perch and continue digging the nest with their bills.
+        Nest tunnels in a haystack have also been recorded.<br /><br />CLUTCH
+        SIZE: A single clutch of 4–7 round white eggs is typical. The eggs take
+        20–22 days to hatch while the chicks fledge in 19 days.
+      </div>
+    </div>
+    <div class="bottom-box-col">
+      <div class="Info-title">DIET & FEEDING BEHAVIOUR</div>
+      <div class="Info-detail-text3">
+        Carnivorous. This species mainly hunts large crustaceans, insects,
+        earthworms, rodents, lizards, snakes, fish and frogs. Predation of small
+        birds such as the Indian white-eye, chick of a red-wattled lapwing,
+        sparrows and munias have been reported. The young are fed mostly on
+        invertebrates. In captivity, it has been noted that it rarely drinks
+        water although bathing regularly.
+      </div>
+      <div class="doyouknow">
+        <img src="{% static 'img/flowers.jpg' %}" alt="DO YOU KNOW?" />
+        <div class="earthchallenge-text">EARTH<br />CHALLENGE</div>
+      </div>
+      <div class="doyouknow-detail">
+        The genus name Halcyon comes from Greek myth: Alcyone, who in myth threw
+        herself into the sea after her husband drowned; the gods transformed
+        them into kingfishers. In that myth the kingfisher nests by the sea, and
+        calm seas (“halcyon days”) were said to be granted so she could lay eggs
+        without disruption from waves.
+      </div>
+      <div class="Bottom-Info-title">PLUMAGE</div>
+      <div class="Info-detail-text3">
+        The adult has a bright blue back, wings and tail. Its head, shoulders,
+        flanks and lower belly are chestnut, and the throat and breast are
+        white. The large bill and legs are bright red. The flight of the
+        white-throated kingfisher is rapid and direct, the short rounded wings
+        whirring. In flight, large white patches are visible on the blue and
+        black wings. Sexes are similar, but juveniles are a duller version of
+        the adult.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById("birdVideo");
+
+    video.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  </script>
+</div>
+{% endblock %}

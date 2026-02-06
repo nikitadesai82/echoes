@@ -1,0 +1,461 @@
+{% extends "base.html" %} {% load static %} {% block overlay_content %} {% load custom_filters %}
+<style>
+	.naturetrail-img,
+	.naturetrail-text .fade,
+	.naturetrail-text .inner,
+	.naturetrail-text .btn-fill-left,
+	.birdwatching-box-right video {
+		opacity: 0;
+	}
+</style>
+<script>
+	document.documentElement.classList.remove('loading');
+</script>
+<div class="Birdpage-bg">
+	<img
+		class="Bird-image"
+		src="{% static 'img/bg4.jpg' %}"
+		alt="White-throated Kingfisher"
+	/>
+</div>
+<div class="Bird_list_firstbox">
+	<div class="Bird_list_intro">CALLING ALL BIRD ENTHUSIASTS</div>
+	<div class="Bird_list_title">
+		<span class="Bird_list_title_inner">A Birdwatcher’s Guide</span>
+	</div>
+	<div class="Bird_list_subtitle">
+		Follow the calls and flutters of our feathered friends to discover the best
+		Birdwatching Spots at Hiranandani Estate, Thane.
+	</div>
+</div>
+<div class="birdwatching-firstlayer">
+	<div class="firstlayer-col">
+		<div class="stop-image">
+			<img src="{% static 'img/Spot1.png' %}" />
+		</div>
+		<div class="row row-top">1. KAVESAR LAKE</div>
+		<div class="bird-sighting">
+			BIRD SIGHTINGS: BIRD SIGHTINGS:
+			<a href="/birds/barn-owl/">Barn Owl</a>,
+			<a href="/birds/black-crowned-night-heron/">Black Crowned Night Heron</a>,
+			<a href="/birds/lesser-whistling-teal/">Lesser Whistling Teal</a>,
+			<a href="/birds/little-cormorant/">Little Cormorant</a>,
+			<a href="/birds/red-wattled-lapwing/">Red Wattled Lapwing</a>,
+			<a href="/birds/spot-billed-duck/">Spot-billed Duck</a>,
+			<a href="/birds/white-breasted-waterhen/">White Breasted Waterhen</a>
+		</div>
+		<div class="time-text">
+			BEST TIME TO VISIT:
+			<br />
+			Morning 6 am to 8 am, Evening 4 pm to 6 pm
+		</div>
+	</div>
+	<div class="firstlayer-col">
+		<div class="stop-image">
+			<img src="{% static 'img/Spot2.png' %}" />
+		</div>
+		<div class="row row-top">2. CENTRAL PARK</div>
+		<div class="bird-sighting">
+			BIRD SIGHTINGS:
+			<a href="/birds/asian-paradise-flycatcher/">Asian Paradise Flycatcher</a>,
+			<a href="/birds/common-kingfisher/">Common Kingfisher</a>,
+			<a href="/birds/common-swift/">Common Swift</a>,
+			<a href="/birds/long-tailed-shrike/">Long Tailed Shrike</a>,
+			<a href="/birds/purple-rumped-sunbird/">Purple Rumped Sunbird</a>,
+			<a href="/birds/purple-sunbird/">Purple Sunbird</a>,
+			<a href="/birds/rose-ringed-parakeet/">Rose-ringed Parakeet</a>
+		</div>
+		<div class="time-text">
+			BEST TIME TO VISIT:
+			<br />
+			Morning 6 am to 8 am, Evening 4 pm to 6 pm
+		</div>
+	</div>
+	<div class="firstlayer-col">
+		<div class="stop-image">
+			<img src="{% static 'img/Spot3.png' %}" />
+		</div>
+		<div class="row row-top">3. NURSERY AND HILL AREA</div>
+		<div class="bird-sighting">
+			BIRD SIGHTINGS:
+			<a href="/birds/black-drongo/">Black Drongo</a>,
+			<a href="/birds/common-iora/">Common Iora</a>,
+			<a href="/birds/coppersmith-barbet/">Coppersmith Barbet</a>,
+			<a href="/birds/eurasian-hoopoe/">Eurasian Hoopoe</a>,
+			<a href="/birds/oriental-magpie-robin/">Oriental Magpie Robin</a>,
+			<a href="/birds/red-whiskered-bulbul/">Red Whiskered Bulbul</a>,
+			<a href="/birds/shikra/">Shikra</a>
+		</div>
+		<div class="time-text">
+			BEST TIME TO VISIT:
+			<br />
+			Morning 6 am to 8 am, Evening 4 pm to 6 pm
+		</div>
+	</div>
+	<div class="firstlayer-col">
+		<div class="stop-image">
+			<img src="{% static 'img/Spot4.png' %}" />
+		</div>
+		<div class="row row-top">4. CAPRI GARDEN</div>
+		<div class="bird-sighting">
+			BIRD SIGHTINGS:
+			<a href="/birds/ashy-prinia/">Ashy Prinia</a>,
+			<a href="/birds/asian-pied-starling/">Asian Pied Starling</a>,
+			<a href="/birds/eurasian-golden-oriole/">Eurasian Golden Oriole</a>,
+			<a href="/birds/red-vented-bulbul/">Red Vented Bulbul</a>,
+			<a href="/birds/scaly-breasted-munia/">Scaly Breasted Munia</a>,
+			<a href="/birds/spotted-dove/">Spotted Dove</a>,
+			<a href="/birds/white-throated-kingfisher/">White Throated Kingfisher</a>
+		</div>
+		<div class="time-text">
+			BEST TIME TO VISIT:
+			<br />
+			Morning 6 am to 8 am, Evening 4 pm to 6 pm
+		</div>
+	</div>
+</div>
+<div class="birdwatching-box">
+	<div class="fade naturetrail-img">
+		<video autoplay muted loop playsinline>
+			<source src="{% static 'video/Naturetrail.mp4' %}" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="naturetrail-text">
+		<div class="fade naturetrail-text1">LET'S GO ON AN ADVENTURE</div>
+		<div class="naturetrail-text2">
+			<span class="inner">Nature Trail</span>
+		</div>
+		<div class="fade naturetrail-text3">
+			A fun-filled, refreshing guided walk for every age!
+		</div>
+		<div class="fade naturetrail-text4">
+			Join our team of naturalists as they take you on an exciting adventure
+			through Hiranandani Estate, Thane’s wonderful green spaces! Meet some
+			fascinating plants, curious birds and colourful butterflies. Along the
+			way, try your hand at fun, nature-based games and activities and discover
+			how much life thrives all around you!
+		</div>
+		<a class="btn-fill-left MD-message-link" href="{% url 'Naturetrail' %}">
+			UPCOMING NATURE TRAILS
+		</a>
+	</div>
+	<div class="birdwatching-box-right">
+		<video autoplay muted loop playsinline>
+			<source
+				src="{% static 'video/Birdwatchinggirl.mp4' %}"
+				type="video/mp4"
+			/>
+			Your browser does not support the video tag.
+		</video>
+	</div>
+</div>
+<div class="birdwatching-bottombox">
+	<div class="reveal bird-box">
+		<video autoplay muted loop playsinline>
+			<source src="{% static 'video/Birdwatching.mp4' %}" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	<div class="fade-section birdwatching-box-left1">UNSPOKEN RULES & ETHICS</div>
+	<div class="birdwatching-box-left2">
+		<span class="inner2">Birdwatching Tips</span>
+	</div>
+	<div class="fade-section birdwatching-box-left5">
+		Do’s and Don’ts of Birding in the Field
+	</div>
+	<div class="bottom-container">
+		<div class="column1">
+			<div class="fade-section row row-top">1. BE PATIENT</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Good things come to those who wait! Stay still, let the birds come to
+				you.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">2. MOVE QUIETLY</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Be light on your feet and speak softly. Sudden sounds can scare birds
+				away.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">3. BLEND IN</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Wear soft, natural colours and avoid bright clothes that stand out in
+				the greenery.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">4. KEEP YOUR DISTANCE</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Watch from afar and you’ll see more natural behaviour.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">5. GO EARLY OR LATE</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Sunrise and Sunset are when birds are most active and the air is full of
+				song.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">6. LOOK AND LISTEN</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Use both your eyes and ears; sometimes you’ll hear a bird before you see
+				it!
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">7. CARRY BINOCULARS</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Spot birds up close, without getting too close
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">8. DON'T USE A FLASH</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Bright flashes startle birds, capture them in natural light with the
+				shutter sound off!
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">9. BE CURIOUS</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Rare visitor or everyday sparrow; each bird has its own charm and story.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">10. LEAVE NO TRACE</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Take back what you bring; litter and food scraps don’t belong in the
+				wild.
+			</div>
+		</div>
+		<div class="column1">
+			<div class="fade-section row row-top">11. RESPECT</div>
+			<div class="fade-section row birdwatching-row-bottom">
+				Never touch nests, eggs or chicks
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const bg = document.querySelector('.Bird-image');
+		if (!bg) return;
+
+		gsap.fromTo(
+			bg,
+			{ yPercent: 5 },
+			{
+				yPercent: -10,
+				ease: 'none',
+				scrollTrigger: {
+					start: 0,
+					end: () => ScrollTrigger.maxScroll(window),
+					scrub: true,
+					invalidateOnRefresh: true,
+				},
+			},
+		);
+	});
+</script>
+
+<script>
+	gsap.utils.toArray('.fade-section').forEach((el) => {
+		gsap.from(el, {
+			opacity: 0,
+			y: 50,
+			duration: 0.6,
+			ease: 'power2.out',
+			scrollTrigger: {
+				trigger: el,
+				start: 'top 85%',
+				toggleActions: 'play none none none',
+      once: true
+			},
+		});
+	});
+</script>
+
+<script>
+	document.documentElement.classList.add('loading');
+
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		requestAnimationFrame(() => {
+			gsap.set('body', { visibility: 'visible' });
+			document.documentElement.classList.remove('loading');
+			const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+			tl.fromTo(
+				'.Bird_list_title_inner',
+				{ yPercent: 100, opacity: 0 },
+				{ yPercent: 0, opacity: 1, duration: 0.6 },
+			)
+				.fromTo(
+					'.Bird_list_intro',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6 },
+					0.5,
+				)
+				.fromTo(
+					'.Bird_list_subtitle',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6 },
+					0.5,
+				)
+				.fromTo(
+					'.firstlayer-col',
+					{ opacity: 0, scale: 0.9 },
+					{
+						opacity: 1,
+						scale: 1,
+						duration: 0.6,
+						stagger: 0.15,
+					},
+					'-=0.55',
+				)
+
+				/* Title */
+				.fromTo(
+					'.naturetrail-text .inner',
+					{ yPercent: 100, opacity: 0 },
+					{
+						yPercent: 0,
+						opacity: 1,
+						duration: 0.6,
+					},
+					'-=0.5',
+				)
+
+				/* Text blocks */
+				/* create a shared start point */
+				.fromTo(
+					'.naturetrail-text .fade',
+					{ y: 30, opacity: 0 },
+					{
+						y: 0,
+						opacity: 1,
+						duration: 0.4,
+						stagger: 0.05,
+					},
+					'sync',
+				)
+				.fromTo(
+					'.naturetrail-img',
+					{ opacity: 0, scale: 0.95 },
+					{
+						opacity: 1,
+						scale: 1,
+						duration: 0.3,
+					},
+					'sync',
+				)
+
+				/* Button — SAME TIME */
+				.fromTo(
+					'.naturetrail-text .btn-fill-left',
+					{
+						opacity: 0,
+						'--reveal': 0,
+					},
+					{
+						opacity: 1,
+						'--reveal': 1.08,
+						duration: 0.5,
+						ease: 'power2.out',
+					},
+					'sync',
+				)
+				.to(
+					'.naturetrail-text .btn-fill-left',
+					{
+						'--reveal': 1,
+						duration: 0.25,
+						ease: 'back.out(1.4)',
+					},
+					'sync+=0.5',
+				)
+
+				/* Right video — SAME TIME */
+				.fromTo(
+					'.birdwatching-box-right video',
+					{ opacity: 0, scale: 0.95 },
+					{
+						opacity: 1,
+						scale: 1,
+						duration: 0.8,
+					},
+					'sync',
+				);
+
+			gsap.utils
+				.toArray('.birdwatching-bottombox .fade-section')
+				.forEach((el) => {
+					gsap.fromTo(
+						el,
+						{ opacity: 0, y: 40 },
+						{
+							opacity: 1,
+							y: 0,
+							duration: 0.5,
+							ease: 'power2.out',
+							scrollTrigger: {
+								trigger: el,
+								start: 'top 85%',
+								toggleActions: 'play none none none',
+      					once: true
+							},
+						},
+					);
+				});
+
+			gsap.utils.toArray('.reveal').forEach((el) => {
+				gsap.from(el, {
+					opacity: 0,
+					scale: 0.95,
+					transformOrigin: '50% 50%',
+					duration: 1.4,
+					ease: 'expo.out',
+					scrollTrigger: {
+						trigger: el,
+						start: 'top 85%',
+						end: 'top 30%',
+						toggleActions: 'play none none none',
+     				once: true
+					},
+				});
+			});
+
+			gsap.utils.toArray('.inner2').forEach((el) => {
+				gsap.fromTo(
+					el,
+					{
+						yPercent: 100,
+						opacity: 0,
+					},
+					{
+						yPercent: 0,
+						opacity: 1,
+						duration: 0.6,
+						ease: 'power3.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 90%',
+							toggleActions: 'play none none none',
+      				once: true
+						},
+					},
+				);
+			});
+		});
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,189 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Echoes of Nature</title>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="{% static 'css/style.css' %}"
+		/>
+		<link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	</head>
+
+	<body>
+		<div id="Bird_3840_x_2160_1__1">
+			<header class="top-nav">
+				<img
+					id="Logo"
+					src="{% static 'img/Logo.png' %}"
+					srcset="{% static 'img/Logo@2x.png' %} 2x"
+					alt="Logo"
+				/>
+
+				<nav class="nav-icons">
+					<a href="{% url 'home' %}">
+						<img
+							id="Home_2"
+							src="{% static 'img/Home_2.png' %}"
+							srcset="{% static 'img/Home_2@2x.png' %} 2x"
+							alt="Home"
+						/>
+					</a>
+					<a href="javascript:history.back()">
+						<img
+							id="Back_2"
+							src="{% static 'img/Back_2.png' %}"
+							srcset="{% static 'img/Back_2@2x.png' %} 2x"
+							alt="Back"
+						/>
+					</a>
+					<a href="#">
+						<img
+							id="Audio_On_2"
+							src="{% static 'img/Audio_On_2.png' %}"
+							srcset="{% static 'img/Audio_On_2@2x.png' %} 2x"
+							alt="Audio On"
+						/>
+					</a>
+					<a href="#" id="menuBtn">
+						<img
+							id="Menu"
+							src="{% static 'img/Menu.png' %}"
+							srcset="{% static 'img/Menu@2x.png' %} 2x"
+							alt="Menu"
+						/>
+					</a>
+
+					<!-- Dropdown Overlay -->
+					<div id="customDropdownOverlay" class="custom-overlay">
+						<div class="dropdown-content">
+							<div class="menu-bg">
+								<a href="{% url 'Deepdive' %}" class="menu-item">Home</a>
+								<a href="{% url 'Deepdive' %}" class="menu-item">
+									Echoes of Nature
+								</a>
+								<a href="{% url 'birds_list' %}" class="menu-item">
+									Birds of Hiranandani, Thane
+								</a>
+								<a href="{% url 'flora_list' %}" class="menu-item">
+									Trees of Hiranandani, Thane
+								</a>
+								<a href="{% url 'Naturetrail' %}" class="menu-item">
+									Nature Trail
+								</a>
+								<a href="{% url 'Birdwatching' %}" class="menu-item">
+									Birdwatching
+								</a>
+								<a href="{% url 'Urbanlegends' %}" class="menu-item">
+									Urban Legends
+								</a>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</header>
+
+			<div id="Echoes_of_Nature">Echoes of Nature</div>
+		</div>
+
+		<!-- Main page overlay (content block) -->
+		<div id="overlay-page" class="overlay">
+			<div class="page-content">{% block overlay_content %}{% endblock %}</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="footerweb">
+			<div class="footerweb-img">
+				<img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+			</div>
+			<div class="footerwebcol1">
+				<div class="footer-logo">
+					<img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
+				</div>
+				<div class="footerwebcol1_1">
+					House of Hiranandani, Olympia
+					<br />
+					Central Avenue, Hiranandani Gardens
+					<br />
+					Powai, Mumbai 400076, INDIA
+					<br />
+					<br />
+					Call: +91 22620 93456 Email: property@houseofhiranandani.com
+					<br />
+					<br />
+					www.hiranandani.com
+				</div>
+				<div class="footerwebcol1_2">
+					© 2026 House of Hiranandani. All rights reserved.
+				</div>
+			</div>
+			<div class="footerwebcol1">
+				<div class="footerwebcol2_1">SITEMAP</div>
+				<div class="footerwebcol2_2">Home</div>
+				<div class="footerwebcol2_3">Echoes of Nature</div>
+				<div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
+				<div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
+				<div class="footerwebcol2_3">Nature Trail</div>
+				<div class="footerwebcol2_3">Birdwatching</div>
+				<div class="footerwebcol2_3">Urban Legends</div>
+			</div>
+			<div class="footerwebcol3">
+				<div class="footerwebcol2_2">Disclaimer</div>
+				<div class="footerwebcol2_3">Terms & Conditions</div>
+				<div class="footerwebcol2_3">Privacy Policy</div>
+				<div class="footerwebcol2_3">Cookies Declaration</div>
+			</div>
+			<div class="footerweb-img2">
+				<img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+			</div>
+			<div class="footerwebcol4">
+				<div class="footerwebcol2_1">CONNECT WITH US</div>
+				<div class="footer-icons">
+					<div class="footer-icon">
+						<img src="{% static 'img/Facebook.png' %}" alt="Footer logo" />
+					</div>
+					<div class="footer-icon">
+						<img src="{% static 'img/Instagram.png' %}" alt="Footer logo" />
+					</div>
+					<div class="footer-icon">
+						<img src="{% static 'img/Youtube.png' %}" alt="Footer logo" />
+					</div>
+					<div class="footer-icon">
+						<img src="{% static 'img/X.png' %}" alt="Footer logo" />
+					</div>
+					<div class="footer-icon">
+						<img src="{% static 'img/Linkedin.png' %}" alt="Footer logo" />
+					</div>
+				</div>
+				<div class="footerwebcol4_1">
+					The House of Hiranandani is a New South Wales
+					<br />
+					Government funded cultural institution.
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Open/close dropdown overlay
+			document
+				.getElementById('menuBtn')
+				.addEventListener('click', function (e) {
+					e.preventDefault();
+					document
+						.getElementById('customDropdownOverlay')
+						.classList.toggle('active');
+				});
+
+			document
+				.getElementById('customDropdownOverlay')
+				.addEventListener('click', function (e) {
+					if (e.target === this) this.classList.remove('active');
+				});
+		</script>
+	</body>
+</html>
