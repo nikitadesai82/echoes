@@ -1,189 +1,425 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Echoes of Nature</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echoes of Nature</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
 		<link
-			rel="stylesheet"
-			type="text/css"
-			href="{% static 'css/style.css' %}"
-		/>
-		<link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-	</head>
+      rel="stylesheet"
+      type="text/css"
+			href="{% static 'css/responsive.css' %}"
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+    </script>
+  </head>
 
-	<body>
-		<div id="Bird_3840_x_2160_1__1">
-			<header class="top-nav">
-				<img
-					id="Logo"
-					src="{% static 'img/Logo.png' %}"
-					srcset="{% static 'img/Logo@2x.png' %} 2x"
-					alt="Logo"
-				/>
+  <body>
+    {% include "partial/background_audio.html" %}
+      <header class="top-nav">
+        <a href="{% url 'home' %}" class="Logo">
+    <img
+      src="{% static 'img/Logo.png' %}"
+      srcset="{% static 'img/Logo@2x.png' %} 2x"
+      alt="Logo"
+    />
+  </a>
 
-				<nav class="nav-icons">
-					<a href="{% url 'home' %}">
-						<img
-							id="Home_2"
-							src="{% static 'img/Home_2.png' %}"
-							srcset="{% static 'img/Home_2@2x.png' %} 2x"
-							alt="Home"
-						/>
-					</a>
-					<a href="javascript:history.back()">
-						<img
-							id="Back_2"
-							src="{% static 'img/Back_2.png' %}"
-							srcset="{% static 'img/Back_2@2x.png' %} 2x"
-							alt="Back"
-						/>
-					</a>
-					<a href="#">
-						<img
-							id="Audio_On_2"
-							src="{% static 'img/Audio_On_2.png' %}"
-							srcset="{% static 'img/Audio_On_2@2x.png' %} 2x"
-							alt="Audio On"
-						/>
-					</a>
-					<a href="#" id="menuBtn">
-						<img
-							id="Menu"
-							src="{% static 'img/Menu.png' %}"
-							srcset="{% static 'img/Menu@2x.png' %} 2x"
-							alt="Menu"
-						/>
-					</a>
+  <nav class="nav-icons">
+          <a href="{% url 'home' %}" class="hide-on-mobile">
+            <img
+              id="Home_2"
+              src="{% static 'img/icons/Home.png' %}"
+              data-default="{% static 'img/icons/Home.png' %}"
+              data-active="{% static 'img/icons/Home_active.png' %}"
+              alt="Home"
+            />
+          </a>
 
-					<!-- Dropdown Overlay -->
-					<div id="customDropdownOverlay" class="custom-overlay">
-						<div class="dropdown-content">
-							<div class="menu-bg">
-								<a href="{% url 'Deepdive' %}" class="menu-item">Home</a>
-								<a href="{% url 'Deepdive' %}" class="menu-item">
-									Echoes of Nature
-								</a>
-								<a href="{% url 'birds_list' %}" class="menu-item">
-									Birds of Hiranandani, Thane
-								</a>
-								<a href="{% url 'flora_list' %}" class="menu-item">
-									Trees of Hiranandani, Thane
-								</a>
-								<a href="{% url 'Naturetrail' %}" class="menu-item">
-									Nature Trail
-								</a>
-								<a href="{% url 'Birdwatching' %}" class="menu-item">
-									Birdwatching
-								</a>
-								<a href="{% url 'Urbanlegends' %}" class="menu-item">
-									Urban Legends
-								</a>
-							</div>
-						</div>
-					</div>
-				</nav>
-			</header>
+          <a href="javascript:history.back()" class="hide-on-mobile">
+            <img
+              id="Back_2"
+              src="{% static 'img/icons/Back.png' %}"
+              data-default="{% static 'img/icons/Back.png' %}"
+              data-active="{% static 'img/icons/Back_active.png' %}"
+              alt="Back"
+            />
+          </a>
 
-			<div id="Echoes_of_Nature">Echoes of Nature</div>
-		</div>
+          <a href="#" class="hide-on-mobile">
+            <img
+              id="Audio_On_2"
+              src="{% static 'img/icons/Audio_On.png' %}"
+              data-on="{% static 'img/icons/Audio_On.png' %}"
+              data-on-active="{% static 'img/icons/Audio_On_active.png' %}"
+              data-off="{% static 'img/icons/Audio_off.png' %}"
+              data-off-active="{% static 'img/icons/Audio_off_active.png' %}"
+              alt="Audio Toggle"
+            />
+          </a>
 
-		<!-- Main page overlay (content block) -->
-		<div id="overlay-page" class="overlay">
-			<div class="page-content">{% block overlay_content %}{% endblock %}</div>
-		</div>
+          <a href="#" id="menuBtn" class="menu-btn">
+            <img
+              id="Menu"
+              src="{% static 'img/icons/Menu.png' %}"
+              data-default="{% static 'img/icons/Menu.png' %}"
+              data-active="{% static 'img/icons/Menu_active.png' %}"
+              alt="Menu"
+            />
+          </a>
 
-		<!-- Footer -->
-		<footer class="footerweb">
-			<div class="footerweb-img">
-				<img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
-			</div>
-			<div class="footerwebcol1">
-				<div class="footer-logo">
-					<img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
-				</div>
-				<div class="footerwebcol1_1">
-					House of Hiranandani, Olympia
-					<br />
-					Central Avenue, Hiranandani Gardens
-					<br />
-					Powai, Mumbai 400076, INDIA
-					<br />
-					<br />
-					Call: +91 22620 93456 Email: property@houseofhiranandani.com
-					<br />
-					<br />
-					www.hiranandani.com
-				</div>
-				<div class="footerwebcol1_2">
-					© 2026 House of Hiranandani. All rights reserved.
-				</div>
-			</div>
-			<div class="footerwebcol1">
-				<div class="footerwebcol2_1">SITEMAP</div>
-				<div class="footerwebcol2_2">Home</div>
-				<div class="footerwebcol2_3">Echoes of Nature</div>
-				<div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
-				<div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
-				<div class="footerwebcol2_3">Nature Trail</div>
-				<div class="footerwebcol2_3">Birdwatching</div>
-				<div class="footerwebcol2_3">Urban Legends</div>
-			</div>
-			<div class="footerwebcol3">
-				<div class="footerwebcol2_2">Disclaimer</div>
-				<div class="footerwebcol2_3">Terms & Conditions</div>
-				<div class="footerwebcol2_3">Privacy Policy</div>
-				<div class="footerwebcol2_3">Cookies Declaration</div>
-			</div>
-			<div class="footerweb-img2">
-				<img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
-			</div>
-			<div class="footerwebcol4">
-				<div class="footerwebcol2_1">CONNECT WITH US</div>
-				<div class="footer-icons">
-					<div class="footer-icon">
-						<img src="{% static 'img/Facebook.png' %}" alt="Footer logo" />
-					</div>
-					<div class="footer-icon">
-						<img src="{% static 'img/Instagram.png' %}" alt="Footer logo" />
-					</div>
-					<div class="footer-icon">
-						<img src="{% static 'img/Youtube.png' %}" alt="Footer logo" />
-					</div>
-					<div class="footer-icon">
-						<img src="{% static 'img/X.png' %}" alt="Footer logo" />
-					</div>
-					<div class="footer-icon">
-						<img src="{% static 'img/Linkedin.png' %}" alt="Footer logo" />
-					</div>
-				</div>
-				<div class="footerwebcol4_1">
-					The House of Hiranandani is a New South Wales
-					<br />
-					Government funded cultural institution.
-				</div>
-			</div>
-		</footer>
+          <!-- Dropdown Overlay -->
+          <div class="dropdown-mask">
+            <div id="customDropdown" class="dropdown-content">
+              <div class="menu-bg">
+                <a href="{% url 'home' %}" class="menu-item">Home</a>
+                <a href="{% url 'Deepdive' %}" class="menu-item">
+                  Echoes of Nature
+                </a>
+                <a href="{% url 'birds_list' %}" class="menu-item">
+                  Birds of Hiranandani, Thane
+                </a>
+                <a href="{% url 'flora_list' %}" class="menu-item">
+                  Trees of Hiranandani, Thane
+                </a>
+                <a href="{% url 'Naturetrail' %}" class="menu-item">
+                  Nature Trail
+                </a>
+                <a href="{% url 'Birdwatching' %}" class="menu-item">
+                  Birdwatching
+                </a>
+                <a href="{% url 'Urbanlegends' %}" class="menu-item">
+                  Urban Legends
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
 
-		<script>
-			// Open/close dropdown overlay
-			document
-				.getElementById('menuBtn')
-				.addEventListener('click', function (e) {
-					e.preventDefault();
-					document
-						.getElementById('customDropdownOverlay')
-						.classList.toggle('active');
-				});
+      <div id="Echoes_of_Nature">Echoes of Nature</div>
 
-			document
-				.getElementById('customDropdownOverlay')
-				.addEventListener('click', function (e) {
-					if (e.target === this) this.classList.remove('active');
-				});
-		</script>
-	</body>
+    <button id="scrollUpBtn" aria-label="Scroll to top">
+      <img
+        src="{% static 'img/icons/Back.png' %}"
+        data-default="{% static 'img/icons/Back.png' %}"
+        data-active="{% static 'img/icons/Back_active.png' %}"
+        alt="Scroll to top"
+      />
+    </button>
+
+    <!-- Main page overlay (content block) -->
+    <div id="overlay-page" class="overlay">
+      <div class="page-content">{% block overlay_content %}{% endblock %}</div>
+    </div>
+    <footer class="footerweb">
+      <div class="footerweb-img">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerwebcol1">
+        <div class="footer-logo">
+          <img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
+        </div>
+        <div class="footerwebcol1_1">
+          House of Hiranandani, Olympia
+          <br />
+          Central Avenue, Hiranandani Gardens
+          <br />
+          Powai, Mumbai 400076, INDIA
+          <br />
+          <br />
+          Call: +91 22620 93456 Email: property@houseofhiranandani.com
+          <br />
+          <br />
+          www.hiranandani.com
+        </div>
+        <div class="footerwebcol1_2">
+          © 2026 House of Hiranandani. All rights reserved.
+        </div>
+      </div>
+      <div class="footerwebcol1">
+        <div class="footerwebcol2_1">SITEMAP</div>
+        <div class="footerwebcol2_2">Home</div>
+        <div class="footerwebcol2_3">Echoes of Nature</div>
+        <div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
+        <div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
+        <div class="footerwebcol2_3">Nature Trail</div>
+        <div class="footerwebcol2_3">Birdwatching</div>
+        <div class="footerwebcol2_3">Urban Legends</div>
+      </div>
+      <div class="footerwebcol3">
+        <div class="footerwebcol2_2">Disclaimer</div>
+        <div class="footerwebcol2_3">Terms & Conditions</div>
+        <div class="footerwebcol2_3">Privacy Policy</div>
+        <div class="footerwebcol2_3">Cookies Declaration</div>
+        <div class="footerwebcol2_3">Credits & Usage</div>
+      </div>
+      <div class="footerweb-img2">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerwebcol4">
+        <div class="footerwebcol2_1">CONNECT WITH US</div>
+        <div class="footer-icons">
+          <div class="footer-icon">
+            <img src="{% static 'img/Facebook.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Instagram.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Youtube.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/X.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Linkedin.png' %}" alt="Footer logo" />
+          </div>
+        </div>
+        <div class="footerwebcol4_1">
+          ECHOES OF NATURE<br />
+          This immersive experience is created for public education and
+          non-commercial display and is brought to you by
+        </div>
+        <div class="tommorrow-logo">
+          <img src="{% static 'img/tommorrow-logo.png' %}" />
+        </div>
+        <div class="footerwebcol4_2">
+          A Sustainability initiative by House of Hiranandani
+        </div>
+      </div>
+      <div class="footerweb-img3">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerweb-img4">
+        <img src="{% static 'img/webfooterflower.png' %}" alt="Footer logo" />
+      </div>
+    </footer>
+    <div class="after-footer-gap"></div>
+    <!-- Footer -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll("img[data-active]");
+
+        // Normalize path (works for / and /home/)
+        const currentPath = window.location.pathname.replace(/\/$/, "");
+        const homePaths = ["", "/", "/home"]; // add more if needed
+
+        buttons.forEach((btn) => {
+          const defaultSrc = btn.dataset.default;
+          const activeSrc = btn.dataset.active;
+          const isHomeIcon = btn.id === "Home_2";
+
+          // ✅ If this is the home page → keep Home active
+          if (isHomeIcon && homePaths.includes(currentPath)) {
+            btn.src = activeSrc;
+            btn.classList.add("active");
+            return; // ⛔ skip hover/touch logic
+          }
+
+          /* ---- Hover (Desktop) ---- */
+          btn.addEventListener("mouseenter", () => {
+            btn.src = activeSrc;
+          });
+
+          btn.addEventListener("mouseleave", () => {
+            btn.src = defaultSrc;
+          });
+
+          /* ---- Mouse Click ---- */
+          btn.addEventListener("mousedown", () => {
+            btn.src = activeSrc;
+          });
+
+          btn.addEventListener("mouseup", () => {
+            btn.src = defaultSrc;
+          });
+
+          /* ---- Touch (Mobile) ---- */
+          btn.addEventListener("touchstart", () => {
+            btn.src = activeSrc;
+          });
+
+          btn.addEventListener("touchend", () => {
+            btn.src = defaultSrc;
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelector(".overlay")
+          ?.style.setProperty("visibility", "visible");
+      });
+    </script>
+    <script>
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          const dropdown = document.querySelector(".dropdown-content");
+          const mask = document.querySelector(".dropdown-mask");
+          const menuBtn = document.getElementById("menuBtn");
+          const menuIcon = menuBtn?.querySelector("img");
+
+          if (!dropdown || !mask || !menuBtn || !menuIcon) return;
+
+          // Reset GSAP state HARD
+          gsap.set(dropdown, {
+            yPercent: -100,
+            opacity: 0,
+          });
+
+          mask.style.pointerEvents = "none";
+          menuBtn.classList.remove("is-open");
+
+          // Reset icon
+          menuIcon.src = menuIcon.dataset.default;
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.getElementById("menuBtn");
+        const menuIcon = menuBtn?.querySelector("img");
+        const mask = document.querySelector(".dropdown-mask");
+        const dropdown = document.querySelector(".dropdown-content");
+
+        if (!menuBtn || !menuIcon || !mask || !dropdown) return;
+
+        const defaultSrc = menuIcon.dataset.default;
+        const activeSrc = menuIcon.dataset.active;
+
+        gsap.set(dropdown, { yPercent: -100, opacity: 0 });
+
+        let isOpen = false;
+
+        const tl = gsap.timeline({
+          paused: true,
+          onStart: () => {
+            isOpen = true;
+            mask.style.pointerEvents = "auto";
+            menuIcon.src = activeSrc;
+            menuBtn.classList.add("is-open");
+          },
+          onReverseComplete: () => {
+            isOpen = false;
+            mask.style.pointerEvents = "none";
+            menuIcon.src = defaultSrc;
+            menuBtn.classList.remove("is-open");
+          },
+        });
+
+        tl.to(dropdown, {
+          yPercent: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: "power3.out",
+        });
+
+        /* ---------- CLICK ---------- */
+        menuBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          isOpen ? tl.reverse() : tl.play();
+        });
+
+        document.addEventListener("click", () => {
+          if (isOpen) tl.reverse();
+        });
+
+        mask.addEventListener("click", (e) => e.stopPropagation());
+
+        /* ---------- HOVER (ONLY WHEN CLOSED) ---------- */
+        menuBtn.addEventListener("mouseenter", () => {
+          if (!isOpen) menuIcon.src = activeSrc;
+        });
+
+        menuBtn.addEventListener("mouseleave", () => {
+          if (!isOpen) menuIcon.src = defaultSrc;
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollBtn = document.getElementById("scrollUpBtn");
+        if (!scrollBtn) return;
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > window.innerHeight * 0.3) {
+            scrollBtn.classList.add("active");
+          } else {
+            scrollBtn.classList.remove("active");
+          }
+        });
+
+        scrollBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+    <audio id="globalClickSound" preload="auto">
+      <source src="{% static 'audio/click.wav' %}" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sound = document.getElementById("globalClickSound");
+        if (!sound) return;
+
+        let unlocked = false;
+
+        // 🔓 unlock audio once
+        function unlock() {
+          if (unlocked) return;
+          sound.volume = 0.25;
+          sound
+            .play()
+            .then(() => {
+              sound.pause();
+              sound.currentTime = 0;
+              unlocked = true;
+            })
+            .catch(() => {});
+          document.removeEventListener("pointerdown", unlock, true);
+        }
+
+        document.addEventListener("pointerdown", unlock, true);
+
+        // 🔊 PLAY SOUND ON POINTERDOWN (NOT CLICK)
+        document.addEventListener(
+          "pointerdown",
+          (e) => {
+            if (!unlocked) return;
+
+            if (
+              e.target.closest(
+                ".top-nav a, .menu-item,#Back_2,#Home_2,.iucn-trigger,.iucn-close,.icon,.birdpage-link,.filter-toggle,.filter-options,.Sort-box,.Sort-box2,.bird-item,#scrollUpBtn,.MD-message-link,.read-more-btn,.gallery-picturetab,.gallery-videotab,.gallery-dots,.close-icon,.story",
+              )
+            ) {
+              sound.currentTime = 0;
+              sound.play().catch(() => {});
+            }
+          },
+          true,
+        );
+      });
+    </script>
+  </body>
 </html>

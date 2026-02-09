@@ -1,0 +1,277 @@
+/* =========================================================
+   RESPONSIVE.CSS (Overrides Only)
+   Breakpoints:
+   - Laptop  <1440px
+   - Tablet  <1024px
+   - Mobile  <800px
+   Default = 4K Design (your style.css)
+========================================================= */
+
+
+/* =========================================================
+   LAPTOP (<1440px)
+========================================================= */
+@media (max-width: 1440px) {
+
+  .top-nav {
+    left: 5vw;
+    right: 5vw;
+  }
+
+  #Logo {
+    width: 160px;
+  }
+
+  #Echoes_of_Nature {
+    font-size: 11vw;
+  }
+
+  .footerweb {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+
+/* =========================================================
+   TABLET (<1024px)
+========================================================= */
+@media (max-width: 1024px) {
+
+  /* Navbar tighter */
+  .top-nav {
+    left: 3vw;
+    right: 3vw;
+  }
+
+  .nav-icons {
+    gap: 1vw;
+  }
+
+  /* Dropdown becomes bigger */
+  .dropdown-content {
+    width: 220px;
+  }
+
+  .menu-item {
+    font-size: 14px;
+  }
+
+  /* Footer stacks */
+  .footerweb {
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh 5vw;
+    height: auto;
+    gap: 4vh;
+    text-align: center;
+  }
+
+  .footerwebcol1,
+  .footerwebcol2,
+  .footerwebcol3,
+  .footerwebcol4 {
+    width: 90%;
+    margin: 0;
+    height: auto;
+  }
+
+  .footer-icons {
+    justify-content: center;
+  }
+
+  /* Hide decorative absolute images */
+  .footerweb-img2,
+  .footerweb-img3,
+  .footerweb-img4 {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE (<800px)
+========================================================= */
+@media (max-width: 800px) {
+
+  /* Hide desktop-only icons */
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  /* Navbar becomes compact */
+  .top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 20px;
+    z-index: 999;
+  }
+
+  #Logo {
+    width: 240px;
+  }
+
+  /* Dropdown full width */
+  .dropdown-content {
+    width: 90vw !important;
+    left: 5vw;
+    right: 5vw;
+  }
+
+  .menu-item {
+    font-size: 16px;
+    padding: 16px;
+    width: 100%;
+  }
+
+  /* Scroll button reposition */
+  #scrollUpBtn {
+    right: 1.5rem;
+    bottom: 2rem;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  /* Watermark stays faint like XD */
+  #Echoes_of_Nature {
+    font-size: 22vw;
+    opacity: 0.06;
+    margin-left: 0;
+    width: 100%;
+    top: 12vh;
+    text-align: center;
+  }
+
+  /* ===================================================
+     URBAN LEGENDS MOBILE STACK
+  =================================================== */
+
+  .urbanlegendsbox1 {
+    width: 90%;
+    margin: 12vh auto 0 auto;
+  }
+
+  .urbanlegendsbox1_1 {
+    font-size: 14px;
+  }
+
+  .urbanlegendsbox1_2 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .urbanlegendsbox1_3 {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* Bird animation centered */
+  .urbanlegendsbird-ani {
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 30px auto 0 auto;
+    top: 0;
+    right: 0;
+  }
+
+  /* Main box stacks */
+  .urbanlegendsbox2 {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    gap: 25px;
+  }
+
+  /* Story buttons full width */
+  .story {
+    width: 100%;
+    font-size: 15px;
+    padding: 14px 18px;
+    border-radius: 30px;
+  }
+
+  /* Image scales */
+  .urbanlegend-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .urbanlegend-img img {
+    max-height: 320px;
+    height: auto;
+  }
+
+  /* Text readable */
+  .urbanlegend-text {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .story_name {
+    font-size: 34px;
+    height: auto;
+  }
+
+  .story_text {
+    font-size: 14px;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+    line-height: 1.7;
+  }
+
+  /* Audio full width */
+  .story-sound {
+    width: 100%;
+    margin-top: 25px;
+    justify-content: flex-start;
+  }
+
+  /* Girl animation centered */
+  .urbanlegendgirl-ani {
+    width: 75%;
+    height: auto;
+    margin: 40px auto 0 auto;
+  }
+
+  /* ===================================================
+     FOOTER MOBILE
+  =================================================== */
+
+  .footerweb {
+    flex-direction: column;
+    padding: 5vh 6vw;
+    border-radius: 25px;
+    gap: 4vh;
+    text-align: left;
+  }
+
+  .footerwebcol1,
+  .footerwebcol4 {
+    width: 100%;
+  }
+
+  .footerwebcol1_1,
+  .footerwebcol4_1 {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Hide sitemap columns */
+  .footerwebcol2,
+  .footerwebcol3 {
+    display: none;
+  }
+
+  /* Hide decorative birds/flowers */
+  .footerweb-img2,
+  .footerweb-img3,
+  .footerweb-img4 {
+    display: none;
+  }
+}

@@ -4,9 +4,9 @@
 	box-sizing: border-box;
 	border: none;
 }
-html,
-body {
+html{
 	height: 100%;
+	
 }
 /* Hide page until GSAP removes loading */
 html.loading body {
@@ -81,34 +81,45 @@ a {
 }
 
 .top-nav {
-	position: absolute;
-	top: 1.62vh;
-	left: 11.71875vw;
-	right: 10.84vw;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 10;
+  position: absolute;
+  top: clamp(20px, 2vh, 50px);
+
+  left: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: clamp(60px, 11.71875vw, 450px);
+  padding-right: clamp(60px, 11.71875vw, 450px);
+
+  width: 100%;
+  z-index: 10;
 }
 
-#Logo {
-	width: 10vw;
-	max-height: 3.2vh;
-	object-fit: contain;
-}
 
-.nav-icons {
-	display: flex;
-	gap: 0.3vw;
-	align-items: center;
-	height: 4.17vh;
-}
 
+.Logo {
+  width: clamp(200px, 12vw, 450px);
+	display: block;
+
+}
+.Logo img{
+	width:100%;
+	height: auto;
+  object-fit: contain;
+  display: block;
+}
+.nav-icons{
+margin-right: 0;
+display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 20px);
+}
 .nav-icons img {
 	width: auto;
-	height: 4.17vh;
-	max-width: 2.34375vw;
-	max-height: 4.17vh;
+	height: clamp(28px, 4.17vh, 90px);
 	cursor: pointer;
 	position: relative;
 }
@@ -229,7 +240,6 @@ a {
 .dropdown-mask {
 	position: absolute;
 	top: 5.2vh;
-	right: -1.3vw;
 	width: 13.02vw;
 	height: 37.703vh;
 	overflow: hidden;
@@ -2376,7 +2386,7 @@ display: inline-flex;
 	display: flex;
 	flex-direction: row;
 	gap: 2.25vw;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	min-height: 37vh;
 	padding-top: 2vh;
 }
@@ -2435,7 +2445,7 @@ display: inline-flex;
 	width: 77.5833625vw;
 	display: flex;
 	gap: 2.25vw;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	align-items: flex-start; /* 🔑 */
 	padding-top: 1.5vh;
 }
@@ -2539,7 +2549,7 @@ display: inline-flex;
 	mix-blend-mode: multiply;
 }
 .birdwatching-bottombox {
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	width: 77.5833625vw;
 	height: auto;
 	display: flex;
@@ -2585,7 +2595,7 @@ display: inline-flex;
 	display: flex;
 	flex-direction: row;
 	gap: 2.25vw;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	padding-top: 3.287vh;
 }
 .timeanddate {
@@ -2634,7 +2644,7 @@ display: inline-flex;
 	position: absolute;
 	width: 11vw;
 	height: 30vh;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	margin-top: 30.5vh;
 	mix-blend-mode: darken;
 }
@@ -2649,7 +2659,7 @@ display: inline-flex;
 	min-height: 24vh;
 	display: flex;
 	flex-direction: row;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	padding-top: 3.7037vh;
 	gap: 2.25vw;
 	flex-wrap: wrap;
@@ -2698,7 +2708,7 @@ display: inline-flex;
 	text-decoration: underline;
 }
 .naturetrailbox3 {
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	padding-top: 1vh;
 	width: 77.5833625vw;
 	display: flex;
@@ -2736,7 +2746,7 @@ display: inline-flex;
 	width: 76.041625vw;
 	display: flex;
 	flex-direction: row;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	padding-top: 15vh;
 }
 .naturetrailbox5_1 {
@@ -2785,7 +2795,7 @@ display: inline-flex;
 
 .urbanlegendsbox1 {
 	width: 37.8125vw;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	margin-top: 8vh;
 	display: flex;
 	flex-direction: column;
@@ -2830,7 +2840,7 @@ display: inline-flex;
 .urbanlegendsbox2 {
 	height: 53.796vh;
 	width: 77.5833625vw;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	margin-top: 4.305vh;
 	display: flex;
 	flex-direction: row;
@@ -2958,7 +2968,7 @@ display: inline-flex;
 .urbanlegendgirl-ani {
 	width: 22.578vw;
 	height: 26.76vh;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	margin-top: -21.305vh;
 }
 .urbanlegendgirl-ani video {
@@ -2984,7 +2994,7 @@ display: inline-flex;
 	margin-top: 3vh;
 }
 .gallery-box1 {
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	width: 11.979vw;
 	height: 50vh;
 	display: flex;
@@ -2992,7 +3002,7 @@ display: inline-flex;
 	z-index: 15;
 }
 .gallery-box4 {
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	width: 11.979vw;
 	height: 59vh;
 	display: flex;
@@ -3311,7 +3321,7 @@ display: inline-flex;
 
 .left-text {
 	margin-top: 38vh;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	height: 11.482vh;
 	width: 11.97916vw;
 	font-size: 1.565vw;
@@ -3598,7 +3608,7 @@ display: inline-flex;
 	position: absolute;
 	right: 0;
 	top: 41.66vh;
-	width: 11.71875vw;
+	width: clamp(60px, 11.71875vw, 450px);
 	height: 13.888vh;
 }
 .right-bird video {
@@ -3788,6 +3798,13 @@ html[data-loading='true'] body {
 	position: relative;
 }
 
+.after-footer-gap {
+  height: 2.32vh;
+  display: block;
+}
+
+
+
 /*WEB EXCLUSIVE*/
 .footerweb {
 	width: 97.396vw;
@@ -3813,7 +3830,7 @@ html[data-loading='true'] body {
 	object-fit: contain;
 }
 .footerwebcol1 {
-	width: 17.708vw;
+	width: 18.4375vw;
 	height: 33.194vh;
 	display: flex;
 	flex-direction: column;
@@ -3845,7 +3862,7 @@ html[data-loading='true'] body {
 	font-size: 0.729vw;
 }
 .footerwebcol2 {
-	width: 17.708vw;
+	width: 18.4375vw;
 	height: 20.9722vh;
 	display: flex;
 	flex-direction: column;
@@ -3874,17 +3891,19 @@ html[data-loading='true'] body {
 }
 
 .footerwebcol3 {
-	width: 17.708vw;
+	width: 18.4375vw;
 	height: 9.3981vh;
 	display: flex;
 	flex-direction: column;
 	margin-top: 6.389vh;
+	margin-left: 1.237vw;
 }
 .footerweb-img2 {
-	margin-top: 23.38vh;
-	margin-left: -6.0547vw;
-	width: 6.0547vw;
-	height: 12.3148vh;
+	margin-top: 8.4259vh;
+  margin-left: 61.5625vw;
+  width: 6.0547vw;
+  height: 12.3148vh;
+  position: absolute;
 }
 .footerweb-img2 img {
 	height: 100%;
@@ -3894,7 +3913,7 @@ html[data-loading='true'] body {
 }
 
 .footerwebcol4 {
-	width: 17.708vw;
+	width: 18.4375vw;
 	height: 15.509vh;
 	display: flex;
 	flex-direction: column;
@@ -3919,10 +3938,52 @@ html[data-loading='true'] body {
 }
 .footerwebcol4_1 {
 	margin-top: 4.6296vh;
-	height: 15.231vh;
+	width: 18.4375vw;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
 	font-size: 0.729vw;
+}
+.footerwebcol_head{
+	font-family: 'Boreal', sans-serif;
+	color: #fff3e6;
+	font-size: 0.78125vw;
+}
+.tommorrow-logo{
+	width:11.9791vw;
+	padding-top: 1.85vh;
+}
+.tommorrow-logo img{
+	width:100%;
+	object-fit: contain;
+}
+.footerweb-img3{
+	width:3.541vw;
+	position: absolute;
+	margin-left: 83.46vw;
+	margin-top:4.629vh;
+}
+.footerweb-img3 img{
+	width:100%;
+	height: 100%;
+	object-fit: contain;
+}
+.footerweb-img4{
+	width:13.0208vw;
+	height:46.29vh;
+	margin-left: 84.375vw;
+	position: absolute;
+}
+.footerweb-img4 img{
+	width:100%;
+
+	object-fit: contain;
+}
+.footerwebcol4_2 {
+	width: 18.4375vw;
+	font-family: 'Boreal', sans-serif;
+	color: #fff3e6;
+	font-size: 0.729vw;
+	padding-top: 0.875vh;
 }
 video {
 	pointer-events: none;
@@ -4186,7 +4247,7 @@ body[data-state='deepdive'] #deepdive-trigger {
 .credit-row2 {
 	display: flex;
 	flex-direction: row;
-	margin-left: 11.71875vw;
+	margin-left: clamp(60px, 11.71875vw, 450px);
 	gap: 3.5vw;
 	padding-top: 2vh;
 	width: 76.5625vw;
@@ -4253,3 +4314,140 @@ body[data-state='deepdive'] #deepdive-trigger {
 	box-shadow: none;
 }
 
+@media (max-width: 800px) {
+
+  /* ===== WATERMARK FIX ===== */
+  #Echoes_of_Nature {
+    display: none !important;
+  }
+
+  /* ===== TOP SECTION ===== */
+  .urbanlegendsbox1 {
+    width: 90%;
+    margin: 12vh auto 0 auto;
+    text-align: left;
+  }
+
+  .urbanlegendsbox1_1 {
+    font-size: 14px;
+  }
+
+  .urbanlegendsbox1_2 {
+    font-size: 42px;
+    line-height: 1.1;
+  }
+
+  .urbanlegendsbox1_3 {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* ===== BIRD ANIMATION CENTERED ===== */
+  .urbanlegendsbird-ani {
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 30px auto 0 auto;
+    top: 0;
+    right: 0;
+  }
+
+  /* ===== MAIN CONTENT STACK ===== */
+  .urbanlegendsbox2 {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    margin: 30px auto;
+    gap: 25px;
+  }
+
+  /* ===== STORY SELECTOR FULL WIDTH ===== */
+  .selection-box {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .story {
+    width: 100%;
+    font-size: 15px;
+    padding: 14px 18px;
+    border-radius: 30px;
+  }
+
+  /* ===== IMAGE FULL WIDTH ===== */
+  .urbanlegend-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .urbanlegend-img img {
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+  }
+
+  /* ===== TEXT FULL WIDTH ===== */
+  .urbanlegend-text {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .story_name {
+    font-size: 34px;
+    height: auto;
+  }
+
+  .story_text {
+    font-size: 14px;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+    line-height: 1.7;
+  }
+
+  /* ===== AUDIO PLAYER SCALE ===== */
+  .story-sound {
+    width: 100%;
+    height: auto;
+    margin-top: 25px;
+    justify-content: flex-start;
+  }
+
+  /* ===== GIRL ANIMATION UNDER CONTENT ===== */
+  .urbanlegendgirl-ani {
+    width: 75%;
+    height: auto;
+    margin: 40px auto 0 auto;
+  }
+
+}
+@media (max-width: 1024px) {
+
+  .urbanlegendsbox1 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .urbanlegendsbox2 {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 20px;
+  }
+
+  .story {
+    width: 180px;
+    font-size: 14px;
+  }
+
+  .urbanlegend-text {
+    width: 45%;
+  }
+
+  .urbanlegend-img {
+    width: 45%;
+  }
+
+}
