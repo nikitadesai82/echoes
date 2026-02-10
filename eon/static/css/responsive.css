@@ -116,8 +116,7 @@
   /* Dropdown full width */
   .dropdown-content {
     width: 90vw !important;
-    left: 5vw;
-    right: 5vw;
+    right: 1vw;
   }
 
   .menu-item {
@@ -238,10 +237,78 @@
     height: auto;
     margin: 40px auto 0 auto;
   }
+/* ===========================================
+   MOBILE DROPDOWN (≤ 800px)
+   Matches XD Layout
+=========================================== */
+.dropdown-mask {
+    position: absolute;
+    top: 60px;
+    right: 16px;
 
-  /* ===================================================
-     FOOTER MOBILE
-  =================================================== */
+    width: 220px;
+    height: auto;
+
+    overflow: visible;
+    pointer-events: auto;
+    z-index: 9999;
+  }
+
+  /* Dropdown box */
+  .dropdown-content {
+    opacity: 1;
+    width: 220px;
+		height: auto;
+    border-radius: 22px;
+    overflow: hidden;
+
+    transform: none !important;
+  }
+
+  /* Background panel */
+  .menu-bg {
+    width: 100%;
+    background: #802650;
+    border-radius: 22px;
+		height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Menu Items */
+  .menu-item {
+    width: 100%;
+    height: auto;
+
+    padding: 14px 28px;
+
+    font-size: 14px;
+    line-height: 1.4;
+
+    color: #fff3e6;
+    text-decoration: none;
+
+    border-radius: 0;
+  }
+
+  /* Hover + Active */
+  .menu-item:hover,
+  .menu-item.active {
+    background: rgba(189, 142, 116, 0.8);
+    color: #fff;
+  }
+
+  /* Rounded Top */
+  .menu-bg a:first-child {
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
+  }
+
+  /* Rounded Bottom */
+  .menu-bg a:last-child {
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
 
   /* ==========================================================
    FOOTER SMARTPHONE RESPONSIVE (<800px)
@@ -306,7 +373,6 @@
   /* Sitemap heading */
   .footerwebcol2_1 {
     font-size: 15px;
-    font-weight: 600;
     margin-bottom: 12px;
 		text-align: left;
   }
@@ -333,6 +399,7 @@
     width: 100%;
     gap: 16px;
     margin-top: 15px;
+		justify-content: left;
   }
 
   .footer-icon {
@@ -397,5 +464,320 @@
 
     text-align: left;
     width: 100%;
+  }
+
+
+  .Bird_list_firstbox {
+    width: 90%;
+    margin: 12vh auto 0 auto;
+    text-align: left;
+  }
+
+  .Bird_list_intro {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .Bird_list_title {
+    font-size: 46px;
+    line-height: 1.1;
+    margin-top: 6px;
+  }
+
+  .Bird_list_subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 12px;
+  }
+
+  /* Watermark stays faint like XD */
+  #Echoes_of_Nature {
+    font-size: 22vw;
+    opacity: 0.06;
+    width: 100%;
+    margin-left: 0;
+    top: 10vh;
+    text-align: center;
+  }
+
+  /* =========================================
+     DATE BOXES — STACKED
+  ========================================= */
+
+  .naturetrailbox1 {
+    width: 90%;
+    margin: 35px auto 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .timeanddate {
+    width: 100%;
+    text-align: left;
+  }
+
+  .day {
+    font-size: 16px;
+  }
+
+  .date {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .time {
+    font-size: 12px;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* =========================================
+     MAP — FULL WIDTH IMAGE
+  ========================================= */
+
+  .Naturetrail-map-video {
+    display: none; /* XD does not show floating video */
+  }
+
+  .Naturetrail-map {
+    width: 100%;
+    margin: 25px auto 0 auto;
+    position: relative;
+    padding: 0;
+  }
+
+  .Naturetrail-map img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* =========================================
+     STOPS SECTION — STACKED LIKE XD
+  ========================================= */
+
+  .naturetrailbox2 {
+    width: 90%;
+    margin: 30px auto;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .column3 {
+    width: 100%;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .stop {
+    font-size: 16px;
+  }
+
+  .stop-time {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+
+  .birds-to-watch {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+
+  .activity {
+    font-size: 13px;
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* Hide empty placeholder columns */
+  .column3.hidden {
+    display: none !important;
+  }
+
+  /* =========================================
+     TIPS SECTION — PLAN YOUR TRIP
+  ========================================= */
+
+  .naturetrailbox3 {
+    width: 90%;
+    margin: 60px auto 0 auto;
+    text-align: center;
+  }
+
+  .nature-tips {
+    width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .birdwatching-box-left1 {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .birdwatching-box-left2 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin-top: 6px;
+  }
+
+  .birdwatching-box-left5 {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  /* Tips list becomes vertical */
+  .bottom-container {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 35px;
+  }
+
+  .column1 {
+    width: 100%;
+    text-align: left;
+  }
+
+  .row-top {
+    font-size: 14px;
+  }
+
+  .birdwatching-row-bottom {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  /* =========================================
+     GLIMPSES SECTION
+  ========================================= */
+
+  .naturetrailbox4 {
+    width: 90%;
+    margin: 70px auto 30px auto;
+    text-align: center;
+  }
+
+  /* =========================================
+     GALLERY — STACKED LIKE XD
+  ========================================= */
+
+  .naturetrail-gallery-mainbox {
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  /* Tabs become dropdown style */
+  .gallery-box1 {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+    margin: 0;
+    gap: 12px;
+  }
+
+  .naturetrail-gallery-picturetab,
+  .naturetrail-gallery-videotab {
+    width: 100%;
+    height: 52px;
+    font-size: 14px;
+    border-radius: 30px;
+    margin: 0;
+  }
+
+  /* Media becomes full width card */
+  .gallery-box2 {
+    width: 100%;
+    height: 280px;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  #photoBox,
+  #videoBox {
+    width: 100%;
+    height: 280px;
+  }
+
+  /* Hide side decorations */
+  .gallery-extra,
+  .prev-next,
+  .gallery-dots2 {
+    display: none !important;
+  }
+
+  /* =========================================
+     BIRDWATCHING SECTION — STACKED
+  ========================================= */
+
+  .naturetrailbox5 {
+    width: 90%;
+    margin: 80px auto 0 auto;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .naturetrailbox5_1 {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .naturetrail-img2 {
+    width: 220px;
+    height: auto;
+    margin: auto;
+  }
+
+  .naturetrail-text22 {
+    width: 100%;
+    margin-top: 25px;
+    text-align: left;
+  }
+
+  .naturetrail-text1 {
+    font-size: 14px;
+  }
+
+  .naturetrail-text2 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin-top: 6px;
+  }
+
+  .naturetrail-text3 {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .naturetrail-text4 {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+
+  /* CTA button full width */
+  .btn-fill-left {
+    width: 100%;
+    height: 52px;
+    border-radius: 30px;
+    font-size: 14px;
+    margin-top: 18px;
+  }
+
+  /* Hide right-side girl video on mobile */
+  .naturewatching-box-right {
+    display: none !important;
   }
 }
