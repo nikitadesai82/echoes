@@ -243,35 +243,159 @@
      FOOTER MOBILE
   =================================================== */
 
+  /* ==========================================================
+   FOOTER SMARTPHONE RESPONSIVE (<800px)
+   Matches XD Mobile Layout
+========================================================== */
+
+  /* Footer container becomes vertical card */
   .footerweb {
+    width: 90%;
+    margin: 50px auto;
     flex-direction: column;
-    padding: 5vh 6vw;
-    border-radius: 25px;
-    gap: 4vh;
-    text-align: left;
+    align-items: flex-start;
+
+    padding: 50px 30px;
+    border-radius: 35px;
+
+    height: auto;
+    gap: 40px;
+    position: relative;
   }
 
+  /* Left bird image stays but moves inside */
+  .footerweb-img {
+    width: 55px;
+    height: auto;
+    margin: 0;
+  }
+
+  /* Columns become full width stacked */
   .footerwebcol1,
+  .footerwebcol2,
+  .footerwebcol3,
   .footerwebcol4 {
     width: 100%;
+    margin: 0;
+    height: auto;
+		text-align: left;
   }
 
-  .footerwebcol1_1,
-  .footerwebcol4_1 {
+  /* Footer logo scaling */
+  .footer-logo {
+    width: 180px;
+    height: auto;
+  }
+
+  /* Address text */
+  .footerwebcol1_1 {
     font-size: 14px;
     line-height: 1.6;
+    height: auto;
+		text-align: left;
   }
 
-  /* Hide sitemap columns */
-  .footerwebcol2,
-  .footerwebcol3 {
-    display: none;
+  /* Copyright */
+  .footerwebcol1_2 {
+    font-size: 13px;
+    margin-top: 20px;
+    height: auto;
+		text-align: left;
   }
 
-  /* Hide decorative birds/flowers */
+  /* Sitemap heading */
+  .footerwebcol2_1 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+		text-align: left;
+  }
+
+  /* Sitemap links */
+  .footerwebcol2_2,
+  .footerwebcol2_3 {
+    font-size: 14px;
+    margin-top: 8px;
+    height: auto;
+		text-align: left;
+  }
+
+  /* Disclaimer links */
+  .footerwebcol3 .footerwebcol2_2,
+  .footerwebcol3 .footerwebcol2_3 {
+    font-size: 14px;
+    margin-top: 8px;
+		text-align: left;
+  }
+
+  /* Social icons row */
+  .footer-icons {
+    width: 100%;
+    gap: 16px;
+    margin-top: 15px;
+  }
+
+  .footer-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Tomorrow Matters logo */
+  .tommorrow-logo {
+    width: 200px;
+    padding-top: 15px;
+  }
+
+  /* Footer description text */
+  .footerwebcol4_1,
+  .footerwebcol4_2 {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+		text-align: left;
+  }
+
+  /* Decorative birds and flowers reposition */
   .footerweb-img2,
   .footerweb-img3,
   .footerweb-img4 {
-    display: none;
+    display: block;
+    position: absolute;
+  }
+
+  /* Small bird bottom right */
+  .footerweb-img3 {
+    width: 45px;
+    right: 30px;
+    bottom: 220px;
+    margin: 0;
+  }
+
+  /* Another bird slightly above */
+  .footerweb-img2 {
+    width: 55px;
+    right: 50px;
+    bottom: 120px;
+    margin: 0;
+  }
+
+  /* Flower stays on right edge */
+  .footerweb-img4 {
+    width: 120px;
+    height: auto;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+	.copyright {
+    position: relative;   /* remove absolute */
+    padding: 0;           /* reset desktop padding */
+    margin-top: 25px;     /* spacing from above content */
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    text-align: left;
+    width: 100%;
   }
 }

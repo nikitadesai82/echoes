@@ -3985,6 +3985,14 @@ html[data-loading='true'] body {
 	font-size: 0.729vw;
 	padding-top: 0.875vh;
 }
+.copyright {
+	position: absolute;
+  font-family: 'Boreal', sans-serif;
+  color: #fff3e6;
+  font-size: 0.729vw;
+  padding-left: 10.4167vw;
+  padding-top: 36vh;
+}
 video {
 	pointer-events: none;
 }
@@ -4314,140 +4322,3 @@ body[data-state='deepdive'] #deepdive-trigger {
 	box-shadow: none;
 }
 
-@media (max-width: 800px) {
-
-  /* ===== WATERMARK FIX ===== */
-  #Echoes_of_Nature {
-    display: none !important;
-  }
-
-  /* ===== TOP SECTION ===== */
-  .urbanlegendsbox1 {
-    width: 90%;
-    margin: 12vh auto 0 auto;
-    text-align: left;
-  }
-
-  .urbanlegendsbox1_1 {
-    font-size: 14px;
-  }
-
-  .urbanlegendsbox1_2 {
-    font-size: 42px;
-    line-height: 1.1;
-  }
-
-  .urbanlegendsbox1_3 {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-top: 12px;
-  }
-
-  /* ===== BIRD ANIMATION CENTERED ===== */
-  .urbanlegendsbird-ani {
-    position: relative;
-    width: 90%;
-    height: auto;
-    margin: 30px auto 0 auto;
-    top: 0;
-    right: 0;
-  }
-
-  /* ===== MAIN CONTENT STACK ===== */
-  .urbanlegendsbox2 {
-    flex-direction: column;
-    width: 90%;
-    height: auto;
-    margin: 30px auto;
-    gap: 25px;
-  }
-
-  /* ===== STORY SELECTOR FULL WIDTH ===== */
-  .selection-box {
-    width: 100%;
-    gap: 12px;
-  }
-
-  .story {
-    width: 100%;
-    font-size: 15px;
-    padding: 14px 18px;
-    border-radius: 30px;
-  }
-
-  /* ===== IMAGE FULL WIDTH ===== */
-  .urbanlegend-img {
-    width: 100%;
-    height: auto;
-  }
-
-  .urbanlegend-img img {
-    width: 100%;
-    height: auto;
-    max-height: 320px;
-  }
-
-  /* ===== TEXT FULL WIDTH ===== */
-  .urbanlegend-text {
-    width: 100%;
-    padding-top: 0;
-  }
-
-  .story_name {
-    font-size: 34px;
-    height: auto;
-  }
-
-  .story_text {
-    font-size: 14px;
-    max-height: none;
-    overflow: visible;
-    padding-right: 0;
-    line-height: 1.7;
-  }
-
-  /* ===== AUDIO PLAYER SCALE ===== */
-  .story-sound {
-    width: 100%;
-    height: auto;
-    margin-top: 25px;
-    justify-content: flex-start;
-  }
-
-  /* ===== GIRL ANIMATION UNDER CONTENT ===== */
-  .urbanlegendgirl-ani {
-    width: 75%;
-    height: auto;
-    margin: 40px auto 0 auto;
-  }
-
-}
-@media (max-width: 1024px) {
-
-  .urbanlegendsbox1 {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .urbanlegendsbox2 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 20px;
-  }
-
-  .story {
-    width: 180px;
-    font-size: 14px;
-  }
-
-  .urbanlegend-text {
-    width: 45%;
-  }
-
-  .urbanlegend-img {
-    width: 45%;
-  }
-
-}

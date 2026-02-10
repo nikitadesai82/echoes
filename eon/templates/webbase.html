@@ -11,10 +11,10 @@
       type="text/css"
       href="{% static 'css/style.css' %}"
     />
-		<link
+    <link
       rel="stylesheet"
       type="text/css"
-			href="{% static 'css/responsive.css' %}"
+      href="{% static 'css/responsive.css' %}"
     />
     <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -27,88 +27,88 @@
 
   <body>
     {% include "partial/background_audio.html" %}
-      <header class="top-nav">
-        <a href="{% url 'home' %}" class="Logo">
-    <img
-      src="{% static 'img/Logo.png' %}"
-      srcset="{% static 'img/Logo@2x.png' %} 2x"
-      alt="Logo"
-    />
-  </a>
+    <header class="top-nav">
+      <a href="{% url 'home' %}" class="Logo">
+        <img
+          src="{% static 'img/Logo.png' %}"
+          srcset="{% static 'img/Logo@2x.png' %} 2x"
+          alt="Logo"
+        />
+      </a>
 
-  <nav class="nav-icons">
-          <a href="{% url 'home' %}" class="hide-on-mobile">
-            <img
-              id="Home_2"
-              src="{% static 'img/icons/Home.png' %}"
-              data-default="{% static 'img/icons/Home.png' %}"
-              data-active="{% static 'img/icons/Home_active.png' %}"
-              alt="Home"
-            />
-          </a>
+      <nav class="nav-icons">
+        <a href="{% url 'home' %}" class="hide-on-mobile">
+          <img
+            id="Home_2"
+            src="{% static 'img/icons/Home.png' %}"
+            data-default="{% static 'img/icons/Home.png' %}"
+            data-active="{% static 'img/icons/Home_active.png' %}"
+            alt="Home"
+          />
+        </a>
 
-          <a href="javascript:history.back()" class="hide-on-mobile">
-            <img
-              id="Back_2"
-              src="{% static 'img/icons/Back.png' %}"
-              data-default="{% static 'img/icons/Back.png' %}"
-              data-active="{% static 'img/icons/Back_active.png' %}"
-              alt="Back"
-            />
-          </a>
+        <a href="javascript:history.back()" class="hide-on-mobile">
+          <img
+            id="Back_2"
+            src="{% static 'img/icons/Back.png' %}"
+            data-default="{% static 'img/icons/Back.png' %}"
+            data-active="{% static 'img/icons/Back_active.png' %}"
+            alt="Back"
+          />
+        </a>
 
-          <a href="#" class="hide-on-mobile">
-            <img
-              id="Audio_On_2"
-              src="{% static 'img/icons/Audio_On.png' %}"
-              data-on="{% static 'img/icons/Audio_On.png' %}"
-              data-on-active="{% static 'img/icons/Audio_On_active.png' %}"
-              data-off="{% static 'img/icons/Audio_off.png' %}"
-              data-off-active="{% static 'img/icons/Audio_off_active.png' %}"
-              alt="Audio Toggle"
-            />
-          </a>
+        <a href="#" class="hide-on-mobile">
+          <img
+            id="Audio_On_2"
+            src="{% static 'img/icons/Audio_On.png' %}"
+            data-on="{% static 'img/icons/Audio_On.png' %}"
+            data-on-active="{% static 'img/icons/Audio_On_active.png' %}"
+            data-off="{% static 'img/icons/Audio_off.png' %}"
+            data-off-active="{% static 'img/icons/Audio_off_active.png' %}"
+            alt="Audio Toggle"
+          />
+        </a>
 
-          <a href="#" id="menuBtn" class="menu-btn">
-            <img
-              id="Menu"
-              src="{% static 'img/icons/Menu.png' %}"
-              data-default="{% static 'img/icons/Menu.png' %}"
-              data-active="{% static 'img/icons/Menu_active.png' %}"
-              alt="Menu"
-            />
-          </a>
+        <a href="#" id="menuBtn" class="menu-btn">
+          <img
+            id="Menu"
+            src="{% static 'img/icons/Menu.png' %}"
+            data-default="{% static 'img/icons/Menu.png' %}"
+            data-active="{% static 'img/icons/Menu_active.png' %}"
+            alt="Menu"
+          />
+        </a>
 
-          <!-- Dropdown Overlay -->
-          <div class="dropdown-mask">
-            <div id="customDropdown" class="dropdown-content">
-              <div class="menu-bg">
-                <a href="{% url 'home' %}" class="menu-item">Home</a>
-                <a href="{% url 'Deepdive' %}" class="menu-item">
-                  Echoes of Nature
-                </a>
-                <a href="{% url 'birds_list' %}" class="menu-item">
-                  Birds of Hiranandani, Thane
-                </a>
-                <a href="{% url 'flora_list' %}" class="menu-item">
-                  Trees of Hiranandani, Thane
-                </a>
-                <a href="{% url 'Naturetrail' %}" class="menu-item">
-                  Nature Trail
-                </a>
-                <a href="{% url 'Birdwatching' %}" class="menu-item">
-                  Birdwatching
-                </a>
-                <a href="{% url 'Urbanlegends' %}" class="menu-item">
-                  Urban Legends
-                </a>
-              </div>
+        <!-- Dropdown Overlay -->
+        <div class="dropdown-mask">
+          <div id="customDropdown" class="dropdown-content">
+            <div class="menu-bg">
+              <a href="{% url 'home' %}" class="menu-item">Home</a>
+              <a href="{% url 'Deepdive' %}" class="menu-item">
+                Echoes of Nature
+              </a>
+              <a href="{% url 'birds_list' %}" class="menu-item">
+                Birds of Hiranandani, Thane
+              </a>
+              <a href="{% url 'flora_list' %}" class="menu-item">
+                Trees of Hiranandani, Thane
+              </a>
+              <a href="{% url 'Naturetrail' %}" class="menu-item">
+                Nature Trail
+              </a>
+              <a href="{% url 'Birdwatching' %}" class="menu-item">
+                Birdwatching
+              </a>
+              <a href="{% url 'Urbanlegends' %}" class="menu-item">
+                Urban Legends
+              </a>
             </div>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
 
-      <div id="Echoes_of_Nature">Echoes of Nature</div>
+    <div id="Echoes_of_Nature">Echoes of Nature</div>
 
     <button id="scrollUpBtn" aria-label="Scroll to top">
       <img
@@ -144,9 +144,7 @@
           <br />
           www.hiranandani.com
         </div>
-        <div class="footerwebcol1_2">
-          © 2026 House of Hiranandani. All rights reserved.
-        </div>
+        
       </div>
       <div class="footerwebcol1">
         <div class="footerwebcol2_1">SITEMAP</div>
@@ -203,8 +201,11 @@
         <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
       </div>
       <div class="footerweb-img4">
-        <img src="{% static 'img/webfooterflower.png' %}" alt="Footer logo" />
+        <img src="{% static 'img/webfooterflower.png' %}" alt="Footer logo" class="hide-on-mobile" />
       </div>
+			<div class="copyright">
+          © 2026 House of Hiranandani. All rights reserved.
+        </div>
     </footer>
     <div class="after-footer-gap"></div>
     <!-- Footer -->
