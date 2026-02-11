@@ -7,12 +7,10 @@
    Default = 4K Design (your style.css)
 ========================================================= */
 
-
 /* =========================================================
    LAPTOP (<1440px)
 ========================================================= */
 @media (max-width: 1440px) {
-
   .top-nav {
     left: 5vw;
     right: 5vw;
@@ -32,12 +30,10 @@
   }
 }
 
-
 /* =========================================================
    TABLET (<1024px)
 ========================================================= */
 @media (max-width: 1024px) {
-
   /* Navbar tighter */
   .top-nav {
     left: 3vw;
@@ -88,12 +84,10 @@
   }
 }
 
-
 /* =========================================================
    MOBILE (<800px)
 ========================================================= */
 @media (max-width: 800px) {
-
   /* Hide desktop-only icons */
   .hide-on-mobile {
     display: none !important;
@@ -114,21 +108,21 @@
   }
 
   /* Dropdown full width */
-	  .dropdown-mask {
+  .dropdown-mask {
     width: 90vw !important;
-    position: absolute;   /* or fixed depending on your layout */
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute; /* or fixed depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
 
-  right: 1vw;
+    right: 1vw;
   }
   .dropdown-content {
     width: 90vw !important;
-    position: absolute;   /* or fixed depending on your layout */
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute; /* or fixed depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
 
-  right: 1vw;
+    right: 1vw;
   }
 
   .menu-item {
@@ -249,11 +243,11 @@
     height: auto;
     margin: 40px auto 0 auto;
   }
-/* ===========================================
+  /* ===========================================
    MOBILE DROPDOWN (≤ 800px)
    Matches XD Layout
 =========================================== */
-.dropdown-mask {
+  .dropdown-mask {
     position: absolute;
     top: 60px;
     height: auto;
@@ -267,10 +261,10 @@
   .dropdown-content {
     opacity: 1;
     width: 220px;
-		height: auto;
+    height: auto;
     border-radius: 22px;
     overflow: hidden;
-		left: 0;
+    left: 0;
     transform: none !important;
   }
 
@@ -279,7 +273,7 @@
     width: 100%;
     background: #802650;
     border-radius: 22px;
-		height: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
   }
@@ -354,7 +348,7 @@
     width: 100%;
     margin: 0;
     height: auto;
-		text-align: left;
+    text-align: left;
   }
 
   /* Footer logo scaling */
@@ -368,7 +362,7 @@
     font-size: 14px;
     line-height: 1.6;
     height: auto;
-		text-align: left;
+    text-align: left;
   }
 
   /* Copyright */
@@ -376,14 +370,14 @@
     font-size: 13px;
     margin-top: 20px;
     height: auto;
-		text-align: left;
+    text-align: left;
   }
 
   /* Sitemap heading */
   .footerwebcol2_1 {
     font-size: 15px;
     margin-bottom: 12px;
-		text-align: left;
+    text-align: left;
   }
 
   /* Sitemap links */
@@ -392,7 +386,7 @@
     font-size: 14px;
     margin-top: 8px;
     height: auto;
-		text-align: left;
+    text-align: left;
   }
 
   /* Disclaimer links */
@@ -400,7 +394,7 @@
   .footerwebcol3 .footerwebcol2_3 {
     font-size: 14px;
     margin-top: 8px;
-		text-align: left;
+    text-align: left;
   }
 
   /* Social icons row */
@@ -408,7 +402,7 @@
     width: 100%;
     gap: 16px;
     margin-top: 15px;
-		justify-content: left;
+    justify-content: left;
   }
 
   .footer-icon {
@@ -428,7 +422,7 @@
     font-size: 14px;
     line-height: 1.5;
     width: 100%;
-		text-align: left;
+    text-align: left;
   }
 
   /* Decorative birds and flowers reposition */
@@ -441,7 +435,7 @@
 
   /* Small bird bottom right */
   .footerweb-img3 {
-		width: 110px;
+    width: 110px;
     right: 20px;
     bottom: 460px;
     margin: 0;
@@ -463,10 +457,10 @@
     bottom: 0;
     margin: 0;
   }
-	.copyright {
-    position: relative;   /* remove absolute */
-    padding: 0;           /* reset desktop padding */
-    margin-top: 25px;     /* spacing from above content */
+  .copyright {
+    position: relative; /* remove absolute */
+    padding: 0; /* reset desktop padding */
+    margin-top: 25px; /* spacing from above content */
 
     font-size: 13px;
     line-height: 1.4;
@@ -474,7 +468,6 @@
     text-align: left;
     width: 100%;
   }
-
 
   .Bird_list_firstbox {
     width: 90%;
@@ -733,9 +726,9 @@
     margin-left: auto;
     flex-direction: column;
     gap: 35px;
-		padding-top: 20px;
-		margin-right: auto;
-		text-align: center;
+    padding-top: 20px;
+    margin-right: auto;
+    text-align: center;
   }
 
   .naturetrailbox5_1 {
@@ -743,7 +736,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-		padding-top: 10px;
+    padding-top: 10px;
   }
 
   .naturetrail-img2 {
