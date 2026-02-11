@@ -115,7 +115,7 @@ a {
 margin-right: 0;
 display: flex;
   align-items: center;
-  gap: clamp(8px, 1vw, 20px);
+  gap: clamp(8px, 0.5vw, 20px);
 }
 .nav-icons img {
 	width: auto;
@@ -220,7 +220,7 @@ display: flex;
 
   will-change: transform, opacity;
   transform: translateZ(0);
-	right: 23.6vw;
+	right: 10.7vw;
 }
 
 
@@ -2735,7 +2735,6 @@ display: inline-flex;
 }
 .naturetrailbox4 {
 	width: 37.8125vw;
-	height: 10.5833vh;
 	margin-left: 31.05208vw;
 	margin-top: 10.25925vh;
 	display: flex;
@@ -3035,7 +3034,7 @@ display: inline-flex;
 }
 .gallery-name {
 	min-height: 2.507vh;
-	font-size: clamp(22, 1.5375vw, 60px);
+	font-size: clamp(22px, 1.5375vw, 60px);
 	color: #bd8e74;
 	font-family: 'Boreal', sans-serif;
 	font-weight: 500;
@@ -3341,7 +3340,7 @@ display: inline-flex;
 	margin-left: clamp(60px, 11.71875vw, 450px);
 	height: 11.482vh;
 	width: 11.97916vw;
-	font-size: clamp(22, 1.5375vw, 60px);
+	font-size: clamp(22px, 1.5375vw, 60px);
 	color: #bd8e74;
 	font-family: 'benton-modern-display', serif;
 	font-style: italic;
@@ -3885,7 +3884,7 @@ html[data-loading='true'] body {
 .footerwebcol2_1 {
 	font-size: clamp(14px, 0.78125vw, 30px);
 	font-family: 'Boreal', sans-serif;
-	font-size: 500;
+	font-weight: 500;
 	color: #fff3e6;
 }
 .footerwebcol2_2 {

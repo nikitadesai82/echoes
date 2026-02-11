@@ -114,9 +114,21 @@
   }
 
   /* Dropdown full width */
+	  .dropdown-mask {
+    width: 90vw !important;
+    position: absolute;   /* or fixed depending on your layout */
+  left: 50%;
+  transform: translateX(-50%);
+
+  right: 1vw;
+  }
   .dropdown-content {
     width: 90vw !important;
-    right: 1vw;
+    position: absolute;   /* or fixed depending on your layout */
+  left: 50%;
+  transform: translateX(-50%);
+
+  right: 1vw;
   }
 
   .menu-item {
@@ -244,9 +256,6 @@
 .dropdown-mask {
     position: absolute;
     top: 60px;
-    right: 16px;
-
-    width: 220px;
     height: auto;
 
     overflow: visible;
@@ -261,7 +270,7 @@
 		height: auto;
     border-radius: 22px;
     overflow: hidden;
-
+		left: 0;
     transform: none !important;
   }
 
@@ -432,17 +441,17 @@
 
   /* Small bird bottom right */
   .footerweb-img3 {
-    width: 45px;
-    right: 30px;
-    bottom: 220px;
+		width: 110px;
+    right: 20px;
+    bottom: 460px;
     margin: 0;
   }
 
   /* Another bird slightly above */
   .footerweb-img2 {
-    width: 55px;
-    right: 50px;
-    bottom: 120px;
+    width: 70px;
+    right: 40px;
+    bottom: 330px;
     margin: 0;
   }
 
@@ -603,14 +612,13 @@
 
   .naturetrailbox3 {
     width: 90%;
-    margin: 60px auto 0 auto;
+    margin: 10px auto 0 auto;
     text-align: center;
   }
 
   .nature-tips {
     width: 220px;
     height: auto;
-    margin-bottom: 20px;
   }
 
   .birdwatching-box-left1 {
@@ -619,7 +627,7 @@
   }
 
   .birdwatching-box-left2 {
-    font-size: 42px;
+    font-size: 36px;
     line-height: 1.1;
     margin-top: 6px;
   }
@@ -659,7 +667,7 @@
 
   .naturetrailbox4 {
     width: 90%;
-    margin: 70px auto 30px auto;
+    margin: 50px auto 30px auto;
     text-align: center;
   }
 
@@ -722,9 +730,12 @@
 
   .naturetrailbox5 {
     width: 90%;
-    margin: 80px auto 0 auto;
+    margin-left: auto;
     flex-direction: column;
     gap: 35px;
+		padding-top: 20px;
+		margin-right: auto;
+		text-align: center;
   }
 
   .naturetrailbox5_1 {
@@ -732,6 +743,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+		padding-top: 10px;
   }
 
   .naturetrail-img2 {
