@@ -100,7 +100,7 @@
     left: 0;
     right: 0;
     padding: 16px 20px;
-    z-index: 999;
+    z-index: 9999;
   }
 
   #Logo {
@@ -253,7 +253,7 @@
     height: auto;
 
     overflow: visible;
-    pointer-events: auto;
+    pointer-events: none;
     z-index: 9999;
   }
 
@@ -842,5 +842,316 @@
 	.bird-box{
 		width: 130px;
 		align-self: center;
+	}
+
+
+  /* -----------------------------
+     BIRD/TREE LIST
+  ----------------------------- */
+
+  /* -----------------------------
+     SECOND SECTION STACKING
+  ----------------------------- */
+  .Bird_list_secondbox {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+    padding: 0 15px;
+  }
+.Bird_list_secondbox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Put Arch-box FIRST */
+  .Arch-box {
+    order: 1;
+  }
+	.Arch-box1{
+		order:1;
+	}
+  /* Filters come AFTER */
+  .filter-ui {
+    order: 3;
+  }
+
+  /* Sort dropdown AFTER filters */
+  .Sort-box {
+    order: 2;
+  }
+	.Sort-box2 {
+    order: 2;
+  }
+
+  /* Bird gallery LAST */
+  .bird-gallery {
+    order: 4;
+  }
+
+  /* Optional: descriptions after gallery */
+  .filter-desc,
+  .filter-desc-right {
+    order: 5;
+  }
+  /* -----------------------------
+     FILTER UI MOBILE
+  ----------------------------- */
+  .filter-ui {
+    width: 100%;
+    margin: 0;
+  }
+
+  .filter-dropdowns {
+		justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    height: 28px;
+    border-radius: 13px;
+    width: auto;
+  }
+
+  .filter-toggle {
+    width: 30%;
+    min-width: auto;
+    font-size: 13px;
+    padding: 0px 0px;
+    border-radius: 20px;
+  }
+	.filter-toggle:hover {
+    padding: 0px 0px;
+    border-radius: 20px;
+  background: #802650;
+}
+	.filter-toggle.open {
+  border: 0.2px solid #a4a1a1;
+  border-radius: 20px;
+  padding: 0px 0px;
+  background: #ede4d8;
+  color: #4d4a4a;
+}
+  .filter-options {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 20px 0px 10px 0px;
+  }
+	.filter-toggle .arrow{
+		height: 7px;
+		width: 7px;
+	}
+	.filter-toggle .arrow::after{
+		height: 7px;
+		width: 7px;
+	}
+  #selectedFilters {
+    height: auto;
+    margin-top: 12px;
+  }
+
+  .selected-chip {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 20px;
+		border: 1px solid #a4a1a1;
+		margin: 0;
+  }
+	.selected-chip span {
+  margin-top: 0.1rem;
+}
+
+  /* -----------------------------
+     REMOVE DESKTOP ABSOLUTE TEXT
+  ----------------------------- */
+  .filter-desc,
+  .filter-desc-right {
+    position: static;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 13px;
+    width: 100%;
+  }
+
+  /* -----------------------------
+     ARCH VIDEO MOBILE
+  ----------------------------- */
+  .Arch-box {
+    width: 100%;
+    height: auto;
+    margin: 25px 0px 0px 0px ;
+  }
+
+  .Arch-box video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+	.Arch-box1 {
+    width: 100%;
+    height: auto;
+    margin: 25px 0px 0px 0px ;
+  }
+
+  .Arch-box1 video {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  /* -----------------------------
+     SORT DROPDOWN MOBILE
+  ----------------------------- */
+  .Sort-box {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 30px;
+    max-height: 52px;
+  }
+
+  .sort-header {
+    padding: 16px 16px;
+  }
+	.Sort-box.open {
+		height: 182px;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+    max-height: 182px;
+}
+  .Sort-box2 {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 30px;
+    max-height: 52px;
+  }
+	.Sort-box2.open {
+		height: 92px;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+    max-height: 182px;
+}
+.dropdown-menu{
+	margin-top: 0;
+}
+.arrow{
+	height: 7px;
+	width: 7px;
+}
+.arrow::after{
+	height: 7px;
+	width: 7px;
+}
+  /* -----------------------------
+     BIRD GALLERY MOBILE GRID
+  ----------------------------- */
+  .bird-gallery {
+    width: 100%;
+    margin: 0;
+    margin-top: 25px;
+
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .bird-item {
+    padding-top: 10px;
+  }
+
+  .info-video {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  .bird-name {
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* -----------------------------
+     EMPTY RESULTS MESSAGE
+  ----------------------------- */
+  .no-results {
+    width: 100%;
+    font-size: 16px;
+    padding: 20px;
+  }
+
+
+  /* -----------------------------------
+     TREE?BIRD MAIN PAGE
+  ----------------------------------- */
+
+  .Birdpage-firstbox{
+		width: 90%;
+    margin: 12vh auto 0 auto;
+	}
+	.tree-desktop-only {
+    display: none;
+  }
+
+  .tree-mobile-only {
+    display: block;
+		width: 90%;
+    margin: 20px auto 0 auto;
+  }
+	.Bird_namebox {
+  width: 100%;
+    margin: 0 auto 0 auto;
+		padding: 0;
+}
+	.tree-mobile-toprow {
+    display: flex;
+    justify-content: space-between;
+    gap: 6vw;
+  }
+	.Info-title{
+		font-size: 16px;
+	}
+	.Info-detail{
+		height: auto;
+		min-height: 0;
+		font-size: 28px;
+		width:auto;
+	}
+	.Info-detail-text2{
+		width:auto;
+	}
+
+  .tree-mobile-origin,
+  .tree-mobile-height {
+    width: 48%;
+  }
+
+  .tree-mobile-image {
+    text-align: center;
+    margin: 6vh 0;
+  }
+
+  .tree-mobile-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .tree-mobile-photo {
+    text-align: center;
+    margin-bottom: 6vh;
+  }
+
+  .tree-mobile-photo img {
+    width: 40px;
+  }
+
+  .tree-mobile-range,
+  .tree-mobile-status {
+    padding: 0 8vw;
+    margin-top: 6vh;
+  }
+	.Tree-base{
+		width:200px;
+	}
+	.tree-bottom-box{
+		width:90%;
+		margin:auto;
 	}
 }

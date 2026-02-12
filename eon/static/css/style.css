@@ -1168,7 +1168,6 @@ position: fixed;
 
 .chip-close {
 	font-size: clamp(14px, 0.5vw, 18px);
-	font-weight: bold;
 	color: #333;
 	cursor: pointer;
 	display: inline-block;
@@ -1487,6 +1486,13 @@ font-family: 'Boreal', sans-serif;
 }
 
 /* --- Tree Page --- */
+	.tree-desktop-only {
+    display: block;
+  }
+
+  .tree-mobile-only {
+    display: none;
+  }
 .Tree-basicinfo {
 	display: flex;
 	flex-direction: row;
