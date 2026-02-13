@@ -959,6 +959,20 @@ position: fixed;
 	margin-left: 1vw;
 	height: 21vh;
 }
+.doyouknow-text1 {
+	width: 24.115vw;
+	font-family: 'Boreal', sans-serif;
+	font-size: clamp(20px, 1.09375vw, 42px);
+
+	color: #bd8e74;
+	z-index: 2;
+	font-style: normal;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-left: 1vw;
+	height: 21vh;
+}
 .doyouknow-detail {
 	width: 23.9vw;
 	height: 10vh;

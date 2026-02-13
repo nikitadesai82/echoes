@@ -753,31 +753,31 @@
 
   .naturetrail-text1 {
     font-size: 14px;
-		width: 100%;
-		justify-content: center;
+    width: 100%;
+    justify-content: center;
   }
 
   .naturetrail-text2 {
     font-size: 42px;
     line-height: 1.1;
     margin-top: 6px;
-		width: 100%;
-		text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   .naturetrail-text3 {
     font-size: 14px;
     margin-top: 10px;
-		width: 100%;
-		text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   .naturetrail-text4 {
     font-size: 14px;
     line-height: 1.6;
     margin-top: 14px;
-		width: 100%;
-		text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
   /* CTA button full width */
@@ -794,56 +794,55 @@
     display: none !important;
   }
 
-	  /* =========================================
+  /* =========================================
      BIRDWATCHING
   ========================================= */
-	.birdwatching-firstlayer{
-		width:90%;
-		margin: 50px auto 30px auto;
-    text-align: center;
-		display: flex;
-		flex-direction: column;
-	}
-	.firstlayer-col{
-		width: 100%;
-		text-align: center;
-	}
-	.stop-image{
-		width: 250px;
-		height: 250px;
-		align-self: center;
-	}
-	.birdwatching-box{
-		width: 90%;
+  .birdwatching-firstlayer {
+    width: 90%;
     margin: 50px auto 30px auto;
     text-align: center;
-		display: flex;
-		flex-direction: column;
-		padding-top:10px;
-	}
-	.naturetrail-img{
-		width: 130px;
+    display: flex;
+    flex-direction: column;
+  }
+  .firstlayer-col {
+    width: 100%;
+    text-align: center;
+  }
+  .stop-image {
+    width: 250px;
+    height: 250px;
+    align-self: center;
+  }
+  .birdwatching-box {
+    width: 90%;
+    margin: 50px auto 30px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .naturetrail-img {
+    width: 130px;
     height: auto;
     margin: auto;
-	}
-	.naturetrail-text{
-		width: 100%;
+  }
+  .naturetrail-text {
+    width: 100%;
     margin-top: 10px;
     text-align: left;
-	}
-	.birdwatching-bottombox{
-		width: 90%;
+  }
+  .birdwatching-bottombox {
+    width: 90%;
     margin: 50px auto 30px auto;
     text-align: center;
-		display: flex;
-		flex-direction: column;
-		padding-top:10px;
-	}
-	.bird-box{
-		width: 130px;
-		align-self: center;
-	}
-
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .bird-box {
+    width: 130px;
+    align-self: center;
+  }
 
   /* -----------------------------
      BIRD/TREE LIST
@@ -858,7 +857,7 @@
     margin-top: 25px;
     padding: 0 15px;
   }
-.Bird_list_secondbox {
+  .Bird_list_secondbox {
     display: flex;
     flex-direction: column;
   }
@@ -867,9 +866,9 @@
   .Arch-box {
     order: 1;
   }
-	.Arch-box1{
-		order:1;
-	}
+  .Arch-box1 {
+    order: 1;
+  }
   /* Filters come AFTER */
   .filter-ui {
     order: 3;
@@ -879,7 +878,7 @@
   .Sort-box {
     order: 2;
   }
-	.Sort-box2 {
+  .Sort-box2 {
     order: 2;
   }
 
@@ -902,7 +901,7 @@
   }
 
   .filter-dropdowns {
-		justify-content: flex-start;
+    justify-content: flex-start;
     gap: 10px;
     flex-wrap: wrap;
     height: 28px;
@@ -917,31 +916,31 @@
     padding: 0px 0px;
     border-radius: 20px;
   }
-	.filter-toggle:hover {
+  .filter-toggle:hover {
     padding: 0px 0px;
     border-radius: 20px;
-  background: #802650;
-}
-	.filter-toggle.open {
-  border: 0.2px solid #a4a1a1;
-  border-radius: 20px;
-  padding: 0px 0px;
-  background: #ede4d8;
-  color: #4d4a4a;
-}
+    background: #802650;
+  }
+  .filter-toggle.open {
+    border: 0.2px solid #a4a1a1;
+    border-radius: 20px;
+    padding: 0px 0px;
+    background: #ede4d8;
+    color: #4d4a4a;
+  }
   .filter-options {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 20px 0px 10px 0px;
   }
-	.filter-toggle .arrow{
-		height: 7px;
-		width: 7px;
-	}
-	.filter-toggle .arrow::after{
-		height: 7px;
-		width: 7px;
-	}
+  .filter-toggle .arrow {
+    height: 7px;
+    width: 7px;
+  }
+  .filter-toggle .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
   #selectedFilters {
     height: auto;
     margin-top: 12px;
@@ -951,12 +950,12 @@
     font-size: 12px;
     padding: 6px 12px;
     border-radius: 20px;
-		border: 1px solid #a4a1a1;
-		margin: 0;
+    border: 1px solid #a4a1a1;
+    margin: 0;
   }
-	.selected-chip span {
-  margin-top: 0.1rem;
-}
+  .selected-chip span {
+    margin-top: 0.1rem;
+  }
 
   /* -----------------------------
      REMOVE DESKTOP ABSOLUTE TEXT
@@ -977,7 +976,7 @@
   .Arch-box {
     width: 100%;
     height: auto;
-    margin: 25px 0px 0px 0px ;
+    margin: 25px 0px 0px 0px;
   }
 
   .Arch-box video {
@@ -985,10 +984,10 @@
     height: auto;
     border-radius: 12px;
   }
-	.Arch-box1 {
+  .Arch-box1 {
     width: 100%;
     height: auto;
-    margin: 25px 0px 0px 0px ;
+    margin: 25px 0px 0px 0px;
   }
 
   .Arch-box1 video {
@@ -1010,35 +1009,35 @@
   .sort-header {
     padding: 16px 16px;
   }
-	.Sort-box.open {
-		height: 182px;
+  .Sort-box.open {
+    height: 182px;
     border-radius: 25px;
     transition-duration: 0.3s;
     max-height: 182px;
-}
+  }
   .Sort-box2 {
     width: 100%;
     margin: 0px 0px 20px 0px;
     border-radius: 30px;
     max-height: 52px;
   }
-	.Sort-box2.open {
-		height: 92px;
+  .Sort-box2.open {
+    height: 92px;
     border-radius: 25px;
     transition-duration: 0.3s;
     max-height: 182px;
-}
-.dropdown-menu{
-	margin-top: 0;
-}
-.arrow{
-	height: 7px;
-	width: 7px;
-}
-.arrow::after{
-	height: 7px;
-	width: 7px;
-}
+  }
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  .arrow {
+    height: 7px;
+    width: 7px;
+  }
+  .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
   /* -----------------------------
      BIRD GALLERY MOBILE GRID
   ----------------------------- */
@@ -1077,46 +1076,50 @@
     padding: 20px;
   }
 
-
   /* -----------------------------------
      TREE?BIRD MAIN PAGE
   ----------------------------------- */
 
-  .Birdpage-firstbox{
-		width: 90%;
+  .Birdpage-firstbox {
+    width: 90%;
     margin: 12vh auto 0 auto;
-	}
-	.tree-desktop-only {
+  }
+  .tree-desktop-only {
     display: none;
   }
 
   .tree-mobile-only {
     display: block;
-		width: 90%;
+    width: 90%;
     margin: 20px auto 0 auto;
   }
-	.Bird_namebox {
-  width: 100%;
+  .Bird_namebox {
+    width: 100%;
     margin: 0 auto 0 auto;
-		padding: 0;
-}
-	.tree-mobile-toprow {
+    padding: 0;
+  }
+  .tree-mobile-toprow {
     display: flex;
     justify-content: space-between;
     gap: 6vw;
   }
-	.Info-title{
-		font-size: 16px;
-	}
-	.Info-detail{
-		height: auto;
-		min-height: 0;
-		font-size: 28px;
-		width:auto;
-	}
-	.Info-detail-text2{
-		width:auto;
-	}
+  .Info-title {
+    font-size: 16px;
+    width: auto;
+  }
+  .Info-detail {
+    height: auto;
+    min-height: 0;
+    font-size: 28px;
+    width: auto;
+  }
+  .Info-detail-text2 {
+    width: auto;
+  }
+  .bird-map {
+    width: auto;
+    height: auto;
+  }
 
   .tree-mobile-origin,
   .tree-mobile-height {
@@ -1144,14 +1147,264 @@
 
   .tree-mobile-range,
   .tree-mobile-status {
-    padding: 0 8vw;
-    margin-top: 6vh;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
   }
-	.Tree-base{
-		width:200px;
-	}
-	.tree-bottom-box{
-		width:90%;
-		margin:auto;
-	}
+  .Tree-base {
+    margin-top: -120px;
+    margin-left: -20px;
+  }
+  .tree-bottom-box {
+    width: 90%;
+    margin: auto;
+  }
+  .conservation-svg {
+    width: 100%;
+    height: auto;
+  }
+  .treebottom {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto 0 auto;
+  }
+  .tree_secondimg {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+  .treebottom-text {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(189, 142, 116, 0.35);
+
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* Title stays visible */
+  .treebottom-text .Bottom-Info-title {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #bd8e74;
+  }
+
+  /* Hide the foliage text by default */
+  .treebottom-text .Info-detail-text5 {
+    display: none;
+  }
+
+  /* Add + icon */
+  .treebottom-text::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 18px;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #bd8e74;
+  }
+
+  /* OPEN STATE */
+  .treebottom-text.open .Info-detail-text5 {
+    display: block;
+    margin-top: 12px;
+
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4d4a4a;
+  }
+
+  .treebottom-text.open::after {
+    content: "−";
+  }
+  .Info-detail-text5 {
+    min-height: 0;
+  }
+  .tree-bottom-box,
+  .bottom-box2 {
+    width: 90%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: auto;
+    max-height: none;
+    padding: 0;
+  }
+
+  /* EACH SECTION ROW */
+  .bottom-box-col2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(189, 142, 116, 0.35);
+
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* HIDE ICONS (XD HAS NONE) */
+  .bottom-box-icon {
+    display: none;
+  }
+
+  /* TITLE ROW STYLE */
+  .Bottom-Info-title {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #bd8e74;
+  }
+
+  /* HIDE TEXT BY DEFAULT */
+  .Info-detail-text4 {
+    display: none;
+  }
+
+  /* HIDE READ MORE BUTTON */
+  .read-more-btn {
+    display: none;
+  }
+
+  /* PLUS ICON ON RIGHT SIDE */
+  .bottom-box-col2::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 18px;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #bd8e74;
+  }
+
+  /* OPEN STATE (WHEN CLICKED) */
+  .bottom-box-col2.open .Info-detail-text4 {
+    display: block;
+    margin-top: 12px;
+    max-height: none;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4d4a4a;
+  }
+
+  .bottom-box-col2.open::after {
+    content: "−";
+  }
+  .birdpage-link {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    z-index: 5;
+  }
+  .bird-watch-link {
+    width: 100%;
+    height: 52px;
+    border-radius: 30px;
+    font-size: 14px;
+  }
+  .bird-bottombox {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    height: auto;
+  }
+  .bird-bootombox-col {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff3e6;
+    border-radius: 1.5vw;
+  }
+  .doyouknow {
+    display: flex;
+    flex-direction: column;
+  }
+  .doyouknowimg {
+    width: 130px;
+    height: auto;
+    margin: auto;
+  }
+  .earthchallenge-text {
+    width: 100%;
+    text-align: center;
+  }
+  .doyouknow-text {
+    width: 100%;
+    text-align: center;
+  }
+  .doyouknow-detail {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    min-height: 0;
+  }
+  .bird-bootombox-border {
+    width: 100%;
+    text-align: center;
+    margin-top: -40px;
+  }
+  .radio-container {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    height: auto;
+  }
+  .radio-container label {
+    width: 100%;
+    margin: auto;
+		text-align: left;
+    align-items: baseline;
+  }
+  .custom-radio {
+    width: 12px;
+    height: 12px;
+  }
+  .radio-container input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+  }
+  .mcq-submit {
+    margin: 15px 0 0 5px;
+    width: 120px;
+  }
+  .doyouknow-text1 {
+    width: 100%;
+    text-align: center;
+    height: 230px;
+  }
+	.mcq-video2 {
+  display: table-row-group;
+	width: 60px;
+    border-radius: 1rem;
+    margin-left: 150px;
+    margin-top: 175px;
+}
+.Bird-basicinfo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+
+  width: 100%;
+  margin-top: 20px;
+}
 }
