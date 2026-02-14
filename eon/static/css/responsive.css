@@ -1,88 +1,3 @@
-/* =========================================================
-   RESPONSIVE.CSS (Overrides Only)
-   Breakpoints:
-   - Laptop  <1440px
-   - Tablet  <1024px
-   - Mobile  <800px
-   Default = 4K Design (your style.css)
-========================================================= */
-
-/* =========================================================
-   LAPTOP (<1440px)
-========================================================= */
-@media (max-width: 1440px) {
-  .top-nav {
-    left: 5vw;
-    right: 5vw;
-  }
-
-  #Logo {
-    width: 160px;
-  }
-
-  #Echoes_of_Nature {
-    font-size: 11vw;
-  }
-
-  .footerweb {
-    width: 95%;
-    margin: auto;
-  }
-}
-
-/* =========================================================
-   TABLET (<1024px)
-========================================================= */
-@media (max-width: 1024px) {
-  /* Navbar tighter */
-  .top-nav {
-    left: 3vw;
-    right: 3vw;
-  }
-
-  .nav-icons {
-    gap: 1vw;
-  }
-
-  /* Dropdown becomes bigger */
-  .dropdown-content {
-    width: 220px;
-  }
-
-  .menu-item {
-    font-size: 14px;
-  }
-
-  /* Footer stacks */
-  .footerweb {
-    flex-direction: column;
-    align-items: center;
-    padding: 5vh 5vw;
-    height: auto;
-    gap: 4vh;
-    text-align: center;
-  }
-
-  .footerwebcol1,
-  .footerwebcol2,
-  .footerwebcol3,
-  .footerwebcol4 {
-    width: 90%;
-    margin: 0;
-    height: auto;
-  }
-
-  .footer-icons {
-    justify-content: center;
-  }
-
-  /* Hide decorative absolute images */
-  .footerweb-img2,
-  .footerweb-img3,
-  .footerweb-img4 {
-    display: none;
-  }
-}
 
 /* =========================================================
    MOBILE (<800px)
@@ -1254,6 +1169,17 @@
     position: relative;
     cursor: pointer;
   }
+	.bottom-box-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(189, 142, 116, 0.35);
+
+    position: relative;
+    cursor: pointer;
+  }
 
   /* HIDE ICONS (XD HAS NONE) */
   .bottom-box-icon {
@@ -1273,6 +1199,9 @@
 
   /* HIDE TEXT BY DEFAULT */
   .Info-detail-text4 {
+    display: none;
+  }
+ .Info-detail-text3 {
     display: none;
   }
 
@@ -1304,6 +1233,30 @@
   }
 
   .bottom-box-col2.open::after {
+    content: "−";
+  }
+	  .bottom-box-col::after {
+    content: "+";
+    position: absolute;
+    right: 0;
+    top: 18px;
+
+    font-size: 20px;
+    font-weight: 400;
+    color: #bd8e74;
+  }
+
+  /* OPEN STATE (WHEN CLICKED) */
+  .bottom-box-col.open .Info-detail-text3 {
+    display: block;
+    margin-top: 12px;
+    max-height: none;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4d4a4a;
+  }
+
+  .bottom-box-col.open::after {
     content: "−";
   }
   .birdpage-link {
@@ -1400,11 +1353,108 @@
     margin-top: 175px;
 }
 .Bird-basicinfo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
 
-  width: 100%;
-  margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .Info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .Info-detail-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4d4a4a;
+		width: 100%;
+  }
+	 .Birdpage-secondbox {
+    flex-direction: column;
+		width: 90%;
+    margin: auto;
+		height: auto;
+  }
+
+  .anim-box { order: 1;
+	width: 100%;
+    height: auto; }
+  .geo-box  { order: 3; 
+	width: 100%;
+    height: auto;
+	padding-top: 20px;}
+  .media-box { order: 2;
+	width: 100%;
+    height: auto; }
+  .status-box { order: 4; 
+	width: 100%;
+    height: auto;
+	padding-top: 20px;}
+.birdanimationbox{
+	width: 100%;
+    height: auto;
+    margin: 0;
 }
+.media-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* even spacing like XD */
+    align-items: flex-start;
+    margin-top: 30px;
+    gap: 0;
+  }
+
+  /* Each media item */
+  .media-box1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center icon + text */
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Icon wrapper */
+  .media-box1 .icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Icon image */
+  .media-box1 img {
+    width: 60px;   /* XD size */
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Text under icon */
+  .media-head {
+    font-size: 16px;
+    font-family: "Boreal", sans-serif;
+    color: #4d4a4a;
+    font-weight: 400;
+  }
+	.Info-detail-text6{
+		height: auto;
+    min-height: 0;
+    width: auto;
+	}
+	.bottom-box{
+		width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: auto;
+    max-height: none;
+    padding: 20px 0 0 0;
+	}
 }
