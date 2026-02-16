@@ -1717,13 +1717,6 @@ font-family: 'Boreal', sans-serif;
 	object-fit: contain;
 }
 
-.bg-prev {
-	left: 20px;
-}
-
-.bg-next {
-	right: 20px;
-}
 
 .deepdive-bg img {
 	width: 100%;
@@ -1740,7 +1733,12 @@ font-family: 'Boreal', sans-serif;
 	width: 100vw;
 	min-height: 90vh;
 	z-index: 1;
-	padding-top: 100vh;
+	padding-top: 91vh;
+	flex-direction: column;
+}
+.deepdivefirstbox{
+	display: flex;
+	flex-direction: row;
 }
 
 .left-section {
@@ -1749,7 +1747,6 @@ font-family: 'Boreal', sans-serif;
 	flex-direction: column;
 	height: auto;
 	margin-left: 11.208vw;
-	top: -12rem;
 	position: relative;
 }
 .left-section2 {
@@ -1766,8 +1763,14 @@ font-family: 'Boreal', sans-serif;
 	width: 37.8125vw;
 	height: 100%;
 	margin-left: 2.25vw;
-	top: -9.9rem;
+	top: 2rem;
 	position: relative;
+}
+.deepdive-secondbox{
+	display: flex;
+	flex-direction: row;
+	margin-left: 31.09375vw;
+	margin-top: 6.66vh;
 }
 .right-section2 {
 	display: flex;
@@ -1794,7 +1797,7 @@ font-family: 'Boreal', sans-serif;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
 	display: flex;
-	font-size: clamp(18px, 0.83vw, 32px);
+	font-size: clamp(14px, 0.83vw, 32px);
 	color: #bd8e74;
 	font-style: italic;
 	align-items: center;
@@ -1807,7 +1810,7 @@ font-family: 'Boreal', sans-serif;
 	height: auto;
 	font-family: 'benton-modern-display', serif;
 	display: flex;
-	font-size: clamp(48px, 4.6875vw, 180px);
+	font-size: clamp(56px, 4.6875vw, 180px);
 
 	color: #bd8e74;
 	font-style: italic;
@@ -1846,7 +1849,7 @@ font-family: 'Boreal', sans-serif;
 }
 
 .play-button img {
-	width: 2vw;
+	width: 100%;
 	cursor: pointer;
 }
 #baseWave line {
@@ -1886,7 +1889,7 @@ font-family: 'Boreal', sans-serif;
 	mix-blend-mode: multiply;
 }
 .left_4 {
-	margin-left: 19.375vw;
+	
 	display: flex;
 	flex-direction: column;
 	width: 17.708vw;
@@ -1897,7 +1900,6 @@ font-family: 'Boreal', sans-serif;
 	line-height: 1.5;
 	font-style: italic;
 	justify-content: center;
-	margin-top: 4vh;
 }
 .bird-video {
 	width: 11.97916vw;
@@ -1964,7 +1966,7 @@ display: inline-flex;
   font-family: 'Boreal', sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: clamp(18px, 0.93vw, 36px);
+  font-size: clamp(11px, 0.93vw, 36px);
 
   color: #fff;
   cursor: pointer;
@@ -2002,8 +2004,8 @@ display: inline-flex;
 	font-family: 'Boreal', sans-serif;
 	font-size: clamp(13px, 0.73vw, 28px);
 	color: #4d4a4a;
-	margin-left: 19.375vw;
 	margin-top: 1.04166vh;
+	text-wrap: auto;
 }
 
 .right_1 {
@@ -2019,7 +2021,7 @@ display: inline-flex;
 .right_2 {
 	margin-top: 0.9375vh;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(20px, 1.09375vw, 42px);
+	font-size: clamp(17px, 1.09375vw, 42px);
 
 	color: #4d4a4a;
 	line-height: 1.5;
@@ -2036,7 +2038,7 @@ display: inline-flex;
 	line-height: 1.5;
 	font-style: italic;
 	justify-content: center;
-	margin-top: 5.2vh;
+	margin-left: 2.25vw;
 }
 .right_4 {
 	width: 17.708vw;
@@ -2045,12 +2047,12 @@ display: inline-flex;
 	font-size: clamp(13px, 0.73vw, 28px);
 	color: #4d4a4a;
 	margin-top: 1.04166vh;
+	text-wrap: auto;
 }
 .middle-section {
 	position: relative;
 	width: 100vw;
 	overflow: hidden;
-	margin-top: -11vh;
 }
 .fog-bg {
 	position: absolute;
@@ -2107,7 +2109,7 @@ display: inline-flex;
 	flex-direction: column;
 	height: auto;
 	font-family: 'benton-modern-display', serif;
-	font-size: clamp(42px, 3.9vw, 150px);
+	font-size: clamp(56px, 3.9vw, 150px);
 
 	color: #bd8e74;
 	font-style: italic;
@@ -2277,7 +2279,7 @@ display: inline-flex;
 .deepdive-container2 {
 	display: flex;
 	flex-direction: row;
-	height: 82vh;
+	height: auto;
 	padding-top: 2vh;
 }
 .naturetrail-text1 {
@@ -3620,7 +3622,7 @@ display: inline-flex;
 }
 .right-text {
 	width: 11.979vw;
-	font-size: clamp(19px, 0.9375vw, 36px);
+	font-size: clamp(12px, 0.9375vw, 36px);
 	margin-top: 18.8426vh;
 	margin-left: 49.8vw;
 	color: #bd8e74;

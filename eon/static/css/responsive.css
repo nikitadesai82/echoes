@@ -702,6 +702,7 @@
     border-radius: 30px;
     font-size: 14px;
     margin-top: 18px;
+		margin-left: 0;
   }
 
   /* Hide right-side girl video on mobile */
@@ -1303,12 +1304,13 @@
   .doyouknow-text {
     width: 100%;
     text-align: center;
+		height: auto;
   }
   .doyouknow-detail {
     width: 100%;
     text-align: center;
     height: auto;
-    min-height: 0;
+    min-height: 130px;
   }
   .bird-bootombox-border {
     width: 100%;
@@ -1337,20 +1339,28 @@
     height: 12px;
   }
   .mcq-submit {
-    margin: 15px 0 0 5px;
+    margin: 7px 0 0 5px;
     width: 120px;
   }
   .doyouknow-text1 {
     width: 100%;
     text-align: center;
-    height: 230px;
+    min-height: 240px;
+		height: auto;
   }
 	.mcq-video2 {
   display: table-row-group;
 	width: 60px;
     border-radius: 1rem;
     margin-left: 150px;
-    margin-top: 175px;
+    margin-top: 187px;
+}
+	.mcq-video {
+  display: table-row-group;
+	width: 60px;
+    border-radius: 1rem;
+    margin-left: 150px;
+    margin-top: -177px;
 }
 .Bird-basicinfo-grid {
     display: grid;
@@ -1457,4 +1467,256 @@
     max-height: none;
     padding: 20px 0 0 0;
 	}
+
+
+	/* -----------------------------------
+     DEEPDIVE PAGE
+  ----------------------------------- */
+
+	.deepdivefirstbox{
+		width: 90%;
+    margin: 10px auto 0 auto;
+		display:flex ;
+		flex-direction: column;
+	}
+	.left-section{
+		width: 100%;
+		margin: auto;
+	}
+	.echoes-flower {
+  width: 150px;
+  height: 150px;
+}
+.left_3 {
+  width: 100%;
+  margin:auto;
+  padding-top:20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.right-section {
+  width:100%;
+  height: 100%;
+  margin:auto;
+}
+.deepdive-secondbox {
+  display: flex;
+  flex-direction: column;
+  margin:auto;
+	width:90%;
+}
+.left_4 {
+  width:100%;
+	height: auto;
+	padding-top: 50px;
+}
+.bird-video {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+.video-text {
+  width:100%;
+	height: auto;
+	font-size: 11px;
+}
+.video-text-3{
+	width:100%;
+	height: auto;
+}
+.left_5{
+	width:100%;
+	height: auto;
+	padding-top: 10px;
+}
+.right_3 {
+  width:100%;
+	height: auto;
+	padding-top: 50px;
+	margin: auto;
+}
+.right_4{
+	width:100%;
+	height: auto;
+	padding-top: 10px;
+}
+.hiranandani-box {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+	margin-top: 20px;
+	height: auto;
+}
+.hiranandani-img-box{
+	width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+.hiranandani-text-box {
+  width: 100%;
+  margin:auto;
+	text-align: center;
+}
+.hiranandani-text-1 {
+  margin:auto;
+	padding-top: 10px;
+}
+.hiranandani-text-4 {
+  height: auto;
+  margin-top: 10px;
+}
+.deepdive-container2 {
+  width: 90%;
+	margin: auto;
+  height: auto;
+  padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+}
+.left-section2 {
+  width: 100%;
+  margin-left: auto;
+	height: auto;
+}
+.left_6 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.naturetrail-imgblock{
+	width: 130px;
+    height: auto;
+    margin: auto;
+}
+.naturetrail-textblock {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+	height: auto;
+}
+.left_7 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+	padding-top: 30px;
+	margin: auto;
+}
+.right-section2 {
+  width: 100%;
+  margin-left: auto;
+	height: auto;
+}
+.right_5 {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+	padding-top: 30px;
+}
+/* -----------------------------------
+     HOME PAGE
+  ----------------------------------- */
+
+.home-container {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.center-container {
+  position:initial;
+  width: 100%;
+  height: auto;
+	order:1;
+}
+.portal-mask {
+position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 70px auto;
+}
+.animation-box {
+margin: 118px 0px auto 70px;
+}
+.animation-inner {
+height: 210px;
+    width: 195px;
+    margin: 0;
+    margin-left: 0px;
+    margin-left: 30%;
+}
+.home-ui{
+	display: flex;
+  flex-direction: column;
+	order: 2;
+}
+.right-text{
+width: 46%;
+    margin-top: 330px;
+    margin-left: 46%;
+    line-height: 12px;
+		font-size: 10px;
+}
+.home-ui2{
+	order: 1;
+}
+.birdspagelink {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0.46875vw;
+  margin:540px auto auto auto;
+	margin-left: 50%;
+  position: absolute;
+}
+.treespagelink {
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 0.46875vw;
+  margin:540px auto auto auto;
+  position: absolute;
+}
+.deepdive-link{
+	margin: 212px auto auto auto;
+    margin-left: auto;
+    margin-left: 39%;
+    width: 20%;
+    font-size: 6px;
+    max-height: 16px;
+    border-radius: 32px;
+}
+.left-text {
+margin: 40px 20px auto 20px;
+    height: auto;
+    width: 50%;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 23px;
+}
+.treebox {
+  width: 100%;
+  height: auto;
+}
+.birdspagelink_1 {
+  width: 125px;
+    height: auto;
+}
+.video-text-2{
+width: 90%;
+    margin: 5px 0px 10px 0px;
+    border-radius: 30px;
+    height: 35px;
+		font-size: 11px;
+}
 }
