@@ -1716,7 +1716,13 @@ font-family: 'Boreal', sans-serif;
 	margin-left: 1vw;
 	object-fit: contain;
 }
+.bg-prev {
+	left: 20px;
+}
 
+.bg-next {
+	right: 20px;
+}
 
 .deepdive-bg img {
 	width: 100%;
@@ -3019,7 +3025,7 @@ display: inline-flex;
 	transform: scaleX(-1);
 }
 .gallery-mainbox {
-	position: absolute;
+	position: relative;
 	width: 100vw;
 	display: flex;
 	flex-direction: row;
@@ -3056,7 +3062,7 @@ display: inline-flex;
 }
 .gallery-name {
 	min-height: 2.507vh;
-	font-size: clamp(22px, 1.5375vw, 60px);
+	font-size: clamp(22px, 1.5375vw, 56px);
 	color: #bd8e74;
 	font-family: 'Boreal', sans-serif;
 	font-weight: 500;
@@ -3855,6 +3861,7 @@ html[data-loading='true'] body {
 	margin-top: 9vh;
 	border-radius: 3.64583vw;
 	position: relative;
+	z-index: 999;
 }
 .footerweb-img {
 	margin-top: 11.713vh;
@@ -4030,6 +4037,11 @@ video {
 .custom-video-controls {
 	pointer-events: auto;
 }
+.playPauseBtn {
+  width: clamp(38px, 4vw, 60px);
+  height: clamp(38px, 4vw, 60px);
+}
+
 .custom-video-controls {
 	display: flex;
 	align-items: center;

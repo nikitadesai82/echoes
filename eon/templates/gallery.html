@@ -1,656 +1,650 @@
 {% extends "webbase.html" %} {% load static %} {% block overlay_content %}
 <script>
-	document.documentElement.classList.remove('loading');
+  document.documentElement.classList.remove("loading");
 </script>
 <div class="gallery-mainbox">
-	<div class="gallery-box4">
-		<div class="gallery-box4_1">
-		<div class="Scientific_name">
-		
-			{% if bird %} SCIENTIFIC NAME:{{ bird.Bird_Scientific_Name }} {% elif flora %} 
-			BOTANICAL NAME:
-			{{ flora.Flora_Botanical_Name }} {% endif %} 
-		</div>
-			<div class="gallery-name">
-				<div class="gallery-name">
-					{% if bird %} {{ bird.Bird_Name|upper }} {% elif flora %} {{ flora.Flora_Name|upper }} {% endif %}
-				</div>
-			</div>
-			<div class="gallery-alias">
-				{% if bird %} AKA: {{ bird.Bird_AKA }} {% elif flora.Flora_AKA %}AKA: 
-				{{ flora.Flora_AKA }} {% endif %}
-			</div>
-		</div>
-		{% if flora %}
-  <div class="shot-location">
-    Shot on location at<br> Hiranandani Estate, Thane
+  <div class="gallery-box4">
+    <div class="gallery-box4_1">
+      <div class="Scientific_name">
+        {% if bird %} SCIENTIFIC NAME:{{ bird.Bird_Scientific_Name }} {% elif flora %} BOTANICAL NAME: {{ flora.Flora_Botanical_Name }} {% endif %}
+      </div>
+      <div class="gallery-name">
+        <div class="gallery-name">
+          {% if bird %} {{ bird.Bird_Name|upper }} {% elif flora %} {{ flora.Flora_Name|upper }} {% endif %}
+        </div>
+      </div>
+      <div class="gallery-alias">
+        {% if bird %} AKA: {{ bird.Bird_AKA }} {% elif flora.Flora_AKA %}AKA: {{ flora.Flora_AKA }} {% endif %}
+      </div>
+    </div>
+    {% if flora %}
+    <div class="shot-location">
+      Shot on location at<br />
+      Hiranandani Estate, Thane
+    </div>
+    {% endif %}
+
+    <div
+      class="gallery-videotab {% if not bird or not bird.Bird_Video %}hidden{% endif %}"
+      id="videoTab"
+    >
+      WATCH VIDEO
+    </div>
+    <div
+      class="gallery-picturetab {% if flora %}hidden{% endif %}"
+      id="photoTab"
+    >
+      SEE PHOTO
+    </div>
   </div>
-{% endif %}
+  <div class="gallery-box2">
+    <!-- PHOTO CONTENT -->
+    <div id="photoBox" class="gallery-media-section">
+      <!-- BIRD IMAGES -->
+      {% if bird %} {% if bird.Bird_Image1 %}
+      <img
+        class="gallery-slide"
+        src="{{ bird.Bird_Image1.url }}"
+        alt="{{ bird.Bird_Name }}"
+      />
+      {% endif %} {% if bird.Bird_Image2 %}
+      <img
+        class="gallery-slide"
+        src="{{ bird.Bird_Image2.url }}"
+        alt="{{ bird.Bird_Name }}"
+      />
+      {% endif %} {% endif %}
 
-		<div
-			class="gallery-videotab {% if not bird or not bird.Bird_Video %}hidden{% endif %}"
-			id="videoTab"
-		>
-			WATCH VIDEO
-		</div>
-<div
-  class="gallery-picturetab {% if flora %}hidden{% endif %}"
-  id="photoTab"
->
-  SEE PHOTO
-</div>
+      <!-- FLORA IMAGES -->
+      {% if flora %} {% if flora.Flora_Image_1 %}
+      <img
+        class="gallery-slide"
+        src="{{ flora.Flora_Image_1.url }}"
+        alt="{{ flora.Flora_Name }}"
+      />
+      {% endif %} {% if flora.Flora_Image_2 %}
+      <img
+        class="gallery-slide"
+        src="{{ flora.Flora_Image_2.url }}"
+        alt="{{ flora.Flora_Name }}"
+      />
+      {% endif %} {% if flora.Flora_Image_3 %}
+      <img
+        class="gallery-slide"
+        src="{{ flora.Flora_Image_3.url }}"
+        alt="{{ flora.Flora_Name }}"
+      />
+      {% endif %} {% endif %}
 
+      <!-- DOT PAGINATOR -->
+    </div>
 
+    <!-- VIDEO CONTENT -->
+    <div id="videoBox" class="gallery-media-section" style="display: none">
+      {% if bird %}
+      <video
+        class="galleryVideo"
+        id="galleryVideo"
+        playsinline
+        preload="metadata"
+      >
+        <source src="{{ bird.Bird_Video.url }}" type="video/mp4" />
+      </video>
 
-	</div>
-	<div class="gallery-box2">
-		<!-- PHOTO CONTENT -->
-		<div id="photoBox" class="gallery-media-section">
-			<!-- BIRD IMAGES -->
-			{% if bird %} {% if bird.Bird_Image1 %}
-			<img
-				class="gallery-slide"
-				src="{{ bird.Bird_Image1.url }}"
-				alt="{{ bird.Bird_Name }}"
-			/>
-			{% endif %} {% if bird.Bird_Image2 %}
-			<img
-				class="gallery-slide"
-				src="{{ bird.Bird_Image2.url }}"
-				alt="{{ bird.Bird_Name }}"
-			/>
-			{% endif %} {% endif %}
+      {% endif %} {% if flora and flora.Flora_Media_1 %}
+      <video class="gallery-slide" controls autoplay muted loop playsinline>
+        <source src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
+      </video>
+      {% endif %}
+      <div class="video-controls-wrapper">
+        <div class="custom-video-controls" id="videoControls">
+          <button id="playPauseBtn" class="video-btn">
+            <img
+              id="playPauseIcon"
+              src="{% static 'img/Play.png' %}"
+              alt="Play"
+            />
+          </button>
+          <input type="range" id="seekBar" value="0" min="0" max="100" />
+          <span id="timeDisplay" class="video-time">00:00 / 00:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gallery-extra">
+    <img src="{% static 'img/gallery.png' %}" />
+  </div>
+  <div class="prev-next">
+    <img
+      src="{% static 'img/prev.png' %}"
+      class="bg-nav-btn bg-prev"
+      id="bg-prev"
+      alt="Previous"
+      tabindex="0"
+    />
 
-			<!-- FLORA IMAGES -->
-			{% if flora %} {% if flora.Flora_Image_1 %}
-			<img
-				class="gallery-slide"
-				src="{{ flora.Flora_Image_1.url }}"
-				alt="{{ flora.Flora_Name }}"
-			/>
-			{% endif %} {% if flora.Flora_Image_2 %}
-			<img
-				class="gallery-slide"
-				src="{{ flora.Flora_Image_2.url }}"
-				alt="{{ flora.Flora_Name }}"
-			/>
-			{% endif %} {% if flora.Flora_Image_3 %}
-			<img
-				class="gallery-slide"
-				src="{{ flora.Flora_Image_3.url }}"
-				alt="{{ flora.Flora_Name }}"
-			/>
-			{% endif %} {% endif %}
+    <img
+      src="{% static 'img/next.png' %}"
+      class="bg-nav-btn bg-next"
+      id="bg-next"
+      alt="Next"
+      role="button"
+      tabindex="0"
+    />
+  </div>
+  <!-- dots -->
+  <script>
+    (function () {
+      let galleryVideoPlaying = false;
 
-			<!-- DOT PAGINATOR -->
-		</div>
+      function isMainGalleryVideo(video) {
+        return video && video.id === "galleryVideo";
+      }
 
-		<!-- VIDEO CONTENT -->
-		<div id="videoBox" class="gallery-media-section" style="display: none">
-			{% if bird %}
-			<video
-				class="galleryVideo"
-				id="galleryVideo"
-				playsinline
-				preload="metadata"
-			>
-				<source src="{{ bird.Bird_Video.url }}" type="video/mp4" />
-			</video>
+      function enforceMute() {
+        if (!galleryVideoPlaying) return;
 
-			{% endif %} {% if flora and flora.Flora_Media_1 %}
-			<video class="gallery-slide" controls autoplay muted loop playsinline>
-				<source src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
-			</video>
-			{% endif %}
-			<div class="video-controls-wrapper">
-				<div class="custom-video-controls" id="videoControls">
-					<button id="playPauseBtn" class="video-btn">
-						<img
-							id="playPauseIcon"
-							src="{% static 'img/Play.png' %}"
-							alt="Play"
-						/>
-					</button>
-					<input type="range" id="seekBar" value="0" min="0" max="100" />
-					<span id="timeDisplay" class="video-time">00:00 / 00:00</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="gallery-extra">
-		<img src="{% static 'img/gallery.png' %}" />
-	</div>
-	<div class="prev-next">
-		<img
-			src="{% static 'img/prev.png' %}"
-			class="bg-nav-btn bg-prev"
-			id="bg-prev"
-			alt="Previous"
-			tabindex="0"
-		/>
+        document.querySelectorAll("audio, video").forEach((m) => {
+          if (isMainGalleryVideo(m)) return;
 
-		<img
-			src="{% static 'img/next.png' %}"
-			class="bg-nav-btn bg-next"
-			id="bg-next"
-			alt="Next"
-			role="button"
-			tabindex="0"
-		/>
-	</div>
-	<!-- dots -->
-	<script>
-		(function () {
-			let galleryVideoPlaying = false;
+          m.muted = true;
+          m.volume = 0;
 
-			function isMainGalleryVideo(video) {
-				return video && video.id === 'galleryVideo';
-			}
+          // stop GSAP from resurrecting audio
+          if (window.gsap) gsap.killTweensOf(m);
+        });
+      }
 
-			function enforceMute() {
-				if (!galleryVideoPlaying) return;
+      // 🔒 Detect main gallery video play (CAPTURE PHASE)
+      document.addEventListener(
+        "play",
+        (e) => {
+          if (e.target.tagName !== "VIDEO") return;
+          if (!isMainGalleryVideo(e.target)) return;
 
-				document.querySelectorAll('audio, video').forEach((m) => {
-					if (isMainGalleryVideo(m)) return;
+          galleryVideoPlaying = true;
 
-					m.muted = true;
-					m.volume = 0;
+          enforceMute();
+        },
+        true,
+      );
 
-					// stop GSAP from resurrecting audio
-					if (window.gsap) gsap.killTweensOf(m);
-				});
-			}
+      // 🔓 Release when gallery video stops
+      function releaseMute() {
+        galleryVideoPlaying = false;
 
-			// 🔒 Detect main gallery video play (CAPTURE PHASE)
-			document.addEventListener(
-				'play',
-				(e) => {
-					if (e.target.tagName !== 'VIDEO') return;
-					if (!isMainGalleryVideo(e.target)) return;
+        document.querySelectorAll("audio, video").forEach((m) => {
+          if (isMainGalleryVideo(m)) return;
 
-					galleryVideoPlaying = true;
+          m.muted = false;
+        });
+      }
 
-					enforceMute();
-				},
-				true,
-			);
+      document.addEventListener(
+        "pause",
+        (e) => {
+          if (isMainGalleryVideo(e.target)) releaseMute();
+        },
+        true,
+      );
 
-			// 🔓 Release when gallery video stops
-			function releaseMute() {
-				galleryVideoPlaying = false;
+      document.addEventListener(
+        "ended",
+        (e) => {
+          if (isMainGalleryVideo(e.target)) releaseMute();
+        },
+        true,
+      );
 
-				document.querySelectorAll('audio, video').forEach((m) => {
-					if (isMainGalleryVideo(m)) return;
+      // 🔁 HARD ENFORCEMENT LOOP (this is the killer feature)
+      setInterval(enforceMute, 200);
+    })();
+  </script>
+  <div id="dotContainer" class="gallery-dots2"></div>
 
-					m.muted = false;
-				});
-			}
+  <div class="gallery-box3">
+    <div class="close-icon" id="closeBtn">
+      <img src="{% static 'img/Close.png' %}" alt="close" />
+    </div>
 
-			document.addEventListener(
-				'pause',
-				(e) => {
-					if (isMainGalleryVideo(e.target)) releaseMute();
-				},
-				true,
-			);
-
-			document.addEventListener(
-				'ended',
-				(e) => {
-					if (isMainGalleryVideo(e.target)) releaseMute();
-				},
-				true,
-			);
-
-			// 🔁 HARD ENFORCEMENT LOOP (this is the killer feature)
-			setInterval(enforceMute, 200);
-		})();
-	</script>
-	<div id="dotContainer" class="gallery-dots2"></div>
-
-	<div class="gallery-box3">
-		<div class="close-icon" id="closeBtn">
-			<img src="{% static 'img/Close.png' %}" alt="close" />
-		</div>
-
-		<div class="gallery-ani">
-			<video autoplay muted loop playsinline>
-				<source src="{% static 'video/gallery.webm' %}" type="video/mp4" />
-				Your browser does not support the video tag.
-			</video>
-		</div>
-	</div>
+    <div class="gallery-ani">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'video/gallery.webm' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 </div>
 <script>
-	const wrapper = document.querySelector('.video-controls-wrapper');
-	const video = document.getElementById('galleryVideo');
-	const playPauseBtn = document.getElementById('playPauseBtn');
-	const playPauseIcon = document.getElementById('playPauseIcon');
-	const controls = document.getElementById('videoControls');
-	const timeDisplay = document.getElementById('timeDisplay');
-	const seekBar = document.getElementById('seekBar');
+  const wrapper = document.querySelector(".video-controls-wrapper");
+  const video = document.getElementById("galleryVideo");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playPauseIcon = document.getElementById("playPauseIcon");
+  const controls = document.getElementById("videoControls");
+  const timeDisplay = document.getElementById("timeDisplay");
+  const seekBar = document.getElementById("seekBar");
 
-	let controlsTimeout;
+  let controlsTimeout;
 
-	function formatTime(seconds) {
-		if (isNaN(seconds)) return '00:00';
-		const m = Math.floor(seconds / 60);
-		const s = Math.floor(seconds % 60);
-		return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-	}
+  function formatTime(seconds) {
+    if (isNaN(seconds)) return "00:00";
+    const m = Math.floor(seconds / 60);
+    const s = Math.floor(seconds % 60);
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  }
 
-	function showControls() {
-		if (!controls || !video) return;
+  function showControls() {
+    if (!controls || !video) return;
 
-		wrapper.classList.remove('hidden');
-		clearTimeout(controlsTimeout);
+    wrapper.classList.remove("hidden");
+    clearTimeout(controlsTimeout);
 
-		// Auto-hide only while actively playing
-		if (!video.paused && !video.ended) {
-			controlsTimeout = setTimeout(() => {
-				wrapper.classList.add('hidden');
-			}, 2500);
-		}
-	}
-	function hideIfIdle() {
-		if (!video || !controls) return;
+    // Auto-hide only while actively playing
+    if (!video.paused && !video.ended) {
+      controlsTimeout = setTimeout(() => {
+        wrapper.classList.add("hidden");
+      }, 2500);
+    }
+  }
+  function hideIfIdle() {
+    if (!video || !controls) return;
 
-		const isIdle = video.ended || (video.paused && video.currentTime === 0);
+    const isIdle = video.ended || (video.paused && video.currentTime === 0);
 
-		if (isIdle) {
-			wrapper.classList.add('hidden');
-		}
-	}
+    if (isIdle) {
+      wrapper.classList.add("hidden");
+    }
+  }
 
-	function hideControlsImmediately() {
-		if (!controls) return;
-		wrapper.classList.add('hidden');
-	}
+  function hideControlsImmediately() {
+    if (!controls) return;
+    wrapper.classList.add("hidden");
+  }
 
-	if (video && playPauseBtn) {
-		// ▶ / ⏸ Play Pause
-		playPauseBtn.addEventListener('click', () => {
-			if (video.paused) {
-				video.play();
-				playPauseIcon.src = "{% static 'img/pause.png' %}";
-				playPauseIcon.alt = 'Pause';
-			} else {
-				video.pause();
-				playPauseIcon.src = "{% static 'img/play.png' %}";
-				playPauseIcon.alt = 'Play';
-			}
-			showControls();
-		});
+  if (video && playPauseBtn) {
+    // ▶ / ⏸ Play Pause
+    playPauseBtn.addEventListener("click", () => {
+      if (video.paused) {
+        video.play();
+        playPauseIcon.src = "{% static 'img/pause.png' %}";
+        playPauseIcon.alt = "Pause";
+      } else {
+        video.pause();
+        playPauseIcon.src = "{% static 'img/play.png' %}";
+        playPauseIcon.alt = "Play";
+      }
+      showControls();
+    });
 
-		// 🔄 Sync icon
-		video.addEventListener('play', () => {
-			playPauseIcon.src = "{% static 'img/pause.png' %}";
-			showControls();
-		});
+    // 🔄 Sync icon
+    video.addEventListener("play", () => {
+      playPauseIcon.src = "{% static 'img/pause.png' %}";
+      showControls();
+    });
 
-		video.addEventListener('pause', () => {
-			playPauseIcon.src = "{% static 'img/play.png' %}";
-			hideIfIdle(); // ✅ smart decision
-		});
+    video.addEventListener("pause", () => {
+      playPauseIcon.src = "{% static 'img/play.png' %}";
+      hideIfIdle(); // ✅ smart decision
+    });
 
-		video.addEventListener('ended', () => {
-			playPauseIcon.src = "{% static 'img/play.png' %}";
-			hideIfIdle(); // ✅ fade away
-		});
-		video.addEventListener('timeupdate', () => {
-			if (!seekBar || !video.duration) return;
+    video.addEventListener("ended", () => {
+      playPauseIcon.src = "{% static 'img/play.png' %}";
+      hideIfIdle(); // ✅ fade away
+    });
+    video.addEventListener("timeupdate", () => {
+      if (!seekBar || !video.duration) return;
 
-			const progress = (video.currentTime / video.duration) * 100;
-			seekBar.value = progress;
+      const progress = (video.currentTime / video.duration) * 100;
+      seekBar.value = progress;
 
-			timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-		});
+      timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+    });
 
-		// ⏱ Duration loaded
-		video.addEventListener('loadedmetadata', () => {
-			timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
-		});
-		video.addEventListener('loadedmetadata', () => {
-			if (!seekBar) return;
+    // ⏱ Duration loaded
+    video.addEventListener("loadedmetadata", () => {
+      timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
+    });
+    video.addEventListener("loadedmetadata", () => {
+      if (!seekBar) return;
 
-			seekBar.value = 0;
-			timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
+      seekBar.value = 0;
+      timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
 
-			hideIfIdle();
-		});
+      hideIfIdle();
+    });
 
-		// ⏱ Update current time
-		video.addEventListener('timeupdate', () => {
-			timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-		});
+    // ⏱ Update current time
+    video.addEventListener("timeupdate", () => {
+      timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+    });
 
-		// 🖱 Show controls on interaction
-		['mousemove', 'touchstart'].forEach((evt) => {
-			videoBox.addEventListener(evt, showControls);
-		});
-		if (seekBar) {
-			seekBar.addEventListener('input', () => {
-				if (!video.duration) return;
+    // 🖱 Show controls on interaction
+    ["mousemove", "touchstart"].forEach((evt) => {
+      videoBox.addEventListener(evt, showControls);
+    });
+    if (seekBar) {
+      seekBar.addEventListener("input", () => {
+        if (!video.duration) return;
 
-				const newTime = (seekBar.value / 100) * video.duration;
-				video.currentTime = newTime;
-			});
-		}
-	}
+        const newTime = (seekBar.value / 100) * video.duration;
+        video.currentTime = newTime;
+      });
+    }
+  }
 </script>
 
 <script>
-	let isAnimating = false;
+  let isAnimating = false;
 
-	function showSlide(index, direction = 'next') {
-		const slides = getActiveSlides();
-		if (!slides.length || isAnimating) return;
+  function showSlide(index, direction = "next") {
+    const slides = getActiveSlides();
+    if (!slides.length || isAnimating) return;
 
-		if (!slides[currentIndex]) currentIndex = 0;
+    if (!slides[currentIndex]) currentIndex = 0;
 
-		const currentSlide = slides[currentIndex];
-		const nextSlide = slides[index];
+    const currentSlide = slides[currentIndex];
+    const nextSlide = slides[index];
 
-		if (currentSlide === nextSlide) return;
+    if (currentSlide === nextSlide) return;
 
-		isAnimating = true;
+    isAnimating = true;
 
-		// Pause outgoing video (safe even if none)
-		const vid = currentSlide.querySelector('video');
-		if (vid) vid.pause();
+    // Pause outgoing video (safe even if none)
+    const vid = currentSlide.querySelector("video");
+    if (vid) vid.pause();
 
-		const fromX = direction === 'next' ? '100%' : '-100%';
-		const toX = direction === 'next' ? '-100%' : '100%';
+    const fromX = direction === "next" ? "100%" : "-100%";
+    const toX = direction === "next" ? "-100%" : "100%";
 
-		gsap.set(nextSlide, {
-			display: 'block',
-			x: fromX,
-		});
+    gsap.set(nextSlide, {
+      display: "block",
+      x: fromX,
+    });
 
-		gsap
-			.timeline({
-				onComplete: () => {
-					slides.forEach((s, i) => {
-						if (i !== index) gsap.set(s, { display: 'none', x: 0 });
-					});
-					currentIndex = index;
-					isAnimating = false;
-				},
-			})
-			.to(currentSlide, {
-				x: toX,
-				duration: 0.6,
-				ease: 'power2.inOut',
-			})
-			.to(
-				nextSlide,
-				{
-					x: '0%',
-					duration: 0.6,
-					ease: 'power2.inOut',
-				},
-				'<',
-			);
+    gsap
+      .timeline({
+        onComplete: () => {
+          slides.forEach((s, i) => {
+            if (i !== index) gsap.set(s, { display: "none", x: 0 });
+          });
+          currentIndex = index;
+          isAnimating = false;
+        },
+      })
+      .to(currentSlide, {
+        x: toX,
+        duration: 0.6,
+        ease: "power2.inOut",
+      })
+      .to(
+        nextSlide,
+        {
+          x: "0%",
+          duration: 0.6,
+          ease: "power2.inOut",
+        },
+        "<",
+      );
 
-		// ✅ FIXED: update individual dots
-		document.querySelectorAll('.gallery-dot').forEach((dot, i) => {
-			dot.classList.toggle('active', i === index);
-		});
-	}
+    // ✅ FIXED: update individual dots
+    document.querySelectorAll(".gallery-dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
 </script>
 
 <script>
-	const photoTab = document.getElementById('photoTab');
-	const videoTab = document.getElementById('videoTab');
+  const photoTab = document.getElementById("photoTab");
+  const videoTab = document.getElementById("videoTab");
 
-	const photoBox = document.getElementById('photoBox');
-	const videoBox = document.getElementById('videoBox');
+  const photoBox = document.getElementById("photoBox");
+  const videoBox = document.getElementById("videoBox");
 
-	const nextBtn = document.getElementById('bg-next');
-	const prevBtn = document.getElementById('bg-prev');
-	const dotContainer = document.querySelector('.gallery-dots2');
+  const nextBtn = document.getElementById("bg-next");
+  const prevBtn = document.getElementById("bg-prev");
+  const dotContainer = document.querySelector(".gallery-dots2");
 
-	let currentIndex = 0;
+  let currentIndex = 0;
 
-	/* =======================
+  /* =======================
    GET ACTIVE SLIDES
    ======================= */
-	function getActiveSlides() {
-		return getComputedStyle(photoBox).display !== 'none'
-			? photoBox.querySelectorAll('.gallery-slide')
-			: videoBox.querySelectorAll('.gallery-slide');
-	}
-	function updateNavigationVisibility() {
-		const isPhoto = getComputedStyle(photoBox).display !== 'none';
+  function getActiveSlides() {
+    return getComputedStyle(photoBox).display !== "none"
+      ? photoBox.querySelectorAll(".gallery-slide")
+      : videoBox.querySelectorAll(".gallery-slide");
+  }
+  function updateNavigationVisibility() {
+    const isPhoto = getComputedStyle(photoBox).display !== "none";
 
-		// 🚫 Video → never show nav
-		if (!isPhoto) {
-			nextBtn.style.display = 'none';
-			prevBtn.style.display = 'none';
-			dotContainer.style.display = 'none';
-			return;
-		}
+    // 🚫 Video → never show nav
+    if (!isPhoto) {
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+      dotContainer.style.display = "none";
+      return;
+    }
 
-		const slides = photoBox.querySelectorAll('.gallery-slide');
-		const showNav = slides.length > 1;
+    const slides = photoBox.querySelectorAll(".gallery-slide");
+    const showNav = slides.length > 1;
 
-		nextBtn.style.display = showNav ? 'block' : 'none';
-		prevBtn.style.display = showNav ? 'block' : 'none';
-		dotContainer.style.display = showNav ? 'flex' : 'none';
-	}
+    nextBtn.style.display = showNav ? "block" : "none";
+    prevBtn.style.display = showNav ? "block" : "none";
+    dotContainer.style.display = showNav ? "flex" : "none";
+  }
 
-	/* =======================
+  /* =======================
    CREATE DOTS (PHOTO ONLY)
    ======================= */
-	function createDots() {
-		if (!dotContainer) return;
+  function createDots() {
+    if (!dotContainer) return;
 
-		const slides = photoBox.querySelectorAll('.gallery-slide');
+    const slides = photoBox.querySelectorAll(".gallery-slide");
 
-		// 🚫 Hide dots if only one or zero images
-		if (slides.length <= 1) {
-			dotContainer.innerHTML = '';
-			dotContainer.style.display = 'none';
-			return;
-		}
+    // 🚫 Hide dots if only one or zero images
+    if (slides.length <= 1) {
+      dotContainer.innerHTML = "";
+      dotContainer.style.display = "none";
+      return;
+    }
 
-		dotContainer.innerHTML = '';
-		dotContainer.style.display = 'flex';
+    dotContainer.innerHTML = "";
+    dotContainer.style.display = "flex";
 
-		slides.forEach((_, index) => {
-			const dot = document.createElement('div');
-			dot.classList.add('gallery-dot');
+    slides.forEach((_, index) => {
+      const dot = document.createElement("div");
+      dot.classList.add("gallery-dot");
 
-			if (index === currentIndex) dot.classList.add('active');
+      if (index === currentIndex) dot.classList.add("active");
 
-			dot.addEventListener('click', () => {
-				const direction = index > currentIndex ? 'next' : 'prev';
-				showSlide(index, direction);
-			});
+      dot.addEventListener("click", () => {
+        const direction = index > currentIndex ? "next" : "prev";
+        showSlide(index, direction);
+      });
 
-			dotContainer.appendChild(dot);
-		});
-	}
+      dotContainer.appendChild(dot);
+    });
+  }
 
-	/* =======================
+  /* =======================
    RESET SLIDES
    ======================= */
-	function resetSlides() {
-		const isPhoto = getComputedStyle(photoBox).display !== 'none';
+  function resetSlides() {
+    const isPhoto = getComputedStyle(photoBox).display !== "none";
 
-		if (!isPhoto) return; // 🚨 DO NOTHING for video
+    if (!isPhoto) return; // 🚨 DO NOTHING for video
 
-		const slides = photoBox.querySelectorAll('.gallery-slide');
+    const slides = photoBox.querySelectorAll(".gallery-slide");
 
-		slides.forEach((slide, i) => {
-			gsap.set(slide, {
-				display: i === 0 ? 'block' : 'none',
-				x: 0,
-			});
-		});
+    slides.forEach((slide, i) => {
+      gsap.set(slide, {
+        display: i === 0 ? "block" : "none",
+        x: 0,
+      });
+    });
 
-		currentIndex = 0;
-		createDots();
-		updateNavigationVisibility(); // ✅ ADD
-	}
+    currentIndex = 0;
+    createDots();
+    updateNavigationVisibility(); // ✅ ADD
+  }
 
-	/* =======================
+  /* =======================
    TAB HANDLERS
    ======================= */
-	function showPhoto() {
-		const video = document.getElementById('galleryVideo');
-		const controls = document.getElementById('videoControls');
-		const icon = document.getElementById('playPauseIcon');
+  function showPhoto() {
+    const video = document.getElementById("galleryVideo");
+    const controls = document.getElementById("videoControls");
+    const icon = document.getElementById("playPauseIcon");
 
-		// 🛑 Stop & reset video
-		if (video) {
-			video.pause();
-			video.currentTime = 0;
-		}
+    // 🛑 Stop & reset video
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
 
-		// 🔄 Reset play icon
-		if (icon) {
-			icon.src = "{% static 'img/play.png' %}";
-			icon.alt = 'Play';
-		}
+    // 🔄 Reset play icon
+    if (icon) {
+      icon.src = "{% static 'img/play.png' %}";
+      icon.alt = "Play";
+    }
 
-		// 🧼 Hide custom controls safely
-		if (controls) {
-			controls.style.display = 'none';
-			wrapper.classList.add('hidden');
-		}
+    // 🧼 Hide custom controls safely
+    if (controls) {
+      controls.style.display = "none";
+      wrapper.classList.add("hidden");
+    }
 
-		// ⏱ Reset time display if available
-		if (typeof timeDisplay !== 'undefined' && timeDisplay) {
-			timeDisplay.textContent = '00:00 / 00:00';
-		}
+    // ⏱ Reset time display if available
+    if (typeof timeDisplay !== "undefined" && timeDisplay) {
+      timeDisplay.textContent = "00:00 / 00:00";
+    }
 
-		// 🔁 Switch UI
-		videoBox.style.display = 'none';
-		photoBox.style.display = 'block';
+    // 🔁 Switch UI
+    videoBox.style.display = "none";
+    photoBox.style.display = "block";
 
-		photoTab.classList.add('active');
-		videoTab.classList.remove('active');
+    photoTab.classList.add("active");
+    videoTab.classList.remove("active");
 
-		resetSlides();
-	}
+    resetSlides();
+  }
 
-	function showVideo() {
-		updateNavigationVisibility();
+  function showVideo() {
+    updateNavigationVisibility();
 
-		photoBox.style.display = 'none';
-		videoBox.style.display = 'block';
+    photoBox.style.display = "none";
+    videoBox.style.display = "block";
 
-		document.getElementById('videoControls').style.display = 'flex';
+    document.getElementById("videoControls").style.display = "flex";
 
-		videoTab.classList.add('active');
-		photoTab.classList.remove('active');
+    videoTab.classList.add("active");
+    photoTab.classList.remove("active");
 
-		const video = document.getElementById('galleryVideo');
-		if (!video) return;
+    const video = document.getElementById("galleryVideo");
+    if (!video) return;
 
-		video.currentTime = 0;
-		video.play().catch(() => {});
-	}
+    video.currentTime = 0;
+    video.play().catch(() => {});
+  }
 
-	/* =======================
+  /* =======================
    NEXT / PREV BUTTONS
    ======================= */
-	function nextSlide() {
-		const slides = getActiveSlides();
-		if (!slides.length) return;
+  function nextSlide() {
+    const slides = getActiveSlides();
+    if (!slides.length) return;
 
-		const nextIndex = (currentIndex + 1) % slides.length;
-		showSlide(nextIndex, 'next');
-	}
+    const nextIndex = (currentIndex + 1) % slides.length;
+    showSlide(nextIndex, "next");
+  }
 
-	function prevSlide() {
-		const slides = getActiveSlides();
-		if (!slides.length) return;
+  function prevSlide() {
+    const slides = getActiveSlides();
+    if (!slides.length) return;
 
-		const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-		showSlide(prevIndex, 'prev');
-	}
+    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(prevIndex, "prev");
+  }
 
-	if (nextBtn && prevBtn) {
-		nextBtn.addEventListener('click', nextSlide);
-		prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
 
-		// Keyboard accessibility
-		nextBtn.addEventListener(
-			'keydown',
-			(e) => e.key === 'Enter' && nextSlide(),
-		);
-		prevBtn.addEventListener(
-			'keydown',
-			(e) => e.key === 'Enter' && prevSlide(),
-		);
-	}
+    // Keyboard accessibility
+    nextBtn.addEventListener(
+      "keydown",
+      (e) => e.key === "Enter" && nextSlide(),
+    );
+    prevBtn.addEventListener(
+      "keydown",
+      (e) => e.key === "Enter" && prevSlide(),
+    );
+  }
 
-	/* =======================
+  /* =======================
    TAB EVENTS
    ======================= */
-	if (photoTab && videoTab) {
-		photoTab.addEventListener('click', showPhoto);
-		videoTab.addEventListener('click', showVideo);
-	}
+  if (photoTab && videoTab) {
+    photoTab.addEventListener("click", showPhoto);
+    videoTab.addEventListener("click", showVideo);
+  }
 
-	/* =======================
+  /* =======================
    AUTO TAB FROM URL
    ======================= */
-	const urlParams = new URLSearchParams(window.location.search);
-	const type = urlParams.get('type');
+  const urlParams = new URLSearchParams(window.location.search);
+  const type = urlParams.get("type");
 
-	type === 'video' ? showVideo() : showPhoto();
+  type === "video" ? showVideo() : showPhoto();
 </script>
 <script>
-	document.getElementById('closeBtn').addEventListener('click', function () {
-		// Go back to previous page AND restore scroll
-		if (window.history.length > 1) {
-			history.back();
-		} else {
-			window.location.href = '/'; // fallback if user opened gallery directly
-		}
-	});
+  document.getElementById("closeBtn").addEventListener("click", function () {
+    // Go back to previous page AND restore scroll
+    if (window.history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = "/"; // fallback if user opened gallery directly
+    }
+  });
 </script>
 
 <script>
-	let touchStartX = 0;
-	let touchEndX = 0;
-	const SWIPE_THRESHOLD = 50; // px
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const SWIPE_THRESHOLD = 50; // px
 
-	function handleSwipe() {
-		// Only allow swipe on PHOTO mode
-		if (getComputedStyle(photoBox).display === 'none') return;
+  function handleSwipe() {
+    // Only allow swipe on PHOTO mode
+    if (getComputedStyle(photoBox).display === "none") return;
 
-		const deltaX = touchEndX - touchStartX;
+    const deltaX = touchEndX - touchStartX;
 
-		if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
+    if (Math.abs(deltaX) < SWIPE_THRESHOLD) return;
 
-		if (deltaX < 0) {
-			nextSlide(); // 👉 swipe left
-		} else {
-			prevSlide(); // 👈 swipe right
-		}
-	}
+    if (deltaX < 0) {
+      nextSlide(); // 👉 swipe left
+    } else {
+      prevSlide(); // 👈 swipe right
+    }
+  }
 
-	// Attach swipe listeners to photoBox
-	photoBox.addEventListener(
-		'touchstart',
-		(e) => {
-			touchStartX = e.changedTouches[0].screenX;
-		},
-		{ passive: true },
-	);
+  // Attach swipe listeners to photoBox
+  photoBox.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true },
+  );
 
-	photoBox.addEventListener(
-		'touchend',
-		(e) => {
-			touchEndX = e.changedTouches[0].screenX;
-			handleSwipe();
-		},
-		{ passive: true },
-	);
+  photoBox.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    },
+    { passive: true },
+  );
 </script>
 
 {% endblock %}

@@ -10,7 +10,7 @@
 
   /* Navbar becomes compact */
   .top-nav {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -619,11 +619,20 @@
     margin: 0;
   }
 
-  #photoBox,
+  #photoBox{
+    width: 100%;
+    height: 100%;
+  }
   #videoBox {
     width: 100%;
-    height: 280px;
+    height: auto;
   }
+	#videoBox .gallery-slide {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
   /* Hide side decorations */
   .gallery-extra,
@@ -1644,14 +1653,13 @@ position: absolute;
     margin: 70px auto;
 }
 .animation-box {
-margin: 118px 0px auto 70px;
+margin: 120px 0px auto 130px;
+    width: auto;
+    height: 210px;
 }
 .animation-inner {
 height: 210px;
     width: 195px;
-    margin: 0;
-    margin-left: 0px;
-    margin-left: 30%;
 }
 .home-ui{
 	display: flex;
@@ -1660,13 +1668,22 @@ height: 210px;
 }
 .right-text{
 width: 46%;
-    margin-top: 330px;
-    margin-left: 46%;
+margin-top: 390px;
+    margin-left: 50%;
     line-height: 12px;
 		font-size: 10px;
 }
 .home-ui2{
 	order: 1;
+}
+.buttons-home{
+width: 90%;
+    height: auto;
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+		padding-top: 40px;
 }
 .birdspagelink {
   width: 50%;
@@ -1674,18 +1691,15 @@ width: 46%;
   display: flex;
   flex-direction: row;
   gap: 0.46875vw;
-  margin:540px auto auto auto;
-	margin-left: 50%;
-  position: absolute;
+  margin:0;
+	position: inherit;
 }
 .treespagelink {
   width: 50%;
   height: auto;
   display: flex;
   flex-direction: row;
-  gap: 0.46875vw;
-  margin:540px auto auto auto;
-  position: absolute;
+  margin:0;
 }
 .deepdive-link{
 	margin: 212px auto auto auto;
@@ -1718,5 +1732,88 @@ width: 90%;
     border-radius: 30px;
     height: 35px;
 		font-size: 11px;
+}
+.video-text-3{
+	font-size: 11px;
+}
+.gallery-mainbox{
+	width:90%;
+	margin:12vh auto auto auto;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+  /* Break gallery-box4 wrapper */
+  .gallery-box4 {
+    display: contents;
+  }
+
+  /* Top text */
+  .gallery-box4_1 {
+    order: 1;
+    margin: 0;
+    text-align: left;
+    height: auto;
+  }
+
+  /* Slider */
+  .gallery-box2 {
+    order: 2;
+    margin-top: 30px;
+  }
+
+  /* Shot location */
+  .shot-location {
+    margin-top: 320px;
+    text-align: left;
+    width: 100%;
+  }
+	.close-icon{
+		height: 20px;
+  width: 20px;
+  margin-left: 94%;
+  margin-top: 87px;
+	}
+
+  /* Tabs */
+  #videoTab {
+    order: 4;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+		border-radius: 32px;
+  }
+
+  #photoTab {
+    order: 5;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+		border-radius: 32px;
+  }
+
+  /* Navigation */
+  .prev-next {
+    order: 6;
+  }
+
+  .gallery-dots2 {
+    order: 7;
+  }
+	.custom-video-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: -4rem;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 0.6rem;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
+}
+.custom-video-controls button {
+  width: 1rem;
+  height: 1rem;
 }
 }

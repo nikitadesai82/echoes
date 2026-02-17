@@ -132,7 +132,7 @@
 						Care.
 					</div>
 				</div>
-				<div class="treespagelink">
+				<div class="treespagelink hide-on-mobile">
 					<a href="{% url 'birds_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
@@ -194,7 +194,7 @@
 						fauna.
 					</div>
 				</div>
-				<div class="birdspagelink">
+				<div class="birdspagelink hide-on-mobile" >
 					<a href="{% url 'flora_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
@@ -227,8 +227,142 @@
 						</video>
 					</div>
 				</div>
+				<div class="buttons-home tree-mobile-only">
+								<div class="treespagelink">
+					<a href="{% url 'birds_list' %}">
+						<div class="treebox">
+							<div class="birdspagelink_1">
+								<video autoplay muted loop playsinline>
+									<source
+										src="{% static 'video/Bird-button.mp4' %}"
+										type="video/mp4"
+									/>
+								</video>
+							</div>
+							<div class="video-text">WANT TO KNOW</div>
+							<div class="video-text-2">WHO'S CHIRPING?</div>
+							<div class="video-text-3">
+								<span>
+									Get to know the leafy locals, from shady trees to beautiful
+									blooms and amazing herbs.
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="birdspagelink">
+					<a href="{% url 'flora_list' %}">
+						<div class="treebox">
+							<div class="birdspagelink_1">
+								<video autoplay muted loop playsinline>
+									<source
+										src="{% static 'video/Tree-Button.mp4' %}"
+										type="video/mp4"
+									/>
+								</video>
+							</div>
+
+							<div class="video-text">COME MEET</div>
+							<div class="video-text-2">THE GREEN GIANTS!</div>
+							<div class="video-text-3">
+								<span>
+									Get to know the leafy locals, from shady trees to beautiful
+									blooms and amazing herbs.
+								</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				</div>
+
 			</div>
 		</div>
+		    <footer class="footerweb">
+      <div class="footerweb-img hide-on-mobile">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerwebcol1">
+        <div class="footer-logo">
+          <img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
+        </div>
+        <div class="footerwebcol1_1">
+          House of Hiranandani, Olympia
+          <br />
+          Central Avenue, Hiranandani Gardens
+          <br />
+          Powai, Mumbai 400076, INDIA
+          <br />
+          <br />
+          Call: +91 22620 93456<br /> Email: property@houseofhiranandani.com
+          <br />
+          <br />
+          www.hiranandani.com
+        </div>
+        
+      </div>
+      <div class="footerwebcol1">
+        <div class="footerwebcol2_1">SITEMAP</div>
+        <div class="footerwebcol2_2">Home</div>
+        <div class="footerwebcol2_3">Echoes of Nature</div>
+        <div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
+        <div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
+        <div class="footerwebcol2_3">Nature Trail</div>
+        <div class="footerwebcol2_3">Birdwatching</div>
+        <div class="footerwebcol2_3">Urban Legends</div>
+      </div>
+      <div class="footerwebcol3">
+        <div class="footerwebcol2_2">Disclaimer</div>
+        <div class="footerwebcol2_3">Terms & Conditions</div>
+        <div class="footerwebcol2_3">Privacy Policy</div>
+        <div class="footerwebcol2_3">Cookies Declaration</div>
+        <div class="footerwebcol2_3">Credits & Usage</div>
+      </div>
+      <div class="footerweb-img2">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerwebcol4">
+        <div class="footerwebcol2_1">CONNECT WITH US</div>
+        <div class="footer-icons">
+          <div class="footer-icon">
+            <img src="{% static 'img/Facebook.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Instagram.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Youtube.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/X.png' %}" alt="Footer logo" />
+          </div>
+          <div class="footer-icon">
+            <img src="{% static 'img/Linkedin.png' %}" alt="Footer logo" />
+          </div>
+        </div>
+        <div class="footerwebcol4_1">
+          <div class="footerwebcol2_1">
+          ECHOES OF NATURE</div>
+          This immersive experience is created for public education and
+          non-commercial display and is brought to you by
+        </div>
+        <div class="tommorrow-logo">
+          <img src="{% static 'img/tommorrow-logo.png' %}" />
+        </div>
+        <div class="footerwebcol4_2">
+          A Sustainability initiative by House of Hiranandani
+        </div>
+      </div>
+      <div class="footerweb-img3">
+        <img src="{% static 'img/footerbird.png' %}" alt="Footer logo" />
+      </div>
+      <div class="footerweb-img4 hide-on-mobile">
+        <img src="{% static 'img/webfooterflower.png' %}" alt="Footer logo" />
+      </div>
+			<div class="copyright">
+          © 2026 House of Hiranandani. All rights reserved.
+        </div>
+    </footer>
+    <div class="after-footer-gap"></div>
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
