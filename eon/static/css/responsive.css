@@ -128,13 +128,18 @@
 
   /* Text readable */
   .urbanlegend-text {
-    width: 100%;
+width: 100%;
     padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    height: auto;
   }
 
   .story_name {
     font-size: 34px;
     height: auto;
+		order:2;
+		padding-top:20px;
   }
 
   .story_text {
@@ -143,6 +148,7 @@
     overflow: visible;
     padding-right: 0;
     line-height: 1.7;
+		order: 3;
   }
 
   /* Audio full width */
@@ -150,6 +156,7 @@
     width: 100%;
     margin-top: 25px;
     justify-content: flex-start;
+		order: 1;
   }
 
   /* Girl animation centered */
@@ -1702,10 +1709,9 @@ width: 90%;
   margin:0;
 }
 .deepdive-link{
-	margin: 212px auto auto auto;
-    margin-left: auto;
-    margin-left: 39%;
-    width: 20%;
+margin: 239px auto auto auto;
+    margin-left: 42.2%;
+    width: 15%;
     font-size: 6px;
     max-height: 16px;
     border-radius: 32px;
