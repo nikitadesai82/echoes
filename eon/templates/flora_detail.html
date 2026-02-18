@@ -12,11 +12,11 @@
 <div class="Birdpage-firstbox">
   <div class="Bird_namebox">
     <div class="Scientific_name gsap-hidden">
-      <span class="hide-on-mobile">SCIENTIFIC NAME:</span> {{ flora.Flora_Botanical_Name }},<span class="hide-on-mobile"> FAMILY:</span>
+      <span class="hide-on-mobile">BOTANICAL NAME:</span> {{ flora.Flora_Botanical_Name }},<span class="hide-on-mobile"> FAMILY:</span>
       {{ flora.Flora_Family }}
     </div>
     <div class="Bird_name">
-      <span class="inner2 gsap-hidden">{{ flora.Flora_Name }}</span>
+      <span class="inner2 gsap-hidden">{{ flora.Flora_Name }}</span> 
     </div>
     <div class="Other_names gsap-hidden">AKA: {{ flora.Flora_AKA }}</div>
   </div>
@@ -4650,6 +4650,7 @@
             </div>
           </div>
         </div>
+				{% if flora.Flora_Conservation_Status != "Not Evaluated" %}
         <div class="conservation-svg gsap-hidden">
           <div id="svgStatus" data-status="{{ status_key }}"></div>
           <script>
@@ -5144,6 +5145,7 @@
             </g>
           </svg>
         </div>
+				{% endif %}
       </div>
       <div data-page-music="{% static 'audio/Treepage.mp3' %}"></div>
       <script>
@@ -10311,13 +10313,14 @@
     </div>
     <span class="fade-section read-more-btn">Read more</span>
   </div>
+
   <div class="bottom-box-col2">
     <div class="fadeUpOnScroll bottom-box-icon">
-      <img src="{% static 'img/Habitat.png' %}" />
+      <img src="{% static 'img/Medicinal.png' %}" />
     </div>
-    <div class="fade-section Bottom-Info-title">HABITAT</div>
-    <div class="fade-section Info-detail-text4" data-target="HabitatText">
-      {{ flora.Flora_Habitat }}
+    <div class="fade-section Bottom-Info-title">MEDICINAL USE</div>
+    <div class="fade-section Info-detail-text4" data-target="MedicinalText">
+      {{ flora.Flora_Medicinal }}
     </div>
     <span class="fade-section read-more-btn">Read more</span>
   </div>
@@ -10346,14 +10349,24 @@
 </div>
 
 <div class="bottom-box2">
-  <div class="bottom-box-col2 hide-on-mobile"></div>
-  <div class="bottom-box-col2">
+	  <div class="bottom-box-col2">
     <div class="fadeUpOnScroll bottom-box-icon">
-      <img src="{% static 'img/Medicinal.png' %}" />
+      <img src="{% static 'img/Areaofsight.png' %}" />
     </div>
-    <div class="fade-section Bottom-Info-title">MEDICINAL USE</div>
-    <div class="fade-section Info-detail-text4" data-target="MedicinalText">
-      {{ flora.Flora_Medicinal }}
+    <div class="fade-section Bottom-Info-title">FOUND HERE</div>
+    <div class="fade-section Info-detail-text4" data-target="HabitatText">
+      {{ flora.Flora_HoHLocation }}
+    </div>
+    <span class="fade-section read-more-btn">Read more</span>
+  </div>
+
+	  <div class="bottom-box-col2">
+    <div class="fadeUpOnScroll bottom-box-icon">
+      <img src="{% static 'img/Habitat.png' %}" />
+    </div>
+    <div class="fade-section Bottom-Info-title">HABITAT</div>
+    <div class="fade-section Info-detail-text4" data-target="HabitatText">
+      {{ flora.Flora_Habitat }}
     </div>
     <span class="fade-section read-more-btn">Read more</span>
   </div>

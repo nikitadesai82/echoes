@@ -28,14 +28,13 @@
 		{% include "partial/background_audio.html" %}
 		<div id="Bird_3840_x_2160_1__1">
 			<header class="top-nav">
-				<a href="{% url 'home' %}">
-					<img
-						id="Logo"
-						src="{% static 'img/Logo.png' %}"
-						srcset="{% static 'img/Logo@2x.png' %} 2x"
-						alt="Logo"
-					/>
-				</a>
+				<a href="{% url 'home' %}" class="Logo">
+        <img
+          src="{% static 'img/Logo.png' %}"
+          srcset="{% static 'img/Logo@2x.png' %} 2x"
+          alt="Logo"
+        />
+      </a>
 
 				<nav class="nav-icons">
 					<a href="{% url 'home' %}" class="hide-on-mobile">

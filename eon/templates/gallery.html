@@ -80,36 +80,23 @@
     </div>
 
     <!-- VIDEO CONTENT -->
-    <div id="videoBox" class="gallery-media-section" style="display: none">
-      {% if bird %}
-      <video
-        class="galleryVideo"
-        id="galleryVideo"
-        playsinline
-        preload="metadata"
-      >
-        <source src="{{ bird.Bird_Video.url }}" type="video/mp4" />
-      </video>
+<div id="videoBox" class="gallery-media-section" style="display: none">
 
-      {% endif %} {% if flora and flora.Flora_Media_1 %}
-      <video class="gallery-slide" controls autoplay muted loop playsinline>
-        <source src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
-      </video>
-      {% endif %}
-      <div class="video-controls-wrapper">
-        <div class="custom-video-controls" id="videoControls">
-          <button id="playPauseBtn" class="video-btn">
-            <img
-              id="playPauseIcon"
-              src="{% static 'img/Play.png' %}"
-              alt="Play"
-            />
-          </button>
-          <input type="range" id="seekBar" value="0" min="0" max="100" />
-          <span id="timeDisplay" class="video-time">00:00 / 00:00</span>
-        </div>
-      </div>
-    </div>
+  {% if bird and bird.Bird_Video %}
+  <video class="gallery-slide" controls playsinline preload="metadata">
+    <source src="{{ bird.Bird_Video.url }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  {% endif %}
+
+  {% if flora and flora.Flora_Media_1 %}
+  <video class="gallery-slide" controls autoplay muted loop playsinline>
+    <source src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  {% endif %}
+
+</div>
   </div>
   <div class="gallery-extra">
     <img src="{% static 'img/gallery.png' %}" />
@@ -215,123 +202,6 @@
     </div>
   </div>
 </div>
-<script>
-  const wrapper = document.querySelector(".video-controls-wrapper");
-  const video = document.getElementById("galleryVideo");
-  const playPauseBtn = document.getElementById("playPauseBtn");
-  const playPauseIcon = document.getElementById("playPauseIcon");
-  const controls = document.getElementById("videoControls");
-  const timeDisplay = document.getElementById("timeDisplay");
-  const seekBar = document.getElementById("seekBar");
-
-  let controlsTimeout;
-
-  function formatTime(seconds) {
-    if (isNaN(seconds)) return "00:00";
-    const m = Math.floor(seconds / 60);
-    const s = Math.floor(seconds % 60);
-    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
-  }
-
-  function showControls() {
-    if (!controls || !video) return;
-
-    wrapper.classList.remove("hidden");
-    clearTimeout(controlsTimeout);
-
-    // Auto-hide only while actively playing
-    if (!video.paused && !video.ended) {
-      controlsTimeout = setTimeout(() => {
-        wrapper.classList.add("hidden");
-      }, 2500);
-    }
-  }
-  function hideIfIdle() {
-    if (!video || !controls) return;
-
-    const isIdle = video.ended || (video.paused && video.currentTime === 0);
-
-    if (isIdle) {
-      wrapper.classList.add("hidden");
-    }
-  }
-
-  function hideControlsImmediately() {
-    if (!controls) return;
-    wrapper.classList.add("hidden");
-  }
-
-  if (video && playPauseBtn) {
-    // ▶ / ⏸ Play Pause
-    playPauseBtn.addEventListener("click", () => {
-      if (video.paused) {
-        video.play();
-        playPauseIcon.src = "{% static 'img/pause.png' %}";
-        playPauseIcon.alt = "Pause";
-      } else {
-        video.pause();
-        playPauseIcon.src = "{% static 'img/play.png' %}";
-        playPauseIcon.alt = "Play";
-      }
-      showControls();
-    });
-
-    // 🔄 Sync icon
-    video.addEventListener("play", () => {
-      playPauseIcon.src = "{% static 'img/pause.png' %}";
-      showControls();
-    });
-
-    video.addEventListener("pause", () => {
-      playPauseIcon.src = "{% static 'img/play.png' %}";
-      hideIfIdle(); // ✅ smart decision
-    });
-
-    video.addEventListener("ended", () => {
-      playPauseIcon.src = "{% static 'img/play.png' %}";
-      hideIfIdle(); // ✅ fade away
-    });
-    video.addEventListener("timeupdate", () => {
-      if (!seekBar || !video.duration) return;
-
-      const progress = (video.currentTime / video.duration) * 100;
-      seekBar.value = progress;
-
-      timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-    });
-
-    // ⏱ Duration loaded
-    video.addEventListener("loadedmetadata", () => {
-      timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
-    });
-    video.addEventListener("loadedmetadata", () => {
-      if (!seekBar) return;
-
-      seekBar.value = 0;
-      timeDisplay.textContent = `00:00 / ${formatTime(video.duration)}`;
-
-      hideIfIdle();
-    });
-
-    // ⏱ Update current time
-    video.addEventListener("timeupdate", () => {
-      timeDisplay.textContent = `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-    });
-
-    // 🖱 Show controls on interaction
-    ["mousemove", "touchstart"].forEach((evt) => {
-      videoBox.addEventListener(evt, showControls);
-    });
-    if (seekBar) {
-      seekBar.addEventListener("input", () => {
-        if (!video.duration) return;
-
-        const newTime = (seekBar.value / 100) * video.duration;
-        video.currentTime = newTime;
-      });
-    }
-  }
-</script>
 
 <script>
   let isAnimating = false;
@@ -491,61 +361,41 @@
   /* =======================
    TAB HANDLERS
    ======================= */
-  function showPhoto() {
-    const video = document.getElementById("galleryVideo");
-    const controls = document.getElementById("videoControls");
-    const icon = document.getElementById("playPauseIcon");
-
-    // 🛑 Stop & reset video
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
-
-    // 🔄 Reset play icon
-    if (icon) {
-      icon.src = "{% static 'img/play.png' %}";
-      icon.alt = "Play";
-    }
-
-    // 🧼 Hide custom controls safely
-    if (controls) {
-      controls.style.display = "none";
-      wrapper.classList.add("hidden");
-    }
-
-    // ⏱ Reset time display if available
-    if (typeof timeDisplay !== "undefined" && timeDisplay) {
-      timeDisplay.textContent = "00:00 / 00:00";
-    }
-
-    // 🔁 Switch UI
-    videoBox.style.display = "none";
-    photoBox.style.display = "block";
-
-    photoTab.classList.add("active");
-    videoTab.classList.remove("active");
-
-    resetSlides();
+function showPhoto() {
+  // Stop video when switching back
+  const video = videoBox.querySelector("video");
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
   }
 
-  function showVideo() {
-    updateNavigationVisibility();
+  videoBox.style.display = "none";
+  photoBox.style.display = "block";
 
-    photoBox.style.display = "none";
-    videoBox.style.display = "block";
+  photoTab.classList.add("active");
+  videoTab.classList.remove("active");
 
-    document.getElementById("videoControls").style.display = "flex";
+  resetSlides();
+}
 
-    videoTab.classList.add("active");
-    photoTab.classList.remove("active");
 
-    const video = document.getElementById("galleryVideo");
-    if (!video) return;
+function showVideo() {
+  updateNavigationVisibility();
 
+  photoBox.style.display = "none";
+  videoBox.style.display = "block";
+
+  videoTab.classList.add("active");
+  photoTab.classList.remove("active");
+
+  // Optional autoplay for bird video
+  const video = videoBox.querySelector("video");
+  if (video) {
     video.currentTime = 0;
     video.play().catch(() => {});
   }
+}
+
 
   /* =======================
    NEXT / PREV BUTTONS

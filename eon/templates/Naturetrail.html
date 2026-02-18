@@ -53,7 +53,8 @@
       Start<br>SALES GALLERY, WESTGATE
     </div>
     <div class="fade-section stop-time">Time: 7:00 am</div>
-		<div class="fade-section birds-to-watch">Say Hello to your fellow participants, meet the tour guides and naturalists. A quick briefing about what to expect, board the buses and we'll be on our way!<br>
+		<div class="fade-section birds-to-watch">Say Hello to your fellow participants, meet the tour guides and naturalists. A quick briefing about what to expect, board the buses and we'll be on our way!<br><br>
+		Do remember, Bird Sightings vary with season, weather and time of day, so the presence or number of species on any nature trail cannot be guaranteed.
 
 
 </div>
@@ -89,7 +90,7 @@
     <div class="fade-section activity">Vegetable Tasting</div>
   </div>
 	<div class="column3">
-			<div class="fade-section stop">Stop 3<br> CENTRAL PARK</div>
+			<div class="fade-section stop">Stop 3<br> TENNIS COURT GARDEN</div>
 			<div class="fade-section stop-time">20:00 mins</div>
 			<div class="fade-section birds-to-watch">
       Birds to look for: <a href="/birds/ashy-prinia/">Ashy Prinia</a>,
@@ -250,18 +251,6 @@
       </div>
     {% endif %}
   {% endfor %}
-
-  <!-- ✅ ONE GLOBAL CONTROLLER -->
-  <div class="video-controls-wrapper hidden">
-    <div class="custom-video-controls">
-      <button class="playPauseBtn">
-        <img class="playPauseIcon" src="{% static 'img/play.png' %}">
-      </button>
-
-      <input type="range" class="seekBar" value="0" min="0" max="100">
-      <span class="timeDisplay">00:00 / 00:00</span>
-    </div>
-  </div>
 
 </div>
 
@@ -472,11 +461,12 @@
     slides.forEach((_, index) => {
       const dot = document.createElement("div");
       dot.classList.add("gallery-dot");
-      if (index === 0) dot.classList.add("active");
+
+      if (index === currentIndex) dot.classList.add("active");
 
       dot.addEventListener("click", () => {
-        const direction = index > currentIndex ? "next" : "prev";
-        showSlide(index, direction);
+        currentIndex = index;
+        showSlide(index);
       });
 
       dotContainer.appendChild(dot);
@@ -487,20 +477,13 @@
      RESET SLIDES
      ======================= */
   function resetSlides() {
-    const slides = getActiveSlides();
+    const slides = photoBox.querySelectorAll(".gallery-slide");
 
     slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-
       gsap.set(slide, {
-        display: "none",
+        display: i === 0 ? "block" : "none",
         x: 0,
       });
-
-      if (i === 0) {
-        slide.classList.add("active");
-        gsap.set(slide, { display: "block" });
-      }
     });
 
     currentIndex = 0;
@@ -510,108 +493,105 @@
   /* =======================
      TAB HANDLERS
      ======================= */
-		function showPhoto() {
-  if (window.activeVideo) {
-    window.activeVideo.pause();
-    window.activeVideo.currentTime = 0;
-    window.activeVideo = null;
+
+  function showPhoto() {
+    // Stop video when switching back
+    const video = videoBox.querySelector("video");
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+
+    videoBox.style.display = "none";
+    photoBox.style.display = "block";
+
+    photoTab.classList.add("active");
+    videoTab.classList.remove("active");
+
+    // Show arrows again
+    if (nextBtn && prevBtn) {
+      nextBtn.style.display = "block";
+      prevBtn.style.display = "block";
+    }
+
+    resetSlides();
   }
-	if (nextBtn && prevBtn) {
-		nextBtn.style.display = 'block';
-		prevBtn.style.display = 'block';
-	}
 
-  const wrapper = document.querySelector(".video-controls-wrapper");
-  if (wrapper) wrapper.classList.add("hidden");
+  function showVideo() {
+    photoBox.style.display = "none";
+    videoBox.style.display = "block";
 
-  videoBox.style.display = "none";
-  photoBox.style.display = "block";
+    videoTab.classList.add("active");
+    photoTab.classList.remove("active");
 
-  photoTab.classList.add("active");
-  videoTab.classList.remove("active");
+    // Hide arrows + dots in video mode
+    if (nextBtn && prevBtn) {
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+    }
 
-  // ✅ Rebuild dots for photos
-  resetSlides();
-}
+    if (dotContainer) {
+      dotContainer.style.display = "none";
+      dotContainer.innerHTML = "";
+    }
 
-
-
-
-		function showVideo() {
-  photoBox.style.display = "none";
-  videoBox.style.display = "block";
-
-  videoTab.classList.add("active");
-  photoTab.classList.remove("active");
-
-	if (nextBtn && prevBtn) {
-		nextBtn.style.display = 'none';
-		prevBtn.style.display = 'none';
-	}
-
-
-  // ❌ Hide dots for video
-  if (dotContainer) {
-    dotContainer.style.display = "none";
-    dotContainer.innerHTML = "";
+    // Default video controls handle everything
+    const video = videoBox.querySelector("video");
+    if (video) {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    }
   }
-	
-
-
-  const firstSlide = videoBox.querySelector(".gallery-slide");
-  if (!firstSlide) return;
-
-  const video = firstSlide.querySelector("video");
-  if (!video) return;
-
-  const wrapper = document.querySelector(".video-controls-wrapper");
-  if (wrapper) wrapper.classList.remove("hidden");
-
-  video.currentTime = 0;
-  video.play().catch(() => {});
-  initCustomPlayer(video);
-}
-
-
-
 
   /* =======================
-     NEXT / PREV BUTTONS
+     NEXT / PREV (PHOTO ONLY)
      ======================= */
   function nextSlide() {
-    const slides = getActiveSlides();
+    const slides = photoBox.querySelectorAll(".gallery-slide");
     if (!slides.length) return;
 
-    const nextIndex = (currentIndex + 1) % slides.length;
-    showSlide(nextIndex, "next");
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
   }
 
   function prevSlide() {
-    const slides = getActiveSlides();
+    const slides = photoBox.querySelectorAll(".gallery-slide");
     if (!slides.length) return;
 
-    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(prevIndex, "prev");
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
   }
 
-  if (nextBtn && prevBtn) {
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
+  function showSlide(index) {
+    const slides = photoBox.querySelectorAll(".gallery-slide");
 
-    nextBtn.addEventListener("keydown", (e) => e.key === "Enter" && nextSlide());
-    prevBtn.addEventListener("keydown", (e) => e.key === "Enter" && prevSlide());
+    slides.forEach((slide, i) => {
+      gsap.set(slide, {
+        display: i === index ? "block" : "none",
+        x: 0,
+      });
+    });
+
+    document.querySelectorAll(".gallery-dot").forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
   }
 
   /* =======================
-     TAB EVENTS
+     EVENTS
      ======================= */
+  if (nextBtn && prevBtn) {
+    nextBtn.addEventListener("click", nextSlide);
+    prevBtn.addEventListener("click", prevSlide);
+  }
+
   if (photoTab && videoTab) {
     photoTab.addEventListener("click", showPhoto);
     videoTab.addEventListener("click", showVideo);
   }
 
   /* =======================
-     AUTO TAB FROM URL
+     LOAD DEFAULT TAB
      ======================= */
   const urlParams = new URLSearchParams(window.location.search);
   const type = urlParams.get("type");
@@ -620,116 +600,7 @@
 </script>
 
 
-<script>
-let controlsTimeout = null;
 
-function initCustomPlayer(video) {
-	if (!video) return;
-
-	const wrapper = document.querySelector(".video-controls-wrapper");
-	if (!wrapper) return;
-
-	const playBtn = wrapper.querySelector(".playPauseBtn");
-	const icon = wrapper.querySelector(".playPauseIcon");
-	const seekBar = wrapper.querySelector(".seekBar");
-	const time = wrapper.querySelector(".timeDisplay");
-
-	if (!playBtn || !icon || !seekBar || !time) return;
-
-	window.activeVideo = video;
-
-	/* ---------- helpers ---------- */
-	function formatTime(sec) {
-		if (isNaN(sec)) return "00:00";
-		const m = Math.floor(sec / 60);
-		const s = Math.floor(sec % 60);
-		return `${m.toString().padStart(2,"0")}:${s.toString().padStart(2,"0")}`;
-	}
-
-	function showControls() {
-		wrapper.classList.remove("hidden");
-		clearTimeout(controlsTimeout);
-
-		if (!video.paused && !video.ended) {
-			controlsTimeout = setTimeout(() => {
-				wrapper.classList.add("hidden");
-			}, 2500);
-		}
-	}
-
-	function hideIfIdle() {
-		const idle =
-			video.ended ||
-			(video.paused && video.currentTime === 0);
-
-		if (idle) wrapper.classList.add("hidden");
-	}
-
-	/* ---------- reset UI ---------- */
-	wrapper.classList.remove("hidden");
-	icon.src = "{% static 'img/play.png' %}";
-	seekBar.value = 0;
-	time.textContent = "00:00 / 00:00";
-
-	/* ---------- play / pause ---------- */
-	playBtn.onclick = () => {
-		if (video.paused) {
-			video.play();
-		} else {
-			video.pause();
-		}
-		showControls();
-	};
-
-	video.addEventListener("play", () => {
-		icon.src = "{% static 'img/pause.png' %}";
-		showControls();
-	});
-
-	video.addEventListener("pause", () => {
-		icon.src = "{% static 'img/play.png' %}";
-		hideIfIdle();
-	});
-
-	video.addEventListener("ended", () => {
-		icon.src = "{% static 'img/play.png' %}";
-		hideIfIdle();
-	});
-
-	/* ---------- time / seek ---------- */
-	video.addEventListener("loadedmetadata", () => {
-		time.textContent = `00:00 / ${formatTime(video.duration)}`;
-	});
-
-	video.addEventListener("timeupdate", () => {
-		if (!video.duration) return;
-
-		seekBar.value =
-			(video.currentTime / video.duration) * 100;
-
-		time.textContent =
-			`${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
-	});
-
-	seekBar.oninput = () => {
-		if (!video.duration) return;
-		video.currentTime =
-			(seekBar.value / 100) * video.duration;
-	};
-
-	/* ---------- hover / touch ---------- */
-	const videoBox = video.closest("#videoBox") || video.parentElement;
-
-// Mouse + touch anywhere on video area
-["mousemove", "touchstart"].forEach(evt => {
-	videoBox.addEventListener(evt, showControls);
-});
-
-// Click fallback (desktop + mobile)
-video.addEventListener("click", showControls);
-
-}
-</script>
 
 
 

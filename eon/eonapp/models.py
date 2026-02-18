@@ -37,7 +37,7 @@ class Bird(models.Model):
     Bird_Diet_Key = models.CharField(max_length=100)
     Bird_Active_Time_Key = models.CharField(max_length=100)
     Bird_Migration_Key = models.CharField(max_length=100)
-    BirdAt_HoHStatus = models.CharField(max_length=50)
+    BirdAt_HoHStatus = models.CharField(max_length=100)
     Bird_Button_Media = models.FileField(upload_to="Animations/Birds/Buttons/",blank=True, null=True)
     Bird_Button_Thumb = models.FileField(upload_to="Animations/Birds/Single Birds/",blank=True, null=True)
 
