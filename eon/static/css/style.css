@@ -11,6 +11,9 @@ html{
   .tree-mobile-only {
     display: none;
   }
+	  .tree-tab-mobile-only {
+    display: none;
+  }
 	.hide-on-desktop{
     display: none;
   }
@@ -1513,7 +1516,9 @@ font-family: 'Boreal', sans-serif;
 	.tree-desktop-only {
     display: block;
   }
-
+.tree-desktop-only1 {
+    display: block;
+  }
 
 .Tree-basicinfo {
 	display: flex;
@@ -3663,7 +3668,7 @@ display: inline-flex;
 	transition:
 		opacity 0.3s ease,
 		transform 0.3s ease;
-	z-index: 999;
+	z-index: 1000;
 }
 
 /* Show button */
