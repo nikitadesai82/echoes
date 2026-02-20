@@ -8,6 +8,9 @@ html{
 	height: 100%;
 	
 }
+.dropdown-content {
+  display: none;
+}
   .tree-mobile-only {
     display: none;
   }
@@ -1618,6 +1621,7 @@ font-family: 'Boreal', sans-serif;
 .tree-ani {
 	width: 23.4375vw;
 	height: 49.166vh;
+	mix-blend-mode: multiply;
 }
 .tree-ani video {
 	width: 100%;

@@ -292,68 +292,103 @@
       });
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const menuBtn = document.getElementById("menuBtn");
-        const menuIcon = menuBtn?.querySelector("img");
-        const mask = document.querySelector(".dropdown-mask");
-        const dropdown = document.querySelector(".dropdown-content");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-        if (!menuBtn || !menuIcon || !mask || !dropdown) return;
+  const menuBtn = document.getElementById("menuBtn");
+  const menuIcon = menuBtn?.querySelector("img");
+  const mask = document.querySelector(".dropdown-mask");
+  const dropdown = document.querySelector(".dropdown-content");
 
-        const defaultSrc = menuIcon.dataset.default;
-        const activeSrc = menuIcon.dataset.active;
+  if (!menuBtn || !menuIcon || !mask || !dropdown) return;
 
-        gsap.set(dropdown, { yPercent: -100, opacity: 0 });
+  const defaultSrc = menuIcon.dataset.default;
+  const activeSrc = menuIcon.dataset.active;
 
-        let isOpen = false;
+  let isOpen = false;
+  const isDesktop = window.innerWidth > 1200;
 
-        const tl = gsap.timeline({
-          paused: true,
-          onStart: () => {
-            isOpen = true;
-            mask.style.pointerEvents = "auto";
-            menuIcon.src = activeSrc;
-            menuBtn.classList.add("is-open");
-          },
-          onReverseComplete: () => {
-            isOpen = false;
-            mask.style.pointerEvents = "none";
-            menuIcon.src = defaultSrc;
-            menuBtn.classList.remove("is-open");
-          },
-        });
+  /* =========================================
+     DESKTOP (GSAP ANIMATION)
+  ========================================= */
+  if (isDesktop) {
 
-        tl.to(dropdown, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.4,
-          ease: "power3.out",
-        });
+    // Initial hidden state
+    gsap.set(dropdown, {
+      display: "none",
+      yPercent: -100,
+      opacity: 0
+    });
 
-        /* ---------- CLICK ---------- */
-        menuBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          isOpen ? tl.reverse() : tl.play();
-        });
+    const tl = gsap.timeline({
+      paused: true,
+      onStart: () => {
+        isOpen = true;
+        dropdown.style.display = "block";   // 🔥 show before animating
+        mask.style.pointerEvents = "auto";
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add("is-open");
+      },
+      onReverseComplete: () => {
+        isOpen = false;
+        dropdown.style.display = "none";    // 🔥 hide after animation
+        mask.style.pointerEvents = "none";
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove("is-open");
+      }
+    });
 
-        document.addEventListener("click", () => {
-          if (isOpen) tl.reverse();
-        });
+    tl.to(dropdown, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: "power3.out"
+    });
 
-        mask.addEventListener("click", (e) => e.stopPropagation());
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen ? tl.reverse() : tl.play();
+    });
 
-        /* ---------- HOVER (ONLY WHEN CLOSED) ---------- */
-        menuBtn.addEventListener("mouseenter", () => {
-          if (!isOpen) menuIcon.src = activeSrc;
-        });
+    document.addEventListener("click", () => {
+      if (isOpen) tl.reverse();
+    });
 
-        menuBtn.addEventListener("mouseleave", () => {
-          if (!isOpen) menuIcon.src = defaultSrc;
-        });
-      });
-    </script>
+  }
+
+  /* =========================================
+     TABLET + MOBILE (NO GSAP)
+  ========================================= */
+  else {
+
+    dropdown.style.display = "none";
+
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        dropdown.style.display = "block";
+        mask.style.pointerEvents = "auto";
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add("is-open");
+      } else {
+        dropdown.style.display = "none";
+        mask.style.pointerEvents = "none";
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove("is-open");
+      }
+    });
+
+  }
+
+  mask.addEventListener("click", (e) => e.stopPropagation());
+
+});
+</script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {

@@ -21,7 +21,7 @@
     <div class="Other_names gsap-hidden">AKA: {{ flora.Flora_AKA }}</div>
   </div>
 </div>
-<div class="tree-desktop-only">
+<div class="tree-desktop-only1">
   <div class="Tree-basicinfo">
     <div class="Tree-basicinfo-box1">
       <div class="Info-title gsap-hidden">ORIGIN</div>
@@ -5188,7 +5188,7 @@
 <!-- ========================= -->
 <!-- MOBILE VERSION ONLY -->
 <!-- ========================= -->
-<div class="tree-mobile-only">
+<div class="tree-tab-mobile-only">
 
   <!-- ✅ ORIGIN + HEIGHT ROW -->
   <div class="tree-mobile-toprow">
@@ -5225,7 +5225,7 @@
       <div class="media-head">See Photo</div>
     </a>
   </div>
-
+<div class="tab">
   <!-- ✅ GEOGRAPHIC RANGE -->
   <div class="tree-mobile-range">
     <div class="Info-title">GEOGRAPHIC RANGE</div>
@@ -10273,11 +10273,11 @@
           </svg>
         </div>
   </div>
-
+</div>
 </div>
 
 
-<div class="Tree-base hide-on-mobile">
+<div class="Tree-base hide-on-tab-mobile">
   <img src="{% static 'img/tree_base.png' %}" alt="Tree Base Picture" />
 </div>
 <div class="treebottom">
@@ -10297,7 +10297,7 @@
   </div>
   <div class="fadeUpOnScroll tree-ani hide-on-mobile">
     <video autoplay muted loop playsinline>
-      <source src="{% static 'video/treegirl.webm' %}" type="video/mp4" />
+      <source src="{% static 'video/treegirl.mp4' %}" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
@@ -10399,7 +10399,7 @@ document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => 
 </script>
 
 <div class="bird-bottombox">
-  <div class="fade-section bird-bootombox-col">
+  <div class="bird-bootombox-col">
     <div class="doyouknow">
       <div class="fadeUpOnScroll doyouknowimg">
         <img src="{% static 'img/doyouknow.png' %}" alt="DO YOU KNOW?" />
@@ -10409,7 +10409,7 @@ document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => 
         <div class="doyouknow-detail">{{ flora.Flora_Fun_Facts }}</div>
       </div>
     </div>
-    <div class="bird-bootombox-border hide-on-mobile">
+    <div class="bird-bootombox-border hide-on-tab-mobile">
       <img src="{% static 'img/Border.png' %}" />
     </div>
   </div>
@@ -10473,7 +10473,7 @@ document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => 
         ></video>
       </div>
     </div>
-    <div class="bird-bootombox-border hide-on-mobile">
+    <div class="bird-bootombox-border hide-on-tab-mobile">
       <img src="{% static 'img/Border.png' %}" />
     </div>
   </div>

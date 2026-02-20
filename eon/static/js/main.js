@@ -45,6 +45,7 @@ function initNavigationButtons() {
 }
 
 function initDropdownMenu() {
+
   const menuBtn = document.getElementById('menuBtn');
   const menuIcon = menuBtn?.querySelector('img');
   const mask = document.querySelector('.dropdown-mask');
@@ -55,48 +56,84 @@ function initDropdownMenu() {
   const defaultSrc = menuIcon.dataset.default;
   const activeSrc = menuIcon.dataset.active;
 
-  gsap.set(dropdown, {
-    yPercent: -100,
-    opacity: 0,
-  });
-
-  const tl = gsap.timeline({
-    paused: true,
-    onStart: () => {
-      mask.style.pointerEvents = 'auto';
-      menuIcon.src = activeSrc;
-    },
-    onReverseComplete: () => {
-      mask.style.pointerEvents = 'none';
-      menuIcon.src = defaultSrc;
-    },
-  });
-
-  tl.to(dropdown, {
-    yPercent: 0,
-    opacity: 1,
-    duration: 0.4,
-    ease: 'power3.out',
-  });
-
   let isOpen = false;
+  const isDesktop = window.innerWidth > 1200;
 
-  menuBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  /* =========================================
+     DESKTOP (GSAP)
+  ========================================= */
+  if (isDesktop) {
 
-    isOpen ? tl.reverse() : tl.play();
-    isOpen = !isOpen;
+    gsap.set(dropdown, {
+      display: "none",
+      yPercent: -100,
+      opacity: 0
+    });
 
-    menuBtn.classList.toggle('is-open', isOpen);
-  });
+    const tl = gsap.timeline({
+      paused: true,
+      onStart: () => {
+        dropdown.style.display = "block"; // show before animating
+        mask.style.pointerEvents = 'auto';
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add('is-open');
+        isOpen = true;
+      },
+      onReverseComplete: () => {
+        dropdown.style.display = "none"; // hide after closing
+        mask.style.pointerEvents = 'none';
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove('is-open');
+        isOpen = false;
+      }
+    });
 
-  document.addEventListener('click', () => {
-    if (!isOpen) return;
-    tl.reverse();
-    isOpen = false;
-    menuBtn.classList.remove('is-open');
-  });
+    tl.to(dropdown, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: 'power3.out'
+    });
+
+    menuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen ? tl.reverse() : tl.play();
+    });
+
+    document.addEventListener('click', () => {
+      if (isOpen) tl.reverse();
+    });
+
+  }
+
+  /* =========================================
+     TABLET + MOBILE (NO GSAP)
+  ========================================= */
+  else {
+
+    dropdown.style.display = "none";
+
+    menuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        dropdown.style.display = "block";
+        mask.style.pointerEvents = 'auto';
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add('is-open');
+      } else {
+        dropdown.style.display = "none";
+        mask.style.pointerEvents = 'none';
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove('is-open');
+      }
+    });
+
+  }
 
   mask.addEventListener('click', (e) => e.stopPropagation());
 }

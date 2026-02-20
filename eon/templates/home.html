@@ -114,7 +114,7 @@
 		<div class="page-content">
 			<div class="home-container">
 				<div class="home-ui">
-					<div class="left-bird hide-on-mobile">
+					<div class="left-bird hide-on-tab-mobile">
 						<video autoplay muted loop playsinline>
 							<source
 								src="{% static 'video/Bird-left-home.mp4' %}"
@@ -131,7 +131,7 @@
 						Care.
 					</div>
 				</div>
-				<div class="treespagelink hide-on-mobile">
+				<div class="treespagelink hide-on-tab-mobile">
 					<a href="{% url 'birds_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
@@ -177,7 +177,7 @@
 					DEEP DIVE
 				</a>
 
-				<div class="home-ui hide-on-mobile">
+				<div class="home-ui hide-on-tab-mobile">
 					<div class="right-text">
 						Step into Hiranandani Estate, Thane and experience a thriving urban
 						ecosystem of trees, plants, birds and butterflies. Here, every
@@ -193,7 +193,7 @@
 						fauna.
 					</div>
 				</div>
-				<div class="birdspagelink hide-on-mobile" >
+				<div class="birdspagelink hide-on-tab-mobile" >
 					<a href="{% url 'flora_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
@@ -217,7 +217,7 @@
 					</a>
 				</div>
 				<div class="home-ui">
-					<div class="right-bird hide-on-mobile">
+					<div class="right-bird hide-on-tab-mobile">
 						<video autoplay muted loop playsinline>
 							<source
 								src="{% static 'video/birdright.mp4' %}"
@@ -413,65 +413,103 @@
 			});
 		</script>
 
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const menuBtn = document.getElementById('menuBtn');
-				const menuIcon = menuBtn?.querySelector('img');
-				const mask = document.querySelector('.dropdown-mask');
-				const dropdown = document.querySelector('.dropdown-content');
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-				if (!menuBtn || !menuIcon || !mask || !dropdown) return;
+  const menuBtn = document.getElementById("menuBtn");
+  const menuIcon = menuBtn?.querySelector("img");
+  const mask = document.querySelector(".dropdown-mask");
+  const dropdown = document.querySelector(".dropdown-content");
 
-				const defaultSrc = menuIcon.dataset.default;
-				const activeSrc = menuIcon.dataset.active;
+  if (!menuBtn || !menuIcon || !mask || !dropdown) return;
 
-				// Start hidden inside mask
-				gsap.set(dropdown, {
-					yPercent: -100,
-					opacity: 0,
-				});
+  const defaultSrc = menuIcon.dataset.default;
+  const activeSrc = menuIcon.dataset.active;
 
-				const tl = gsap.timeline({
-					paused: true,
-					onStart: () => {
-						mask.style.pointerEvents = 'auto';
-						menuIcon.src = activeSrc; // 🔥 menu open → active icon
-					},
-					onReverseComplete: () => {
-						mask.style.pointerEvents = 'none';
-						menuIcon.src = defaultSrc; // 🔥 menu closed → default icon
-					},
-				});
+  let isOpen = false;
+  const isDesktop = window.innerWidth > 1200;
 
-				tl.to(dropdown, {
-					yPercent: 0,
-					opacity: 1,
-					duration: 0.4,
-					ease: 'power3.out',
-				});
+  /* =========================================
+     DESKTOP (GSAP ANIMATION)
+  ========================================= */
+  if (isDesktop) {
 
-				let isOpen = false;
+    // Initial hidden state
+    gsap.set(dropdown, {
+      display: "none",
+      yPercent: -100,
+      opacity: 0
+    });
 
-				menuBtn.addEventListener('click', (e) => {
-					e.preventDefault();
-					e.stopPropagation();
+    const tl = gsap.timeline({
+      paused: true,
+      onStart: () => {
+        isOpen = true;
+        dropdown.style.display = "block";   // 🔥 show before animating
+        mask.style.pointerEvents = "auto";
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add("is-open");
+      },
+      onReverseComplete: () => {
+        isOpen = false;
+        dropdown.style.display = "none";    // 🔥 hide after animation
+        mask.style.pointerEvents = "none";
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove("is-open");
+      }
+    });
 
-					isOpen ? tl.reverse() : tl.play();
-					isOpen = !isOpen;
+    tl.to(dropdown, {
+      yPercent: 0,
+      opacity: 1,
+      duration: 0.4,
+      ease: "power3.out"
+    });
 
-					menuBtn.classList.toggle('is-open', isOpen);
-				});
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isOpen ? tl.reverse() : tl.play();
+    });
 
-				document.addEventListener('click', () => {
-					if (!isOpen) return;
-					tl.reverse();
-					isOpen = false;
-					menuBtn.classList.remove('is-open');
-				});
+    document.addEventListener("click", () => {
+      if (isOpen) tl.reverse();
+    });
 
-				mask.addEventListener('click', (e) => e.stopPropagation());
-			});
-		</script>
+  }
+
+  /* =========================================
+     TABLET + MOBILE (NO GSAP)
+  ========================================= */
+  else {
+
+    dropdown.style.display = "none";
+
+    menuBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      isOpen = !isOpen;
+
+      if (isOpen) {
+        dropdown.style.display = "block";
+        mask.style.pointerEvents = "auto";
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add("is-open");
+      } else {
+        dropdown.style.display = "none";
+        mask.style.pointerEvents = "none";
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove("is-open");
+      }
+    });
+
+  }
+
+  mask.addEventListener("click", (e) => e.stopPropagation());
+
+});
+</script>
 
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
