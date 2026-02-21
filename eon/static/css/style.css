@@ -277,7 +277,7 @@ display: flex;
            clamp(12px, 1.6vw, 60px);
 
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(11px, 0.73vw, 28px);
 
   color: #fff3e6;
   text-decoration: none;
@@ -423,7 +423,7 @@ display: flex;
 .Info-detail-text {
 	width: 17.708vw;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -431,7 +431,7 @@ display: flex;
 .Info-detail-text2 {
 	width: 17.708vw;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -442,7 +442,7 @@ display: flex;
 .Info-detail-text3 {
 	max-height: 17vh;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -660,7 +660,7 @@ display: flex;
 .birdanimationbox {
 	width: 17.708vw;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -705,7 +705,7 @@ display: flex;
 
 .media-head {
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	height: auto;
 	padding-top: 0.926vh;
@@ -856,7 +856,7 @@ display: flex;
 	overflow: hidden;
 	position: relative;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -880,7 +880,7 @@ display: flex;
 	overflow: hidden;
 	position: relative;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -891,7 +891,7 @@ display: flex;
 .Info-detail-text6 {
 	width: 17.708vw;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -930,7 +930,7 @@ display: flex;
 	font-family: 'Boreal', sans-serif;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	text-decoration: none;
 	background: #802650;
 	color: #fff;
@@ -995,7 +995,7 @@ display: flex;
 	display: flex;
 	flex-direction: column;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	line-height: 1.5;
@@ -1039,7 +1039,7 @@ display: flex;
 	display: flex;
 	align-items: center;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	cursor: pointer;
 }
 
@@ -1119,7 +1119,7 @@ display: flex;
 	width: 19.76vw;
 	align-items: center;
 	justify-content: center;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	font-family: 'Segoe UI', Arial, sans-serif;
 	border-radius: 12px;
 	z-index: 6;
@@ -1157,7 +1157,7 @@ display: flex;
 }
 
 .filter-toggle {
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(11px, 0.73vw, 28px);
   cursor: pointer;
   color: #fff;
   display: flex;
@@ -1213,7 +1213,7 @@ display: flex;
 	padding: 6px 10px;
 	border-radius: 16px;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	cursor: pointer;
 	color: #4d4a4a;
 	white-space: nowrap;
@@ -1238,7 +1238,7 @@ display: flex;
 	border: 0.2rem solid #a4a1a1;
 	border-radius: 1.5vw;
 	padding: 5px 16px;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	margin: 2px;
 	text-align: center;
 	justify-content: center;
@@ -1258,7 +1258,7 @@ display: flex;
 }
 .filter-desc{
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	cursor: pointer;
 	color: #4d4a4a;
 	position: absolute;
@@ -1274,7 +1274,7 @@ display: flex;
 }
 .filter-desc-right{
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	cursor: pointer;
 	color: #4d4a4a;
 	position: absolute;
@@ -1319,7 +1319,7 @@ display: flex;
 	margin-left: 9.1vw;
 	overflow: hidden;
 	max-height: 4.629vh;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	align-items: center;
 	will-change: max-height;
 	--reveal: 0;
@@ -1359,7 +1359,7 @@ display: flex;
 	cursor: pointer;
 	overflow: hidden;
 	max-height: 4.629vh;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	align-items: center;
 	--reveal: 0;
 }
@@ -1925,7 +1925,7 @@ font-family: 'Boreal', sans-serif;
 	display: flex;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	justify-content: center;
 	font-style: normal;
@@ -1941,7 +1941,7 @@ display: inline-flex;
   font-family: 'Boreal', sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: clamp(18px, 0.93vw, 36px);
+  font-size: 0.93vw;
   text-decoration: none;
   background: #802650;
   color: #fff;
@@ -1952,17 +1952,14 @@ display: inline-flex;
 }
 .video-text-2 {
   --circle: 0;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
 	margin-top: 0.463vh;
   opacity: 0;
-
   width: 13.438vw;
   height: 4.63vh;
   border-radius: 1.5vw;
-
   font-family: 'Boreal', sans-serif;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1991,7 +1988,7 @@ display: inline-flex;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
 	font-style: italic;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: 0.73vw;
 	color: #4d4a4a;
 	justify-content: center;
 	align-items: center;
@@ -2002,7 +1999,7 @@ display: inline-flex;
 	width: 17.708vw;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	margin-top: 1.04166vh;
 	text-wrap: auto;
@@ -2044,7 +2041,7 @@ display: inline-flex;
 	width: 17.708vw;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	margin-top: 1.04166vh;
 	text-wrap: auto;
@@ -2127,7 +2124,7 @@ display: inline-flex;
 .hiranandani-text-4 {
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-style: normal;
 	margin-top: 2.3148vh;
@@ -2143,7 +2140,7 @@ display: inline-flex;
 	font-family: 'Boreal', sans-serif;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	text-decoration: none;
 	background: #802650;
 	color: #fff;
@@ -2161,7 +2158,7 @@ display: inline-flex;
 	font-family: 'Boreal', sans-serif;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	text-decoration: none;
 	background: #802650;
 	color: #fff;
@@ -2179,7 +2176,7 @@ display: inline-flex;
 	font-family: 'Boreal', sans-serif;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	text-decoration: none;
 	background: #802650;
 	color: #fff;
@@ -2197,7 +2194,7 @@ display: inline-flex;
 	font-family: 'Boreal', sans-serif;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	text-decoration: none;
 	background: #802650;
 	color: #fff;
@@ -2287,7 +2284,7 @@ display: inline-flex;
 	display: flex;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	justify-content: left;
 	font-style: italic;
@@ -2336,7 +2333,7 @@ display: inline-flex;
 .naturetrail-text4 {
 	width: 24.9vw;
 	height: auto;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	margin-top: 1.416vh;
@@ -2406,14 +2403,14 @@ display: inline-flex;
 .row-bottom {
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	display: block;
 }
 .row-bottom2 {
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	justify-content: left;
 }
@@ -2444,7 +2441,7 @@ display: inline-flex;
 .bird-sighting {
 	min-height: 4.5648vh;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	display: block;
 	text-align: left;
@@ -2462,7 +2459,7 @@ display: inline-flex;
 .time-text {
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	display: block;
 	text-align: left;
@@ -2497,7 +2494,7 @@ display: inline-flex;
 	height: auto;
 	font-family: 'Boreal', sans-serif;
 	font-style: italic;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 }
 .birdwatching-box-left2 {
@@ -2619,7 +2616,7 @@ display: inline-flex;
 .birdwatching-row-bottom {
 	height: 3.5648vh;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	display: block;
 	text-align: left;
@@ -2657,7 +2654,7 @@ display: inline-flex;
 .time {
 	height: auto;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	padding-top: 0.9259vh;
 	color: #4d4a4a;
 	font-style: italic;
@@ -2734,7 +2731,7 @@ display: inline-flex;
 .birds-to-watch {
 	min-height: 5.5vh;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	padding-top: 1.388vh;
 }
 .birds-to-watch a {
@@ -2898,7 +2895,7 @@ display: inline-flex;
 	width: 12.593vw;
 	max-height: 4.63vh;
 	border-radius: 1.62vw;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	border: clamp(1px, 0.15vw, 3px) solid #707070;
@@ -2951,7 +2948,7 @@ display: inline-flex;
 
 .story_text {
     max-height: 28vh;
-    font-size: clamp(13px, 0.73vw, 28px);
+    font-size: clamp(11px, 0.73vw, 28px);
     color: #4d4a4a;
     font-family: 'Boreal', sans-serif;
     margin-top: clamp(12px, 1vh, 22px);
@@ -3072,7 +3069,7 @@ display: inline-flex;
 	margin-top: 18.8vh;
 	height: 4.63vh;
 	border-radius: 1.62vw;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	display: flex;
@@ -3086,7 +3083,7 @@ display: inline-flex;
 	margin-top: 1.944vh;
 	height: 4.63vh;
 	border-radius: 1.62vw;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	display: flex;
@@ -3100,7 +3097,7 @@ display: inline-flex;
 	margin-top: 39.487vh;
 	height: 4.63vh;
 	border-radius: 1.62vw;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	display: flex;
@@ -3124,7 +3121,7 @@ display: inline-flex;
 	margin-top: 1.944vh;
 	height: 4.63vh;
 	border-radius: 1.62vw;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	font-family: 'Boreal', sans-serif;
 	display: flex;
@@ -3701,7 +3698,7 @@ display: inline-flex;
 	border-radius: 2rem;
 	background: #802650;
 	color: #fff;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	width: 5vw;
 	font-family: 'Boreal', sans-serif;
 }
@@ -3890,13 +3887,13 @@ html[data-loading='true'] body {
 	margin-top: 3.9662vh;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 }
 .footerwebcol1_2 {
 	margin-top: 9.259vh;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 }
 .footerwebcol2 {
 	width: 18.4375vw;
@@ -3914,13 +3911,13 @@ html[data-loading='true'] body {
 	margin-top: 2.037vh;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 }
 .footerwebcol2_3 {
 	margin-top: 0.9722vh;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 }
 
 .footerwebcol3 {
@@ -3973,7 +3970,7 @@ html[data-loading='true'] body {
 	width: 18.4375vw;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 }
 .footerwebcol_head{
 	font-family: 'Boreal', sans-serif;
@@ -4016,14 +4013,14 @@ html[data-loading='true'] body {
 	width: 18.4375vw;
 	font-family: 'Boreal', sans-serif;
 	color: #fff3e6;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	padding-top: 0.875vh;
 }
 .copyright {
 	position: absolute;
   font-family: 'Boreal', sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(11px, 0.73vw, 28px);
   padding-left: 10.4167vw;
   padding-top: 36vh;
 }
@@ -4262,7 +4259,7 @@ body[data-state='deepdive'] #deepdive-trigger {
 }
 .credit-text {
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	color: #4d4a4a;
 	line-height: 1.5;
 	font-style: italic;
@@ -4273,7 +4270,7 @@ body[data-state='deepdive'] #deepdive-trigger {
 	padding-left: 2.5rem;
 	margin: 1rem 0;
 	font-family: 'Boreal', sans-serif;
-	font-size: clamp(13px, 0.73vw, 28px);
+	font-size: clamp(11px, 0.73vw, 28px);
 	line-height: 1.5;
 	color: #4d4a4a;
 	width: 25.52vw;

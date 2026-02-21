@@ -1,3 +1,236 @@
+@media (max-width: 1920px) {
+	.filter-toggle {
+		padding: 5px 15px;
+	}
+		.filter-toggle.open {
+  padding: 5px 15px;
+	border: 0.12rem solid #a4a1a1;
+	}
+	.filter-toggle:hover {
+  padding: 5px 15px;
+	}
+	.filter-options label{
+		font-size: 15px;
+	}
+	.selected-chip {
+  padding: 5px 15px;
+}
+.sort-header {
+  padding-top: 0.85rem;
+  padding-bottom: 0.4rem;
+}
+.arrow {
+  width: 9px;
+  height: 9px;
+}
+.arrow::after {
+width: 9px;
+    height: 9px;
+}
+.filter-toggle .arrow::after {
+  width: 7px;
+  height: 7px;
+}
+
+}
+
+@media (max-width: 1280px) {
+	.deepdive-link{
+		font-size: 12px;
+	}
+	.treebox{
+		height: auto;
+	}
+	.birdwatch-link{
+		font-size: 9px;
+		min-height: 5.3vh;
+	}
+	.naturetrail-link {
+		font-size: 9px;
+		min-height: 5.3vh;
+	}
+	.urbanlegend-link{
+		font-size: 9px;
+		min-height: 5.3vh;
+	}
+	.video-text-3 {
+  font-size: .88vw;
+}
+	.left_6{
+		height: auto;
+	}
+	.left_7{
+		height: auto;
+	}
+	.right_5{
+		height: auto;
+	}
+	.right_1 {
+		font-size: 18px;
+	}
+	.right_2 {
+		font-size: 16px;
+	}
+	.dropdown-mask {
+
+		width: 167px;
+	}
+	.dropdown-content {
+		height:31.7vh;
+	}
+	.menu-item {
+		padding: clamp(5px, 1.2vh, 26px) clamp(28px, 1.6vw, 60px);
+		font-size: 9px;
+	}
+	.filter-toggle {
+font-size: 11px;
+    height: 3.5vh;
+    padding: 5px 10px;
+    min-width: 7.2vw;
+	}
+	.filter-toggle .arrow::after {
+  width: 3px;
+  height: 3px;
+	}
+	.filter-toggle .arrow {
+		width: auto;
+	}
+	.filter-toggle.open {
+  border: 0.1rem solid #a4a1a1;
+  padding: 5px 10px;
+	}
+	.filter-toggle:hover {
+  padding: 5px 10px;
+	}
+	.filter-options label{
+		font-size: 11px;
+	}
+	.selected-chip {
+  border: 0.1rem solid #a4a1a1;
+  padding: 5px 10px;
+  font-size: 11px;
+}
+.selected-chip span {
+  margin-top: 0.05rem;
+}
+.filter-options input[type="radio"] {
+  accent-color: #841c2d;
+  height: 1.8vh;
+  width: 1.8vh;
+}
+.Sort-box {
+	font-size: 12px;
+	width: 16.32vw;
+	margin-left: 7.1vw;
+}
+.sort-header {
+  padding-top: 0.5rem;
+	padding-bottom: 0;
+}
+.sort-label {
+  padding-right: 0;
+}
+.arrow {
+  width: 6px;
+  height: 6px;
+}
+.arrow::after {
+width: 6px;
+    height: 6px;
+}
+.drop-content {
+	padding-right: 1rem;
+}
+.Sort-box.open {
+  max-height: 18.9vh;
+}
+.filter-desc-head {
+	font-size: 13px;
+}
+.filter-desc-right {
+padding-left: 73vw;
+    padding-top: 22.8vh;
+}
+.bird-name {
+	font-size: 11px;
+	width: 11vw;
+}
+#Echoes_of_Nature {
+	margin-top: 7.62vh;
+}
+.Bird_namebox {
+	margin-top: 2.4vh;
+}
+.Bird_list_firstbox {
+	margin-top: 75px;
+}
+.Scientific_name {
+	font-size: 14px;
+}
+.Other_names {
+	font-size: 14px;
+}
+.Info-title {
+	font-size: 16px;
+}
+.media-box1 {
+  width: 6.52vw;
+	padding-bottom: 15px;
+}
+.Info-detail-text6{
+	font-size: 11px;
+}
+.Info-detail-text2{
+	font-size: 11px;
+}
+.read-more-btn {
+  font-size: 10px;
+}
+.day {
+	font-size: 16px;
+}
+.stop{
+	font-size: 16px;
+}
+.activity{
+	font-size: 16px;
+}
+.row-top{
+	font-size: 16px;
+}
+.MD-message-link {
+	font-size: 9px;
+}
+.urbanlegendsbox1 {
+	margin-top: 10.8vh;
+}
+.custom-radio {
+  width: 0.7vw;
+  height: 0.7vw;
+}
+.radio-container label{
+	font-size: 9px;
+}
+.mcq-submit {
+  margin-top: 1.2rem;
+  padding: 0.35rem 0.2rem;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 8px;
+  width: 4vw;
+}
+.mcq-video2 {
+  width: 6vw;
+  border-radius: 1rem;
+  margin-top: -4.9vh;
+  margin-left: 21.6vw;
+}
+.mcq-video {
+margin-left: 22vw;
+  margin-top: -7.4rem;
+  }
+}
+	
 @media (max-width: 1024px) {
 		html {
   overflow-x: hidden;
@@ -1424,13 +1657,13 @@ margin: 30px 0 0 5px;
 width: 90px;
     border-radius: 1rem;
 margin-left: 24%;
-    margin-top: 31.5%;
+margin-top: 27%;
 }
 	.mcq-video {
 width: 90px;
     border-radius: 1rem;
     margin-left: 24%;
-    margin-top: 31.5%;
+    margin-top: 34.5%;
     height: auto;
 }
 .Bird-basicinfo-grid {
@@ -3398,7 +3631,7 @@ display: flex;
 	width: 60px;
     border-radius: 1rem;
     margin-left: 150px;
-    margin-top: 53%;
+    margin-top: 52%;
 
 }
 	.mcq-video {
