@@ -1,4 +1,10 @@
 @media (max-width: 1920px) {
+	.deepdive-link{
+font-size: 16px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+	}
 	.filter-toggle {
 		padding: 5px 15px;
 	}
@@ -33,7 +39,123 @@ width: 9px;
 }
 
 }
+@media (max-width: 1366px) {
+.deepdive-link{
+font-size: 12px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+	}
+	.birdwatch-link{
+		font-size: 10px;
+		min-height: 5.3vh;
+	}
+	.naturetrail-link {
+		font-size: 10px;
+		min-height: 5.3vh;
+	}
+	.urbanlegend-link{
+		font-size: 10px;
+		min-height: 5.3vh;
+	}
+	.left_6{
+		height: auto;
+	}
+	.left_7{
+		height: auto;
+	}
+	.right_5{
+		height: auto;
+	}
+	.dropdown-mask {
 
+		width: 177px;
+	}
+	.dropdown-content {
+		height:31.7vh;
+	}
+	.menu-item {
+		padding: clamp(5px, 1.2vh, 26px) clamp(28px, 1.6vw, 60px);
+		font-size: 11px;
+	}
+	.menu-bg {
+  height: 32vh;
+	}
+	.left_5 {
+		font-size: 12px;
+}
+	.right_4 {
+		font-size: 12px;
+}
+.filter-toggle {
+font-size: 12px;
+    height: 4.5vh;
+    padding: 5px 7px;
+    min-width: 7.2vw;
+	}
+	.filter-toggle .arrow::after {
+  width: 5px;
+  height: 5px;
+	}
+	.filter-toggle .arrow {
+		width: auto;
+	}
+	.filter-toggle.open {
+  border: 0.1rem solid #a4a1a1;
+  padding: 5px 7px;
+	}
+	.filter-toggle:hover {
+  padding: 5px 7px;
+	}
+	.filter-options label{
+		font-size: 12px;
+	}
+	.selected-chip {
+  border: 0.1rem solid #a4a1a1;
+  padding: 5px 7px;
+  font-size: 12px;
+}
+.selected-chip span {
+  margin-top: 0.05rem;
+}
+.filter-options input[type="radio"] {
+  accent-color: #841c2d;
+  height: 1.8vh;
+  width: 1.8vh;
+}
+.Sort-box {
+	font-size: 12px;
+	width: 16.32vw;
+	margin-left: 7.1vw;
+}
+.sort-header {
+  padding-top: 0.5rem;
+	padding-bottom: 0;
+}
+.sort-label {
+  padding-right: 0;
+}
+.arrow {
+  width: 6px;
+  height: 6px;
+}
+.arrow::after {
+width: 6px;
+    height: 6px;
+}
+.drop-content {
+	padding-right: 1rem;
+}
+.filter-desc-right {
+padding-left: 74vw;
+    padding-top: 22.8vh;
+}
+.bird-name {
+	font-size: 14px;
+	width: 13vw;
+}
+
+}
 @media (max-width: 1280px) {
 	.deepdive-link{
 		font-size: 12px;
@@ -85,7 +207,7 @@ width: 9px;
 	.filter-toggle {
 font-size: 11px;
     height: 3.5vh;
-    padding: 5px 10px;
+    padding: 5px 7px;
     min-width: 7.2vw;
 	}
 	.filter-toggle .arrow::after {
@@ -97,17 +219,17 @@ font-size: 11px;
 	}
 	.filter-toggle.open {
   border: 0.1rem solid #a4a1a1;
-  padding: 5px 10px;
+  padding: 5px 7px;
 	}
 	.filter-toggle:hover {
-  padding: 5px 10px;
+  padding: 5px 7px;
 	}
 	.filter-options label{
 		font-size: 11px;
 	}
 	.selected-chip {
   border: 0.1rem solid #a4a1a1;
-  padding: 5px 10px;
+  padding: 5px 7px;
   font-size: 11px;
 }
 .selected-chip span {
@@ -229,6 +351,9 @@ padding-left: 73vw;
 margin-left: 22vw;
   margin-top: -7.4rem;
   }
+	.gallery-name {
+		font-size: 17px;
+	}
 }
 	
 @media (max-width: 1024px) {
@@ -239,6 +364,10 @@ margin-left: 22vw;
 body {
   overflow-x: hidden;
   position: relative;
+}
+#Echoes_of_Nature_home {
+	font-size: 26.02vw;
+	  left: 12.5%;
 }
   /* Hide desktop-only icons */
   .tree-mobile-only {
@@ -306,10 +435,10 @@ width: 40vw !important;
   /* Watermark stays faint like XD */
   #Echoes_of_Nature {
     font-size: 22vw;
-    opacity: 0.06;
+    opacity: 1;
     margin-left: 0;
     width: 100%;
-    top: 12vh;
+    top: -6vh;
     text-align: center;
   }
 
@@ -319,7 +448,7 @@ width: 40vw !important;
 
   .urbanlegendsbox1 {
     width: 90%;
-    margin: 12vh auto 0 auto;
+    margin: 8vh auto 0 auto;
   }
 
   .urbanlegendsbox1_1 {
@@ -647,7 +776,7 @@ width: 50%;
 
   .Bird_list_firstbox {
     width: 90%;
-    margin: 12vh auto 0 auto;
+    margin: 8vh auto 0 auto;
     text-align: left;
   }
 
@@ -670,11 +799,11 @@ width: 50%;
 
   /* Watermark stays faint like XD */
   #Echoes_of_Nature {
-    font-size: 22vw;
-    opacity: 0.06;
-    width: 100%;
+   font-size: 28vw;
+    opacity: 1;
     margin-left: 0;
-    top: 10vh;
+    width: 100%;
+    top: -7vh;
     text-align: center;
   }
 
@@ -1645,6 +1774,7 @@ width: 100%;
 margin: 30px 0 0 5px;
     width: 150px;
     font-size: 22px;
+		position: relative;
   }
   .doyouknow-text1 {
     width: 100%;
@@ -2269,7 +2399,7 @@ body {
 
   .urbanlegendsbox1 {
     width: 90%;
-    margin: 12vh auto 0 auto;
+    margin: 8vh auto 0 auto;
   }
 
   .urbanlegendsbox1_1 {
@@ -2596,7 +2726,7 @@ width: 100%;
 
   .Bird_list_firstbox {
     width: 90%;
-    margin: 12vh auto 0 auto;
+    margin: 8vh auto 0 auto;
     text-align: left;
   }
 
@@ -2619,11 +2749,11 @@ width: 100%;
 
   /* Watermark stays faint like XD */
   #Echoes_of_Nature {
-    font-size: 22vw;
-    opacity: 0.06;
+font-size: 33vw;
+    opacity: 1;
     width: 100%;
     margin-left: 0;
-    top: 10vh;
+    top: -4vh;
     text-align: center;
   }
 
@@ -3245,7 +3375,7 @@ width: 100%;
 
   .Birdpage-firstbox {
     width: 90%;
-    margin: 12vh auto 0 auto;
+    margin: 8vh auto 0 auto;
   }
   .tree-desktop-only {
     display: none;
@@ -3619,6 +3749,7 @@ display: flex;
     margin: 7px 0 0 5px;
     width: 120px;
 		font-size: 13px;
+		position: relative;
   }
   .doyouknow-text1 {
     width: 100%;
