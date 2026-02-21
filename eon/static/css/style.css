@@ -2594,7 +2594,7 @@ a {
   height: auto;
 }
 .birdwatching-row-bottom {
-  height: 3.5648vh;
+  height: auto;
   font-family: "Boreal", sans-serif;
   font-size: clamp(13px, 0.73vw, 28px);
   color: #4d4a4a;

@@ -5,6 +5,13 @@ font-size: 16px;
     width: 7.438vw;
     height: 4vh;
 	}
+		.dropdown-mask {
+
+		width: 250px;
+	}
+	.drop-content {
+	padding-right: 2.5rem;
+}
 	.filter-toggle {
 		padding: 5px 15px;
 	}
@@ -20,7 +27,9 @@ font-size: 16px;
 	}
 	.selected-chip {
   padding: 5px 15px;
+	border: 0.1rem solid #a4a1a1;
 }
+
 .sort-header {
   padding-top: 0.85rem;
   padding-bottom: 0.4rem;
@@ -153,6 +162,44 @@ padding-left: 74vw;
 .bird-name {
 	font-size: 14px;
 	width: 13vw;
+}
+.mcq-submit {
+margin-top: 1.6rem;
+    padding: 0.35rem 0.2rem;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 9px;
+    width: 4vw;
+}
+.media-box1 {
+  width: 6.52vw;
+	padding-bottom: 15px;
+}
+.radio-container label {
+    font-size: 11px;
+  }
+.story {
+  font-size: 11px;
+  border: 0.5px solid #707070;
+}
+.mcq-video2 {
+  width: 6vw;
+  border-radius: 1rem;
+  margin-top: -4.9vh;
+  margin-left: 21.6vw;
+}
+.mcq-video {
+margin-left: 22vw;
+  margin-top: -7.4rem;
+  }
+	.gallery-name {
+		font-size: 17px;
+	}
+.row-top {
+	font-size: 16px;
+}
+.MD-message-link {
+	font-size: 11px;
 }
 
 }
@@ -448,7 +495,7 @@ width: 40vw !important;
 
   .urbanlegendsbox1 {
     width: 90%;
-    margin: 8vh auto 0 auto;
+    margin: 12vh auto 0 auto;
   }
 
   .urbanlegendsbox1_1 {
@@ -520,7 +567,6 @@ width: 100%;
     font-size: 72px;
     height: auto;
 		order:1;
-		padding-top:20px;
   }
 
   .story_text {
@@ -776,7 +822,7 @@ width: 50%;
 
   .Bird_list_firstbox {
     width: 90%;
-    margin: 8vh auto 0 auto;
+    margin: 12vh auto 0 auto;
     text-align: left;
   }
 
@@ -1124,7 +1170,7 @@ width: 50%;
   ========================================= */
   .birdwatching-firstlayer {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
 display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1148,7 +1194,7 @@ display: grid;
   }
   .birdwatching-box {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -1171,7 +1217,7 @@ margin-top: 40px;
 }
   .birdwatching-bottombox {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -2378,7 +2424,7 @@ body {
   /* Scroll button reposition */
   #scrollUpBtn {
     right: 1.5rem;
-    bottom: 2rem;
+    bottom: 3rem;
     width: 3rem;
     height: 3rem;
   }
@@ -2399,11 +2445,11 @@ body {
 
   .urbanlegendsbox1 {
     width: 90%;
-    margin: 8vh auto 0 auto;
+    margin: 12vh auto 0 auto;
   }
 
   .urbanlegendsbox1_1 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .urbanlegendsbox1_2 {
@@ -2412,7 +2458,7 @@ body {
   }
 
   .urbanlegendsbox1_3 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 12px;
   }
@@ -2472,11 +2518,10 @@ width: 100%;
     font-size: 34px;
     height: auto;
 		order:1;
-		padding-top:20px;
   }
 
   .story_text {
-    font-size: 14px;
+    font-size: 16px;
     max-height: none;
     overflow: visible;
     padding-right: 0;
@@ -2540,7 +2585,7 @@ width: 100%;
 
     padding: 14px 28px;
 
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
 
     color: #fff3e6;
@@ -2576,7 +2621,7 @@ width: 100%;
   /* Footer container becomes vertical card */
   .footerweb {
     width: 90%;
-    margin: 50px auto;
+    margin: 20px auto;
     flex-direction: column;
     align-items: flex-start;
 
@@ -2614,7 +2659,7 @@ width: 100%;
 
   /* Address text */
   .footerwebcol1_1 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     height: auto;
     text-align: left;
@@ -2622,7 +2667,7 @@ width: 100%;
 
   /* Copyright */
   .footerwebcol1_2 {
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 20px;
     height: auto;
     text-align: left;
@@ -2638,7 +2683,7 @@ width: 100%;
   /* Sitemap links */
   .footerwebcol2_2,
   .footerwebcol2_3 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 8px;
     height: auto;
     text-align: left;
@@ -2647,7 +2692,7 @@ width: 100%;
   /* Disclaimer links */
   .footerwebcol3 .footerwebcol2_2,
   .footerwebcol3 .footerwebcol2_3 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 8px;
     text-align: left;
   }
@@ -2674,7 +2719,7 @@ width: 100%;
   /* Footer description text */
   .footerwebcol4_1,
   .footerwebcol4_2 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
     width: 100%;
     text-align: left;
@@ -2692,15 +2737,13 @@ width: 100%;
   .footerweb-img3 {
     width: 110px;
     right: 20px;
-    bottom: 460px;
     margin: 0;
   }
 
   /* Another bird slightly above */
   .footerweb-img2 {
-    width: 70px;
-    right: 40px;
-    bottom: 330px;
+width: 70px;
+    right: 9px;
     margin: 0;
   }
 
@@ -2716,8 +2759,8 @@ width: 100%;
     position: relative; /* remove absolute */
     padding: 0; /* reset desktop padding */
     margin-top: 25px; /* spacing from above content */
-
-    font-size: 13px;
+		margin-left: auto;
+    font-size: 15px;
     line-height: 1.4;
 
     text-align: left;
@@ -2726,12 +2769,12 @@ width: 100%;
 
   .Bird_list_firstbox {
     width: 90%;
-    margin: 8vh auto 0 auto;
+    margin: 12vh auto 0 auto;
     text-align: left;
   }
 
   .Bird_list_intro {
-    font-size: 14px;
+    font-size: 16px;
     letter-spacing: 0.08em;
   }
 
@@ -2742,7 +2785,7 @@ width: 100%;
   }
 
   .Bird_list_subtitle {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 12px;
   }
@@ -2817,7 +2860,7 @@ font-size: 33vw;
 
   .naturetrailbox2 {
     width: 90%;
-    margin: 30px auto;
+    margin: 0px auto;
     flex-direction: column;
     gap: 25px;
   }
@@ -2829,22 +2872,22 @@ font-size: 33vw;
   }
 
   .stop {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .stop-time {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 6px;
   }
 
   .birds-to-watch {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     margin-top: 10px;
   }
 
   .activity {
-    font-size: 13px;
+    font-size: 15px;
     margin-top: 10px;
     font-style: italic;
   }
@@ -2860,8 +2903,9 @@ font-size: 33vw;
 
   .naturetrailbox3 {
     width: 90%;
-    margin: 10px auto 0 auto;
+    margin: 0px auto 0 auto;
     text-align: center;
+    padding-top: 0;
   }
 
   .nature-tips {
@@ -2870,7 +2914,7 @@ font-size: 33vw;
   }
 
   .birdwatching-box-left1 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 10px;
   }
 
@@ -2881,7 +2925,7 @@ font-size: 33vw;
   }
 
   .birdwatching-box-left5 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 12px;
     width: 100%;
@@ -2902,11 +2946,11 @@ font-size: 33vw;
   }
 
   .row-top {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .birdwatching-row-bottom {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
     margin-top: 4px;
   }
@@ -2917,7 +2961,7 @@ font-size: 33vw;
 
   .naturetrailbox4 {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
   }
 
@@ -2947,7 +2991,7 @@ font-size: 33vw;
   .naturetrail-gallery-videotab {
     width: 100%;
     height: 52px;
-    font-size: 14px;
+    font-size: 16px;
     border-radius: 30px;
     margin: 0;
   }
@@ -3018,7 +3062,7 @@ font-size: 33vw;
   }
 
   .naturetrail-text1 {
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     justify-content: center;
   }
@@ -3032,14 +3076,14 @@ font-size: 33vw;
   }
 
   .naturetrail-text3 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 10px;
     width: 100%;
     text-align: center;
   }
 
   .naturetrail-text4 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 14px;
     width: 100%;
@@ -3051,7 +3095,7 @@ font-size: 33vw;
     width: 100%;
     height: 52px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 18px;
 		margin-left: 0;
   }
@@ -3066,7 +3110,7 @@ font-size: 33vw;
   ========================================= */
   .birdwatching-firstlayer {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 0 auto 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -3074,13 +3118,14 @@ font-size: 33vw;
   .firstlayer-col {
     width: 100%;
     text-align: center;
+		padding-bottom: 20px;
 		
   }
 	.bird-sighting{
-		font-size: 13px;
+		font-size: 15px;
 	}
 		.time-text {
-	font-size: 13px;
+	font-size: 15px;
 	margin-top: 10px;
 	}	
   .stop-image {
@@ -3090,7 +3135,7 @@ font-size: 33vw;
   }
   .birdwatching-box {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 0 auto 30px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -3108,7 +3153,7 @@ font-size: 33vw;
   }
   .birdwatching-bottombox {
     width: 90%;
-    margin: 50px auto 30px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -3136,7 +3181,11 @@ font-size: 33vw;
     display: flex;
     flex-direction: column;
   }
-
+  .filter-options input[type="radio"] {
+    accent-color: #841c2d;
+    height: 1.3vh;
+    width: 1.3vh;
+  }
   /* Put Arch-box FIRST */
   .Arch-box {
     order: 1;
@@ -3187,7 +3236,7 @@ font-size: 33vw;
   .filter-toggle {
     width: 30%;
     min-width: auto;
-    font-size: 13px;
+    font-size: 15px;
     padding: 0px 0px;
     border-radius: 20px;
 		height: 30px;
@@ -3196,6 +3245,7 @@ font-size: 33vw;
     padding: 0px 0px;
     border-radius: 20px;
     background: #802650;
+		height: auto;
   }
   .filter-toggle.open {
     border: 0.2px solid #a4a1a1;
@@ -3245,7 +3295,7 @@ font-size: 33vw;
     padding: 0;
     margin-top: 20px;
     text-align: left;
-    font-size: 13px;
+    font-size: 15px;
     width: 100%;
   }
 
@@ -3275,10 +3325,10 @@ font-size: 33vw;
     border-radius: 12px;
   }
   .Sort-box {
-    font-size: 13px;
+    font-size: 14px;
   }
 	 .filter-options label {
-    font-size: 13px;
+    font-size: 15px;
   }
   /* -----------------------------
      SORT DROPDOWN MOBILE
@@ -3304,10 +3354,10 @@ font-size: 33vw;
     margin: 0px 0px 20px 0px;
     border-radius: 30px;
     max-height: 52px;
-		font-size: 13px;
+		font-size: 15px;
   }
   .Sort-box2.open {
-    height: 92px;
+    height: 98px;
     border-radius: 25px;
     transition-duration: 0.3s;
     max-height: 182px;
@@ -3321,7 +3371,7 @@ font-size: 33vw;
     margin: 0;
     display: flex;
     justify-content: center;
-    padding-right: 2.5rem;
+    padding-right: 1rem;
   }
   .arrow {
     height: 7px;
@@ -3338,9 +3388,8 @@ font-size: 33vw;
     width: 100%;
     margin: 0;
     margin-top: 25px;
-
+		gap: 0;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
   }
 
   .bird-item {
@@ -3348,13 +3397,13 @@ font-size: 33vw;
   }
 
   .info-video {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
   }
 
   .bird-name {
-    font-size: 13px;
+    font-size: 15px;
     width: 100%;
     text-align: center;
     margin-top: 6px;
@@ -3375,7 +3424,7 @@ font-size: 33vw;
 
   .Birdpage-firstbox {
     width: 90%;
-    margin: 8vh auto 0 auto;
+    margin: 12vh auto 0 auto;
   }
   .tree-desktop-only {
     display: none;
@@ -3429,7 +3478,7 @@ display: flex;
   }
   .Info-detail-text2 {
     width: auto;
-		font-size: 13px;
+		font-size: 15px;
   }
   .bird-map {
     width: auto;
@@ -3453,7 +3502,6 @@ display: flex;
 
   .tree-mobile-photo {
     text-align: center;
-    margin-bottom: 6vh;
 		width: auto;
     margin-left: auto;
     margin-top: auto;
@@ -3537,7 +3585,7 @@ display: flex;
     display: block;
     margin-top: 12px;
 
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -3631,7 +3679,7 @@ display: flex;
     display: block;
     margin-top: 12px;
     max-height: none;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -3655,7 +3703,7 @@ display: flex;
     display: block;
     margin-top: 12px;
     max-height: none;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -3673,7 +3721,7 @@ display: flex;
     width: 100%;
     height: 52px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 16px;
 		left: 0;
   }
   .bird-bottombox {
@@ -3716,7 +3764,7 @@ display: flex;
     text-align: center;
     height: auto;
     min-height: 130px;
-		font-size: 13px;
+		font-size: 15px;
   }
   .bird-bootombox-border {
     width: 100%;
@@ -3734,7 +3782,7 @@ display: flex;
     margin: auto;
 		text-align: left;
     align-items: baseline;
-		font-size: 13px;
+		font-size: 15px;
   }
   .custom-radio {
     width: 12px;
@@ -3748,7 +3796,7 @@ display: flex;
   .mcq-submit {
     margin: 7px 0 0 5px;
     width: 120px;
-		font-size: 13px;
+		font-size: 15px;
 		position: relative;
   }
   .doyouknow-text1 {
@@ -3788,7 +3836,7 @@ display: flex;
   }
 
   .Info-detail-text {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
     color: #4d4a4a;
 		width: 100%;
@@ -3877,7 +3925,7 @@ display: flex;
 		height: auto;
     min-height: 0;
     width: auto;
-		font-size: 13px;
+		font-size: 15px;
 	}
 	.bottom-box{
 		width: 90%;
@@ -3902,7 +3950,7 @@ display: flex;
 		flex-direction: column;
 	}
 	  .left_1 {
-    font-size: 13px;
+    font-size: 15px;
   }
 	 .left_2 {
     font-size: 56px;
@@ -3959,7 +4007,7 @@ display: flex;
 .video-text {
   width:100%;
 	height: auto;
-	font-size: 11px;
+	font-size: 12px;
 }
 .video-text-3{
 	width:100%;
@@ -3969,7 +4017,7 @@ display: flex;
 	width:100%;
 	height: auto;
 	padding-top: 10px;
-	font-size: 13px;
+	font-size: 15px;
 }
 .right_3 {
   width:100%;
@@ -3981,7 +4029,7 @@ display: flex;
 	width:100%;
 	height: auto;
 	padding-top: 10px;
-	font-size: 13px;
+	font-size: 15px;
 }
 .hiranandani-box {
   width: 90%;
@@ -4006,18 +4054,18 @@ display: flex;
 .hiranandani-text-1 {
   margin:auto;
 	padding-top: 10px;
-	font-size: 13px;
+	font-size: 15px;
 }
   .hiranandani-text-2 {
     font-size: 56px;
   }
 	  .hiranandani-text-3 {
-    font-size: 13px;
+    font-size: 15px;
   }
 .hiranandani-text-4 {
   height: auto;
   margin-top: 10px;
-	font-size: 13px;
+	font-size: 15px;
 }
 .deepdive-container2 {
   width: 90%;
@@ -4179,10 +4227,10 @@ width: 90%;
     margin: 5px 0px 10px 0px;
     border-radius: 30px;
     height: 35px;
-		font-size: 13px;
+		font-size: 15px;
 }
 .video-text-3{
-	font-size: 13px;
+	font-size: 15px;
 }
 .gallery-mainbox{
 	width:90%;
