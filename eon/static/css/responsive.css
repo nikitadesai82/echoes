@@ -46,6 +46,133 @@
     height: 7px;
   }
 }
+@media (max-width: 1620px) {
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 15vw;
+    height: 31.703vh;
+  }
+  .dropdown-mask {
+    width: 216px;
+  }
+  .menu-item {
+    padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
+  }
+  .menu-bg {
+    height: 31.5vh;
+  }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 55vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
+  }
+  .naturetrail-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .birdwatch-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .urbanlegend-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .left_6 {
+    height: auto;
+  }
+  .left_7 {
+    height: auto;
+  }
+  .right_5 {
+    height: auto;
+  }
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 3vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 4vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 8px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+  }
+  .filter-desc-right {
+    padding-left: 72.3vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 19.24vh;
+  }
+  .filter-desc-head {
+    font-size: 16px;
+  }
+  .bird-name {
+    font-size: 15px;
+  }
+  .mcq-submit {
+    width: 7vw;
+    font-size: 12px;
+    margin-top: 2.1rem;
+    padding: 0.4rem 1.2rem;
+  }
+  .radio-container label {
+    font-size: 12px;
+  }
+  .mcq-video {
+    margin-top: -145px;
+  }
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+  }
+  .Sort-box2.open {
+    max-height: 10vh;
+  }
+  .sort-header {
+    padding-top: 0.75rem;
+    padding-bottom: 0.4rem;
+  }
+}
 @media (max-width: 1440px) {
   .dropdown-content {
     opacity: 0;
