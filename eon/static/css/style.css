@@ -1153,6 +1153,7 @@ a {
   border-radius: 1.5vw;
   padding: 5px 16px;
   background: #802650;
+	min-height: 3.5vh;
 }
 .filter-toggle:hover {
   border-radius: 1.5vw;
@@ -1216,7 +1217,7 @@ a {
   flex-wrap: wrap;
   margin-top: clamp(6px, 0.5vh, 11px);
   justify-content: left;
-  height: 3vh;
+  height: 3.5vh;
 }
 
 .selected-chip {
@@ -1230,6 +1231,7 @@ a {
   display: flex;
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
+	min-height: 3.5vh;
 }
 
 .selected-chip span {
@@ -1344,7 +1346,7 @@ a {
   cursor: pointer;
   overflow: hidden;
   max-height: 4.629vh;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(12px, 0.73vw, 28px);
   align-items: center;
   --reveal: 0;
 }
@@ -3472,7 +3474,7 @@ a {
   position: absolute;
   inset: 0;
   width: 54vw;
-  height: 66vh;
+  height: auto;
   object-fit: cover;
   z-index: 2;
   pointer-events: none;
@@ -4178,7 +4180,7 @@ body[data-state="deepdive"] #deepdive-trigger {
   position: absolute;
   inset: 0;
   width: 54vw;
-  height: 66vh;
+  height: auto;
   object-fit: cover;
   z-index: 3;
   pointer-events: none;

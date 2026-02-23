@@ -3198,7 +3198,7 @@ a {
 .portal-mask {
 	position: absolute;
 	width: 56vw;
-	height: 50vw;
+	height: auto;
 	object-fit: contain;
 	pointer-events: none;
 	z-index: 3;
