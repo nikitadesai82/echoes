@@ -425,13 +425,7 @@
             <a href="{% url 'birds_list' %}" class="media-link">
               <div class="bird-video">
                 <div class="video-container bounce-up">
-                  <video autoplay muted loop playsinline>
-                    <source
-                      src="{% static 'video/Bird-button.webm' %}"
-                      type="video/webm"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                  <img src="{% static 'img/Bird-button.webp' %}">
                 </div>
               </div>
 
@@ -459,13 +453,7 @@
             <a href="{% url 'flora_list' %}" class="media-link">
               <div class="bird-video bounce-up">
                 <div class="video-container">
-                  <video autoplay muted loop playsinline>
-                    <source
-                      src="{% static 'video/Tree-Button.webm' %}"
-                      type="video/webm"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+                  <img src="{% static 'img/Tree-button.webp' %}">
                 </div>
               </div>
 
@@ -523,13 +511,7 @@
         <div class="left-section2">
           <div class="left_6">
             <div class="naturetrail-imgblock">
-              <video autoplay loop muted playsinline>
-                <source
-                  src="{% static 'video/Naturetrail.mp4' %}"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'img/Naturetrail.webp' %}">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -559,13 +541,7 @@
           </div>
           <div class="left_7 hide-on-mobile">
             <div class="naturetrail-imgblock">
-              <video autoplay loop muted playsinline>
-                <source
-                  src="{% static 'video/UrbanLegends.mp4' %}"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'img/UrbanLegends.webp' %}">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">GREEN BEGINNINGS</div>
@@ -593,13 +569,7 @@
           </div>
 					<div class="left_7i hide-on-desktop">
             <div class="naturetrail-imgblock hide-on-desktop">
-              <video autoplay loop muted playsinline>
-                <source
-                  src="{% static 'video/Birdwatching.mp4' %}"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'img/Birdwatching.webp' %}">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -630,13 +600,7 @@
         <div class="right-section2">
           <div class="right_5 hide-on-mobile">
             <div class="naturetrail-imgblock">
-              <video autoplay loop muted playsinline>
-                <source
-                  src="{% static 'video/Birdwatching.mp4' %}"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'img/Birdwatching.webp' %}">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -665,13 +629,7 @@
           </div>
 					<div class="right_5i tree-mobile-only">
             <div class="naturetrail-imgblock tree-mobile-only">
-              <video autoplay loop muted playsinline>
-                <source
-                  src="{% static 'video/UrbanLegends.mp4' %}"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+              <img src="{% static 'img/UrbanLegends.webp' %}">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">GREEN BEGINNINGS</div>
@@ -698,13 +656,7 @@
             </div>
           </div>
           <div class="right_6 hide-on-mobile">
-            <video autoplay muted loop playsinline>
-              <source
-                src="{% static 'video/fountain.mp4' %}"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+            <img src="{% static 'img/fountain.webp' %}">
           </div>
         </div>
       </div>
@@ -740,16 +692,16 @@
             www.hiranandani.com
           </div>
         </div>
-        <div class="footerwebcol1">
-          <div class="footerwebcol2_1">SITEMAP</div>
-          <div class="footerwebcol2_2">Home</div>
-          <div class="footerwebcol2_3">Echoes of Nature</div>
-          <div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
-          <div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
-          <div class="footerwebcol2_3">Nature Trail</div>
-          <div class="footerwebcol2_3">Birdwatching</div>
-          <div class="footerwebcol2_3">Urban Legends</div>
-        </div>
+      <div class="footerwebcol1">
+        <div class="footerwebcol2_1">SITEMAP</div>
+        <div class="footerwebcol2_2"><a href="{% url 'home' %}">Home</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Deepdive' %}">Echoes of Nature</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'birds_list' %}">Birds of Hiranandani, Thane</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'flora_list' %}">Trees of Hiranandani, Thane</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Naturetrail' %}">Nature Trail</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Birdwatching' %}">Birdwatching</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Urbanlegends' %}">Building with Nature</a></div>
+      </div>
         <div class="footerwebcol3">
           <div class="footerwebcol2_2">Disclaimer</div>
           <div class="footerwebcol2_3">Terms & Conditions</div>

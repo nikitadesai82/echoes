@@ -64,6 +64,7 @@ body {
 }
 a {
   text-decoration: none;
+	color: #fff3e6;
 }
 .Bird_list_title {
   overflow: hidden;
@@ -672,6 +673,9 @@ a {
   width: auto;
   height: auto;
 }
+.media-boxrow2{
+	padding-top: 2vh;
+}
 .media-box1 {
   display: flex;
   flex-direction: column;
@@ -749,12 +753,11 @@ a {
   margin-top: 13vh;
   margin-left: 48vw;
 }
-.bird-page-girl video {
+.bird-page-girl img {
   width: 100%;
   object-fit: contain;
   display: block;
   z-index: -1;
-  mix-blend-mode: multiply;
 }
 .girl-image {
   height: 23.15vh;
@@ -1148,7 +1151,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 5.7vw;
+  min-width: 6.2vw;
   font-family: "Boreal", sans-serif;
   border-radius: 1.5vw;
   padding: 5px 16px;
@@ -1276,7 +1279,7 @@ a {
   overflow: hidden;
   mix-blend-mode: darken;
 }
-.Arch-box video {
+.Arch-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1287,7 +1290,7 @@ a {
   overflow: hidden;
   mix-blend-mode: darken;
 }
-.Arch-box1 video {
+.Arch-box1 img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1610,7 +1613,7 @@ a {
   height: 49.166vh;
   mix-blend-mode: multiply;
 }
-.tree-ani video {
+.tree-ani img {
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -1897,7 +1900,7 @@ a {
   height: 100%;
 }
 
-.video-container video {
+.video-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1942,7 +1945,7 @@ a {
   margin-top: 0.463vh;
   opacity: 0;
   width: 13.438vw;
-  height: 4.63vh;
+  height: 5.5vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
   letter-spacing: 0.08em;
@@ -2200,7 +2203,7 @@ a {
 .naturetrail-img {
   will-change: transform, opacity;
 }
-.naturetrail-img video {
+.naturetrail-img img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -2215,7 +2218,7 @@ a {
 .naturetrail-imgblock {
   will-change: transform, opacity;
 }
-.naturetrail-imgblock video {
+.naturetrail-imgblock img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -2232,7 +2235,7 @@ a {
 .naturetrail-img2 {
   will-change: transform, opacity;
 }
-.naturetrail-img2 video {
+.naturetrail-img2 img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -2342,7 +2345,7 @@ a {
   margin-bottom: 3vh;
   mix-blend-mode: darken;
 }
-.right_6 video {
+.right_6 img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -2539,7 +2542,7 @@ a {
   margin-left: 3vw;
   mix-blend-mode: darken;
 }
-.naturewatching-box-right video {
+.naturewatching-box-right img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2555,7 +2558,7 @@ a {
   mix-blend-mode: darken;
 }
 
-.birdwatching-box-right video {
+.birdwatching-box-right img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2576,7 +2579,7 @@ a {
   height: 18.5185vh;
   mix-blend-mode: darken;
 }
-.bird-box video {
+.bird-box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2800,7 +2803,7 @@ a {
   width: 10.416vw;
   height: 10.416vw;
 }
-.nature-tips video {
+.nature-tips img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2846,7 +2849,7 @@ a {
   position: absolute;
   mix-blend-mode: darken;
 }
-.urbanlegendsbird-ani video {
+.urbanlegendsbird-ani img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -3325,7 +3328,7 @@ a {
   width: 15.021vw;
   mix-blend-mode: darken;
 }
-.left-bird video {
+.left-bird img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3365,7 +3368,7 @@ a {
 }
 .treebox {
   width: 17.708vw;
-  height: 29.296vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3378,7 +3381,7 @@ a {
   width: 9.89583vw;
   height: 17.896vh;
 }
-.birdspagelink_1 video {
+.birdspagelink_1 img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -3589,7 +3592,7 @@ a {
   opacity: 0;
 }
 
-.animation-box video {
+.animation-box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -3624,7 +3627,7 @@ a {
   width: clamp(60px, 11.71875vw, 450px);
   height: 13.888vh;
 }
-.right-bird video {
+.right-bird img {
   width: 100%;
   height: 100%;
   object-fit: contain;

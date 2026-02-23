@@ -115,12 +115,7 @@
 			<div class="home-container">
 				<div class="home-ui">
 					<div class="left-bird hide-on-tab-mobile">
-						<video autoplay muted loop playsinline>
-							<source
-								src="{% static 'video/Bird-left-home.mp4' %}"
-								type="video/mp4"
-							/>
-						</video>
+						<img src="{% static 'img/Bird-left-home.webp' %}">
 					</div>
 
 					<div class="left-text">
@@ -135,12 +130,7 @@
 					<a href="{% url 'birds_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
-								<video autoplay muted loop playsinline>
-									<source
-										src="{% static 'video/Bird-button.mp4' %}"
-										type="video/mp4"
-									/>
-								</video>
+								<img src="{% static 'img/Bird-button.webp' %}">
 							</div>
 							<div class="video-text">WANT TO KNOW</div>
 							<div class="video-text-2">WHO'S CHIRPING?</div>
@@ -159,16 +149,14 @@
 					<!-- Portal video -->
 					<img
 						class="portal-mask"
-						src="{% static 'img/home.png' %}">
+						src="{% static 'img/home.webp' %}">
 
 					<!-- TITLE BETWEEN VIDEO AND OVERLAY -->
 					<div id="Echoes_of_Nature_home">Echoes of Nature</div>
 
 					<div class="animation-box">
 						<div class="animation-inner">
-							<video autoplay muted loop playsinline>
-								<source src="{% static 'video/homeeanimation.webm' %}" />
-							</video>
+							<img src="{% static 'img/homeeanimation.webp' %}">
 						</div>
 					</div>
 				</div>
@@ -197,12 +185,7 @@
 					<a href="{% url 'flora_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
-								<video autoplay muted loop playsinline>
-									<source
-										src="{% static 'video/Tree-Button.mp4' %}"
-										type="video/mp4"
-									/>
-								</video>
+								<img src="{% static 'img/Tree-button.webp' %}">
 							</div>
 
 							<div class="video-text">COME MEET</div>
@@ -218,12 +201,7 @@
 				</div>
 				<div class="home-ui">
 					<div class="right-bird hide-on-tab-mobile">
-						<video autoplay muted loop playsinline>
-							<source
-								src="{% static 'video/birdright.mp4' %}"
-								type="video/mp4"
-							/>
-						</video>
+						<img src="{% static 'img/birdright.webp' %}">
 					</div>
 				</div>
 				<div class="buttons-home tree-mobile-only">
@@ -231,12 +209,7 @@
 					<a href="{% url 'birds_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
-								<video autoplay muted loop playsinline>
-									<source
-										src="{% static 'video/Bird-button.mp4' %}"
-										type="video/mp4"
-									/>
-								</video>
+								<img src="{% static 'img/Bird-button.webp' %}">
 							</div>
 							<div class="video-text">WANT TO KNOW</div>
 							<div class="video-text-2">WHO'S CHIRPING?</div>
@@ -253,12 +226,7 @@
 					<a href="{% url 'flora_list' %}">
 						<div class="treebox">
 							<div class="birdspagelink_1">
-								<video autoplay muted loop playsinline>
-									<source
-										src="{% static 'video/Tree-Button.mp4' %}"
-										type="video/mp4"
-									/>
-								</video>
+								<img src="{% static 'img/Tree-button.webp' %}">
 							</div>
 
 							<div class="video-text">COME MEET</div>
@@ -301,13 +269,13 @@
       </div>
       <div class="footerwebcol1">
         <div class="footerwebcol2_1">SITEMAP</div>
-        <div class="footerwebcol2_2">Home</div>
-        <div class="footerwebcol2_3">Echoes of Nature</div>
-        <div class="footerwebcol2_3">Birds of Hiranandani, Thane</div>
-        <div class="footerwebcol2_3">Trees of Hiranandani, Thane</div>
-        <div class="footerwebcol2_3">Nature Trail</div>
-        <div class="footerwebcol2_3">Birdwatching</div>
-        <div class="footerwebcol2_3">Urban Legends</div>
+        <div class="footerwebcol2_2"><a href="{% url 'home' %}">Home</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Deepdive' %}">Echoes of Nature</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'birds_list' %}">Birds of Hiranandani, Thane</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'flora_list' %}">Trees of Hiranandani, Thane</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Naturetrail' %}">Nature Trail</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Birdwatching' %}">Birdwatching</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Urbanlegends' %}">Building with Nature</a></div>
       </div>
       <div class="footerwebcol3">
         <div class="footerwebcol2_2">Disclaimer</div>
