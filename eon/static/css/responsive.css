@@ -46,7 +46,7 @@
     height: 7px;
   }
 }
-@media (max-width: 1620px) {
+@media (max-width: 1680px) {
   .dropdown-content {
     opacity: 0;
     position: absolute;
