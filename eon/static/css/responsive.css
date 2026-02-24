@@ -1,4 +1,93 @@
-@media (max-width: 2560px) {
+@media (max-width: 3600px)and (min-height: 1750px) {
+	  .animation-inner {
+    margin-top: 12vh;
+  }
+	.deepdive-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64.77vh;
+  width: 8.438vw;
+  height: 4.63vh;
+  border-radius: 1.5vw;
+  font-family: "Boreal", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(19px, 0.9375vw, 36px);
+  text-decoration: none;
+  background: #802650;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  margin-left: 46vw;
+}
+.deepdive-container{
+	padding-top: 97vh;
+}
+}
+@media (max-width: 3200px) {
+  .deepdive-link {
+    font-size: 20px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+  }
+  .dropdown-mask {
+    width: 400px;
+  }
+  .drop-content {
+    padding-right: 2.5rem;
+		height: 5vh;
+  }
+  .filter-toggle {
+    padding: 5px 14px;
+		width:6.02vw
+  }
+  .filter-toggle.open {
+    padding: 5px 14px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 5px 14px;
+  }
+	.filter-options input[type="radio"] {
+  accent-color: #841c2d;
+  height: 1.5vh;
+  width: 1.5vh;
+}
+  .selected-chip {
+    padding: 7px 14px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 1.2rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
+}@media (max-width: 2580px) {
   .deepdive-link {
     font-size: 20px;
     margin-left: 46.5vw;
@@ -28,6 +117,64 @@
 }
   .selected-chip {
     padding: 7px 14px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
+}
+@media (max-width: 2200px) {
+  .deepdive-link {
+    font-size: 16px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+  }
+  .dropdown-mask {
+    width: 262px;
+  }
+  .dropdown-content {
+    width: 12.02vw;
+  }
+  .filter-toggle {
+    padding: 5px 15px;
+  }
+  .filter-toggle.open {
+    padding: 5px 15px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 5px 15px;
+  }
+  .filter-options label {
+    font-size: 15px;
+  }
+  .selected-chip {
+    padding: 7px 15px;
     border: 0.1rem solid #a4a1a1;
   }
 
@@ -243,7 +390,7 @@
     padding-bottom: 0.4rem;
   }
 }
-@media (max-width: 1560px) {
+@media (max-width: 1580px) {
   .dropdown-content {
     opacity: 0;
     position: absolute;
@@ -384,6 +531,169 @@
 		line-height: 0;
   }
 }
+@media (max-width: 1580px) and (max-height: 750px) {
+	.bird-page-girl {
+  position: absolute;
+  width: 23vw;
+  z-index: 15;
+  margin-top: 19vh;
+  margin-left: 58vw;
+}
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 14vw;
+    height: 34.703vh;
+  }
+  .dropdown-mask {
+    width: 220px;
+  }
+  .menu-item {
+    padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
+  }
+  .menu-bg {
+    height: 34.5vh;
+  }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 72vh;
+    margin-left: 46.5vw;
+    width: 8.938vw;
+  }
+  .naturetrail-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .birdwatch-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .urbanlegend-link {
+    width: 14.68vw;
+    font-size: 13px;
+  }
+  .left_6 {
+    height: auto;
+  }
+  .left_7 {
+    height: auto;
+  }
+  .right_5 {
+    height: auto;
+  }
+  .animation-inner {
+    min-height: 57vh;
+    width: 28vw;
+    margin-top: 16vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 5vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 5px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+		max-height: 6.629vh;
+  }
+  .filter-desc-right {
+    padding-left: 73.5vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 21vh;
+  }
+  .filter-desc-head {
+    font-size: 16px;
+  }
+  .bird-name {
+    font-size: 15px;
+  }
+	.Scientific_name {
+  font-family: "Boreal", sans-serif;
+  font-size: 15px;
+	}
+	.gallery-name {
+  font-size: 20px;
+	}
+  .mcq-submit {
+    width: 7vw;
+    font-size: 12px;
+    margin-top: 4.1rem;
+    padding: 0.4rem 1.2rem;
+  }
+  .radio-container label {
+    font-size: 12px;
+  }
+  .mcq-video {
+    margin-top: -125px;
+  }
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+  }
+  .Sort-box2.open {
+    max-height: 10vh;
+  }
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
+  }
+	.dropdown-menu {
+  width: 100%;
+  margin-top: 0.2rem;
+	}
+	.bird-bootombox-col{
+		height: 30vh;
+	}
+		.doyouknow-text{
+			height: 26vh;
+		}
+		.doyouknow-text1{
+			height: 26vh;
+		}
+		  .radio-container label {
+    font-size: 13px;
+    flex: 100%;
+		line-height: 0;
+  }
+	.MD-message-link {
+		font-size: 11px;
+	}
+}
 @media (max-width: 1440px) {
 	  .MD-message-link {
     font-size: 11px;
@@ -470,6 +780,10 @@
     border: 0.1rem solid #a4a1a1;
     min-height: 4vh;
   }
+	.gallery-name {
+  min-height: 2.507vh;
+  font-size: 20px;
+	}
   .Sort-box {
     width: 16.32vw;
     margin-left: 7.1vw;
@@ -482,7 +796,7 @@
     padding-right: 2rem;
   }
   .Sort-box.open {
-    max-height: 19.24vh;
+    max-height: 20.24vh;
   }
   .filter-desc-head {
     font-size: 16px;
@@ -626,9 +940,9 @@
     font-size: 12px;
     width: 16.32vw;
     margin-left: 7.1vw;
+		max-height: 5.629vh;
   }
   .sort-header {
-    padding-top: 0.5rem;
     padding-bottom: 0;
   }
   .sort-label {
@@ -683,6 +997,10 @@
     margin-left: 22vw;
     margin-top: -7.4rem;
   }
+	.Scientific_name {
+  font-family: "Boreal", sans-serif;
+  font-size: 15px;
+	}
   .gallery-name {
     font-size: 17px;
   }
@@ -697,6 +1015,13 @@
   }
 }
 @media (max-width: 1280px) {
+	.bird-page-girl {
+    position: absolute;
+    width: 23vw;
+    z-index: 15;
+    margin-top: 26vh;
+    margin-left: 58vw;
+  }
   .animation-inner {
     height: 55vh;
     width: 28vw;
@@ -792,9 +1117,9 @@
     font-size: 12px;
     width: 16.32vw;
     margin-left: 7.1vw;
+		max-height: 5.2vh;
   }
   .sort-header {
-    padding-top: 0.5rem;
     padding-bottom: 0;
   }
   .sort-label {
@@ -837,10 +1162,10 @@
     margin-top: 75px;
   }
   .Scientific_name {
-    font-size: 14px;
+    font-size: 13px;
   }
   .Other_names {
-    font-size: 14px;
+    font-size: 13px;
   }
   .Info-title {
     font-size: 16px;
@@ -1559,11 +1884,11 @@
     border-radius: 30px;
     overflow: hidden;
     margin: 0;
+		height: auto;
   }
 
   #photoBox {
     width: 100%;
-    height: 100%;
   }
   #videoBox {
     width: 100%;
@@ -2337,13 +2662,13 @@
     width: 90px;
     border-radius: 1rem;
     margin-left: 24%;
-    margin-top: 27%;
+    margin-top: 29.5%;
   }
   .mcq-video {
     width: 90px;
     border-radius: 1rem;
     margin-left: 24%;
-    margin-top: 34.5%;
+    margin-top: 29.5%;
     height: auto;
   }
   .Bird-basicinfo-grid {
@@ -2885,7 +3210,21 @@
   .hide-on-tab-mobile {
     display: none !important;
   }
-
+.credit-row2 {
+  display: flex;
+  flex-direction: column;
+	margin: auto;
+}
+.credit-bird {
+  list-style: disc;
+  padding-left: 2.5rem;
+  margin: 1rem 0;
+  font-family: "Boreal", sans-serif;
+  font-size: clamp(13px, 0.73vw, 28px);
+  line-height: 1.5;
+  color: #4d4a4a;
+  width: 100%;
+}
   /* Navbar becomes compact */
   .top-nav {
     position: absolute;
@@ -3508,11 +3847,12 @@
     border-radius: 25px;
     overflow: hidden;
     margin: 0;
+		height: auto;
   }
 
   #photoBox {
     width: 100%;
-    height: 100%;
+		height: 22vh;
   }
   #videoBox {
     width: 100%;
@@ -3582,7 +3922,7 @@
 
   .naturetrail-text3 {
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 0px;
     width: 100%;
     text-align: center;
   }
@@ -4315,14 +4655,14 @@
     width: 60px;
     border-radius: 1rem;
     margin-left: 150px;
-    margin-top: 52%;
+    margin-top: 70%;
   }
   .mcq-video {
     display: table-row-group;
     width: 60px;
     border-radius: 1rem;
     margin-left: 150px;
-    margin-top: 53%;
+    margin-top: 70%;
   }
   .Bird-basicinfo-grid {
     display: grid;
@@ -4507,7 +4847,7 @@
   .left_4 {
     width: 100%;
     height: auto;
-    padding-top: 50px;
+    padding-top: 0px;
   }
   .bird-video {
     width: 300px;
@@ -4534,7 +4874,7 @@
   .right_3 {
     width: 100%;
     height: auto;
-    padding-top: 50px;
+    padding-top: 0px;
     margin: auto;
   }
   .right_4 {
@@ -4548,7 +4888,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 30px;
     height: auto;
   }
   .hiranandani-img-box {
@@ -4788,7 +5128,7 @@
     height: 20px;
     width: 20px;
     margin-left: 94%;
-    margin-top: 110px;
+    margin-top: 120px;
   }
   .gallery-name {
     font-size: 24px;

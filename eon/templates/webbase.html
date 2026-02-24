@@ -17,8 +17,6 @@
       href="{% static 'css/responsive.css' %}"
     />
     <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/wavesurfer.js@7"></script>
     <script>
       gsap.registerPlugin(ScrollTrigger);
@@ -157,9 +155,9 @@
         <div class="footerwebcol2_3"><a href="{% url 'Urbanlegends' %}">Building with Nature</a></div>
       </div>
       <div class="footerwebcol3">
-        <div class="footerwebcol2_2">Disclaimer</div>
-        <div class="footerwebcol2_3">Terms & Conditions</div>
-        <div class="footerwebcol2_3">Privacy Policy</div>
+        <div class="footerwebcol2_2"><a href="{% url 'Disclaimer' %}">Disclaimer</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Terms' %}">Terms & Conditions</a></div>
+        <div class="footerwebcol2_3"><a href="{% url 'Privacy' %}">Privacy Policy</a></div>
         <div class="footerwebcol2_3">Cookies Declaration</div>
         <div class="footerwebcol2_3"><a href="{% url 'Credits' %}">Credits & Usage</a></div>
       </div>
@@ -290,6 +288,94 @@
           menuIcon.src = menuIcon.dataset.default;
         }
       });
+    </script>
+		    <script>
+      (function () {
+        const STORAGE_KEY = "kioskMuted";
+        const audioBtn = document.getElementById("Audio_On_2");
+
+        if (!audioBtn) return;
+
+        function isMuted() {
+          return localStorage.getItem(STORAGE_KEY) === "true";
+        }
+
+        function setMuted(value) {
+          localStorage.setItem(STORAGE_KEY, value);
+        }
+
+        function applyMuteState() {
+          const muted = isMuted();
+          document.querySelectorAll("audio, video").forEach((media) => {
+            media.muted = muted;
+          });
+        }
+
+        function updateAudioIcon(active = false) {
+          if (isMuted()) {
+            audioBtn.src = active
+              ? audioBtn.dataset.offActive
+              : audioBtn.dataset.off;
+          } else {
+            audioBtn.src = active
+              ? audioBtn.dataset.onActive
+              : audioBtn.dataset.on;
+          }
+        }
+
+        /* ---------- INITIAL APPLY ---------- */
+        document.addEventListener("DOMContentLoaded", () => {
+          applyMuteState();
+          updateAudioIcon(false);
+        });
+
+        window.addEventListener("pageshow", applyMuteState);
+
+        /* ---------- BUTTON TOGGLE ---------- */
+        audioBtn.addEventListener("click", () => {
+          const muted = !isMuted();
+          setMuted(muted);
+
+          applyMuteState();
+          updateAudioIcon(false);
+
+          // 🔔 Notify page-level audio controllers
+          document.dispatchEvent(
+            new CustomEvent("globalAudioToggle", {
+              detail: { muted },
+            }),
+          );
+        });
+
+        /* ---------- HOVER / TOUCH ---------- */
+        audioBtn.addEventListener("mouseenter", () => updateAudioIcon(true));
+        audioBtn.addEventListener("mouseleave", () => updateAudioIcon(false));
+        audioBtn.addEventListener("mousedown", () => updateAudioIcon(true));
+        audioBtn.addEventListener("mouseup", () => updateAudioIcon(false));
+        audioBtn.addEventListener("touchstart", () => updateAudioIcon(true), {
+          passive: true,
+        });
+        audioBtn.addEventListener("touchend", () => updateAudioIcon(false), {
+          passive: true,
+        });
+
+        /* ---------- SAFETY: mute late media ---------- */
+        document.addEventListener(
+          "play",
+          (e) => {
+            if (e.target instanceof HTMLMediaElement && isMuted()) {
+              e.target.muted = true;
+            }
+          },
+          true,
+        );
+
+        const observer = new MutationObserver(applyMuteState);
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+      })();
     </script>
 
 <script>

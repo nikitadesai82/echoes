@@ -29,6 +29,7 @@ class Bird(models.Model):
     Bird_Sighting_Area = models.TextField()
     Bird_Active_Time = models.TextField()
     Bird_Fun_Facts = models.TextField()
+    
     Bird_Migration = models.TextField()
     Bird_Habitat = models.TextField()
     Bird_Nesting = models.TextField()
@@ -40,7 +41,12 @@ class Bird(models.Model):
     BirdAt_HoHStatus = models.CharField(max_length=100)
     Bird_Button_Media = models.FileField(upload_to="Animations/Birds/Buttons/",blank=True, null=True)
     Bird_Button_Thumb = models.FileField(upload_to="Animations/Birds/Single Birds/",blank=True, null=True)
-
+    Bird_Videolink = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+    )
+		
     Bird_Quiz_Question = models.TextField(null=True, blank=True)
     Bird_Quiz_OptionA = models.CharField(max_length=255, null=True, blank=True)
     Bird_Quiz_OptionB = models.CharField(max_length=255, null=True, blank=True)

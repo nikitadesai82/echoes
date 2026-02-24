@@ -749,12 +749,11 @@ a {
   mix-blend-mode: multiply;
 }
 .bird-page-girl {
-  position: absolute;
-  height: 78vh;
-  width: 31vw;
+position: absolute;
+  width: 23vw;
   z-index: 15;
-  margin-top: 13vh;
-  margin-left: 48vw;
+  margin-top: 26vh;
+  margin-left: 58vw;
 }
 .bird-page-girl img {
   width: 100%;
@@ -1614,7 +1613,7 @@ a {
 .tree-ani {
   width: 23.4375vw;
   height: 49.166vh;
-  mix-blend-mode: multiply;
+  margin-top: -23vh;
 }
 .tree-ani img {
   width: 100%;
@@ -2875,7 +2874,6 @@ a {
 .selection-box .story:hover {
   background: #802650;
   color: #fff;
-  border: transparent;
 }
 .story {
   width: 12.593vw;
@@ -2896,7 +2894,6 @@ a {
   color: #fff;
   cursor: pointer;
   z-index: 5;
-  border: transparent;
 }
 .urbanlegend-img {
   width: 31.354vw;
@@ -2991,14 +2988,13 @@ a {
   margin-left: clamp(60px, 11.71875vw, 450px);
   margin-top: -21.305vh;
 }
-.urbanlegendgirl-ani video {
+.urbanlegendgirl-ani img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
   z-index: -1;
   mix-blend-mode: multiply;
-  transform: scaleX(-1);
 }
 .gallery-mainbox {
   position: relative;
@@ -4106,6 +4102,7 @@ body[data-state="deepdive"] #portalVideo {
   display: block;
   position: relative;
   z-index: 2;
+	height: 50vh;
 }
 
 #videoBox .gallery-slide {
@@ -4302,4 +4299,7 @@ body[data-state="deepdive"] #deepdive-trigger {
 
 .gallery-media-section video {
   pointer-events: auto !important;
+}
+.table{
+	padding-left: 1.5vh;
 }

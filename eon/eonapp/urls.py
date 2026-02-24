@@ -16,6 +16,10 @@ urlpatterns = [
     path('gallery/flora/<int:flora_id>/', views.flora_gallery, name='flora_gallery'),
     path("MDGallery/",views.MDGallery,name="MDGallery"),
     path("Credits/",views.Credits,name="Credits"),
+		path("Disclaimer/",views.Disclaimer,name="Disclaimer"),
+		path("Privacy/",views.Privacy,name="Privacy"),
+		path("Terms/",views.Terms,name="Terms"),
     path("__exit_kiosk__/", views.exit_kiosk, name="exit_kiosk"),
+
 
 ]

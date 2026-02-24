@@ -82,11 +82,17 @@
     <!-- VIDEO CONTENT -->
 <div id="videoBox" class="gallery-media-section" style="display: none">
 
-  {% if bird and bird.Bird_Video %}
-  <video class="gallery-slide" controls playsinline preload="metadata">
-    <source src="{{ bird.Bird_Video.url }}" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+{% if bird and bird.Bird_Videolink %}
+  <iframe
+  id="galleryVideo"
+  class="gallery-slide"
+  width="100%"
+  height="100%"
+  src="https://www.youtube.com/embed/{{ bird.Bird_Videolink }}?enablejsapi=1&rel=0&modestbranding=1&controls=1&showinfo=0"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
   {% endif %}
 
   {% if flora and flora.Flora_Media_1 %}

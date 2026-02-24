@@ -170,6 +170,14 @@ def Gallery(request):
 def Credits(request):
     return render(request,'Credits.html')
 
+def Disclaimer(request):
+    return render(request,'Disclaimer.html')
+
+def Privacy(request):
+    return render(request,'Privacy.html')
+def Terms(request):
+    return render(request,'Terms.html')
+
 from django.http import HttpResponse
 import subprocess
 import os
