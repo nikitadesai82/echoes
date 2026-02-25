@@ -2378,7 +2378,7 @@ position: absolute;
 .row-top {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(20px, 1.09375vw, 42px);
+  font-size: clamp(16px, 1.09375vw, 42px);
 
   font-weight: 500;
   color: #bd8e74;
