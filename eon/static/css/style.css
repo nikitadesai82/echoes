@@ -3695,21 +3695,22 @@ position: absolute;
 }
 
 .mcq-video {
-  display: table-row-group;
-  height: 100%;
+  display: none;              /* hide initially */
   width: 6vw;
+  height: auto;
   border-radius: 1rem;
-  margin-left: 22vw;
-  margin-top: -22.4rem;
   position: fixed;
+  margin-left: 22vw;                 /* use left instead of margin-left */
+  top: 50%;
+  transform: translateY(-50%);
   opacity: 0;
+  z-index: 999;
 }
 
-/* Optional nice fade */
 .mcq-video.show {
   display: block;
-  animation: mcqFadeIn 0.4s ease;
   opacity: 1;
+  animation: mcqFadeIn 0.4s ease;
 }
 
 .mcq-video2 {
