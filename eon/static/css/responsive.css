@@ -3283,7 +3283,10 @@
 	.selected-chip {
     width: auto;
   }
-	.margin-top: 0rem;
+	.selected-chip span {
+    margin-top: 0rem;
+    font-size: 25px;
+  }
 }
 /* =========================================================
    MOBILE (<800px)
