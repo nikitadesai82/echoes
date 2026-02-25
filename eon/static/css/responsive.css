@@ -146,6 +146,9 @@
   margin-left: 22vw;
   margin-top: -3rem;
 	}
+		  .animation-inner {
+    margin-top: 12vh;
+  }
 }
 @media (max-width: 2200px) {
   .deepdive-link {
