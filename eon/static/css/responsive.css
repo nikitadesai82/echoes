@@ -4038,7 +4038,7 @@
     height: 52px;
     border-radius: 30px;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-left: 0;
   }
 
@@ -4891,7 +4891,12 @@
   /* -----------------------------------
      DEEPDIVE PAGE
   ----------------------------------- */
-
+  .deepdive-bg {
+  position: absolute;
+  height: 50vh;
+	}.deepdive-container {
+    padding-top: 48vh;
+  }
   .deepdivefirstbox {
     width: 90%;
     margin: 10px auto 0 auto;
@@ -5109,9 +5114,10 @@
     height: 210px;
   }
   .animation-inner {
-    height: 210px;
+		height: 250px;
     width: 195px;
     margin-left: 0;
+    margin-top: 4vh;
   }
   .home-ui {
     display: flex;
@@ -5119,11 +5125,11 @@
     order: 2;
   }
   .right-text {
-    width: 46%;
-    margin-top: 390px;
-    margin-left: 50%;
-    line-height: 11px;
-    font-size: 11px;
+    width: 48%;
+    margin-top: 404px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
   }
   .home-ui2 {
     order: 1;
@@ -5155,18 +5161,19 @@
     margin: 0;
   }
   .deepdive-link {
-    margin: 239px auto auto auto;
-    margin-left: 42.2%;
-    width: 15%;
-    font-size: 7px;
-    max-height: 18px;
+margin: 265px auto auto auto;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
     border-radius: 32px;
   }
   .left-text {
     margin: 40px 20px auto 20px;
     height: auto;
     width: 50%;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 600;
     line-height: 23px;
   }
@@ -5186,7 +5193,7 @@
     font-size: 13px;
   }
   .video-text-3 {
-    font-size: 12px;
+    font-size: 15px;
   }
   .gallery-mainbox {
     width: 90%;

@@ -5243,7 +5243,8 @@
             src="{% static 'img/music.png' %}"
             alt="Play sound"
           />
-          <video class="bird-audio-video" muted loop playsinline preload="auto">
+          <video class="bird-audio-video" muted loop playsinline muted
+  preload="auto">
             <source
               src="{% static 'video/birdcall.webm' %}"
               type="video/webm"
@@ -5253,7 +5254,8 @@
         <div class="media-head gsap-hidden">Hear Bird Call</div>
       </div>
 
-      <audio id="birdCallAudio" preload="auto">
+      <audio id="birdCallAudio" muted
+  preload="auto">
         <source src="{{ bird.Bird_Call.url }}" type="audio/mpeg" />
       </audio>
       {% endif %}
@@ -5496,7 +5498,8 @@
           class="mcq-video"
           src="{% static 'video/correct.webm' %}"
           playsinline
-          preload="auto"
+          muted
+  preload="auto"
         ></video>
 
         <!-- ❌ Wrong animation -->
@@ -5505,7 +5508,8 @@
           class="mcq-video"
           src="{% static 'video/wrong.webm' %}"
           playsinline
-          preload="auto"
+          muted
+  preload="auto"
         ></video>
       </div>
     </div>
