@@ -8,7 +8,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         count = 0
 
-        with open('Birds CSV 05.csv', newline='', encoding='latin1', errors='ignore') as file:
+        with open('Birds.csv', newline='', encoding='latin1', errors='ignore') as file:
             reader = csv.DictReader(file)
 
             for row in reader:

@@ -103,9 +103,9 @@
 	</div>
 	<div class="filter-desc hide-on-mobile">
 	<div class="filter-desc-head">BIRD ACTIVITY TIME</div>
-Diurnal – Active mainly during the daytime<br>
-Nocturnal – Active mainly at night<br>
-Crepuscular – Active mostly at dawn and dusk<br>
+Diurnal: Active mainly during the daytime<br>
+Nocturnal: Active mainly at night<br>
+Crepuscular: Active mostly at dawn and dusk<br>
 </div>
 	<div class="Arch-box">
 	<img src="{% static 'img/birdlistgirl.webp' %}">
@@ -154,8 +154,8 @@ Crepuscular – Active mostly at dawn and dusk<br>
 	</div>
 	<div class="filter-desc-right hide-on-mobile">
 	<div class="filter-desc-head">BIRD DIET TYPES</div>
-Insectivore – Eat insects<br>
-Herbivore – Eat plants, leaves, or fruits<br>
+Insectivore: Eat insects<br>
+Herbivore: Eat plants, leaves, or fruits<br>
 Carnivore: Eat other animals<br>
 Scavenger: Feed on dead animals<br>
 Piscivore: Eat fish<br>
@@ -169,19 +169,15 @@ Omnivore: Eat both plants and animals
     {% for bird in birds %}
       <a href="{% url 'bird_detail' bird.slug %}" class="bird-item">
         {% if bird.Bird_Button_Media %}
-          <video
-            class="info-video"
-            loop
-            muted
-            playsinline
-            preload="none"
-            width="460"
-            height="460"
-            data-src="{{ bird.Bird_Button_Media.url }}"
-            poster="{{ bird.Bird_Button_Thumb }}"
-            aria-label="{{ bird.Bird_Name }} preview"
-          ></video>
-        {% endif %}
+  <img
+    class="info-video"
+    src="{{ bird.Bird_Button_Media.url }}"
+    width="460"
+    height="460"
+    alt="{{ bird.Bird_Name }} preview"
+    loading="lazy"
+  />
+{% endif %}
         <div class="bird-name">{{ bird.Bird_Name }}</div>
       </a>
     {% endfor %}

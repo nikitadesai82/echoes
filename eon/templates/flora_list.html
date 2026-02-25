@@ -57,9 +57,9 @@
   </div>
 	<div class="filter-desc">
 	PLANT TYPES<br>
-Evergreen – Stay green all year.<br>
-Deciduous - Shed leaves seasonally.<br>
-Aquatic Plants - Grow in water.
+Evergreen: Stay green all year.<br>
+Deciduous: Shed leaves seasonally.<br>
+Aquatic Plants: Grow in water.
 </div>
   <div class="Arch-box1">
 	<img src="{% static 'img/floralist.webp' %}">
@@ -98,16 +98,14 @@ Aquatic Plants - Grow in water.
   <div class="bird-item">
     {% if flora.Flora_Button_Media %}
     <a href="{% url 'flora_detail' flora.id %}">
-      <video
-		class="info-video"
-		muted
-    loop
-		playsinline
-		preload="none"
-		data-src="{{ flora.Flora_Button_Media.url }}"
-		width="460"
-		height="460"
-	></video>
+      <img
+    class="info-video"
+    src="{{ flora.Flora_Button_Media.url }}"
+    width="460"
+    height="460"
+    alt="{{ flora.Flora_Name }} preview"
+    loading="lazy"
+  />
 
     </a>
 

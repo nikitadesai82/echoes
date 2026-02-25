@@ -1,4 +1,4 @@
-@media (max-width: 3600px)and (min-height: 1750px) {
+@media (max-width: 3600px)and (min-height: 1600px) {
 	  .animation-inner {
     margin-top: 12vh;
   }
@@ -24,6 +24,18 @@
 }
 .deepdive-container{
 	padding-top: 97vh;
+}
+.gallery-name {
+  font-size: 46px;
+}
+.sort-header {
+  padding-top: 1.5rem;
+}
+.mcq-video {
+  margin-top: -19.6rem;
+}
+.animation-inner {
+  margin-top: 10vh;
 }
 }
 @media (max-width: 3200px) {
@@ -93,6 +105,7 @@
     margin-left: 46.5vw;
     width: 7.438vw;
     height: 4vh;
+		margin-top: 65vh;
   }
   .dropdown-mask {
     width: 334px;
@@ -147,10 +160,17 @@
   margin-top: -3rem;
 	}
 		  .animation-inner {
-    margin-top: 12vh;
+    margin-top: 11.5vh;
+		height: 58vh;
   }
+	.deepdive-container {
+  padding-top: 96vh;
+	}
 }
 @media (max-width: 2200px) {
+	.Sort-box.open {
+  max-height: 19.44vh;
+	}
   .deepdive-link {
     font-size: 16px;
     margin-left: 46.5vw;
@@ -164,20 +184,21 @@
     width: 12.02vw;
   }
   .filter-toggle {
-    padding: 5px 15px;
+    padding: 9px 12px;
+		font-size: 15px;
   }
   .filter-toggle.open {
-    padding: 5px 15px;
+   padding: 9px 12px;
     border: 0.12rem solid #a4a1a1;
   }
   .filter-toggle:hover {
-    padding: 5px 15px;
+    padding: 9px 12px;
   }
   .filter-options label {
     font-size: 15px;
   }
   .selected-chip {
-    padding: 7px 15px;
+    padding: 9px 12px;
     border: 0.1rem solid #a4a1a1;
   }
 
@@ -3193,7 +3214,77 @@
     height: 1rem;
   }
 }
-
+@media (max-width: 820px){
+	  .deepdive-link {
+    margin: 468px auto auto auto;
+    margin-left: auto;
+    margin-left: 42.2%;
+    width: 15%;
+    font-size: 16px;
+    max-height: 40px;
+    border-radius: 32px;
+		}
+		  .animation-inner {
+    height: 522px;
+    width: 500px;
+    margin-left: 17%;
+    margin-top: 0vh;
+  }
+	  .dropdown-content {
+    width: 41vw !important;
+		}
+		  .menu-item {
+    font-size: 20px;
+			}
+			 .video-text-3 {
+    font-size: 17px;
+  }
+	  .left_5 {
+    font-size: 21px;
+  }
+	 .right_4 {
+    font-size: 21px;
+  }
+	.video-text2 {
+    font-size: 22px;
+		margin-top: 12px;
+  }
+	  .video-text {
+    width: 100%;
+    height: auto;
+    font-size: 21px;
+  }
+	  .hiranandani-box {
+    width: 74%;
+		}
+		.btn-fill-left {
+    font-size: 22px;
+    margin-top: 10px;
+		}
+		 .footerweb-img3 {
+    width: 150px;
+    right: 23%;
+		 }
+		 .naturetrail-text4 {
+    padding-bottom: 20px;
+  }
+	  .Sort-box {
+    font-size: 22px;
+  }
+	  .Sort-box.open {
+    max-height: 19.9vh;
+  }
+	  .filter-toggle {
+    font-size: 18px;
+		}
+		  .filter-options label {
+    font-size: 18px;
+  }
+	.selected-chip {
+    width: auto;
+  }
+	.margin-top: 0rem;
+}
 /* =========================================================
    MOBILE (<800px)
 ========================================================= */
@@ -5181,3 +5272,4 @@
     height: 1rem;
   }
 }
+
