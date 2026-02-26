@@ -656,6 +656,7 @@ a {
   padding-top: 0.9375vh;
   align-items: center;
   justify-content: center;
+	mix-blend-mode: darken;
 }
 .birdanimationbox video {
   width: 100%;
@@ -3706,6 +3707,7 @@ position: absolute;
   transform: translateY(-50%);
   opacity: 0;
   z-index: 999;
+	mix-blend-mode: darken;
 }
 
 .mcq-video.show {
