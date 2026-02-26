@@ -10782,30 +10782,21 @@ ScrollTrigger.batch(".fade-section", {
         );
       });
 
-      gsap.utils.toArray(".fadeUpOnScroll").forEach((el) => {
-        gsap.fromTo(
-          el,
-          {
-            opacity: 0,
-            y: 50,
-            visibility: "hidden",
-          },
-          {
-            opacity: 1,
-            y: 0,
-            visibility: "visible",
-            duration: 0.6,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              end: "top 30%",
-              toggleActions: "play none none none",
-              once: true,
-            },
-          },
-        );
-      });
+      ScrollTrigger.batch(".fadeUpOnScroll", {
+  start: "top 85%",
+  once: true,
+
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      visibility: "visible",
+      duration: 0.6,
+      ease: "power3.out",
+      stagger: 0.15,
+    });
+  }
+});
     });
   });
 </script>

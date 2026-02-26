@@ -17,12 +17,11 @@
       href="{% static 'css/responsive.css' %}"
     />
     <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-    </script>
   </head>
 
   <body>
+<script src="https://unpkg.com/gsap@3.14.2/dist/gsap.min.js" defer></script>
+<script src="https://unpkg.com/gsap@3.14.2/dist/ScrollTrigger.min.js" defer></script>
     {% include "partial/background_audio.html" %}
     <header class="top-nav">
       <a href="{% url 'home' %}" class="Logo">
@@ -386,6 +385,17 @@
     </script>
 
 <script>
+	document.addEventListener("DOMContentLoaded", () => {
+
+  if (!window.gsap) {
+    console.warn("GSAP not loaded");
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // animations here
+});
 document.addEventListener("DOMContentLoaded", () => {
 
   const menuBtn = document.getElementById("menuBtn");
@@ -551,5 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       });
     </script>
+		<!-- GSAP -->
+
   </body>
 </html>
