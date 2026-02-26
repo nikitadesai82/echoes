@@ -10576,15 +10576,12 @@ document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => 
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 
 <script>
-  document.documentElement.classList.add("loading");
 
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger);
 
     requestAnimationFrame(() => {
       // Reveal page
-      gsap.set("body", { visibility: "visible" });
-      document.documentElement.classList.remove("loading");
 
       const master = gsap.timeline({
         defaults: { ease: "power3.out" },
@@ -10749,22 +10746,20 @@ document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => 
         });
       });
 
-      gsap.utils.toArray(".fade-section").forEach((el) => {
-        gsap.from(el, {
-          opacity: 0,
-          y: 50,
-          duration: 0.6,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            end: "top 30%",
-            toggleActions: "play none none none",
-            once: true,
-          },
-        });
-      });
+ScrollTrigger.batch(".fade-section", {
+  start: "top 85%",
+  once: true,
 
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power3.out",
+      stagger: 0.15,
+    });
+  }
+});
       gsap.utils.toArray(".btn-fill-circle").forEach((btn) => {
         const tl = gsap.timeline({
           scrollTrigger: {
