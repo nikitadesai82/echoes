@@ -4644,7 +4644,7 @@
 
   <div class="Birdpage-secondbox_1 anim-box">
     <div class="birdanimationbox">
-<video id="birdBgVideo" muted loop playsinline preload="none">
+      <video muted loop playsinline preload="none" id="birdVideo">
     <source data-src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
 </video>
 <script>
@@ -5258,7 +5258,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alt="Play sound"
           />
           <video class="bird-audio-video" muted loop playsinline muted
-  preload="auto">
+  preload="none">
             <source
               src="{% static 'video/birdcall.webm' %}"
               type="video/webm"
@@ -5269,7 +5269,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <audio id="birdCallAudio" muted
-  preload="auto">
+  preload="none">
         <source src="{{ bird.Bird_Call.url }}" type="audio/mpeg" />
       </audio>
       {% endif %}
@@ -5308,44 +5308,41 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const birdVideo = document.getElementById("birdBgVideo");
 
-    // 🛑 Exit if video not found
-    if (!birdVideo) return;
-
-    // Stop video on load
+    // 🚫 Hard stop on load
     birdVideo.pause();
     birdVideo.currentTime = 0;
 
     birdVideo.addEventListener("loadedmetadata", () => {
-        birdVideo.volume = 0.3;
+      birdVideo.volume = 0.3;
     });
 
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
-        trigger: ".bird-page-girl",
-        start: "top 70%",
-        end: "bottom 25%",
+      trigger: ".bird-page-girl",
+      start: "top 70%",
+      end: "bottom 25%",
 
-        onEnter: () => {
-            birdVideo.play().catch(() => {});
-        },
+      onEnter: () => {
+        birdVideo.play().catch(() => {});
+      },
 
-        onEnterBack: () => {
-            birdVideo.play().catch(() => {});
-        },
+      onEnterBack: () => {
+        birdVideo.play().catch(() => {});
+      },
 
-        onLeave: () => {
-            birdVideo.pause();
-        },
+      onLeave: () => {
+        birdVideo.pause();
+      },
 
-        onLeaveBack: () => {
-            birdVideo.pause();
-        },
+      onLeaveBack: () => {
+        birdVideo.pause();
+      },
     });
-});
+  });
 </script>
 
 <div class="bird-page-main-bg hide-on-mobile">
