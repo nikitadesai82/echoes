@@ -1597,6 +1597,7 @@ position: absolute;
   height: 49.166vh;
   margin-left: 31.09375vw;
   margin-top: -14vh;
+	mix-blend-mode: darken;
 }
 .treebottom {
   display: flex;
