@@ -5308,50 +5308,56 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+
     const birdVideo = document.getElementById("birdBgVideo");
+    if (!birdVideo) return;
 
-    // 🚫 Hard stop on load
-    birdVideo.pause();
-    birdVideo.currentTime = 0;
+    const source = birdVideo.querySelector("source");
+    let videoLoaded = false;
+    let gsapInitialized = false;
 
-    birdVideo.addEventListener("loadedmetadata", () => {
-      birdVideo.volume = 0.3;
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !gsapInitialized) {
+
+                gsapInitialized = true;
+
+                if (!videoLoaded) {
+                    source.src = source.dataset.src;
+                    birdVideo.load();
+                    videoLoaded = true;
+                }
+
+                gsap.registerPlugin(ScrollTrigger);
+
+                ScrollTrigger.create({
+                    trigger: ".bird-page-girl",
+                    start: "top 70%",
+                    end: "bottom 25%",
+
+                    onEnter: () => birdVideo.play().catch(()=>{}),
+                    onEnterBack: () => birdVideo.play().catch(()=>{}),
+                    onLeave: () => birdVideo.pause(),
+                    onLeaveBack: () => birdVideo.pause(),
+                });
+
+                observer.disconnect();
+            }
+        });
     });
 
-    gsap.registerPlugin(ScrollTrigger);
-
-    ScrollTrigger.create({
-      trigger: ".bird-page-girl",
-      start: "top 70%",
-      end: "bottom 25%",
-
-      onEnter: () => {
-        birdVideo.play().catch(() => {});
-      },
-
-      onEnterBack: () => {
-        birdVideo.play().catch(() => {});
-      },
-
-      onLeave: () => {
-        birdVideo.pause();
-      },
-
-      onLeaveBack: () => {
-        birdVideo.pause();
-      },
-    });
-  });
+    observer.observe(document.querySelector(".bird-page-girl"));
+});
 </script>
 
 <div class="bird-page-main-bg hide-on-mobile">
-  <img src="{% static 'img/birdpage-bg1.webp' %}" />
+  <img loading="lazy" src="{% static 'img/birdpage-bg1.webp' %}" />
 </div>
 <div class="bottom-box">
   <div class="bottom-box-col">
     <div class="fadeUpOnScroll bottom-box-icon">
-      <img src="{% static 'img/SubSpecies.webp' %}" />
+      <img loading="lazy" src="{% static 'img/SubSpecies.webp' %}" />
     </div>
     <div class="fade-section Bottom-Info-title">SUB-SPECIES</div>
     <div class="fade-section Info-detail-text3">
