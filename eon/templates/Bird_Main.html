@@ -4644,10 +4644,24 @@
 
   <div class="Birdpage-secondbox_1 anim-box">
     <div class="birdanimationbox">
-      <video autoplay muted loop playsinline>
-        <source src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <video muted loop playsinline preload="none" id="birdVideo">
+    <source data-src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
+</video>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("birdVideo");
+    const source = video.querySelector("source");
+
+    if (source && source.dataset.src) {
+        source.src = source.dataset.src;
+        video.load();
+
+        video.play().catch(() => {
+            // autoplay may be blocked until interaction
+        });
+    }
+});
+</script>
     </div>
   </div>
   <div class="Birdpage-secondbox_1 status-box">

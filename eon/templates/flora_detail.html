@@ -10275,11 +10275,25 @@
 </div>
 <div class="treebottom">
   <div class="fadeUpOnScroll tree_secondimg">
-    <video autoplay muted loop playsinline>
-      <source src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <video muted loop playsinline preload="none" id="floraVideo">
+    <source data-src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
+</video>
   </div>
+	<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("floraVideo");
+
+    if (!video) return;
+
+    const source = video.querySelector("source");
+
+    if (source && source.dataset.src) {
+        source.src = source.dataset.src;
+        video.load();
+        video.play().catch(()=>{});
+    }
+});
+</script>
   <div class="treebottom-text">
     <div class="fade-section Bottom-Info-title">
       BARK, FOLIAGE, FRUIT & FLOWER
