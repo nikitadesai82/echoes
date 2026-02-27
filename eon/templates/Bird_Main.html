@@ -100,7 +100,7 @@
     <div class="Info-detail-text6 gsap-hidden">
       {{ bird.Bird_Geographic_Range }}
     </div>
-     <!--<div id="lazyMap" class="bird-map gsap-hidden">
+    <div class="bird-map gsap-hidden">
       <script>
         const DB_ZONES = "{{ geo_range|escapejs }}";
       </script>
@@ -4568,7 +4568,7 @@
           </g>
         </g>
       </svg>
-    </div>-->
+    </div>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -4644,9 +4644,9 @@
 
   <div class="Birdpage-secondbox_1 anim-box">
     <div class="birdanimationbox">
-      <!-- <video muted loop playsinline preload="none" id="birdVideo">
+      <video muted loop playsinline preload="none" id="birdVideo">
     <source data-src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
-</video>-->
+</video>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("birdVideo");
@@ -4718,7 +4718,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
     </div>
-    <!--<div class="conservation-svg gsap-hidden">
+    <div class="conservation-svg gsap-hidden">
       <div id="svgStatus" data-status="{{ status_key }}"></div>
       <script>
         const SVG_STATUS_FROM_DB =
@@ -5211,7 +5211,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </g>
         </g>
       </svg>
-    </div>-->
+    </div>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -5304,7 +5304,7 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </div>
 <div class="bird-page-girl hide-on-mobile">
-<!-- <img src="{% static 'img/birdpage-bg.webp' %}"> -->
+<img src="{% static 'img/birdpage-bg.webp' %}">
 </div>
 
 <script>
@@ -5352,7 +5352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <div class="bird-page-main-bg hide-on-mobile">
-  <!-- <img loading="lazy" src="{% static 'img/birdpage-bg1.webp' %}" />-->
+  <img loading="lazy" src="{% static 'img/birdpage-bg1.webp' %}" />
 </div>
 <div class="bottom-box">
   <div class="bottom-box-col">
