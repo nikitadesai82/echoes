@@ -238,6 +238,11 @@
     margin-left: 46.5vw;
     width: 7.438vw;
     height: 4vh;
+		margin-top: 59.77vh;
+  }
+	  .animation-inner {
+    margin-top: 6vh;
+    height: 55vh;
   }
   .dropdown-mask {
     width: 250px;
@@ -722,6 +727,22 @@
 	}
 }
 @media (max-width: 1440px) {
+	.naturetrail-gallery-picturetab {
+  margin-top: 33.87vh;
+	}
+	.gallery-box2 {
+  width: 50vw;
+  height: 45vh;
+	}
+	#videoBox {
+  height: 45vh;
+}
+.gallery-dots2 {
+  margin-top: 41vh;
+}
+.gallery-extra {
+  margin-top: 37vh;
+}
 	.row-top {
   font-size: 18px;
 	}
@@ -1059,12 +1080,12 @@
   .animation-inner {
     height: 55vh;
     width: 28vw;
-    margin-top: 6vh;
+    margin-top: 4.2vh;
     margin-left: 4vw;
   }
   .deepdive-link {
     font-size: 12px;
-    margin-top: 59.77vh;
+    margin-top: 58.77vh;
   }
   .treebox {
     height: auto;
@@ -2728,16 +2749,16 @@
   }
   .mcq-video2 {
     display: table-row-group;
-    width: 90px;
+width: 90px;
     border-radius: 1rem;
-    margin-left: 24%;
-    margin-top: 29.5%;
+    margin-left: 65%;
+    top: 18.5%;
   }
-  .mcq-video {
+.mcq-video {
     width: 90px;
     border-radius: 1rem;
-    margin-left: 24%;
-    margin-top: 29.5%;
+    margin-left: 65%;
+    top: 65.5%;
     height: auto;
   }
   .Bird-basicinfo-grid {
@@ -4814,18 +4835,18 @@
     height: auto;
   }
   .mcq-video2 {
-    display: table-row-group;
-    width: 60px;
+display: table-row-group;
+    width: 75px;
     border-radius: 1rem;
-    margin-left: 150px;
-    margin-top: 69%;
+    margin-left: 270px;
+    top: 7%;
   }
-  .mcq-video {
+.mcq-video {
     display: table-row-group;
-    width: 60px;
+    width: 75px;
     border-radius: 1rem;
-    margin-left: 150px;
-    top: 82%;
+    margin-left: 270px;
+    top: 62%;
   }
   .Bird-basicinfo-grid {
     display: grid;

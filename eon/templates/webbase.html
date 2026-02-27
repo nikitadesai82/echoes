@@ -514,53 +514,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     </script>
-    <audio id="globalClickSound" preload="auto">
-      <source src="{% static 'audio/click.wav' %}" type="audio/mpeg" />
-    </audio>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const sound = document.getElementById("globalClickSound");
-        if (!sound) return;
-
-        let unlocked = false;
-
-        // 🔓 unlock audio once
-        function unlock() {
-          if (unlocked) return;
-          sound.volume = 0.25;
-          sound
-            .play()
-            .then(() => {
-              sound.pause();
-              sound.currentTime = 0;
-              unlocked = true;
-            })
-            .catch(() => {});
-          document.removeEventListener("pointerdown", unlock, true);
-        }
-
-        document.addEventListener("pointerdown", unlock, true);
-
-        // 🔊 PLAY SOUND ON POINTERDOWN (NOT CLICK)
-        document.addEventListener(
-          "pointerdown",
-          (e) => {
-            if (!unlocked) return;
-
-            if (
-              e.target.closest(
-                ".top-nav a, .menu-item,#Back_2,#Home_2,.iucn-trigger,.iucn-close,.icon,.birdpage-link,.filter-toggle,.filter-options,.Sort-box,.Sort-box2,.bird-item,#scrollUpBtn,.MD-message-link,.read-more-btn,.gallery-picturetab,.gallery-videotab,.gallery-dots,.close-icon,.story",
-              )
-            ) {
-              sound.currentTime = 0;
-              sound.play().catch(() => {});
-            }
-          },
-          true,
-        );
-      });
-    </script>
 		<!-- GSAP -->
 
   </body>

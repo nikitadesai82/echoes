@@ -2649,11 +2649,11 @@ position: absolute;
   font-style: italic;
 }
 .Naturetrail-map {
-  width: 68.5833625vw;
-  margin-left: 20.71875vw;
+width: 76.5625vw;
   z-index: -1;
   position: sticky;
   padding-top: 2.5vh;
+  margin-left: clamp(60px, 11.71875vw, 450px);
 }
 .Naturetrail-map img {
   width: 100%;
