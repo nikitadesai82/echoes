@@ -3,6 +3,9 @@ from django import forms
 from datetime import time
 from .models import Bird, Flora, Story, NatureTrailSchedule, NatureTrailMedia
 
+# CSV IMPORT
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
 
 # =========================
@@ -71,7 +74,7 @@ class NatureTrailScheduleForm(forms.ModelForm):
 
 
 # =========================
-# ADMIN CONFIG
+# NATURE TRAIL ADMIN
 # =========================
 @admin.register(NatureTrailSchedule)
 class NatureTrailScheduleAdmin(admin.ModelAdmin):
@@ -97,12 +100,48 @@ class NatureTrailScheduleAdmin(admin.ModelAdmin):
         js = ('admin/js/autoday.js',)
 
 
+# =========================
+# MEDIA ADMIN
+# =========================
 @admin.register(NatureTrailMedia)
 class NatureTrailMediaAdmin(admin.ModelAdmin):
     list_display = ('media_type', 'is_active', 'order')
     list_editable = ('is_active', 'order')
 
 
-admin.site.register(Bird)
-admin.site.register(Flora)
+# =========================
+# CSV IMPORT CONFIG
+# =========================
+
+class BirdResource(resources.ModelResource):
+    class Meta:
+        model = Bird
+        import_id_fields = ['Bird_Name']
+
+
+class FloraResource(resources.ModelResource):
+    class Meta:
+        model = Flora
+        import_id_fields = ['Flora_Name']
+
+
+# =========================
+# BIRD ADMIN (CSV ENABLED)
+# =========================
+@admin.register(Bird)
+class BirdAdmin(ImportExportModelAdmin):
+    resource_class = BirdResource
+
+
+# =========================
+# FLORA ADMIN (CSV ENABLED)
+# =========================
+@admin.register(Flora)
+class FloraAdmin(ImportExportModelAdmin):
+    resource_class = FloraResource
+
+
+# =========================
+# STORY
+# =========================
 admin.site.register(Story)
