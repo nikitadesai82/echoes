@@ -108,12 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+from django.utils import timezone
 
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
+TIME_ZONE = "Asia/Kolkata"
 USE_TZ = True
+USE_I18N = True
+USE_L10N = True
 
 
 STATIC_URL = "/static/"

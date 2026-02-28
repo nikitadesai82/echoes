@@ -2630,7 +2630,7 @@ position: absolute;
   font-family: "Boreal", sans-serif;
   font-weight: 500;
   font-size: clamp(20px, 1.09375vw, 42px);
-
+	text-transform: uppercase;
   color: #bd8e74;
 }
 .date {

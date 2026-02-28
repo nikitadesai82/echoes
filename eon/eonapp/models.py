@@ -138,13 +138,18 @@ class Story(models.Model):
         return self.Story_Title
 
 class NatureTrailSchedule(models.Model):
-    day = models.CharField(max_length=10)
+    day = models.CharField(max_length=10, blank=True)
     date = models.DateField()
     start_time = models.TimeField()
     end_time = models.TimeField()
 
     class Meta:
         ordering = ['date', 'start_time']
+
+    def save(self, *args, **kwargs):
+        if self.date:
+            self.day = self.date.strftime("%A")
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.day} - {self.date}"
