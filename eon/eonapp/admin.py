@@ -104,7 +104,7 @@ class NatureTrailScheduleAdmin(AdminNatureCSS, admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('admin/css/admin-nature.css',)
+            'all': ('css/admin-nature.css',)
         }
         js = ('admin/js/autoday.js',)
 
