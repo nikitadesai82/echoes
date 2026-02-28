@@ -715,13 +715,12 @@ a {
   position: relative;
   inset: 0;
   width: 100%;
-  height: 100%;
   object-fit: cover;
   display: none;
 }
 .bird-audio-poster {
   width: 100%;
-  height: 100%;
+
   object-fit: cover;
 }
 .media-box1.is-playing .bird-audio-video {

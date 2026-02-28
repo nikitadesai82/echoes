@@ -1031,6 +1031,7 @@
   .media-box1 {
     width: 6.52vw;
     padding-bottom: 15px;
+		height: auto;
   }
   .radio-container label {
     font-size: 11px;
@@ -5369,4 +5370,58 @@ margin: 265px auto auto auto;
     height: 1rem;
   }
 }
+@media (max-width: 450px) {
+  .deepdive-link {
+    margin: 279px auto auto auto;
+    margin-left: auto;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
+  }
 
+	.animation-inner {
+    height: 250px;
+    width: 195px;
+    margin-left: 40px;
+    margin-top: 6.5vh;
+  }
+.right-text {
+    width: 48%;
+    margin-top: 420px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
+  }
+
+}
+@media (max-width: 400px) {
+
+	.animation-inner {
+    height: 250px;
+    width: 195px;
+    margin-left: 0;
+    margin-top: 4vh;
+  }
+
+.right-text {
+    width: 48%;
+    margin-top: 404px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
+  }
+	 .deepdive-link {
+    margin: 265px auto auto auto;
+    margin-left: auto;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
+  }
+
+}

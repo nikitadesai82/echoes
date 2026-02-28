@@ -5830,93 +5830,98 @@ ScrollTrigger.batch(".fadeUpOnScroll", {
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const trigger = document.querySelector(".bird-audio-trigger");
-    const audio = document.getElementById("birdCallAudio");
-    const video = document.querySelector(".bird-audio-video");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (!trigger || !audio || !video) return;
+  const trigger = document.querySelector(".bird-audio-trigger");
+  const audio   = document.getElementById("birdCallAudio");
+  const video   = document.querySelector(".bird-audio-video");
 
-    let unlocked = false;
-    let isPlaying = false;
+  if (!trigger || !audio || !video) return;
 
-    /* 🔓 Unlock audio (browser autoplay policy) */
-    function unlockAudio() {
-      if (unlocked) return;
+  let unlocked = false;
+  let isPlaying = false;
 
+  function hardStopBirdMedia() {
+    isPlaying = false;
+    trigger.classList.remove("is-playing");
+
+    audio.pause();
+    audio.currentTime = 0;
+
+    video.pause();
+    video.currentTime = 0;
+    video.removeAttribute("loop");
+  }
+
+  function startPlayback() {
+    if (!isPlaying) {
+      isPlaying = true;
+      trigger.classList.add("is-playing");
+
+      video.muted = true;
+      video.setAttribute("muted", "");
+      video.setAttribute("loop", "");
+
+      video.play().catch(()=>{});
+      audio.play().catch(()=>{});
+
+    } else {
+      hardStopBirdMedia();
+    }
+  }
+
+  function toggleBirdMedia(e) {
+
+    // First tap unlocks AND plays (mobile safe)
+    if (!unlocked) {
+
+      audio.muted = false;
       audio.volume = 0.9;
-      audio
-        .play()
-        .then(() => {
-          audio.pause();
-          audio.currentTime = 0;
-          unlocked = true;
-        })
-        .catch(() => {});
 
-      document.removeEventListener("pointerdown", unlockAudio, true);
-    }
-    document.addEventListener("pointerdown", unlockAudio, true);
+      audio.play().then(() => {
 
-    /* ⏹ HARD STOP (audio + animation) */
-    function hardStopBirdMedia() {
-      isPlaying = false;
-      trigger.classList.remove("is-playing");
+        audio.pause();
+        audio.currentTime = 0;
+        unlocked = true;
 
-      // Stop audio
-      audio.pause();
-      audio.currentTime = 0;
+        startPlayback();
 
-      // Stop animation video (DO NOT call load)
-      video.pause();
-      video.currentTime = 0;
-      video.removeAttribute("loop");
+      }).catch(()=>{});
+
+      return;
     }
 
-    /* ▶️ / ⏸ Toggle play */
-    trigger.addEventListener("click", () => {
-      if (!unlocked) return;
+    startPlayback();
+  }
 
-      if (!isPlaying) {
-        isPlaying = true;
-        trigger.classList.add("is-playing");
+  // ⭐ SINGLE INPUT SYSTEM ⭐
+  if ('ontouchstart' in window) {
+    trigger.addEventListener("touchstart", toggleBirdMedia, { passive: true });
+  } else {
+    trigger.addEventListener("click", toggleBirdMedia);
+  }
 
-        video.setAttribute("loop", "");
-        audio.play().catch(() => {});
-        video.play().catch(() => {});
-      } else {
-        hardStopBirdMedia();
-      }
-    });
+  audio.addEventListener("ended", hardStopBirdMedia);
 
-    /* ⏹ When audio ends */
-    audio.addEventListener("ended", hardStopBirdMedia);
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting && isPlaying) {
+      hardStopBirdMedia();
+    }
+  }, { threshold: 0.2 });
 
-    /* 👀 Stop if trigger goes off screen */
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting && isPlaying) {
-          hardStopBirdMedia();
-        }
-      },
-      { threshold: 0.2 },
-    );
-    observer.observe(trigger);
+  observer.observe(trigger);
 
-    /* 🚪 STOP immediately when navigating to gallery pages */
-    document.querySelectorAll('a[href*="bird_gallery"]').forEach((link) => {
-      link.addEventListener("pointerdown", hardStopBirdMedia, true);
-      link.addEventListener("click", hardStopBirdMedia, true);
-    });
-
-    /* 🚨 STOP on page navigation / tab switch */
-    window.addEventListener("beforeunload", hardStopBirdMedia);
-    document.addEventListener("visibilitychange", () => {
-      if (document.hidden) {
-        hardStopBirdMedia();
-      }
-    });
+  document.querySelectorAll('a[href*="bird_gallery"]').forEach(link => {
+    link.addEventListener("pointerdown", hardStopBirdMedia, true);
+    link.addEventListener("click", hardStopBirdMedia, true);
   });
+
+  window.addEventListener("beforeunload", hardStopBirdMedia);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) hardStopBirdMedia();
+  });
+
+});
 </script>
 
 <script>
