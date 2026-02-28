@@ -4,15 +4,6 @@ from datetime import time
 from .models import Bird, Flora, Story, NatureTrailSchedule, NatureTrailMedia
 
 
-# =========================
-# ADMIN GLOBAL CSS
-# =========================
-class AdminNatureCSS(admin.ModelAdmin):
-    class Media:
-        css = {
-            'all': ('admin/css/admin-nature.css',)
-        }
-
 
 # =========================
 # 12 HOUR TIME DROPDOWNS
@@ -83,7 +74,7 @@ class NatureTrailScheduleForm(forms.ModelForm):
 # ADMIN CONFIG
 # =========================
 @admin.register(NatureTrailSchedule)
-class NatureTrailScheduleAdmin(AdminNatureCSS, admin.ModelAdmin):
+class NatureTrailScheduleAdmin(admin.ModelAdmin):
     form = NatureTrailScheduleForm
     readonly_fields = ('day',)
 
@@ -103,18 +94,15 @@ class NatureTrailScheduleAdmin(AdminNatureCSS, admin.ModelAdmin):
     )
 
     class Media:
-        css = {
-            'all': ('css/admin-nature.css',)
-        }
         js = ('admin/js/autoday.js',)
 
 
 @admin.register(NatureTrailMedia)
-class NatureTrailMediaAdmin(AdminNatureCSS, admin.ModelAdmin):
+class NatureTrailMediaAdmin(admin.ModelAdmin):
     list_display = ('media_type', 'is_active', 'order')
     list_editable = ('is_active', 'order')
 
 
-admin.site.register(Bird, AdminNatureCSS)
-admin.site.register(Flora, AdminNatureCSS)
-admin.site.register(Story, AdminNatureCSS)
+admin.site.register(Bird)
+admin.site.register(Flora)
+admin.site.register(Story)
