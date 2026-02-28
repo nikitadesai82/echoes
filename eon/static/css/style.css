@@ -111,7 +111,7 @@ a {
 }
 
 .Logo {
-  width: clamp(200px, 12vw, 450px);
+  width: clamp(100px, 9.9vw, 380px);
   display: block;
 }
 .Logo img {

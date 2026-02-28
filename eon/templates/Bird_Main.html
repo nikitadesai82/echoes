@@ -4644,7 +4644,7 @@
 
   <div class="Birdpage-secondbox_1 anim-box">
     <div class="birdanimationbox">
-      <video muted loop playsinline preload="none" id="birdVideo">
+      <video autoplay muted loop playsinline preload="metadata" id="birdVideo">
     <source data-src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
 </video>
 <script>
@@ -5258,7 +5258,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alt="Play sound"
           />
           <video class="bird-audio-video" muted loop playsinline muted
-  preload="none">
+  preload="metadata">
             <source
               src="{% static 'video/birdcall.webm' %}"
               type="video/webm"
@@ -5269,7 +5269,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <audio id="birdCallAudio" muted
-  preload="none">
+  preload="metadata">
         <source src="{{ bird.Bird_Call.url }}" type="audio/mpeg" />
       </audio>
       {% endif %}
