@@ -5,6 +5,16 @@ from .models import Bird, Flora, Story, NatureTrailSchedule, NatureTrailMedia
 
 
 # =========================
+# ADMIN GLOBAL CSS
+# =========================
+class AdminNatureCSS(admin.ModelAdmin):
+    class Media:
+        css = {
+            'all': ('admin/css/admin-nature.css',)
+        }
+
+
+# =========================
 # 12 HOUR TIME DROPDOWNS
 # =========================
 HOUR_CHOICES = [(i, f"{i:02d}") for i in range(1, 13)]
@@ -68,11 +78,12 @@ class NatureTrailScheduleForm(forms.ModelForm):
             obj.save()
         return obj
 
+
 # =========================
 # ADMIN CONFIG
 # =========================
 @admin.register(NatureTrailSchedule)
-class NatureTrailScheduleAdmin(admin.ModelAdmin):
+class NatureTrailScheduleAdmin(AdminNatureCSS, admin.ModelAdmin):
     form = NatureTrailScheduleForm
     readonly_fields = ('day',)
 
@@ -92,18 +103,18 @@ class NatureTrailScheduleAdmin(admin.ModelAdmin):
     )
 
     class Media:
+        css = {
+            'all': ('admin/css/admin-nature.css',)
+        }
         js = ('admin/js/autoday.js',)
 
 
 @admin.register(NatureTrailMedia)
-class NatureTrailMediaAdmin(admin.ModelAdmin):
+class NatureTrailMediaAdmin(AdminNatureCSS, admin.ModelAdmin):
     list_display = ('media_type', 'is_active', 'order')
     list_editable = ('is_active', 'order')
 
 
-# =========================
-# REGISTER OTHERS
-# =========================
-admin.site.register(Bird)
-admin.site.register(Flora)
-admin.site.register(Story)
+admin.site.register(Bird, AdminNatureCSS)
+admin.site.register(Flora, AdminNatureCSS)
+admin.site.register(Story, AdminNatureCSS)
