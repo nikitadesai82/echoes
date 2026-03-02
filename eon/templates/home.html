@@ -927,7 +927,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 			})();
 		</script>
+<script>
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
+if (isSafari) {
+    document.querySelector('.hero-video').style.display = "none";
+    document.querySelector('.hero-fallback').style.display = "block";
+}
+</script>
 		
 	</body>
 </html>
