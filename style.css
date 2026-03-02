@@ -1281,7 +1281,7 @@ position: absolute;
   overflow: hidden;
   mix-blend-mode: darken;
 }
-.Arch-box video {
+.Arch-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1292,7 +1292,7 @@ position: absolute;
   overflow: hidden;
   mix-blend-mode: darken;
 }
-.Arch-box1 video {
+.Arch-box1 img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2348,7 +2348,7 @@ position: absolute;
   margin-bottom: 3vh;
   mix-blend-mode: darken;
 }
-.right_6 video {
+.right_6 img {
   height: 100%;
   width: 100%;
   object-fit: contain;
@@ -2545,7 +2545,7 @@ position: absolute;
   margin-left: 3vw;
   mix-blend-mode: darken;
 }
-.naturewatching-box-right video {
+.naturewatching-box-right img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -2561,7 +2561,7 @@ position: absolute;
   mix-blend-mode: darken;
 }
 
-.birdwatching-box-right video {
+.birdwatching-box-right img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -3592,7 +3592,7 @@ width: 76.5625vw;
   opacity: 0;
 }
 
-.animation-box video {
+.animation-box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
