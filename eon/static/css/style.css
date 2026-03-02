@@ -3575,6 +3575,16 @@ width: 76.5625vw;
   transform: scale(8);
   opacity: 0;
 }
+.hero-video{
+width:100%;
+height:auto;
+display:block;
+}
+
+.hero-fallback{
+display:none;
+width:100%;
+}
 .animation-inner {
   transform: scale(1);
   transition:
@@ -3593,6 +3603,12 @@ width: 76.5625vw;
 }
 
 .animation-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.animation-box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
