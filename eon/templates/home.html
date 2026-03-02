@@ -155,14 +155,14 @@
 					<div id="Echoes_of_Nature_home">Echoes of Nature</div>
 
 					<div class="animation-box">
-	<div class="animation-inner">
-
-		<video autoplay muted loop playsinline class="animation-media">
+						<div class="animation-inner">
+		<video autoplay muted loop playsinline>
 			<source src="{% static 'video/home-animation.webm' %}" type="video/webm">
 		</video>
+	</div>
 
-		<img src="{% static 'img/homeeanimation.webp' %}" class="animation-media" alt="Fallback">
-
+	<div class="animation-fallback">
+		<img src="{% static 'img/homeeanimation.webp' %}" alt="Fallback">
 	</div>
 					</div>
 				</div>
@@ -928,12 +928,43 @@ document.addEventListener("DOMContentLoaded", () => {
 			})();
 		</script>
 <script>
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+document.addEventListener("DOMContentLoaded", function () {
 
-if (isSafari) {
-	document.querySelector('.animation-box video').style.display = "none";
-	document.querySelector('.animation-box img').style.display = "block";
-}
+	const videoWrap = document.querySelector('.animation-inner');
+	const fallbackWrap = document.querySelector('.animation-fallback');
+	const video = document.querySelector('.animation-inner video');
+
+	if (!videoWrap || !fallbackWrap || !video) return;
+
+	function showFallback() {
+		videoWrap.style.display = "none";
+		fallbackWrap.style.display = "block";
+	}
+
+	let played = false;
+
+	video.addEventListener("playing", () => {
+		played = true;
+	});
+
+	// Safari detection
+	const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+	if (isSafari) showFallback();
+
+	// WebM unsupported
+	if (video.canPlayType('video/webm') === "") {
+		showFallback();
+		return;
+	}
+
+	// If video never starts playing
+	setTimeout(() => {
+		if (!played) {
+			showFallback();
+		}
+	}, 2000);
+
+});
 </script>
 		
 	</body>
