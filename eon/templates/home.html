@@ -155,13 +155,13 @@
 					<div id="Echoes_of_Nature_home">Echoes of Nature</div>
 
 					<div class="animation-box">
-	<div class="animation-inner" id="hero-animation">
+	<div class="animation-inner">
 
-		<video autoplay muted loop playsinline>
+		<video autoplay muted loop playsinline class="animation-media">
 			<source src="{% static 'video/home-animation.webm' %}" type="video/webm">
 		</video>
 
-		<img src="{% static 'img/homeeanimation.webp' %}" alt="Fallback">
+		<img src="{% static 'img/homeeanimation.webp' %}" class="animation-media" alt="Fallback">
 
 	</div>
 					</div>
@@ -931,8 +931,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 if (isSafari) {
-    document.querySelector('.hero-video').style.display = "none";
-    document.querySelector('.hero-fallback').style.display = "block";
+	document.querySelector('.animation-box video').style.display = "none";
+	document.querySelector('.animation-box img').style.display = "block";
 }
 </script>
 		
