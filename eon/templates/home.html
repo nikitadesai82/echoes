@@ -155,11 +155,15 @@
 					<div id="Echoes_of_Nature_home">Echoes of Nature</div>
 
 					<div class="animation-box">
-						<div class="animation-inner">
-							<video autoplay muted loop playsinline>
-							<source src="{% static 'img/homeeanimation.mp4' %}"type="video/mp4">
+	<div class="animation-inner" id="hero-media">
+
+		<video autoplay muted loop playsinline class="hero-video">
+			<source src="{% static 'video/home-animation.webm' %}" type="video/webm">
 		</video>
-						</div>
+
+		<img src="{% static 'img/homeeanimation.webp' %}" class="hero-fallback">
+
+	</div>
 					</div>
 				</div>
 
