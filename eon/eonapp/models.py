@@ -164,7 +164,16 @@ class NatureTrailMedia(models.Model):
     ]
 
     media_type = models.CharField(max_length=10, choices=MEDIA_TYPE_CHOICES)
-    file = models.FileField(upload_to='nature_trails/media/')
+
+    file = models.FileField(upload_to='nature_trails/media/', blank=True, null=True)
+
+    youtube_link = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Only YouTube Video ID (example: dQw4w9WgXcQ)"
+    )
+
     order = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
