@@ -41,7 +41,7 @@
     </div>
     <div class="fade-section stop-time">Time: 7:00 am</div>
 		<div class="fade-section birds-to-watch">Say Hello to your fellow participants, meet the tour guides and naturalists. A quick briefing about what to expect, board the buses and we'll be on our way!<br><br>
-		Do remember, Bird Sightings vary with season, weather and time of day, so the presence or number of species on any nature trail cannot be guaranteed.
+		Do remember: Bird sightings during the event are subject to seasonal patterns, migratory cycles, weather conditions and natural habitat dynamics. As wildlife movement is influenced by ecological factors beyond our control, sightings cannot be guaranteed. 
 
 
 </div>
@@ -102,11 +102,13 @@
   <div class="column3">
     <div class="fade-section stop">Conclusion<br> SALES GALLERY, WESTGATE</div>
     <div class="fade-section stop-time">20:00 mins</div>
-    <div class="fade-section activity">Immersive Activity</div>
+    <!--div class="fade-section activity">Immersive Activity</div-->
   </div>
   <div class="column3 hidden">
   </div>
 </div>
+	<div class="fade-section Disclaimer1">"Bird sightings are subject to seasonal patterns, migratory cycles, weather conditions, and natural habitat dynamics. As wildlife movement is influenced by ecological factors beyond our control, sightings cannot be guaranteed." 
+	</div>
 <div class="naturetrailbox3">
   <div class="nature-tips">
     <img src="{% static 'img/nature-tips.webp' %}">
@@ -129,7 +131,7 @@
     <div class="column1">
       <div class="fade-section row row-top">2. Hat & Sunglasses</div>
       <div class="fade-section row birdwatching-row-bottom">
-        Perfect for the sunny stretches of the Trail.
+        Perfect for the sunny stretches of the trail.
       </div>
     </div>
     <div class="column1">
@@ -227,13 +229,32 @@
 <div id="videoBox" class="gallery-media-section" style="display:none">
 
   {% for item in media %}
+
     {% if item.media_type == 'video' %}
+
       <div class="gallery-slide">
-        <video class="galleryVideo" playsinline preload="metadata">
-          <source src="{{ item.file.url }}" type="video/mp4" />
-        </video>
+
+        {% if item.youtube_link %}
+          <iframe
+            class="galleryVideo"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/{{ item.youtube_link }}?enablejsapi=1&rel=0&modestbranding=1"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        {% elif item.file %}
+          <video class="galleryVideo" playsinline preload="metadata">
+            <source src="{{ item.file.url }}" type="video/mp4" />
+          </video>
+        {% endif %}
+
       </div>
+
     {% endif %}
+
   {% endfor %}
 
 </div>
@@ -279,7 +300,7 @@
       </div>
       <div class="fade-section naturetrail-text4">
         Follow the chirps and flutters. Can you spot all the feathered residents
-        of the Hiranandani Estate, Thane? Browse thourgh our go-to-guide to know
+        of the Hiranandani Estate, Thane? Browse through our go-to-guide to know
         where different species love to perch, nest, or sing. You will also find
         some handy tips on the best times of the day and seasons in which to
         spot even the shyest of birds.
