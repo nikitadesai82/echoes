@@ -21,6 +21,7 @@
 		Birdwatching Spots at Hiranandani Estate, Thane.
 	</div>
 </div>
+
 <div class="birdwatching-firstlayer">
 	<div class="firstlayer-col">
 		<div class="stop-image">
@@ -107,6 +108,8 @@
 		</div>
 	</div>
 </div>
+	<div class="Disclaimer">"Bird sightings are subject to seasonal patterns, migratory cycles, weather conditions, and natural habitat dynamics. As wildlife movement is influenced by ecological factors beyond our control, sightings cannot be guaranteed." 
+	</div>
 <div class="birdwatching-box">
 	<div class="fade naturetrail-img">
 		<img src="{% static 'img/Naturetrail.webp' %}">
@@ -222,6 +225,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
@@ -304,6 +308,17 @@
 					},
 					'-=0.55',
 				)
+				.fromTo(
+					'.Disclaimer',
+					{ opacity: 0, scale: 0.9 },
+					{
+						opacity: 1,
+						scale: 1,
+						duration: 0.6,
+						stagger: 0.15,
+					},
+					'-=0.55',
+				)
 
 				/* Title */
 				.fromTo(
@@ -368,7 +383,7 @@
 
 				/* Right video — SAME TIME */
 				.fromTo(
-					'.birdwatching-box-right img',
+					'.birdwatching-box-right video',
 					{ opacity: 0, scale: 0.95 },
 					{
 						opacity: 1,
