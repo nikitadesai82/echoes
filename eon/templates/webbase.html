@@ -270,30 +270,36 @@
           ?.style.setProperty("visibility", "visible");
       });
     </script>
-    <script>
-      window.addEventListener("pageshow", (event) => {
-        if (event.persisted) {
-          const dropdown = document.querySelector(".dropdown-content");
-          const mask = document.querySelector(".dropdown-mask");
-          const menuBtn = document.getElementById("menuBtn");
-          const menuIcon = menuBtn?.querySelector("img");
+<script>
+window.addEventListener("pageshow", () => {
 
-          if (!dropdown || !mask || !menuBtn || !menuIcon) return;
+  const dropdown = document.querySelector(".dropdown-content");
+  const mask = document.querySelector(".dropdown-mask");
+  const menuBtn = document.getElementById("menuBtn");
+  const menuIcon = menuBtn?.querySelector("img");
 
-          // Reset GSAP state HARD
-          gsap.set(dropdown, {
-            yPercent: -100,
-            opacity: 0,
-          });
+  if (!dropdown || !mask || !menuBtn || !menuIcon) return;
 
-          mask.style.pointerEvents = "none";
-          menuBtn.classList.remove("is-open");
+  // 🔥 Reset GSAP safely
+  if (window.tl) {
+    tl.pause(0).progress(0); // fully reset timeline
+  }
 
-          // Reset icon
-          menuIcon.src = menuIcon.dataset.default;
-        }
-      });
-    </script>
+  // 🔥 Reset UI
+  dropdown.style.display = "none";
+  mask.style.pointerEvents = "none";
+  menuBtn.classList.remove("is-open");
+
+  // 🔥 Reset icon
+  menuIcon.src = menuIcon.dataset.default;
+
+  // 🔥 Reset toggle logic
+  if (typeof isOpen !== "undefined") {
+    isOpen = false;
+  }
+
+});
+</script>
 		    <script>
       (function () {
         const STORAGE_KEY = "kioskMuted";
@@ -408,12 +414,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const activeSrc = menuIcon.dataset.active;
 
   let isOpen = false;
-  const isDesktop = window.innerWidth > 1200;
+
+function isDesktopView() {
+  return window.matchMedia("(min-width: 1201px)").matches;
+}
 
   /* =========================================
      DESKTOP (GSAP ANIMATION)
   ========================================= */
-  if (isDesktop) {
+  if (isDesktopView()) {
 
     // Initial hidden state
     gsap.set(dropdown, {
@@ -467,23 +476,29 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.style.display = "none";
 
     menuBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
+  e.preventDefault();
+  e.stopPropagation();
 
-      isOpen = !isOpen;
+  const desktop = isDesktopView();
 
-      if (isOpen) {
-        dropdown.style.display = "block";
-        mask.style.pointerEvents = "auto";
-        menuIcon.src = activeSrc;
-        menuBtn.classList.add("is-open");
-      } else {
-        dropdown.style.display = "none";
-        mask.style.pointerEvents = "none";
-        menuIcon.src = defaultSrc;
-        menuBtn.classList.remove("is-open");
-      }
-    });
+  if (desktop) {
+    isOpen ? tl.reverse() : tl.play();
+  } else {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      dropdown.style.display = "block";
+      mask.style.pointerEvents = "auto";
+      menuIcon.src = activeSrc;
+      menuBtn.classList.add("is-open");
+    } else {
+      dropdown.style.display = "none";
+      mask.style.pointerEvents = "none";
+      menuIcon.src = defaultSrc;
+      menuBtn.classList.remove("is-open");
+    }
+  }
+});
 
   }
 
