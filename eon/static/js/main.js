@@ -57,7 +57,7 @@ function initDropdownMenu() {
   const activeSrc = menuIcon.dataset.active;
 
   let isOpen = false;
-  const isDesktop = window.innerWidth > 1200;
+  const isDesktop = window.innerWidth > 1050;
 
   /* =========================================
      DESKTOP (GSAP)
