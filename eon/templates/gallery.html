@@ -195,7 +195,7 @@
   </script>
   <div id="dotContainer" class="gallery-dots2"></div>
 
-  <div class="gallery-box3">
+  <div class="gallery-box3 hide-on-mobile">
     <div class="close-icon" id="closeBtn">
       <img src="{% static 'img/Close.png' %}" alt="close" />
     </div>
@@ -368,7 +368,18 @@
    TAB HANDLERS
    ======================= */
 function showPhoto() {
-  // Stop video when switching back
+
+  /* STOP YOUTUBE VIDEO */
+  const iframe = document.getElementById("galleryVideo");
+
+  if (iframe && iframe.contentWindow) {
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"stopVideo","args":""}',
+      "*"
+    );
+  }
+
+  /* STOP LOCAL VIDEO */
   const video = videoBox.querySelector("video");
   if (video) {
     video.pause();
