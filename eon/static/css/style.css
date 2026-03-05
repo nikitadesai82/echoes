@@ -119,15 +119,15 @@ a {
 }
 
 .animation-video video {
-	width:100%;
-	height:auto;
-	display:block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .animation-fallback img {
-	width:100%;
-	height:auto;
-	display:block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .Logo {
   width: clamp(150px, 9.9vw, 380px);
@@ -2628,8 +2628,8 @@ a {
   display: block;
   text-align: left;
 }
-.Disclaimer{
-	height: auto;
+.Disclaimer {
+  height: auto;
   font-family: "Boreal", sans-serif;
   font-size: clamp(13px, 0.73vw, 28px);
   color: #4d4a4a;
@@ -2640,8 +2640,8 @@ a {
   left: 30%;
   position: relative;
 }
-.Disclaimer1{
-	height: auto;
+.Disclaimer1 {
+  height: auto;
   font-family: "Boreal", sans-serif;
   font-size: clamp(13px, 0.73vw, 28px);
   color: #4d4a4a;
@@ -3031,7 +3031,6 @@ a {
   height: 26.76vh;
   margin-left: clamp(60px, 11.71875vw, 450px);
   margin-top: -21.305vh;
-
 }
 .urbanlegendgirl-ani video {
   width: 100%;
@@ -3040,7 +3039,7 @@ a {
   display: block;
   z-index: -1;
   mix-blend-mode: multiply;
-	transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 .gallery-mainbox {
   position: relative;
@@ -3169,7 +3168,7 @@ a {
 }
 .shot-location {
   position: absolute;
-  font-size: clamp(14px, 0.833vw, 32px);
+  font-size: clamp(12px, 0.833vw, 32px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   font-style: italic;
@@ -3621,9 +3620,9 @@ a {
   opacity: 0;
 }
 .animation-media {
-	width:100%;
-	height:auto;
-	display:block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .animation-inner {
@@ -4035,7 +4034,7 @@ html[data-loading="true"] body {
   width: clamp(120px, 13vw, 498px);
   height: 100%;
   overflow: hidden;
-	z-index: -1;
+  z-index: -1;
 }
 .footerweb-img4 img {
   width: 100%;
@@ -4057,6 +4056,7 @@ html[data-loading="true"] body {
   font-size: clamp(13px, 0.73vw, 28px);
   padding-left: 10.4167vw;
   padding-top: 36vh;
+  z-index: -1;
 }
 .video-btn {
   width: 3.4rem;
