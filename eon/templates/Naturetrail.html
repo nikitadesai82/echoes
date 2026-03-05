@@ -493,27 +493,40 @@
      ======================= */
 
   function showPhoto() {
-    // Stop video when switching back
-    const video = videoBox.querySelector("video");
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
 
-    videoBox.style.display = "none";
-    photoBox.style.display = "block";
+  /* STOP ALL YOUTUBE IFRAMES */
+  const iframes = videoBox.querySelectorAll("iframe");
 
-    photoTab.classList.add("active");
-    videoTab.classList.remove("active");
+  iframes.forEach((iframe) => {
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"stopVideo","args":""}',
+      "*"
+    );
+  });
 
-    // Show arrows again
-    if (nextBtn && prevBtn) {
-      nextBtn.style.display = "block";
-      prevBtn.style.display = "block";
-    }
+  /* STOP ALL LOCAL MP4 VIDEOS */
+  const videos = videoBox.querySelectorAll("video");
 
-    resetSlides();
+  videos.forEach((video) => {
+    video.pause();
+    video.currentTime = 0;
+  });
+
+  /* SWITCH VIEW */
+  videoBox.style.display = "none";
+  photoBox.style.display = "block";
+
+  photoTab.classList.add("active");
+  videoTab.classList.remove("active");
+
+  /* SHOW ARROWS AGAIN */
+  if (nextBtn && prevBtn) {
+    nextBtn.style.display = "block";
+    prevBtn.style.display = "block";
   }
+
+  resetSlides();
+}
 
   function showVideo() {
     photoBox.style.display = "none";
