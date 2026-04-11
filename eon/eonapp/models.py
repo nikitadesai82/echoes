@@ -29,7 +29,7 @@ class Bird(models.Model):
     Bird_Sighting_Area = models.TextField()
     Bird_Active_Time = models.TextField()
     Bird_Fun_Facts = models.TextField()
-    
+    Bird_Map_Image = models.ImageField(upload_to="Images/bird_maps/", blank=True, null=True)
     Bird_Migration = models.TextField()
     Bird_Habitat = models.TextField()
     Bird_Nesting = models.TextField()
@@ -106,7 +106,8 @@ class Flora(models.Model):
     Flora_Question = models.TextField(blank=True, null=True)
 
     Flora_Button_Media = models.FileField(upload_to="Animations/Flora/Buttons/",blank=True, null=True)
-
+    Flora_Map_Image = models.ImageField(upload_to="Imagesflora_maps/", blank=True, null=True)
+	
     Flora_Flowering_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_Type_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_HoHLocation = models.CharField(max_length=100, blank=True, null=True)
@@ -180,3 +181,4 @@ class NatureTrailMedia(models.Model):
 
     class Meta:
         ordering = ['order']
+
