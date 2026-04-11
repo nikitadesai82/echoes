@@ -1,4 +1,4 @@
-{% extends "webbase.html" %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %}{% block body_class %}page-birds-list{% endblock %} {% load static %} {% block overlay_content %}
 <script>
 	document.documentElement.classList.remove('loading');
 </script>
@@ -576,7 +576,155 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 </script>
+<!-- ══════════════════════════════════════════
+     MOBILE SORT & FILTER BAR  —  Birds
+     Only visible on ≤768px (CSS controls display)
+══════════════════════════════════════════ -->
 
+<!-- Bottom bar -->
+
+ <div class="mobile-sort-filter-bar">
+  <button class="mobile-bar-btn" id="mobileFilterBtn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.749 7.508a.75.75 0 010-1.5h3.138a2.247 2.247 0 014.243 0h9.121a.75.75 0 010 1.5h-9.126a2.248 2.248 0 01-4.232 0H3.749zm13.373 9h3.129a.75.75 0 010 1.5h-3.135a2.247 2.247 0 01-4.231 0H3.749a.75.75 0 010-1.5h9.13a2.248 2.248 0 014.243 0z" fill="currentColor"/>
+    </svg> FILTER
+  </button>
+
+  <span class="mobile-bar-divider"></span>
+
+  <button class="mobile-bar-btn" id="mobileSortBtn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M7.445 7.48V5.672L5.665 7.48h1.78zm1.09-4.42c.304.12.465.39.465.706v16.437a.784.784 0 01-.783.797.762.762 0 01-.772-.781V8.982H4.003a.832.832 0 01-.765-.204.759.759 0 01.002-1.105L7.652 3.23a.832.832 0 01.882-.17zm8.02 15.269l1.78-1.81h-1.78v1.81zm4.207-3.107a.76.76 0 01-.002 1.106l-4.412 4.442a.832.832 0 01-.882.17c-.305-.12-.466-.39-.466-.706V3.797c0-.432.332-.797.783-.797.45 0 .772.35.772.781v11.237h3.442a.833.833 0 01.765.204z"/>
+    </svg> SORT
+  </button>
+</div>
+
+
+<!-- Backdrop -->
+<div class="mobile-sheet-backdrop" id="mobileSheetBackdrop"></div>
+
+<!-- ── Filter Sheet ── -->
+<div class="mobile-bottom-sheet1" id="mobileFilterSheet">
+  <div class="mobile-sheet-handle"></div>
+
+  <div class="mobile-sheet-section-label">Active Time</div>
+  <div class="filter-options mobile-sheet-options" id="m-activeTimeOptions">
+    <label><input type="radio" name="activeTime_m" value="Crepuscular"> Crepuscular</label>
+    <label><input type="radio" name="activeTime_m" value="Diurnal"> Diurnal</label>
+    <label><input type="radio" name="activeTime_m" value="Nocturnal"> Nocturnal</label>
+  </div>
+
+  <div class="mobile-sheet-section-label">Diet</div>
+  <div class="filter-options mobile-sheet-options" id="m-dietOptions">
+    <label><input type="radio" name="diet_m" value="Carnivore"> Carnivorous</label>
+    <label><input type="radio" name="diet_m" value="Granivore"> Granivorous</label>
+    <label><input type="radio" name="diet_m" value="Herbivore"> Herbivorous</label>
+    <label><input type="radio" name="diet_m" value="Insectivore"> Insectivorous</label>
+    <label><input type="radio" name="diet_m" value="Nectarivore"> Nectarivorous</label>
+    <label><input type="radio" name="diet_m" value="Omnivore"> Omnivore</label>
+    <label><input type="radio" name="diet_m" value="Piscivore"> Piscivore</label>
+    <label><input type="radio" name="diet_m" value="Scavenger"> Scavenger</label>
+  </div>
+
+  <div class="mobile-sheet-section-label">Migration</div>
+  <div class="filter-options mobile-sheet-options" id="m-migrationOptions">
+    <label><input type="radio" name="migration_m" value="Migratory"> Migratory</label>
+    <label><input type="radio" name="migration_m" value="Non-migratory"> Non-migratory</label>
+  </div>
+
+  <div class="mobile-sheet-actions">
+    <button class="mobile-bar-btn sheet-action-close" onclick="closeSheets()">CLOSE</button>
+		<span class="mobile-bar-divider"></span>
+    <button class="mobile-bar-btn sheet-action-apply" id="mobileFilterApply">APPLY</button>
+  </div>
+</div>
+
+<!-- ── Sort Sheet ── -->
+<div class="mobile-bottom-sheet" id="mobileSortSheet">
+  <div class="mobile-sheet-handle"></div>
+  <div class="mobile-sort-option" data-sort="az"   onclick="mobileSelectSort('az')">Alphabetical: A to Z   <span id="m-check-az"></span></div>
+  <div class="mobile-sort-option" data-sort="za"   onclick="mobileSelectSort('za')">Alphabetical: Z to A   <span id="m-check-za"></span></div>
+  <div class="mobile-sort-option" data-sort="small" onclick="mobileSelectSort('small')">Size: Small to Large  <span id="m-check-small"></span></div>
+  <div class="mobile-sort-option" data-sort="large" onclick="mobileSelectSort('large')">Size: Large to Small  <span id="m-check-large"></span></div>
+</div>
+
+<script>
+  /* ── Sheet open / close ── */
+  const backdrop       = document.getElementById('mobileSheetBackdrop');
+  const filterSheet    = document.getElementById('mobileFilterSheet');
+  const sortSheet      = document.getElementById('mobileSortSheet');
+
+  function openSheet(sheet) {
+    backdrop.classList.add('open');
+    sheet.classList.add('open');
+  }
+  function closeSheets() {
+    backdrop.classList.remove('open');
+    filterSheet.classList.remove('open');
+    sortSheet.classList.remove('open');
+  }
+
+  document.getElementById('mobileFilterBtn').onclick = () => openSheet(filterSheet);
+  document.getElementById('mobileSortBtn').onclick   = () => openSheet(sortSheet);
+  backdrop.onclick = closeSheets;
+
+  /* ── Radio unselect: click a checked radio to deselect it ── */
+  document.querySelectorAll('.mobile-bottom-sheet1 input[type="radio"]').forEach(radio => {
+    radio.addEventListener('mousedown', function () {
+      this._wasChecked = this.checked;
+    });
+    radio.addEventListener('click', function () {
+      if (this._wasChecked) {
+        this.checked = false;
+        this._wasChecked = false;
+      }
+    });
+  });
+
+  /* ── Apply button ── */
+  document.getElementById('mobileFilterApply').onclick = function () {
+    const url = new URL(window.location.href);
+    ['activeTime', 'diet', 'migration'].forEach(filter => {
+      const checked = document.querySelector(`input[name="${filter}_m"]:checked`);
+      if (checked) {
+        url.searchParams.set(filter, checked.value);
+      } else {
+        url.searchParams.delete(filter);
+      }
+    });
+    window.location.href = url.toString();
+  };
+
+  /* ── Restore radio + sort state from URL on load ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    const url = new URL(window.location.href);
+
+    ['activeTime', 'diet', 'migration'].forEach(filter => {
+      const val = url.searchParams.get(filter);
+      if (val) {
+        const r = document.querySelector(`input[name="${filter}_m"][value="${val}"]`);
+        if (r) r.checked = true;
+      }
+    });
+
+    /* Sort checkmarks */
+    const sort = url.searchParams.get('sort') || 'az';
+		document.querySelector(`.mobile-sort-option[data-sort="${sort}"]`)
+  ?.classList.add('active');
+  });
+
+  /* ── Sort selection ── */
+  function mobileSelectSort(code) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('sort', code);
+    window.location.href = url.toString();
+  }
+</script>
+
+<!-- Add section-label style (shared across both pages) -->
+<style>
+
+</style>
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		const bg = document.querySelector('.Bird-image');
