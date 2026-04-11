@@ -6,7 +6,7 @@
 		<span class="inner2">Building with Nature</span>
 	</div>
 	<div class="urbanlegendsbox1_3">
-		A behind-the-scenes look at how the Hiranandani Estate Thane’s lush
+		A behind-the-scenes look at how the Hiranandani Estate Thane's lush
 		landscapes came to life! Hear from builders, horticulturists and naturalists
 		about this thriving urban ecosystem. Choose a story to explore then hit play
 		to listen as it unfolds.
@@ -18,7 +18,7 @@
 </div>
 
 <div class="urbanlegendsbox2">
-	<!-- ✅ STORY LIST -->
+	<!-- ✅ STORY LIST — desktop: individual buttons, mobile: single dropdown -->
 	<div class="selection-box">
 		{% for story in stories %}
 		<div
@@ -30,8 +30,18 @@
 		>
 			{{ story.Story_Title }}
 		</div>
-
 		{% endfor %}
+	</div>
+
+	<!-- ✅ MOBILE STORY SELECTOR — single dropdown button -->
+	<div class="mobile-story-selector" id="mobileStorySelector">
+		<div class="mobile-story-trigger" id="mobileStoryTrigger">
+			<span class="mobile-story-label" id="mobileStoryLabel">Select a Story</span>
+			<svg class="mobile-story-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<polyline points="5,9 12,16 19,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+		</div>
+		<div class="mobile-story-dropdown" id="mobileStoryDropdown"></div>
 	</div>
 
 	<!-- ✅ IMAGE AREA -->
@@ -74,7 +84,6 @@
                         </mask>
                       </defs>
                       <g id="baseWave" stroke="#b58f7a" stroke-width="5" stroke-linecap="round">
-
                         <line x1="28" y1="73.5" x2="28" y2="80.5"/>
                         <line x1="38" y1="72.0" x2="38" y2="82.0"/>
                         <line x1="48" y1="70.0" x2="48" y2="84.0"/>
@@ -155,7 +164,6 @@
                         <line x1="814" y1="68.5" x2="814" y2="85.5"/>
                         <line x1="825" y1="71.0" x2="825" y2="83.0"/>
                         <line x1="835" y1="73.5" x2="835" y2="80.5"/>
-
                       </g>
                       <g id="filledWave"
                         stroke="#802650"
@@ -252,8 +260,8 @@
 
 <div class="urbanlegendgirl-ani hide-on-mobile">
 	<video autoplay muted loop playsinline>
-							<source src="{% static 'video/urbangirl.mp4' %}"type="video/mp4">
-		</video>
+		<source src="{% static 'video/urbangirl.mp4' %}" type="video/mp4">
+	</video>
 </div>
 
 <!-- ✅ JAVASCRIPT -->
@@ -266,201 +274,170 @@
 	let storyTL;
 
 	function playStoryAnimation() {
-		// Kill previous animation if it exists
 		if (storyTL) storyTL.kill();
 
 		storyTL = gsap.timeline({
 			defaults: { ease: 'power3.out' },
 		});
 
-		// 👉 ALL START AT THE SAME TIME (position: 0)
 		storyTL
-			.fromTo(
-				'.story_name-inner',
-				{ yPercent: 100, opacity: 0 },
-				{ yPercent: 0, opacity: 1, duration: 0.6 },
-				0,
-			)
-			.fromTo(
-				'.story_text',
-				{ y: 40, opacity: 0 },
-				{ y: 0, opacity: 1, duration: 0.6 },
-				0,
-			)
-			.fromTo(
-				'.urbanlegend-img',
-				{ scale: 0.96, opacity: 0 },
-				{ scale: 1, opacity: 1, duration: 0.6 },
-				0,
-			)
-			.fromTo(
-				'.story-sound',
-				{ opacity: 0, y: 20 },
-				{ opacity: 1, y: 0, duration: 0.6 },
-				0,
-			);
+			.fromTo('.story_name-inner', { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6 }, 0)
+			.fromTo('.story_text',        { y: 40, opacity: 0 },         { y: 0, opacity: 1, duration: 0.6 }, 0)
+			.fromTo('.urbanlegend-img',   { scale: 0.96, opacity: 0 },   { scale: 1, opacity: 1, duration: 0.6 }, 0)
+			.fromTo('.story-sound',       { opacity: 0, y: 20 },         { opacity: 1, y: 0, duration: 0.6 }, 0);
 	}
 </script>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
-		const master = gsap.timeline({
-			defaults: { ease: 'power3.out' },
-		});
+		const master = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-		/* STEP 1 — TEXT SLIDE UP */
-		master.fromTo(
-			'.inner2',
-			{ yPercent: 100, opacity: 0 },
-			{ yPercent: 0, opacity: 1, duration: 0.6 },
-		);
+		master.fromTo('.inner2', { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6 });
 
-		/* STEP 2 — BOX FADE INS */
 		master
-			.fromTo(
-				'.urbanlegendsbox1_1',
-				{ opacity: 0 },
-				{ opacity: 1, duration: 0.6 },
-				'-=0.3',
-			)
-			.fromTo(
-				'.urbanlegendsbox1_3',
-				{ opacity: 0 },
-				{ opacity: 1, duration: 0.6 },
-				'<',
-			);
+			.fromTo('.urbanlegendsbox1_1', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '-=0.3')
+			.fromTo('.urbanlegendsbox1_3', { opacity: 0 }, { opacity: 1, duration: 0.6 }, '<');
 
-		/* STEP 3 — BUTTON CIRCLE REVEAL */
 		gsap.utils.toArray('.btn-fill-circle2').forEach((btn, i) => {
-			master.fromTo(
-				btn,
-				{
-					opacity: 0,
-					y: 20,
-				},
-				{
-					opacity: 1,
-					y: 0,
-					duration: 0.6,
-					ease: 'power2.out',
-				},
-				i === 0 ? '+=0.2' : '<+=0.15',
-			);
+			master.fromTo(btn, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, i === 0 ? '+=0.2' : '<+=0.15');
 		});
 
-		/* STORY CONTENT (LOCKED UNTIL GSAP ENDS) */
-		master.fromTo(
-			'.story_name-inner',
-			{ yPercent: 100, opacity: 0 },
-			{ yPercent: 0, opacity: 1, duration: 0.6, immediateRender: false },
-			'<-=0.55',
-		);
+		master.fromTo('.story_name-inner', { yPercent: 100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.6, immediateRender: false }, '<-=0.55');
+		master.fromTo('.story_text',       { opacity: 0, y: 50 },         { opacity: 1, y: 0, duration: 0.6, immediateRender: false }, '<+=0.15');
+		master.fromTo('.urbanlegend-img',  { opacity: 0 },                { opacity: 1, duration: 0.45, immediateRender: false }, '<+=0.15');
+		master.fromTo('.urbanlegendsbird-ani', { opacity: 0 },            { opacity: 1, duration: 0.45 }, '<+=0.15');
+		master.fromTo('.story-sound',      { opacity: 0 },                { opacity: 1, duration: 0.45, immediateRender: false }, '<');
 
-		master.fromTo(
-			'.story_text',
-			{ opacity: 0, y: 50 },
-			{ opacity: 1, y: 0, duration: 0.6, immediateRender: false },
-			'<+=0.15',
-		);
-
-		master.fromTo(
-			'.urbanlegend-img',
-			{ opacity: 0 },
-			{ opacity: 1, duration: 0.45, immediateRender: false },
-			'<+=0.15',
-		);
-
-		master.fromTo(
-			'.urbanlegendsbird-ani',
-			{ opacity: 0 },
-			{ opacity: 1, duration: 0.45 },
-			'<+=0.15',
-		);
-
-		master.fromTo(
-			'.story-sound',
-			{ opacity: 0 },
-			{ opacity: 1, duration: 0.45, immediateRender: false },
-			'<',
-		);
-
-		/* ✅ WAIT UNTIL STORIES ARE READY, THEN LOAD FIRST STORY */
-		document.addEventListener(
-			'storiesReady',
-			() => {
-				master.eventCallback('onComplete', () => {
-					updateStory(storyItems[0]);
-				});
-			},
-			{ once: true },
-		);
+		document.addEventListener('storiesReady', () => {
+			master.eventCallback('onComplete', () => {
+				updateStory(storyItems[0]);
+			});
+		}, { once: true });
 	});
 </script>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		storyItems = document.querySelectorAll('.story');
-		const titleEl = document.querySelector('.story_name-inner');
-		const textEl = document.getElementById('storyText');
-		const imageEl = document.getElementById('storyImage');
+		const titleEl  = document.querySelector('.story_name-inner');
+		const textEl   = document.getElementById('storyText');
+		const imageEl  = document.getElementById('storyImage');
 		const audioBox = document.getElementById('storyAudioBox');
-		const playBtn = document.getElementById('playPauseBtn');
+		const playBtn  = document.getElementById('playPauseBtn');
 
 		/* ===============================
-       UPDATE STORY FUNCTION
-    =============================== */
+		   UPDATE STORY FUNCTION
+		=============================== */
 		updateStory = function (storyDiv) {
-			// 🔓 REVEAL TEXT CONTAINER NOW (CONTENT EXISTS)
 			const textWrapper = document.querySelector('.urbanlegend-text');
 			textWrapper.style.visibility = 'visible';
-			textWrapper.style.opacity = '1';
+			textWrapper.style.opacity    = '1';
 
 			const title = storyDiv.dataset.title;
-			const text = storyDiv.dataset.text;
+			const text  = storyDiv.dataset.text;
 			const image = storyDiv.dataset.image;
 			const audio = storyDiv.dataset.audio;
 
 			titleEl.textContent = title;
-			textEl.textContent = text;
-			textEl.scrollTop = 0;
+			textEl.textContent  = text;
+			textEl.scrollTop    = 0;
 
 			if (image) {
+				imageEl.style.opacity = '0';
+				imageEl.onload  = () => { imageEl.style.opacity = '1'; imageEl.closest('.urbanlegend-img').style.display = 'block'; };
+				imageEl.onerror = () => { imageEl.closest('.urbanlegend-img').style.display = 'none'; };
 				imageEl.src = image;
-				imageEl.onload = () => {
-					imageEl.closest('.urbanlegend-img').style.display = 'block';
-				};
 			} else {
 				imageEl.closest('.urbanlegend-img').style.display = 'none';
+				imageEl.style.opacity = '0';
 			}
 
 			if (audio) {
 				audioBox.style.display = 'flex';
-
 				audioPlayer.pause();
 				audioPlayer.currentTime = 0;
 				audioPlayer.src = audio;
 				audioPlayer.load();
-
 				maskRect.setAttribute('width', 0);
 				playBtn.src = playBtn.dataset.play;
 			} else {
 				audioBox.style.display = 'none';
 			}
 
-			// ✅ ALWAYS RUN THESE
 			storyItems.forEach((i) => i.classList.remove('active'));
 			storyDiv.classList.add('active');
 
-			if (typeof playStoryAnimation === 'function') {
-				playStoryAnimation();
-			}
+			if (typeof playStoryAnimation === 'function') playStoryAnimation();
 		};
 
 		/* ===============================
-       CLICK HANDLERS
-    =============================== */
+		   CLICK HANDLERS — desktop buttons
+		=============================== */
 		storyItems.forEach((item) => {
 			item.addEventListener('click', () => updateStory(item));
+		});
+
+		/* ===============================
+		   MOBILE STORY SELECTOR — dropdown
+		=============================== */
+		const selector   = document.getElementById('mobileStorySelector');
+		const trigger    = document.getElementById('mobileStoryTrigger');
+		const dropdown   = document.getElementById('mobileStoryDropdown');
+		const labelEl    = document.getElementById('mobileStoryLabel');
+		const storiesArr = Array.from(storyItems);
+		let currentIndex = 0;
+
+		// Helper — hide the currently selected story from the list
+		function updateDropdownOptions() {
+			dropdown.querySelectorAll('.mobile-story-option').forEach((o, j) => {
+				o.style.display = j === currentIndex ? 'none' : 'block';
+				o.classList.toggle('active', j === currentIndex);
+			});
+		}
+
+		// Build dropdown items
+		storiesArr.forEach((item, i) => {
+			const opt = document.createElement('div');
+			opt.className    = 'mobile-story-option';
+			opt.textContent  = item.dataset.title;
+			opt.dataset.index = i;
+
+			opt.addEventListener('click', () => {
+				currentIndex = i;
+				labelEl.textContent = item.dataset.title;
+				selector.classList.remove('open');
+				updateStory(item);
+				updateDropdownOptions();
+			});
+
+			dropdown.appendChild(opt);
+		});
+
+		// Toggle open/close
+		trigger.addEventListener('click', () => {
+			selector.classList.toggle('open');
+		});
+
+		// Close on outside tap
+		document.addEventListener('click', (e) => {
+			if (!selector.contains(e.target)) selector.classList.remove('open');
+		});
+
+		// Auto-load first story on mobile + tablet
+		if (window.innerWidth <= 1049 && storiesArr.length) {
+			const first = storiesArr[0];
+			labelEl.textContent = first.dataset.title;
+			updateStory(first);
+			updateDropdownOptions();
+		}
+
+		// Keep in sync when desktop buttons clicked
+		storiesArr.forEach((item, i) => {
+			item.addEventListener('click', () => {
+				currentIndex = i;
+				labelEl.textContent = item.dataset.title;
+				updateDropdownOptions();
+			});
 		});
 
 		// 🔔 signal GSAP
@@ -470,89 +447,56 @@
 
 <script>
 	const audioPlayer = document.getElementById('audioPlayer');
-	const maskRect = document.getElementById('maskRect');
+	const maskRect    = document.getElementById('maskRect');
 
-	// 🔑 GLOBAL STATE (per page)
 	let wasPlayingBeforeMute = false;
 	let rafId = null;
 
 	function initAudioPlayer() {
 		const playBtn = document.getElementById('playPauseBtn');
-		const svg = document.getElementById('audioWave');
+		const svg     = document.getElementById('audioWave');
 
 		if (!audioPlayer || !playBtn || !maskRect || !svg) return;
 
 		function stopRAF() {
-			if (rafId) {
-				cancelAnimationFrame(rafId);
-				rafId = null;
-			}
+			if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
 		}
 
 		function updateMaskSmooth() {
 			if (audioPlayer.ended || audioPlayer.paused || !audioPlayer.duration) return;
-
-			const progress = audioPlayer.currentTime / audioPlayer.duration;
-
+			const progress   = audioPlayer.currentTime / audioPlayer.duration;
 			const WAVE_START = 25;
 			const WAVE_WIDTH = 807;
-
-			maskRect.setAttribute('x', WAVE_START);
+			maskRect.setAttribute('x',     WAVE_START);
 			maskRect.setAttribute('width', WAVE_WIDTH * progress);
-
 			rafId = requestAnimationFrame(updateMaskSmooth);
 		}
 
-		/* ---------- PLAY / PAUSE BUTTON ---------- */
 		playBtn.addEventListener('click', () => {
 			stopRAF();
-
-			// ❌ Respect global mute
 			if (localStorage.getItem('kioskMuted') === 'true') return;
-
 			if (audioPlayer.paused) {
-				audioPlayer.play().then(() => {
-					playBtn.src = playBtn.dataset.pause;
-					updateMaskSmooth();
-				});
+				audioPlayer.play().then(() => { playBtn.src = playBtn.dataset.pause; updateMaskSmooth(); });
 			} else {
 				audioPlayer.pause();
 				playBtn.src = playBtn.dataset.play;
 			}
 		});
 
-		/* ---------- AUDIO EVENTS ---------- */
-		audioPlayer.addEventListener('ended', () => {
-			stopRAF();
-			maskRect.setAttribute('width', 0);
-			playBtn.src = playBtn.dataset.play;
-		});
-
-		audioPlayer.addEventListener('loadedmetadata', () => {
-			stopRAF();
-			maskRect.setAttribute('width', 0);
-		});
-
-		audioPlayer.addEventListener('pause', stopRAF);
-		audioPlayer.addEventListener('play', updateMaskSmooth);
+		audioPlayer.addEventListener('ended',           () => { stopRAF(); maskRect.setAttribute('width', 0); playBtn.src = playBtn.dataset.play; });
+		audioPlayer.addEventListener('loadedmetadata',  () => { stopRAF(); maskRect.setAttribute('width', 0); });
+		audioPlayer.addEventListener('pause',  stopRAF);
+		audioPlayer.addEventListener('play',   updateMaskSmooth);
 	}
 
-	/* =====================================================
-	   GLOBAL AUDIO TOGGLE HANDLER (THE KEY FIX)
-	===================================================== */
 	document.addEventListener('globalAudioToggle', (e) => {
 		if (!audioPlayer) return;
-
 		if (e.detail.muted) {
-			// 🔇 Audio OFF
 			wasPlayingBeforeMute = !audioPlayer.paused;
 			audioPlayer.pause();
 		} else {
-			// 🔊 Audio ON
 			if (wasPlayingBeforeMute) {
-				audioPlayer.play().then(() => {
-					updateMaskAfterResume();
-				}).catch(() => {});
+				audioPlayer.play().then(() => { updateMaskAfterResume(); }).catch(() => {});
 			}
 		}
 	});
@@ -569,6 +513,5 @@
 
 	document.addEventListener('DOMContentLoaded', initAudioPlayer);
 </script>
-
 
 {% endblock %}
