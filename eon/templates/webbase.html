@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
   </head>
 
-  <body>
+  <body class="{% block body_class %}{% endblock %}">
 <script src="https://unpkg.com/gsap@3.14.2/dist/gsap.min.js" defer></script>
 <script src="https://unpkg.com/gsap@3.14.2/dist/ScrollTrigger.min.js" defer></script>
     {% include "partial/background_audio.html" %}
@@ -124,11 +124,9 @@
         <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
       </div>
       <div class="footerwebcol1">
-        <a href="https://www.houseofhiranandani.com/" target="_blank">
-			<div class="footer-logo">
+        <div class="footer-logo">
           <img loading="lazy" src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
         </div>
-		</a>
         <div class="footerwebcol1_1">
           House of Hiranandani, Olympia
           <br />
@@ -272,6 +270,8 @@
           ?.style.setProperty("visibility", "visible");
       });
     </script>
+
+<!-- ✅ FIX: pageshow resets dropdown on bfcache restore (back/forward navigation) -->
 <script>
 window.addEventListener("pageshow", () => {
 
@@ -282,27 +282,22 @@ window.addEventListener("pageshow", () => {
 
   if (!dropdown || !mask || !menuBtn || !menuIcon) return;
 
-  // 🔥 Reset GSAP safely
+  // Reset GSAP safely (desktop)
   if (window.tl) {
-    tl.pause(0).progress(0); // fully reset timeline
+    tl.pause(0).progress(0);
   }
 
-  // 🔥 Reset UI
-  dropdown.style.display = "none";
+  // ✅ Use classList — works with visibility:hidden CSS approach
+  dropdown.classList.remove("is-visible");
+  dropdown.style.display = "";       // clear any stale inline display
   mask.style.pointerEvents = "none";
   menuBtn.classList.remove("is-open");
-
-  // 🔥 Reset icon
   menuIcon.src = menuIcon.dataset.default;
-
-  // 🔥 Reset toggle logic
-  if (typeof isOpen !== "undefined") {
-    isOpen = false;
-  }
 
 });
 </script>
-		    <script>
+
+    <script>
       (function () {
         const STORAGE_KEY = "kioskMuted";
         const audioBtn = document.getElementById("Audio_On_2");
@@ -392,7 +387,7 @@ window.addEventListener("pageshow", () => {
     </script>
 
 <script>
-	document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
 
   if (!window.gsap) {
     console.warn("GSAP not loaded");
@@ -403,6 +398,7 @@ window.addEventListener("pageshow", () => {
 
   // animations here
 });
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const menuBtn = document.getElementById("menuBtn");
@@ -417,9 +413,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isOpen = false;
 
-function isDesktopView() {
-  return window.matchMedia("(min-width: 1050px)").matches;
-}
+  function isDesktopView() {
+    return window.matchMedia("(min-width: 1050px)").matches;
+  }
 
   /* =========================================
      DESKTOP (GSAP ANIMATION)
@@ -437,14 +433,14 @@ function isDesktopView() {
       paused: true,
       onStart: () => {
         isOpen = true;
-        dropdown.style.display = "block";   // 🔥 show before animating
+        dropdown.style.display = "block";
         mask.style.pointerEvents = "auto";
         menuIcon.src = activeSrc;
         menuBtn.classList.add("is-open");
       },
       onReverseComplete: () => {
         isOpen = false;
-        dropdown.style.display = "none";    // 🔥 hide after animation
+        dropdown.style.display = "none";
         mask.style.pointerEvents = "none";
         menuIcon.src = defaultSrc;
         menuBtn.classList.remove("is-open");
@@ -475,32 +471,34 @@ function isDesktopView() {
   ========================================= */
   else {
 
-    dropdown.style.display = "none";
-
     menuBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
 
-  const desktop = isDesktopView();
+      isOpen = !isOpen;
 
-  if (desktop) {
-    isOpen ? tl.reverse() : tl.play();
-  } else {
-    isOpen = !isOpen;
+      if (isOpen) {
+        // ✅ Use classList — CSS handles visibility:hidden default
+        dropdown.classList.add("is-visible");
+        mask.style.pointerEvents = "auto";
+        menuIcon.src = activeSrc;
+        menuBtn.classList.add("is-open");
+      } else {
+        dropdown.classList.remove("is-visible");
+        mask.style.pointerEvents = "none";
+        menuIcon.src = defaultSrc;
+        menuBtn.classList.remove("is-open");
+      }
+    });
 
-    if (isOpen) {
-      dropdown.style.display = "block";
-      mask.style.pointerEvents = "auto";
-      menuIcon.src = activeSrc;
-      menuBtn.classList.add("is-open");
-    } else {
-      dropdown.style.display = "none";
+    document.addEventListener("click", () => {
+      if (!isOpen) return;
+      isOpen = false;
+      dropdown.classList.remove("is-visible");
       mask.style.pointerEvents = "none";
       menuIcon.src = defaultSrc;
       menuBtn.classList.remove("is-open");
-    }
-  }
-});
+    });
 
   }
 
@@ -530,7 +528,7 @@ function isDesktopView() {
         });
       });
     </script>
-		<!-- GSAP -->
+    <!-- GSAP -->
 
   </body>
 </html>
