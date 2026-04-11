@@ -19,6 +19,9 @@ html {
 .hide-on-desktop {
   display: none;
 }
+.home-ui2 {
+  display: none;
+}
 /* Hide page until GSAP removes loading */
 html.loading body {
   visibility: hidden;
@@ -31,7 +34,9 @@ html[data-video-loading="false"] body {
   opacity: 1;
   transition: opacity 0.25s ease;
 }
-
+.mobile-bottom-sheet{
+	display: none;
+}
 /* HERO ELEMENTS — initial hidden state */
 .Bird_list_title_inner,
 .Bird_list_intro,
@@ -42,17 +47,16 @@ html[data-video-loading="false"] body {
 .Arch-box,
 .naturetrailbox1,
 .timeanddate,
-.urbanlegendsbox1_1 {
+.urbanlegendsbox1_1,
+.Disclaimer {
   opacity: 0;
 }
 .gsap-hidden {
   opacity: 0;
 }
 
-.bird-item {
-  opacity: 0;
-  transform: translateY(40px) scale(0.7);
-}
+
+/* fadeUpOnScroll — visibility hidden + opacity + slide up */
 
 body {
   display: flex;
@@ -64,7 +68,7 @@ body {
 }
 a {
   text-decoration: none;
-	color: #fff3e6;
+  color: #fff3e6;
 }
 .Bird_list_title {
   overflow: hidden;
@@ -109,9 +113,27 @@ a {
   width: 100%;
   z-index: 10;
 }
+.animation-fallback {
+  display: none;
+  margin-top: 0vh;
+  height: 14vh;
+  width: 25vw;
+  margin-left: 4vw;
+}
 
+.animation-video video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.animation-fallback img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .Logo {
-  width: clamp(100px, 9.9vw, 380px);
+  width: clamp(150px, 9.9vw, 380px);
   display: block;
 }
 .Logo img {
@@ -214,35 +236,7 @@ a {
    Dropdown Menu Container
 ================================= */
 
-.dropdown-mask {
-  position: absolute;
-  top: clamp(40px, 5.2vh, 112px);
 
-  width: clamp(280px, 13.02vw, 500px);
-  height: clamp(350px, 37.703vh, 815px);
-
-  overflow: hidden;
-  pointer-events: none;
-
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  right: 10.7vw;
-}
-
-/* Dropdown Content Box */
-.dropdown-content {
-  opacity: 0;
-  position: absolute;
-
-  width: 13.02vw;
-  height: 30.703vh;
-
-  border-radius: 2vw;
-  overflow: hidden;
-
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-}
 
 /* ===============================
    Dropdown Background + Items
@@ -267,7 +261,7 @@ a {
   padding: clamp(8px, 1.2vh, 26px) clamp(12px, 1.6vw, 60px);
 
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
 
   color: #fff3e6;
   text-decoration: none;
@@ -294,10 +288,9 @@ a {
 }
 
 .menu-bg a:last-child {
-  border-bottom-left-radius: 2vw;
-  border-bottom-right-radius: 2vw;
-
   height: 5.8vh;
+	border-bottom-left-radius: 0vw;
+  border-bottom-right-radius: 0vw;
 }
 
 /* Bird Main Page */
@@ -409,7 +402,7 @@ a {
 .Info-detail-text {
   width: 17.708vw;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -417,7 +410,7 @@ a {
 .Info-detail-text2 {
   width: 17.708vw;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -428,7 +421,7 @@ a {
 .Info-detail-text3 {
   max-height: 17vh;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -485,8 +478,8 @@ a {
   cursor: pointer;
   text-decoration: underline;
 }
-.iucn-link{
-	color: #333;
+.iucn-link {
+  color: #333;
 }
 
 .iucn-popup {
@@ -649,14 +642,14 @@ a {
 .birdanimationbox {
   width: 17.708vw;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
   padding-top: 0.9375vh;
   align-items: center;
   justify-content: center;
-	mix-blend-mode: darken;
+  mix-blend-mode: darken;
 }
 .birdanimationbox video {
   width: 100%;
@@ -671,22 +664,24 @@ a {
   width: 17.708vw;
   height: 5.787vh;
 }
+/* CHANGE these two rules in style.css */
+
 .media-boxrow1 {
   display: flex;
   flex-direction: row;
   width: auto;
   height: auto;
+  margin-top: 2.77vh;
+  align-items: flex-start;   /* ← ADD: top-align all boxes */
 }
-.media-boxrow2{
-	padding-top: 2vh;
-}
+
 .media-box1 {
   display: flex;
   flex-direction: column;
   width: 5.52vw;
-  height: 5.79vh;
+  height: auto;              /* ← CHANGE from 5.79vh to auto */
   cursor: pointer;
-  align-self: center;
+  align-self: auto;          /* ← CHANGE: remove center override */
 }
 .media-box1 img {
   width: 100%;
@@ -698,7 +693,7 @@ a {
 
 .media-head {
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   height: auto;
   padding-top: 0.926vh;
@@ -749,7 +744,7 @@ a {
   mix-blend-mode: multiply;
 }
 .bird-page-girl {
-position: absolute;
+  position: absolute;
   width: 22vw;
   z-index: 15;
   margin-top: 26vh;
@@ -846,7 +841,7 @@ position: absolute;
   overflow: hidden;
   position: relative;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -870,7 +865,7 @@ position: absolute;
   overflow: hidden;
   position: relative;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -881,7 +876,7 @@ position: absolute;
 .Info-detail-text6 {
   width: 17.708vw;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -918,14 +913,17 @@ position: absolute;
   height: 5.324vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   text-decoration: none;
   background: #802650;
   color: #fff;
   cursor: pointer;
   z-index: 5;
+}
+.bird-watch-link:hover {
+  background: #BD8E74;
 }
 .doyouknow {
   display: flex;
@@ -985,7 +983,7 @@ position: absolute;
   display: flex;
   flex-direction: column;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   line-height: 1.5;
@@ -1029,7 +1027,7 @@ position: absolute;
   display: flex;
   align-items: center;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   cursor: pointer;
 }
 
@@ -1109,7 +1107,7 @@ position: absolute;
   width: 19.76vw;
   align-items: center;
   justify-content: center;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   font-family: "Segoe UI", Arial, sans-serif;
   border-radius: 12px;
   z-index: 6;
@@ -1123,8 +1121,8 @@ position: absolute;
   gap: 0.5vw;
 }
 .filter-toggle .arrow {
-  width: 18px;
-  height: 18px;
+  width: clamp(10px, 0.73vw, 28px);
+  height: clamp(10px, 0.73vw, 28px);
   position: relative;
   display: inline-block;
 }
@@ -1134,20 +1132,21 @@ position: absolute;
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 9px;
-  height: 9px;
-  border-right: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  width: clamp(5px, 0.36vw, 14px);
+  height: clamp(5px, 0.36vw, 14px);
+  border-right: clamp(1px, 0.08vw, 3px) solid #fff;
+  border-bottom: clamp(1px, 0.08vw, 3px) solid #fff;
   transform: translate(-50%, -50%) rotate(45deg);
   transition: transform 0.3s ease;
 }
 
 .filter-toggle.open .arrow::after {
   transform: translate(-50%, -50%) rotate(225deg);
+  border-color: #4d4a4a;
 }
 
 .filter-toggle {
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(9px, 0.73vw, 28px);
   cursor: pointer;
   color: #fff;
   display: flex;
@@ -1156,19 +1155,20 @@ position: absolute;
   min-width: 6.2vw;
   font-family: "Boreal", sans-serif;
   border-radius: 1.5vw;
-  padding: 5px 16px;
+  padding: clamp(2px, 0.2vw, 10px) clamp(8px, 0.6vw, 24px);
   background: #802650;
-	min-height: 3.5vh;
+  min-height: clamp(24px, 1.8vw, 70px);
+  border: clamp(1px, 0.065vw, 3px) solid transparent;
 }
 .filter-toggle:hover {
   border-radius: 1.5vw;
-  padding: 5px 16px;
+  padding: clamp(2px, 0.2vw, 10px) clamp(8px, 0.6vw, 24px);
   background: #802650;
 }
 .filter-toggle.open {
-  border: 0.2rem solid #a4a1a1;
+  border: clamp(1px, 0.08vw, 3px) solid #a4a1a1;
   border-radius: 1.5vw;
-  padding: 5px 16px;
+  padding: clamp(2px, 0.2vw, 10px) clamp(8px, 0.6vw, 24px);
   background: #ede4d8;
   color: #4d4a4a;
 }
@@ -1177,7 +1177,7 @@ position: absolute;
   display: none;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8vw 1vw;
-  margin-top: clamp(6px, 0.5vh, 11px);
+  margin-top: clamp(4px, 0.3vw, 12px);
   padding: 0.8vw 0;
   height: auto;
   box-sizing: border-box;
@@ -1188,23 +1188,22 @@ position: absolute;
 }
 
 .chip-close {
-  font-size: clamp(14px, 0.5vw, 18px);
+  font-size: clamp(14px, 0.78vw, 30px);
   color: #333;
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-  margin-left: 0.4rem;
+  margin-left: clamp(3px, 0.2vw, 8px);
 }
 
 .filter-options label {
   display: flex;
   align-items: center;
-  gap: 0.4vw;
-
-  padding: 6px 10px;
+  gap: 0.3vw;
+  padding: clamp(3px, 0.2vw, 8px) clamp(6px, 0.4vw, 16px);
   border-radius: 16px;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(11px, 0.73vw, 28px);
   cursor: pointer;
   color: #4d4a4a;
   white-space: nowrap;
@@ -1212,50 +1211,51 @@ position: absolute;
 
 .filter-options input[type="radio"] {
   accent-color: #841c2d;
-  height: 1vh;
-  width: 1vh;
+  height: clamp(8px, 0.57vw, 22px);
+  width: clamp(8px, 0.57vw, 22px);
 }
 
 #selectedFilters {
   display: flex;
-  gap: 12px;
+  gap: clamp(4px, 0.4vw, 16px);
   flex-wrap: wrap;
-  margin-top: clamp(6px, 0.5vh, 11px);
+  margin-top: clamp(3px, 0.25vw, 10px);
   justify-content: left;
-  height: 3.5vh;
+  min-height: clamp(22px, 1.8vw, 70px);
 }
 
 .selected-chip {
-  border: 0.2rem solid #a4a1a1;
+  border: clamp(1px, 0.08vw, 3px) solid #a4a1a1;
   border-radius: 1.5vw;
-  padding: 13px 16px;
-  font-size: clamp(13px, 0.73vw, 28px);
+  padding: clamp(2px, 0.2vw, 10px) clamp(8px, 0.6vw, 24px);
+  font-size: clamp(11px, 0.73vw, 28px);
   margin: 2px;
   text-align: center;
   justify-content: center;
+  align-items: center;
   display: flex;
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
-	min-height: 3.5vh;
+  min-height: clamp(22px, 1.8vw, 70px);
 }
 
 .selected-chip span {
-  margin-left: 0.2rem;
+  margin-left: clamp(3px, 0.2vw, 8px);
   cursor: pointer;
   color: #841c2d;
-  font-size: clamp(14px, 0.78125vw, 30px);
-  width: 0.78125vw;
+  font-size: clamp(14px, 0.78vw, 30px);
+  width: auto;
   height: auto;
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 .filter-desc {
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(10.5px, 0.73vw, 28px);
   cursor: pointer;
   color: #4d4a4a;
   position: absolute;
   padding-left: 11.2087vw;
-  padding-top: 34vh;
+  padding-top: 19.2vw;
 }
 .filter-desc-head {
   font-family: "Boreal", sans-serif;
@@ -1266,12 +1266,12 @@ position: absolute;
 }
 .filter-desc-right {
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(10.5px, 0.73vw, 28px);
   cursor: pointer;
   color: #4d4a4a;
   position: absolute;
   padding-left: 75.3vw;
-  padding-top: 24.8vh;
+  padding-top: 14vw;
   text-align: right;
 }
 .Arch-box {
@@ -1302,7 +1302,7 @@ position: absolute;
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 14.32vw;
+  width: clamp(200px, 14.32vw, 550px);
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
   background: transparent;
@@ -1310,8 +1310,8 @@ position: absolute;
   cursor: pointer;
   margin-left: 9.1vw;
   overflow: hidden;
-  max-height: 4.629vh;
-  font-size: clamp(13px, 0.73vw, 28px);
+  max-height: clamp(28px, 2vw, 78px);
+  font-size: clamp(10.5px, 0.73vw, 28px);
   align-items: center;
   will-change: max-height;
   --reveal: 0;
@@ -1322,7 +1322,7 @@ position: absolute;
   position: absolute;
   inset: 0;
   background: #802650;
-  border: 1px solid #bd8e74;
+  border: clamp(1px, 0.065vw, 3px) solid #bd8e74;
   border-radius: inherit;
   transform: scaleX(var(--reveal));
   transform-origin: center;
@@ -1335,7 +1335,7 @@ position: absolute;
 }
 
 .Sort-box.open {
-  max-height: 18.44vh;
+  max-height: clamp(114px, 7.72vw, 439px);
   border-radius: 1.5vw;
   transition-duration: 0.3s;
 }
@@ -1343,15 +1343,15 @@ position: absolute;
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 14.32vw;
+  width: clamp(200px, 14.32vw, 550px);
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
   background: transparent;
   color: #fff3e6;
   cursor: pointer;
   overflow: hidden;
-  max-height: 4.629vh;
-  font-size: clamp(12px, 0.73vw, 28px);
+  max-height: clamp(28px, 2vw, 70px);
+  font-size: clamp(11px, 0.73vw, 28px);
   align-items: center;
   --reveal: 0;
 }
@@ -1361,7 +1361,7 @@ position: absolute;
   position: absolute;
   inset: 0;
   background: #802650;
-  border: 1px solid #bd8e74;
+  border: clamp(1px, 0.065vw, 3px) solid #bd8e74;
   border-radius: inherit;
   transform: scaleX(var(--reveal));
   transform-origin: center;
@@ -1374,7 +1374,7 @@ position: absolute;
 }
 
 .Sort-box2.open {
-  max-height: 9.37vh;
+  max-height: clamp(90px, 3.9vw, 146px);
   border-radius: 1.5vw;
   transition-duration: 0.3s;
 }
@@ -1391,24 +1391,32 @@ position: absolute;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.85rem;
-  padding-bottom: 1.4rem;
+  padding: clamp(5px, 0.4vw, 18px) clamp(8px, 0.6vw, 24px);
+  width: 100%;
+}
+.sort-header2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(5px, 0.4vw, 10px) clamp(8px, 0.6vw, 24px);
+  width: 100%;
 }
 
 .sort-label {
   display: flex;
   align-items: center;
-  padding-right: 1.5rem;
+  padding-left: 11.5%;
+	padding-top: 1%;
 }
 
 .arrow {
-  width: 18px;
-  height: 18px;
+  width: clamp(10px, 0.73vw, 28px);
+  height: clamp(10px, 0.73vw, 28px);
   border: none;
   background: transparent;
   position: relative;
   cursor: pointer;
-  margin-left: 0.5rem;
+  margin-left: clamp(3px, 0.2vw, 8px);
 }
 
 .arrow::after {
@@ -1417,10 +1425,10 @@ position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
-  width: 12px;
-  height: 12px;
-  border-right: 3px solid #fff;
-  border-bottom: 3px solid #fff;
+  width: clamp(5px, 0.4vw, 16px);
+  height: clamp(5px, 0.4vw, 16px);
+  border-right: clamp(1.5px, 0.1vw, 4px) solid #fff;
+  border-bottom: clamp(1.5px, 0.1vw, 4px) solid #fff;
   transition: transform 0.35s ease;
 }
 
@@ -1431,7 +1439,7 @@ position: absolute;
 /* dropdown animation */
 .dropdown-menu {
   width: 100%;
-  margin-top: 0.6rem;
+  margin-top: clamp(4px, 0.3vw, 12px);
   opacity: 0;
   transform: translateY(-12px);
   pointer-events: none;
@@ -1445,12 +1453,12 @@ position: absolute;
   color: #fff;
 }
 .drop-content {
-  height: 4.63vh;
+  height: clamp(28px, 1.8vw, 70px);
   align-items: center;
   margin: 0;
   display: flex;
   justify-content: center;
-  padding-right: 3rem;
+  padding-right: clamp(8px, 0.8vw, 36px);
 }
 
 .Sort-box.open .dropdown-menu {
@@ -1466,7 +1474,7 @@ position: absolute;
   justify-items: center;
   width: 75.7vw;
   margin-left: 11.72vw;
-  margin-top: -2vh;
+  margin-top: -1vw;
 }
 
 .bird-item {
@@ -1475,6 +1483,11 @@ position: absolute;
   align-items: center;
   padding-top: 2.77vh;
   mix-blend-mode: darken;
+	transition: transform 0.3s ease; /* smooth animation */
+  transform-origin: center;
+}
+.bird-item:hover{
+  transform: scale(1.08)!important;
 }
 
 .info-video {
@@ -1597,7 +1610,7 @@ position: absolute;
   height: 49.166vh;
   margin-left: 31.09375vw;
   margin-top: -14vh;
-	mix-blend-mode: darken;
+  mix-blend-mode: darken;
 }
 .treebottom {
   display: flex;
@@ -1897,7 +1910,13 @@ position: absolute;
   border-radius: 100%;
   object-fit: cover;
   margin-left: 3.23vw;
+		 transition: transform 0.3s ease;
+  transform-origin: center;
 }
+.bird-video:hover{
+	transform: scale(1.08)!important;
+}
+
 .video-container {
   width: 100%;
   height: 100%;
@@ -1915,7 +1934,7 @@ position: absolute;
   display: flex;
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   justify-content: center;
   font-style: normal;
@@ -1929,7 +1948,7 @@ position: absolute;
   height: 4.63vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.93vw;
   text-decoration: none;
@@ -1939,6 +1958,12 @@ position: absolute;
   z-index: 5;
   margin-left: 2.5vw;
   font-style: normal;
+}
+.video-text2:hover {
+  background: #BD8E74;
+}
+.video-text-2:hover {
+  background: #BD8E74;
 }
 .video-text-2 {
   --circle: 0;
@@ -1951,7 +1976,7 @@ position: absolute;
   height: 5.5vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: clamp(11px, 0.93vw, 36px);
 
@@ -2112,7 +2137,7 @@ position: absolute;
 .hiranandani-text-4 {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-style: normal;
   margin-top: 2.3148vh;
@@ -2122,72 +2147,85 @@ position: absolute;
   align-items: center;
   justify-content: center;
   margin-top: 2.77vh;
-  width: 11.98vw;
+  width: 13.98vw;
   height: 4.63vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   text-decoration: none;
   background: #802650;
   color: #fff;
   cursor: pointer;
   z-index: 5;
+}
+.MD-message-link:hover {
+  background: #BD8E74;
 }
 .birdwatch-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 2.77vh;
-  width: 11.98vw;
+  width: 13.98vw;
   height: 5.324vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   text-decoration: none;
   background: #802650;
   color: #fff;
   cursor: pointer;
   z-index: 5;
 }
+.birdwatch-link:hover {
+  background: #BD8E74;
+}
+
 .naturetrail-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 2.77vh;
-  width: 11.98vw;
+  width: 13.98vw;
   height: 5.324vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   text-decoration: none;
   background: #802650;
   color: #fff;
   cursor: pointer;
   z-index: 5;
+}
+.naturetrail-link:hover {
+  background: #BD8E74;
 }
 .urbanlegend-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 2.77vh;
-  width: 11.98vw;
+  width: 13.98vw;
   height: 5.324vh;
   border-radius: 1.5vw;
   font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   text-decoration: none;
   background: #802650;
   color: #fff;
   cursor: pointer;
   z-index: 5;
+}
+.urbanlegend-link:hover {
+  background: #BD8E74;
 }
 .left_6 {
   height: 29.7685vh;
@@ -2272,7 +2310,7 @@ position: absolute;
   display: flex;
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   justify-content: left;
   font-style: italic;
@@ -2321,7 +2359,7 @@ position: absolute;
 .naturetrail-text4 {
   width: 24.9vw;
   height: auto;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   margin-top: 1.416vh;
@@ -2391,14 +2429,14 @@ position: absolute;
 .row-bottom {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   display: block;
 }
 .row-bottom2 {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   justify-content: left;
 }
@@ -2429,7 +2467,7 @@ position: absolute;
 .bird-sighting {
   min-height: 4.5648vh;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   display: block;
   text-align: left;
@@ -2447,7 +2485,7 @@ position: absolute;
 .time-text {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   display: block;
   text-align: left;
@@ -2482,7 +2520,7 @@ position: absolute;
   height: auto;
   font-family: "Boreal", sans-serif;
   font-style: italic;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
 }
 .birdwatching-box-left2 {
@@ -2604,10 +2642,33 @@ position: absolute;
 .birdwatching-row-bottom {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   display: block;
   text-align: left;
+}
+.Disclaimer {
+  height: auto;
+  font-family: "Boreal", sans-serif;
+  font-size: clamp(14px, 0.73vw, 28px);
+  color: #4d4a4a;
+  display: block;
+  padding: 2vh;
+  width: 42vw;
+  text-align: center;
+  left: 30%;
+  position: relative;
+}
+.Disclaimer1 {
+  flex: 1;                  /* fills the remaining space in the row */
+  align-self: center;       /* vertically centres it */
+  font-family: "Boreal", sans-serif;
+  font-size: clamp(14px, 0.73vw, 28px);
+  color: #4d4a4a;
+  text-align: left;
+  max-width: 17.708vw;
+	margin-top: -3vh;
+  /* remove: display:block, width:42vw, left:30%, position:relative */
 }
 .naturetrailbox1 {
   width: 77.5833625vw;
@@ -2629,7 +2690,7 @@ position: absolute;
   font-family: "Boreal", sans-serif;
   font-weight: 500;
   font-size: clamp(20px, 1.09375vw, 42px);
-	text-transform: uppercase;
+  text-transform: uppercase;
   color: #bd8e74;
 }
 .date {
@@ -2642,13 +2703,13 @@ position: absolute;
 .time {
   height: auto;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   padding-top: 0.9259vh;
   color: #4d4a4a;
   font-style: italic;
 }
 .Naturetrail-map {
-width: 76.5625vw;
+  width: 76.5625vw;
   z-index: -1;
   position: sticky;
   padding-top: 2.5vh;
@@ -2717,8 +2778,9 @@ width: 76.5625vw;
 .birds-to-watch {
   min-height: 5.5vh;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   padding-top: 1.388vh;
+	color: #4d4a4a;
 }
 .birds-to-watch a {
   color: inherit;
@@ -2867,6 +2929,11 @@ width: 76.5625vw;
   flex-direction: row;
   gap: 2.25vw;
 }
+/* Mobile story selector — hidden on desktop, shown via responsive.css on mobile */
+.mobile-story-selector {
+  display: none;
+}
+
 .selection-box {
   gap: 0.9259vh;
   display: flex;
@@ -2880,7 +2947,7 @@ width: 76.5625vw;
   width: 12.593vw;
   max-height: 4.63vh;
   border-radius: 1.62vw;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   border: clamp(1px, 0.15vw, 3px) solid #707070;
@@ -2932,7 +2999,7 @@ width: 76.5625vw;
 
 .story_text {
   max-height: 28vh;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   margin-top: clamp(12px, 1vh, 22px);
@@ -2989,13 +3056,14 @@ width: 76.5625vw;
   margin-left: clamp(60px, 11.71875vw, 450px);
   margin-top: -21.305vh;
 }
-.urbanlegendgirl-ani img {
+.urbanlegendgirl-ani video {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
   z-index: -1;
   mix-blend-mode: multiply;
+  transform: scaleX(-1);
 }
 .gallery-mainbox {
   position: relative;
@@ -3050,7 +3118,7 @@ width: 76.5625vw;
   margin-top: 18.8vh;
   height: 4.63vh;
   border-radius: 1.62vw;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   display: flex;
@@ -3064,7 +3132,7 @@ width: 76.5625vw;
   margin-top: 1.944vh;
   height: 4.63vh;
   border-radius: 1.62vw;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   display: flex;
@@ -3078,7 +3146,7 @@ width: 76.5625vw;
   margin-top: 39.487vh;
   height: 4.63vh;
   border-radius: 1.62vw;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   display: flex;
@@ -3102,7 +3170,7 @@ width: 76.5625vw;
   margin-top: 1.944vh;
   height: 4.63vh;
   border-radius: 1.62vw;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   display: flex;
@@ -3124,7 +3192,7 @@ width: 76.5625vw;
 }
 .shot-location {
   position: absolute;
-  font-size: clamp(14px, 0.833vw, 32px);
+  font-size: clamp(12px, 0.833vw, 32px);
   color: #4d4a4a;
   font-family: "Boreal", sans-serif;
   font-style: italic;
@@ -3284,371 +3352,6 @@ width: 76.5625vw;
 }
 
 /*HOME*/
-.home-container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  z-index: 5;
-}
-#Echoes_of_Nature_home {
-  position: absolute;
-  margin-left: 7.421875vw;
-  width: 85.15625vw;
-  height: auto;
-  margin-top: 4.6vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  font-size: 13.02vw;
-  color: #c2b59b33;
-  z-index: 2;
-  font-family: "benton-modern-display", serif;
-  line-height: 1;
-}
-
-.left-bird,
-.left-text,
-.treespagelink,
-.right-text,
-.birdspagelink,
-.right-bird,
-.treebox {
-  z-index: 5; /* NEW: Ensures they stay on top; position: relative; if needed for absolutes */
-}
-
-.left-bird {
-  position: absolute;
-  left: 0;
-  top: 19.833vh;
-  height: 18.148vh;
-  width: 15.021vw;
-  mix-blend-mode: darken;
-}
-.left-bird img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.left-text {
-  margin-top: 38vh;
-  margin-left: clamp(60px, 11.71875vw, 450px);
-  height: 11.482vh;
-  width: 11.97916vw;
-  font-size: clamp(22px, 1.5375vw, 60px);
-  color: #bd8e74;
-  font-family: "benton-modern-display", serif;
-  font-style: italic;
-  font-weight: 600;
-  line-height: 2.34375vw;
-  position: relative;
-}
-.treespagelink {
-  width: 17.708vw;
-  height: 27.296vh;
-  display: flex;
-  flex-direction: row;
-  gap: 0.46875vw;
-  margin-left: -14.432vw;
-  margin-top: 61.7407vh;
-}
-.birdspagelink {
-  width: 17.708vw;
-  height: 27.296vh;
-  display: flex;
-  flex-direction: row;
-  gap: 0.46875vw;
-  margin-left: -11.43229vw;
-  margin-top: 70.7407vh;
-}
-.treebox {
-  width: 17.708vw;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: clamp(18px, 0.83vw, 32px);
-  font-family: "Boreal", sans-serif;
-  color: #bd8e74;
-}
-.birdspagelink_1 {
-  width: 9.89583vw;
-  height: 17.896vh;
-}
-.birdspagelink_1 img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.birdspagelink_2 {
-  width: 8.3854vw;
-  height: 3.7037vh;
-  margin-top: -0.5vh;
-  text-align: center;
-}
-.center-container {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-
-  /* REMOVE FLEX */
-  display: block;
-
-  /* Create a stable stacking context */
-  overflow: hidden;
-}
-
-.circle-portal {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-}
-
-.circle-bg {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background: center/cover no-repeat;
-  z-index: 0;
-  transition: opacity 0.4s ease-in-out;
-  background-size: cover;
-  background-position: center;
-}
-
-/* NEW: fade layers */
-.circle-bg .bg-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.6s ease-in-out;
-}
-.portal-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-.layer-top {
-  opacity: 1;
-}
-
-.layer-bottom {
-  opacity: 0;
-}
-
-.circle-overlay {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: #fff3e6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 2.5s cubic-bezier(0.2, 0, 0.2, 1);
-  background: radial-gradient(
-    ellipse 49% 73% at 50vw 46vh,
-    transparent 40%,
-    #fff3e6 41%
-  );
-  z-index: 1;
-  overflow: hidden;
-}
-/* Mask on top */
-.portal-mask {
-  position: absolute;
-  inset: 0;
-  width: 54vw;
-  height: auto;
-  object-fit: cover;
-  z-index: 2;
-  pointer-events: none;
-  margin-left: 23vw;
-  margin-top: 12vh;
-}
-.portal-mask,
-.animation-box {
-  transform-origin: center center;
-  will-change: transform;
-}
-.portal-iris {
-  position: absolute;
-  width: 54vw;
-  height: 66vh;
-  margin-left: 23vw;
-  margin-top: 12vh;
-
-  transform-origin: center center;
-  will-change: transform;
-  z-index: 2;
-}
-
-.portal-mask,
-.animation-box {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-/* Expand only the overlay and mask, not the background */
-.circle-portal.expand .circle-overlay,
-.circle-portal.expand .portal-mask {
-  transform: scale(65);
-}
-
-.circle-portal.expand .deepdive-link {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-.circle-portal.expand .portal-mask {
-  opacity: 0;
-  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.home-container.transition-active .left-bird,
-.home-container.transition-active .left-text,
-.home-container.transition-active .treespagelink,
-.home-container.transition-active .right-text,
-.home-container.transition-active .birdspagelink,
-.home-container.transition-active .right-bird,
-.home-container.transition-active #Echoes_of_Nature_home,
-.home-container.transition-active .deepdive-link,
-.home-container.transition-active .home-ui {
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.deepdive-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 59.77vh;
-  width: 9.438vw;
-  height: 4.63vh;
-  border-radius: 1.5vw;
-  font-family: "Boreal", sans-serif;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: clamp(19px, 0.77vw, 30px);
-  text-decoration: none;
-  background: #802650;
-  color: #fff;
-  cursor: pointer;
-  z-index: 5;
-  position: absolute;
-  margin-left: 45.5vw;
-}
-.animation-box {
-  position: absolute;
-  height: 56vh;
-  width: 28vw;
-  margin-left: 39vw;
-  margin-top: 31vh;
-  z-index: 4;
-  transform: scale(1);
-  transform-origin: center center;
-  transition:
-    transform 2.5s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.3s ease;
-  will-change: transform;
-}
-.circle-portal.expand .animation-box {
-  transform: scale(8);
-  opacity: 0;
-}
-.hero-video{
-width:100%;
-height:auto;
-display:block;
-}
-
-.hero-fallback{
-display:none;
-width:100%;
-}
-.animation-inner {
-  transform: scale(1);
-  transition:
-    transform 2.5s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.4s ease;
-  transform-origin: 25% 25%;
-  height: 55vh;
-  width: 28vw;
-  margin-top: 6vh;
-  margin-left: 4vw;
-}
-
-.circle-portal.expand .animation-inner {
-  transform: scale(250);
-  opacity: 0;
-}
-
-.animation-box video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.animation-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-.right-text {
-  width: 11.979vw;
-  font-size: clamp(12px, 0.9375vw, 36px);
-  margin-top: 18.8426vh;
-  margin-left: 49.8vw;
-  color: #bd8e74;
-  font-family: "benton-modern-display", serif;
-  font-weight: 600;
-  font-style: italic;
-  line-height: 1.25vw;
-  position: relative;
-}
-.birdspagelink {
-  width: 17.708vw;
-  height: 27.296vh;
-  display: flex;
-  flex-direction: row;
-  gap: 0.46875vw;
-  margin-left: 73.536vw;
-  margin-top: 61.7407vh;
-  position: absolute;
-}
-.right-bird {
-  position: absolute;
-  right: 0;
-  top: 41.66vh;
-  width: clamp(60px, 11.71875vw, 450px);
-  height: 13.888vh;
-}
-.right-bird img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
 
 #scrollUpBtn {
   position: fixed;
@@ -3688,18 +3391,20 @@ width:100%;
 }
 
 .mcq-submit {
-  margin-top: 7.4rem;
+  margin-top: 4.4rem;
   padding: 0.6rem 1.6rem;
   cursor: pointer;
   border: none;
   border-radius: 2rem;
   background: #802650;
   color: #fff;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   width: 5vw;
   font-family: "Boreal", sans-serif;
 }
-
+.mcq-submit:hover {
+  background: #BD8E74;
+}
 .mcq-submit:disabled {
   cursor: not-allowed;
   background: #802650; /* muted version of #802650 */
@@ -3712,17 +3417,17 @@ width:100%;
 }
 
 .mcq-video {
-  display: none;              /* hide initially */
+  display: none; /* hide initially */
   width: 6vw;
   height: auto;
   border-radius: 1rem;
   position: fixed;
-  margin-left: 22vw;                 /* use left instead of margin-left */
+  margin-left: 22vw; /* use left instead of margin-left */
   top: 50%;
   transform: translateY(-50%);
   opacity: 0;
   z-index: 999;
-	mix-blend-mode: darken;
+  mix-blend-mode: darken;
 }
 
 .mcq-video.show {
@@ -3803,10 +3508,16 @@ width:100%;
 .gallery-media-section {
   position: relative;
 }
+.gallery-media-section {
+  position: relative;
+  width: 100%;
+  height: 100%;   /* ADD THIS */
+}
 
 .gallery-slide {
   position: absolute;
   width: 100%;
+	height: 100%; 
   top: 0;
   left: 0;
   display: none;
@@ -3884,13 +3595,13 @@ html[data-loading="true"] body {
   margin-top: 3.9662vh;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
 }
 .footerwebcol1_2 {
   margin-top: 9.259vh;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
 }
 .footerwebcol2 {
   width: 18.4375vw;
@@ -3908,15 +3619,21 @@ html[data-loading="true"] body {
   margin-top: 2.037vh;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
+}
+.footerwebcol2_2 a:hover,
+.footerwebcol2_3 a:hover {
+  font-weight: 550;
 }
 .footerwebcol2_3 {
   margin-top: 0.9722vh;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
 }
-
+.footerwebcol1_1 a:hover {
+  font-weight: 550;
+}
 .footerwebcol3 {
   width: 18.4375vw;
   display: flex;
@@ -3967,7 +3684,7 @@ html[data-loading="true"] body {
   width: 18.4375vw;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
 }
 .footerwebcol_head {
   font-family: "Boreal", sans-serif;
@@ -3999,6 +3716,7 @@ html[data-loading="true"] body {
   width: clamp(120px, 13vw, 498px);
   height: 100%;
   overflow: hidden;
+  z-index: -1;
 }
 .footerweb-img4 img {
   width: 100%;
@@ -4010,16 +3728,17 @@ html[data-loading="true"] body {
   width: 18.4375vw;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   padding-top: 0.875vh;
 }
 .copyright {
   position: absolute;
   font-family: "Boreal", sans-serif;
   color: #fff3e6;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   padding-left: 10.4167vw;
   padding-top: 36vh;
+  z-index: -1;
 }
 .video-btn {
   width: 3.4rem;
@@ -4121,7 +3840,7 @@ body[data-state="deepdive"] #portalVideo {
   display: block;
   position: relative;
   z-index: 2;
-	height: 50vh;
+  height: 50vh;
 }
 
 #videoBox .gallery-slide {
@@ -4198,17 +3917,7 @@ body[data-state="deepdive"] #deepdive-trigger {
   height: 100%;
   object-fit: cover;
 }
-.portal-mask {
-  position: absolute;
-  inset: 0;
-  width: 54vw;
-  height: auto;
-  object-fit: cover;
-  z-index: 3;
-  pointer-events: none;
-  margin-left: 23vw;
-  margin-top: 12vh;
-}
+
 .portal-image {
   width: 100%;
   height: 100%;
@@ -4224,7 +3933,7 @@ body[data-state="deepdive"] #deepdive-trigger {
 }
 .credit-main-head {
   font-family: "benton-modern-display", serif;
-  font-size: clamp(36px, 3.125vw, 120px);
+  font-size: clamp(42px, 3.125vw, 120px);
   color: #bd8e74;
   text-align: center;
   font-style: italic;
@@ -4252,12 +3961,12 @@ body[data-state="deepdive"] #deepdive-trigger {
   font-family: "boreal", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: clamp(19px, 0.9375vw, 36px);
+  font-size: clamp(18px, 0.9375vw, 36px);
   color: #bd8e74;
 }
 .credit-text {
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   color: #4d4a4a;
   line-height: 1.5;
   font-style: italic;
@@ -4268,7 +3977,7 @@ body[data-state="deepdive"] #deepdive-trigger {
   padding-left: 2.5rem;
   margin: 1rem 0;
   font-family: "Boreal", sans-serif;
-  font-size: clamp(13px, 0.73vw, 28px);
+  font-size: clamp(14px, 0.73vw, 28px);
   line-height: 1.5;
   color: #4d4a4a;
   width: 25.52vw;
@@ -4319,6 +4028,388 @@ body[data-state="deepdive"] #deepdive-trigger {
 .gallery-media-section video {
   pointer-events: auto !important;
 }
-.table{
-	padding-left: 1.5vh;
+.table {
+  padding-left: 1.5vh;
+}
+/* =============================================
+   HOME PAGE — RESTRUCTURED CSS
+   
+   Replace the old home-container section (lines ~3337-3697)
+   in your style.css with this block.
+   
+   KEY CHANGE: .portal-wrapper is a new container that holds
+   the wreath, girl animation, and DEEP DIVE button.
+   Everything inside uses percentage positioning relative 
+   to the portal image, so it scales together at any resolution.
+============================================= */
+
+
+/* ══════════════════════════════════════════
+   HOME CONTAINER — 3-column grid layout
+══════════════════════════════════════════ */
+.home-container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════════
+   LEFT COLUMN
+══════════════════════════════════════════ */
+.home-col--left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.left-bird {
+  position: absolute;
+  left: 0;
+  top: 19.833vh;
+  height: 18.148vh;
+  width: 100%;
+  max-width: 15.021vw;
+  mix-blend-mode: darken;
+  z-index: 5;
+}
+.left-bird img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.left-text {
+  margin-top: 43vh;
+  margin-left: clamp(60px, 11vw, 450px);
+  height: auto;
+  width: 11.97916vw;
+  font-size: clamp(22px, 1.5375vw, 60px);
+  color: #bd8e74;
+  font-family: "benton-modern-display", serif;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 2.34375vw;
+  position: relative;
+  z-index: 5;
+}
+
+.treespagelink {
+  width: 17.708vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: clamp(40px, 2vw, 200px);
+  margin-top: auto;
+  margin-bottom: 8vh;
+  z-index: 5;
+	padding-left: 14vw;
+}
+
+
+/* ══════════════════════════════════════════
+   CENTER COLUMN — Portal + Girl + Button
+══════════════════════════════════════════ */
+.home-col--center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 54vw;
+  z-index: 3;
+}
+
+/* Background watermark title */
+#Echoes_of_Nature_home {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  text-align: center;
+  font-family: "benton-modern-display", serif;
+  font-size: 13.02vw;
+  line-height: 1;
+  color: #c2b59b33;
+  z-index: 1;
+  pointer-events: none;
+	padding-top: 5vh;
+}
+
+/* ── Portal Wrapper — THE KEY NEW ELEMENT ──
+   This container sizes itself to the wreath image.
+   Everything inside (girl, button) positions relative to it.
+   No more independent vh/vw guessing!
+*/
+.portal-wrapper {
+  position: relative;
+  width: 54vw;
+  margin-top: 0vh;
+  z-index: 2;
+}
+
+/* The wreath image — sets the natural height of .portal-wrapper */
+.portal-wrapper .portal-mask {
+  position: relative;        /* NOT absolute anymore — it's the sizing element */
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Script title "Echoes of Nature" inside the portal */
+.portal-title {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "benton-modern-display", serif;
+  font-size: clamp(24px, 2.6vw, 100px);
+  color: #bd8e74;
+  font-style: italic;
+  z-index: 4;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Girl animation — positioned inside portal via percentages */
+.portal-wrapper .animation-box {
+  position: absolute;
+  /* These percentages are relative to the portal-wrapper, not viewport */
+  top: 38%;
+  left: 36%;
+  width: 52%;
+  height: 80%;
+  z-index: 4;
+  transform: scale(1);
+  transform-origin: center center;
+  transition:
+    transform 2.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s ease;
+  will-change: transform;
+}
+
+.portal-wrapper .animation-inner {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition:
+    transform 2.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease;
+  transform-origin: 25% 25%;
+}
+
+.animation-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* DEEP DIVE button — positioned inside portal via percentages */
+.portal-wrapper .deepdive-link {
+  position: absolute;
+  /* Bottom-center of the portal */
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(120px, 9.438vw, 362px);
+  height: clamp(32px, 2.6vw, 100px);
+  border-radius: 1.5vw;
+  font-family: "Boreal", sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: clamp(14px, 0.77vw, 30px);
+  text-decoration: none;
+  background: #802650;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.portal-wrapper .deepdive-link:hover {
+  background: #BD8E74;
+}
+
+
+/* ══════════════════════════════════════════
+   EXPAND TRANSITIONS (portal zoom)
+   Same class selectors — GSAP still works
+══════════════════════════════════════════ */
+.portal-wrapper .portal-mask,
+.portal-wrapper .animation-box {
+  transform-origin: center center;
+  will-change: transform;
+}
+
+
+
+
+
+/* ══════════════════════════════════════════
+   RIGHT COLUMN
+══════════════════════════════════════════ */
+.home-col--right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.right-text {
+  width: 80%;
+  max-width: 11.979vw;
+  font-size: clamp(12px, 0.9375vw, 36px);
+  margin-top: 20vh;
+  margin-right: clamp(20px, 2vw, 100px);
+  color: #bd8e74;
+  font-family: "benton-modern-display", serif;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.25vw;
+}
+
+.birdspagelink {
+  width: 17.708vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: clamp(20px, 2vw, 100px);
+  margin-top: auto;
+  margin-bottom: 8vh;
+  z-index: 5;
+  padding-right: 14vw;
+}
+
+.right-bird {
+  position: absolute;
+  right: 0;
+  top: 41.66vh;
+  width: clamp(60px, 11.71875vw, 450px);
+  height: 13.888vh;
+  z-index: 5;
+}
+.right-bird img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+/* ══════════════════════════════════════════
+   SHARED — treebox, birdspagelink_1 etc
+   (these are unchanged from your original)
+══════════════════════════════════════════ */
+.left-bird,
+.left-text,
+.treespagelink,
+.right-text,
+.birdspagelink,
+.right-bird,
+.treebox {
+  z-index: 5;
+}
+
+.treebox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(18px, 0.83vw, 32px);
+  font-family: "Boreal", sans-serif;
+  color: #bd8e74;
+}
+.birdspagelink_1 {
+  width: 9.89583vw;
+  height: auto;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+.birdspagelink_1:hover {
+  transform: scale(1.08) !important;
+}
+.birdspagelink_1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===============================
+   Dropdown Menu Container
+================================= */
+
+.dropdown-mask {
+  position: absolute;
+  top: clamp(40px, 5.2vh, 112px);
+
+  /* Use purely vw — scales proportionally at every resolution */
+  width: 13.02vw;
+  min-width: 200px;
+  height: clamp(350px, 37.703vh, 815px);
+
+  overflow: hidden;
+  pointer-events: none;
+
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  right: 10.7vw;
+}
+
+/* Dropdown Content Box */
+.dropdown-content {
+  display: none;       /* ← add this */
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border-radius: 2vw;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.menu-bg {
+  background: #802650;
+  border-radius: 2vw;
+  display: flex;
+  flex-direction: column;
+  /* Height follows content via vh on menu items */
+  height: 31vh;
+	overflow: hidden;
+}
+
+.menu-item {
+  display: block;
+  /* Width fills the vw-based container */
+  width: 100%;
+  height: clamp(44px, 4.166vh, 90px);
+  padding: clamp(8px, 1.2vh, 26px) clamp(12px, 1.6vw, 60px);
+  font-family: "Boreal", sans-serif;
+  font-size: clamp(11px, 0.73vw, 28px);
+  color: #fff3e6;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.mobile-bottom-sheet1{
+	display: none;
+}
+.show-tab{
+	display: none;
 }

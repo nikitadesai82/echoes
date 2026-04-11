@@ -29,7 +29,7 @@ class Bird(models.Model):
     Bird_Sighting_Area = models.TextField()
     Bird_Active_Time = models.TextField()
     Bird_Fun_Facts = models.TextField()
-    
+    Bird_Map_Image = models.ImageField(upload_to="Images/bird_maps/", blank=True, null=True)
     Bird_Migration = models.TextField()
     Bird_Habitat = models.TextField()
     Bird_Nesting = models.TextField()
@@ -106,7 +106,8 @@ class Flora(models.Model):
     Flora_Question = models.TextField(blank=True, null=True)
 
     Flora_Button_Media = models.FileField(upload_to="Animations/Flora/Buttons/",blank=True, null=True)
-
+    Flora_Map_Image = models.ImageField(upload_to="Imagesflora_maps/", blank=True, null=True)
+	
     Flora_Flowering_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_Type_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_HoHLocation = models.CharField(max_length=100, blank=True, null=True)
@@ -164,10 +165,20 @@ class NatureTrailMedia(models.Model):
     ]
 
     media_type = models.CharField(max_length=10, choices=MEDIA_TYPE_CHOICES)
-    file = models.FileField(upload_to='nature_trails/media/')
+
+    file = models.FileField(upload_to='nature_trails/media/', blank=True, null=True)
+
+    youtube_link = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="Only YouTube Video ID (example: dQw4w9WgXcQ)"
+    )
+
     order = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['order']
+
