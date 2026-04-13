@@ -164,30 +164,39 @@
       <div class="footerwebcol4">
         <div class="footerwebcol2_1">CONNECT WITH US</div>
         <div class="footer-icons">
-          <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
-						<div class="footer-icon">
-							<img loading="lazy" src="{% static 'img/Facebook.png' %}" alt="Facebook" />
-						</div>
-					</a>
-
-					<a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
-						<div class="footer-icon">
-							<img loading="lazy" src="{% static 'img/Instagram.png' %}" alt="Instagram" />
-						</div>
-					</a>
-
-					<a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
-						<div class="footer-icon">
-							<img  loading="lazy" src="{% static 'img/Youtube.png' %}" alt="YouTube" />
-						</div>
-					</a>
-
-					<a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
-						<div class="footer-icon">
-							<img loading="lazy" src="{% static 'img/Linkedin.png' %}" alt="LinkedIn" />
-						</div>
-					</a>
-        </div>
+  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Facebook.png' %}"
+           data-default="{% static 'img/Facebook.png' %}"
+           data-hover="{% static 'img/Facebook_active.png' %}"
+           alt="Facebook" />
+    </div>
+  </a>
+  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Instagram.png' %}"
+           data-default="{% static 'img/Instagram.png' %}"
+           data-hover="{% static 'img/Instagram_active.png' %}"
+           alt="Instagram" />
+    </div>
+  </a>
+  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Youtube.png' %}"
+           data-default="{% static 'img/Youtube.png' %}"
+           data-hover="{% static 'img/Youtube_active.png' %}"
+           alt="YouTube" />
+    </div>
+  </a>
+  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Linkedin.png' %}"
+           data-default="{% static 'img/Linkedin.png' %}"
+           data-hover="{% static 'img/Linkedin_active.png' %}"
+           alt="LinkedIn" />
+    </div>
+  </a>
+</div>
         <div class="footerwebcol4_1">
           <div class="footerwebcol2_1">
           ECHOES OF NATURE</div>
@@ -216,52 +225,39 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll("img[data-active]");
+			const buttons = document.querySelectorAll("img[data-active]");
 
-        // Normalize path (works for / and /home/)
-        const currentPath = window.location.pathname.replace(/\/$/, "");
-        const homePaths = ["", "/", "/home"]; // add more if needed
+			const currentPath = window.location.pathname.replace(/\/$/, "");
+			const homePaths = ["", "/", "/home"];
 
-        buttons.forEach((btn) => {
-          const defaultSrc = btn.dataset.default;
-          const activeSrc = btn.dataset.active;
-          const isHomeIcon = btn.id === "Home_2";
+			buttons.forEach((btn) => {
+				const defaultSrc = btn.dataset.default;
+				const activeSrc = btn.dataset.active;
+				const isHomeIcon = btn.id === "Home_2";
 
-          // ✅ If this is the home page → keep Home active
-          if (isHomeIcon && homePaths.includes(currentPath)) {
-            btn.src = activeSrc;
-            btn.classList.add("active");
-            return; // ⛔ skip hover/touch logic
-          }
+				if (isHomeIcon && homePaths.includes(currentPath)) {
+					btn.src = activeSrc;
+					btn.classList.add("active");
+					return;
+				}
 
-          /* ---- Hover (Desktop) ---- */
-          btn.addEventListener("mouseenter", () => {
-            btn.src = activeSrc;
-          });
+				btn.addEventListener("mouseenter", () => { btn.src = activeSrc; });
+				btn.addEventListener("mouseleave", () => { btn.src = defaultSrc; });
+				btn.addEventListener("mousedown",  () => { btn.src = activeSrc; });
+				btn.addEventListener("mouseup",    () => { btn.src = defaultSrc; });
+				btn.addEventListener("touchstart", () => { btn.src = activeSrc; });
+				btn.addEventListener("touchend",   () => { btn.src = defaultSrc; });
+			});
 
-          btn.addEventListener("mouseleave", () => {
-            btn.src = defaultSrc;
-          });
+			// ── Footer social icon hover ──────────────────────────
+			document.querySelectorAll(".footer-icon img[data-hover]").forEach((img) => {
+				img.addEventListener("mouseenter", () => { img.src = img.dataset.hover; });
+				img.addEventListener("mouseleave", () => { img.src = img.dataset.default; });
+				img.addEventListener("touchstart", () => { img.src = img.dataset.hover; }, { passive: true });
+				img.addEventListener("touchend",   () => { img.src = img.dataset.default; }, { passive: true });
+			});
 
-          /* ---- Mouse Click ---- */
-          btn.addEventListener("mousedown", () => {
-            btn.src = activeSrc;
-          });
-
-          btn.addEventListener("mouseup", () => {
-            btn.src = defaultSrc;
-          });
-
-          /* ---- Touch (Mobile) ---- */
-          btn.addEventListener("touchstart", () => {
-            btn.src = activeSrc;
-          });
-
-          btn.addEventListener("touchend", () => {
-            btn.src = defaultSrc;
-          });
-        });
-      });
+		});
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
