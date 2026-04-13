@@ -57,12 +57,15 @@ function initDropdownMenu() {
   const activeSrc = menuIcon.dataset.active;
 
   let isOpen = false;
-  const isDesktop = window.innerWidth > 1050;
+
+  function isDesktopView() {
+    return window.matchMedia('(min-width: 1050px)').matches;
+  }
 
   /* =========================================
      DESKTOP (GSAP)
   ========================================= */
-  if (isDesktop) {
+  if (isDesktopView()) {
 
     gsap.set(dropdown, {
       display: "none",
@@ -73,14 +76,14 @@ function initDropdownMenu() {
     const tl = gsap.timeline({
       paused: true,
       onStart: () => {
-        dropdown.style.display = "block"; // show before animating
+        dropdown.style.display = "block";
         mask.style.pointerEvents = 'auto';
         menuIcon.src = activeSrc;
         menuBtn.classList.add('is-open');
         isOpen = true;
       },
       onReverseComplete: () => {
-        dropdown.style.display = "none"; // hide after closing
+        dropdown.style.display = "none";
         mask.style.pointerEvents = 'none';
         menuIcon.src = defaultSrc;
         menuBtn.classList.remove('is-open');
@@ -112,8 +115,6 @@ function initDropdownMenu() {
   ========================================= */
   else {
 
-    dropdown.style.display = "none";
-
     menuBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -121,16 +122,25 @@ function initDropdownMenu() {
       isOpen = !isOpen;
 
       if (isOpen) {
-        dropdown.style.display = "block";
+        dropdown.classList.add('is-visible');
         mask.style.pointerEvents = 'auto';
         menuIcon.src = activeSrc;
         menuBtn.classList.add('is-open');
       } else {
-        dropdown.style.display = "none";
+        dropdown.classList.remove('is-visible');
         mask.style.pointerEvents = 'none';
         menuIcon.src = defaultSrc;
         menuBtn.classList.remove('is-open');
       }
+    });
+
+    document.addEventListener('click', () => {
+      if (!isOpen) return;
+      isOpen = false;
+      dropdown.classList.remove('is-visible');
+      mask.style.pointerEvents = 'none';
+      menuIcon.src = defaultSrc;
+      menuBtn.classList.remove('is-open');
     });
 
   }
@@ -572,24 +582,25 @@ if (document.readyState === 'loading') {
 // ============================================
 
 // Page show (back/forward cache)
-window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    const dropdown = document.querySelector('.dropdown-content');
-    const mask = document.querySelector('.dropdown-mask');
-    const menuBtn = document.getElementById('menuBtn');
-    const menuIcon = menuBtn?.querySelector('img');
+window.addEventListener('pageshow', () => {
+  const dropdown = document.querySelector('.dropdown-content');
+  const mask = document.querySelector('.dropdown-mask');
+  const menuBtn = document.getElementById('menuBtn');
+  const menuIcon = menuBtn?.querySelector('img');
 
-    if (!dropdown || !mask || !menuBtn || !menuIcon) return;
+  if (!dropdown || !mask || !menuBtn || !menuIcon) return;
 
-    gsap.set(dropdown, {
-      yPercent: -100,
-      opacity: 0,
-    });
-
-    mask.style.pointerEvents = 'none';
-    menuBtn.classList.remove('is-open');
-    menuIcon.src = menuIcon.dataset.default;
+  // Desktop: reset GSAP timeline if it exists
+  if (window.tl) {
+    window.tl.pause(0).progress(0);
   }
+
+  // Works for both desktop and tablet/mobile
+  dropdown.classList.remove('is-visible');
+  dropdown.style.display = '';         // clear any stale inline display
+  mask.style.pointerEvents = 'none';
+  menuBtn.classList.remove('is-open');
+  menuIcon.src = menuIcon.dataset.default;
 });
 
 let scrollSpeed = 3;
@@ -617,4 +628,3 @@ window.addEventListener(
   },
   { passive: false },
 );
-
