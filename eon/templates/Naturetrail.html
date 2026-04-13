@@ -77,25 +77,33 @@
 </div>
 <script>
   (function () {
-    const isMobile = () => window.innerWidth <= 768;
+    // ✅ FIX 1: match the CSS breakpoint (1049px, not 768px)
+    const isMobile = () => window.innerWidth <= 1049;
 
-    const mapImg = document.getElementById("trailMapImg");
-    const overlay = document.getElementById("mapZoomOverlay");
-    const closeBtn = document.getElementById("mapZoomClose");
-    const zoomImg = document.getElementById("mapZoomImage");
+    const mapImg    = document.getElementById("trailMapImg");
+    const mapWrap   = mapImg ? mapImg.closest(".Naturetrail-map") : null;
+    const overlay   = document.getElementById("mapZoomOverlay");
+    const closeBtn  = document.getElementById("mapZoomClose");
+    const zoomImg   = document.getElementById("mapZoomImage");
     const container = document.getElementById("mapZoomContainer");
 
     if (!mapImg || !overlay) return;
 
-    // Open overlay on tap (mobile only)
-    mapImg.addEventListener("click", () => {
+    // ✅ FIX 2: listen on the wrapper div — more reliable tap target
+    // Also add touchstart so it fires immediately on mobile without 300ms delay
+    const openOverlay = (e) => {
       if (!isMobile()) return;
+      e.preventDefault();
       overlay.classList.add("open");
       document.body.style.overflow = "hidden";
       resetTransform();
-    });
+    };
+
+    (mapWrap || mapImg).addEventListener("touchstart", openOverlay, { passive: false });
+    (mapWrap || mapImg).addEventListener("click", openOverlay);
 
     closeBtn.addEventListener("click", closeOverlay);
+    closeBtn.addEventListener("touchstart", (e) => { e.preventDefault(); closeOverlay(); }, { passive: false });
 
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) closeOverlay();
@@ -107,20 +115,15 @@
       resetTransform();
     }
 
-    // ── Pinch-to-zoom + drag ──────────────────────────────
-    let scale = 1,
-      minScale = 1,
-      maxScale = 5;
-    let originX = 0,
-      originY = 0;
+    // ── Pinch-to-zoom + drag (unchanged) ─────────────────
+    let scale = 1, minScale = 1, maxScale = 5;
+    let originX = 0, originY = 0;
     let lastDist = null;
     let isDragging = false;
     let dragStartX, dragStartY;
 
     function resetTransform() {
-      scale = 1;
-      originX = 0;
-      originY = 0;
+      scale = 1; originX = 0; originY = 0;
       applyTransform();
     }
 
@@ -129,70 +132,54 @@
     }
 
     function clampOrigin() {
-      const maxX = ((scale - 1) * container.offsetWidth) / 2;
+      const maxX = ((scale - 1) * container.offsetWidth)  / 2;
       const maxY = ((scale - 1) * container.offsetHeight) / 2;
       originX = Math.min(maxX, Math.max(-maxX, originX));
       originY = Math.min(maxY, Math.max(-maxY, originY));
     }
 
-    container.addEventListener(
-      "touchstart",
-      (e) => {
-        if (e.touches.length === 2) {
-          lastDist = getDistance(e.touches);
-        } else if (e.touches.length === 1) {
-          isDragging = true;
-          dragStartX = e.touches[0].clientX - originX;
-          dragStartY = e.touches[0].clientY - originY;
-        }
-      },
-      { passive: true },
-    );
+    container.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 2) {
+        lastDist = getDistance(e.touches);
+      } else if (e.touches.length === 1) {
+        isDragging = true;
+        dragStartX = e.touches[0].clientX - originX;
+        dragStartY = e.touches[0].clientY - originY;
+      }
+    }, { passive: true });
 
-    container.addEventListener(
-      "touchmove",
-      (e) => {
-        if (e.touches.length === 2 && lastDist !== null) {
-          const newDist = getDistance(e.touches);
-          scale *= newDist / lastDist;
-          scale = Math.min(maxScale, Math.max(minScale, scale));
-          lastDist = newDist;
-          clampOrigin();
-          applyTransform();
-        } else if (e.touches.length === 1 && isDragging && scale > 1) {
-          originX = e.touches[0].clientX - dragStartX;
-          originY = e.touches[0].clientY - dragStartY;
-          clampOrigin();
-          applyTransform();
-        }
-      },
-      { passive: true },
-    );
+    container.addEventListener("touchmove", (e) => {
+      if (e.touches.length === 2 && lastDist !== null) {
+        const newDist = getDistance(e.touches);
+        scale *= newDist / lastDist;
+        scale = Math.min(maxScale, Math.max(minScale, scale));
+        lastDist = newDist;
+        clampOrigin();
+        applyTransform();
+      } else if (e.touches.length === 1 && isDragging && scale > 1) {
+        originX = e.touches[0].clientX - dragStartX;
+        originY = e.touches[0].clientY - dragStartY;
+        clampOrigin();
+        applyTransform();
+      }
+    }, { passive: true });
 
-    container.addEventListener(
-      "touchend",
-      (e) => {
-        if (e.touches.length < 2) lastDist = null;
-        if (e.touches.length === 0) isDragging = false;
-      },
-      { passive: true },
-    );
+    container.addEventListener("touchend", (e) => {
+      if (e.touches.length < 2) lastDist = null;
+      if (e.touches.length === 0) isDragging = false;
+    }, { passive: true });
 
-    // Double-tap to reset zoom
+    // Double-tap to zoom
     let lastTap = 0;
-    container.addEventListener(
-      "touchend",
-      (e) => {
-        const now = Date.now();
-        if (now - lastTap < 300) {
-          scale === 1 ? (scale = 2.5) : resetTransform();
-          clampOrigin();
-          applyTransform();
-        }
-        lastTap = now;
-      },
-      { passive: true },
-    );
+    container.addEventListener("touchend", (e) => {
+      const now = Date.now();
+      if (now - lastTap < 300) {
+        scale === 1 ? (scale = 2.5) : resetTransform();
+        clampOrigin();
+        applyTransform();
+      }
+      lastTap = now;
+    }, { passive: true });
 
     function getDistance(touches) {
       const dx = touches[0].clientX - touches[1].clientX;
