@@ -32,180 +32,10 @@
 </div>
 <div class="Naturetrail-map">
   <img src="{% static 'img/HOH-map.webp' %}" id="trailMapImg" />
-  <div class="map-zoom-hint" id="mapZoomHint">
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5" />
-      <path
-        d="M16.5 16.5L21 21"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-      />
-      <path
-        d="M11 8v6M8 11h6"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-      />
-    </svg>
-    Tap to zoom
-  </div>
+
 </div>
 
-<!-- Map zoom overlay -->
-<div class="map-zoom-overlay" id="mapZoomOverlay">
-  <button class="map-zoom-close" id="mapZoomClose">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M6 6l12 12M6 18L18 6"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-      />
-    </svg>
-  </button>
-  <div class="map-zoom-container" id="mapZoomContainer">
-    <img src="{% static 'img/HOH-map1.webp' %}" id="mapZoomImage" />
-  </div>
-  <div class="map-zoom-tip">Pinch to zoom · Drag to pan</div>
-</div>
-<script>
-  (function () {
-    // ✅ FIX 1: match the CSS breakpoint (1049px, not 768px)
-    const isMobile = () => window.innerWidth <= 1049;
 
-    const mapImg    = document.getElementById("trailMapImg");
-    const mapWrap   = mapImg ? mapImg.closest(".Naturetrail-map") : null;
-    const overlay   = document.getElementById("mapZoomOverlay");
-    const closeBtn  = document.getElementById("mapZoomClose");
-    const zoomImg   = document.getElementById("mapZoomImage");
-    const container = document.getElementById("mapZoomContainer");
-
-    if (!mapImg || !overlay) return;
-
-    // ✅ FIX 2: listen on the wrapper div — more reliable tap target
-    // Also add touchstart so it fires immediately on mobile without 300ms delay
-    const openOverlay = (e) => {
-      if (!isMobile()) return;
-      e.preventDefault();
-      overlay.classList.add("open");
-      document.body.style.overflow = "hidden";
-      resetTransform();
-    };
-
-    (mapWrap || mapImg).addEventListener("touchstart", openOverlay, { passive: false });
-    (mapWrap || mapImg).addEventListener("click", openOverlay);
-
-    closeBtn.addEventListener("click", closeOverlay);
-    closeBtn.addEventListener("touchstart", (e) => { e.preventDefault(); closeOverlay(); }, { passive: false });
-
-    overlay.addEventListener("click", (e) => {
-      if (e.target === overlay) closeOverlay();
-    });
-
-    function closeOverlay() {
-      overlay.classList.remove("open");
-      document.body.style.overflow = "";
-      resetTransform();
-    }
-
-    // ── Pinch-to-zoom + drag (unchanged) ─────────────────
-    let scale = 1, minScale = 1, maxScale = 5;
-    let originX = 0, originY = 0;
-    let lastDist = null;
-    let isDragging = false;
-    let dragStartX, dragStartY;
-
-    function resetTransform() {
-      scale = 1; originX = 0; originY = 0;
-      applyTransform();
-    }
-
-    function applyTransform() {
-      zoomImg.style.transform = `translate(${originX}px, ${originY}px) scale(${scale})`;
-    }
-
-    function clampOrigin() {
-      const maxX = ((scale - 1) * container.offsetWidth)  / 2;
-      const maxY = ((scale - 1) * container.offsetHeight) / 2;
-      originX = Math.min(maxX, Math.max(-maxX, originX));
-      originY = Math.min(maxY, Math.max(-maxY, originY));
-    }
-
-    container.addEventListener("touchstart", (e) => {
-      if (e.touches.length === 2) {
-        lastDist = getDistance(e.touches);
-      } else if (e.touches.length === 1) {
-        isDragging = true;
-        dragStartX = e.touches[0].clientX - originX;
-        dragStartY = e.touches[0].clientY - originY;
-      }
-    }, { passive: true });
-
-    container.addEventListener("touchmove", (e) => {
-      if (e.touches.length === 2 && lastDist !== null) {
-        const newDist = getDistance(e.touches);
-        scale *= newDist / lastDist;
-        scale = Math.min(maxScale, Math.max(minScale, scale));
-        lastDist = newDist;
-        clampOrigin();
-        applyTransform();
-      } else if (e.touches.length === 1 && isDragging && scale > 1) {
-        originX = e.touches[0].clientX - dragStartX;
-        originY = e.touches[0].clientY - dragStartY;
-        clampOrigin();
-        applyTransform();
-      }
-    }, { passive: true });
-
-    container.addEventListener("touchend", (e) => {
-      if (e.touches.length < 2) lastDist = null;
-      if (e.touches.length === 0) isDragging = false;
-    }, { passive: true });
-
-    // Double-tap to zoom
-    let lastTap = 0;
-    container.addEventListener("touchend", (e) => {
-      const now = Date.now();
-      if (now - lastTap < 300) {
-        scale === 1 ? (scale = 2.5) : resetTransform();
-        clampOrigin();
-        applyTransform();
-      }
-      lastTap = now;
-    }, { passive: true });
-
-    function getDistance(touches) {
-      const dx = touches[0].clientX - touches[1].clientX;
-      const dy = touches[0].clientY - touches[1].clientY;
-      return Math.hypot(dx, dy);
-    }
-  })();
-</script>
-
-<style>
-  /* Zoom hint + overlay — smartphone + tablet only */
-  .map-zoom-hint,
-  .map-zoom-overlay {
-    display: none !important;
-  }
-
-  @media (max-width: 1049px) {
-    .map-zoom-hint {
-      display: flex !important;
-    }
-    /* overlay is shown via JS .open class — let it appear */
-    .map-zoom-overlay.open {
-      display: flex !important;
-    }
-  }
-</style>
 
 <div class="naturetrailbox2">
   <div class="fade-section column3">
@@ -285,7 +115,7 @@
     <div class="fade-section stop-time">20:00 mins</div>
     <!--div class="fade-section activity">Immersive Activity</div-->
   </div>
-  <div class="column3 hide-tab" hidden ></div>
+  <div class="column3 hide-tab" hidden></div>
   <div class="fade-section hide-tab Disclaimer1">
     Note: Bird sightings are subject to seasonal patterns, migratory cycles,
     weather conditions, and natural habitat dynamics. As wildlife movement is
@@ -294,11 +124,11 @@
   </div>
 </div>
 <div class="fade-section show-tab Disclaimer1">
-    Note: Bird sightings are subject to seasonal patterns, migratory cycles,
-    weather conditions, and natural habitat dynamics. As wildlife movement is
-    influenced by ecological factors beyond our control, sightings cannot be
-    guaranteed.
-  </div>
+  Note: Bird sightings are subject to seasonal patterns, migratory cycles,
+  weather conditions, and natural habitat dynamics. As wildlife movement is
+  influenced by ecological factors beyond our control, sightings cannot be
+  guaranteed.
+</div>
 <div class="naturetrailbox3">
   <div class="nature-tips">
     <img src="{% static 'img/nature-tips.webp' %}" />
@@ -406,73 +236,74 @@
   </div>
 
   <!-- RIGHT MEDIA BOX -->
-
-  <div class="gallery-box2">
-    <!-- PHOTO -->
-    <div id="photoBox" class="gallery-media-section">
-      {% for item in media %} {% if item.media_type == 'image' %}
-      <div class="gallery-slide">
-        <img src="{{ item.file.url }}" alt="" />
-      </div>
-      {% endif %} {% endfor %}
-    </div>
-
-    <!-- VIDEO -->
-    <div id="videoBox" class="gallery-media-section" style="display: none">
-      {% for item in media %} {% if item.media_type == 'video' %}
-
-      <div class="gallery-slide">
-        {% if item.youtube_link %}
-        <iframe
-          class="galleryVideo"
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/{{ item.youtube_link }}?enablejsapi=1&rel=0&modestbranding=1"
-          frameborder="0"
-          allow="
-            accelerometer;
-            autoplay;
-            encrypted-media;
-            gyroscope;
-            picture-in-picture;
-          "
-          allowfullscreen
-        >
-        </iframe>
-
-        {% elif item.file %}
-        <video class="galleryVideo" playsinline preload="metadata">
-          <source src="{{ item.file.url }}" type="video/mp4" />
-        </video>
-        {% endif %}
+  <div class="gallery-box2-wrap">
+    <div class="gallery-box2">
+      <!-- PHOTO -->
+      <div id="photoBox" class="gallery-media-section">
+        {% for item in media %} {% if item.media_type == 'image' %}
+        <div class="gallery-slide">
+          <img src="{{ item.file.url }}" alt="" />
+        </div>
+        {% endif %} {% endfor %}
       </div>
 
-      {% endif %} {% endfor %}
+      <!-- VIDEO -->
+      <div id="videoBox" class="gallery-media-section" style="display: none">
+        {% for item in media %} {% if item.media_type == 'video' %}
+
+        <div class="gallery-slide">
+          {% if item.youtube_link %}
+          <iframe
+            class="galleryVideo"
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/{{ item.youtube_link }}?enablejsapi=1&rel=0&modestbranding=1"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          >
+          </iframe>
+
+          {% elif item.file %}
+          <video class="galleryVideo" playsinline preload="metadata">
+            <source src="{{ item.file.url }}" type="video/mp4" />
+          </video>
+          {% endif %}
+        </div>
+
+        {% endif %} {% endfor %}
+      </div>
     </div>
+    <!-- prev/next overlays the image box -->
+    <div class="prev-next">
+      <img
+        src="{% static 'img/prev.png' %}"
+        class="bg-nav-btn bg-prev"
+        id="bg-prev"
+        alt="Previous"
+        tabindex="0"
+      />
+      <img
+        src="{% static 'img/next.png' %}"
+        class="bg-nav-btn bg-next"
+        id="bg-next"
+        alt="Next"
+        role="button"
+        tabindex="0"
+      />
+    </div>
+    <!-- dots -->
+    <div id="dotContainer" class="gallery-dots2"></div>
   </div>
   <div class="gallery-extra">
     <img src="{% static 'img/gallery.webp' %}" />
   </div>
-  <div class="prev-next">
-    <img
-      src="{% static 'img/prev.png' %}"
-      class="bg-nav-btn bg-prev"
-      id="bg-prev"
-      alt="Previous"
-      tabindex="0"
-    />
-
-    <img
-      src="{% static 'img/next.png' %}"
-      class="bg-nav-btn bg-next"
-      id="bg-next"
-      alt="Next"
-      role="button"
-      tabindex="0"
-    />
-  </div>
-  <!-- dots -->
-  <div id="dotContainer" class="gallery-dots2"></div>
 </div>
 
 <div class="naturetrailbox5">
