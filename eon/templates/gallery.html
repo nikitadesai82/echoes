@@ -48,7 +48,7 @@
       SEE PHOTO
     </div>
   </div>
-  <div class="gallery-box2-wrap">
+  <div class="gallery-box2-wrap" style="position: relative;">
   <div class="gallery-box2">
     <!-- PHOTO CONTENT -->
     <div id="photoBox" class="gallery-media-section">
@@ -116,10 +116,7 @@
 
 </div>
   </div>
-  </div><!-- /.gallery-box2-wrap -->
-  <div class="gallery-extra">
-    <img src="{% static 'img/gallery.webp' %}" />
-  </div>
+  <!-- prev/next overlays the image box -->
   <div class="prev-next">
     <img
       src="{% static 'img/prev.png' %}"
@@ -139,6 +136,11 @@
     />
   </div>
   <!-- dots -->
+  <div id="dotContainer" class="gallery-dots2"></div>
+  </div><!-- /.gallery-box2-wrap -->
+  <div class="gallery-extra">
+    <img src="{% static 'img/gallery.webp' %}" />
+  </div>
   <script>
     (function () {
       let galleryVideoPlaying = false;
@@ -206,7 +208,6 @@
       setInterval(enforceMute, 200);
     })();
   </script>
-  <div id="dotContainer" class="gallery-dots2"></div>
 
   <div class="gallery-box3 ">
     <div class="close-icon" id="closeBtn">
