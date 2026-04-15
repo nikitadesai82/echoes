@@ -2,6 +2,17 @@
 <script>
   document.documentElement.classList.remove("loading");
 </script>
+<script>
+  // Force gallery-box2 reveal open — Naturetrail GSAP sets --reveal:0 globally on .gallery-box2
+  // This overrides it immediately for the gallery page before any animation runs
+  document.addEventListener("DOMContentLoaded", function () {
+    const box = document.querySelector(".gallery-mainbox .gallery-box2");
+    if (box) {
+      box.style.setProperty("--reveal", "1");
+      box.style.clipPath = "none";
+    }
+  });
+</script>
 <div class="gallery-mainbox">
   <div class="gallery-box4">
     <div class="gallery-box4_1">
@@ -37,6 +48,7 @@
       SEE PHOTO
     </div>
   </div>
+  <div class="gallery-box2-wrap">
   <div class="gallery-box2">
     <!-- PHOTO CONTENT -->
     <div id="photoBox" class="gallery-media-section">
@@ -104,6 +116,7 @@
 
 </div>
   </div>
+  </div><!-- /.gallery-box2-wrap -->
   <div class="gallery-extra">
     <img src="{% static 'img/gallery.webp' %}" />
   </div>
@@ -195,12 +208,12 @@
   </script>
   <div id="dotContainer" class="gallery-dots2"></div>
 
-  <div class="gallery-box3 hide-on-mobile">
+  <div class="gallery-box3 ">
     <div class="close-icon" id="closeBtn">
       <img src="{% static 'img/Close.png' %}" alt="close" />
     </div>
 
-    <div class="gallery-ani">
+    <div class="gallery-ani hide-on-mobile">
       <video autoplay muted loop playsinline>
         <source src="{% static 'video/gallery.webm' %}" type="video/mp4" />
         Your browser does not support the video tag.
