@@ -603,28 +603,9 @@ window.addEventListener('pageshow', () => {
   menuIcon.src = menuIcon.dataset.default;
 });
 
-let scrollSpeed = 3;
-let wheelEnabled = false;
-
-// Enable wheel ONLY after load + one frame
 window.addEventListener('load', () => {
-  requestAnimationFrame(() => {
-    wheelEnabled = true;
-    document.documentElement.dataset.loading = 'false';
-  });
+	requestAnimationFrame(() => {
+		document.documentElement.dataset.loading = 'false';
+	});
 });
 
-window.addEventListener(
-  'wheel',
-  (e) => {
-    if (!wheelEnabled) return;
-
-    e.preventDefault();
-
-    window.scrollTo({
-      top: window.scrollY + e.deltaY * scrollSpeed,
-      behavior: 'smooth',
-    });
-  },
-  { passive: false },
-);
