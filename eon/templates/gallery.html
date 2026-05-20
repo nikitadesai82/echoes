@@ -141,6 +141,12 @@
   <div class="gallery-extra">
     <img src="{% static 'img/gallery.webp' %}" />
   </div>
+			<div class="gallery-ani hide-on-tab-mobile">
+			<video autoplay muted loop playsinline>
+				<source src="{% static 'video/gallery.mp4' %}" type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+		</div>
   <script>
     (function () {
       let galleryVideoPlaying = false;
