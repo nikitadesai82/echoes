@@ -106,6 +106,9 @@
               <a href="{% url 'birds_list' %}" class="menu-item">
                 Birds of Hiranandani Estate
               </a>
+							<a href="{% url 'butterfly_list' %}" class="menu-item">
+									Butterflies of Hiranandani Estate
+								</a>
               <a href="{% url 'flora_list' %}" class="menu-item">
                 Flora of Hiranandani Estate
               </a>
@@ -439,7 +442,7 @@
             travelled thousands of miles to spend the winter here.
           </div>
           </div>
-          
+
           <div class="right_3">
             <a href="{% url 'flora_list' %}" class="media-link">
               <div class="bird-video bounce-up">
@@ -469,7 +472,38 @@
           </div>
           </div>
 
-          
+					<div class="right_3">
+            <a href="{% url 'butterfly_list' %}" class="media-link">
+              <div class="bird-video bounce-up">
+                <div class="video-container">
+                  <img src="{% static 'img/Butterfly-button.png' %}">
+                </div>
+              </div>
+
+              <div class="fade-section video-text">COME MEET</div>
+
+              <div class="video-text2 btn-fill-left">
+                <span class="inner2">THE WINGED JEWELS!</span>
+              </div>
+
+              <div class="fade-section video-text-3">
+                <span>
+                  Get to know the leafy locals, from shady trees to beautiful
+                  blooms and amazing herbs
+                </span>
+              </div>
+            </a>
+						<div class="fade-section right_4">
+            Figure out which trees bloom in summer, which fruit is loved by bats
+            and which barks and flowers can be used for medicine. Along the way,
+            you will also discover some unique and exotic species that have been
+            carefully nurtured and now flourish.
+          </div>
+          </div>
+
+
+
+
         </div>
       </div>
       <div class="middle-section">
@@ -690,6 +724,9 @@
         <div class="footerwebcol2_2"><a href="{% url 'home' %}">Home</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Deepdive' %}">Echoes of Nature</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'birds_list' %}">Birds of Hiranandani, Thane</a></div>
+				<div class="footerwebcol2_3"><a href="{% url 'butterfly_list' %}">
+									Butterflies of Hiranandani Estate
+								</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'flora_list' %}">Trees of Hiranandani, Thane</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Naturetrail' %}">Nature Trail</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Birdwatching' %}">Birdwatching</a></div>
