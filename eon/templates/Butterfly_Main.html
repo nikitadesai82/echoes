@@ -834,48 +834,15 @@
 	</div>
 </div>
 <div class="bird-page-girl hide-on-mobile">
-	<video id="birdBgVideo" loop playsinline preload="auto">
+	<video loop playsinline preload="auto">
 		<source src="{% static 'video/Butterfly-girl.webm' %}" type="video/webm" />
 	</video>
 </div>
-
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const birdVideo = document.getElementById('birdBgVideo');
-
-		// 🚫 Hard stop on load
-		birdVideo.pause();
-		birdVideo.currentTime = 0;
-
-		birdVideo.addEventListener('loadedmetadata', () => {
-			birdVideo.volume = 0.3;
-		});
-
-		gsap.registerPlugin(ScrollTrigger);
-
-		ScrollTrigger.create({
-			trigger: '.bird-page-girl',
-			start: 'top 70%',
-			end: 'bottom 25%',
-
-			onEnter: () => {
-				birdVideo.play().catch(() => {});
-			},
-
-			onEnterBack: () => {
-				birdVideo.play().catch(() => {});
-			},
-
-			onLeave: () => {
-				birdVideo.pause();
-			},
-
-			onLeaveBack: () => {
-				birdVideo.pause();
-			},
-		});
-	});
-</script>
+<div class="butterfly-page-girl hide-on-mobile">
+	<video autoplay muted loop playsinline poster="{% static 'img/butterflypage-bg.webp' %}">
+		<source src="{% static 'video/butterflypage-bg.webm' %}" type="video/webm" />
+	</video>
+</div>
 
 <div class="butterfly-page-main-bg hide-on-mobile">
 	<img src="{% static 'img/Butterfly-bg.png' %}" />
