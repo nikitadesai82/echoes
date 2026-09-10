@@ -46,7 +46,7 @@ class Bird(models.Model):
         blank=True,
         null=True,
     )
-		
+
     Bird_Quiz_Question = models.TextField(null=True, blank=True)
     Bird_Quiz_OptionA = models.CharField(max_length=255, null=True, blank=True)
     Bird_Quiz_OptionB = models.CharField(max_length=255, null=True, blank=True)
@@ -58,10 +58,10 @@ class Bird(models.Model):
         ('C', 'Option C'),
         ('D', 'Option D'),
     ], null=True, blank=True)
-    
+
     slug = models.SlugField(blank=True, null=True)
 
-    
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.Bird_Name)
@@ -107,7 +107,7 @@ class Flora(models.Model):
 
     Flora_Button_Media = models.FileField(upload_to="Animations/Flora/Buttons/",blank=True, null=True)
     Flora_Map_Image = models.ImageField(upload_to="Imagesflora_maps/", blank=True, null=True)
-	
+
     Flora_Flowering_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_Type_Key = models.CharField(max_length=100, blank=True, null=True)
     Flora_HoHLocation = models.CharField(max_length=100, blank=True, null=True)
@@ -127,6 +127,80 @@ class Flora(models.Model):
 
     def __str__(self):
         return self.Flora_Name
+
+
+class Butterfly(models.Model):
+    Butterfly_Scientific_Name = models.CharField(max_length=255)
+    Butterfly_Name = models.CharField(max_length=255)
+    Butterfly_AKA = models.TextField(blank=True, null=True)
+
+    Butterfly_Family = models.CharField(max_length=255)
+    Butterfly_Description = models.TextField()
+
+    Butterfly_Colour_Key = models.CharField(max_length=255)
+
+    Butterfly_Geographic_Range = models.TextField()
+    Butterfly_Zones = models.TextField()
+
+    Butterfly_Habitat = models.TextField()
+    Butterfly_Behaviour = models.TextField()
+    Butterfly_Nesting_Mating = models.TextField()
+    Butterfly_Feeding_Behaviour = models.TextField()
+
+    Butterfly_Migration = models.TextField()
+    Butterfly_Migration_Key = models.CharField(max_length=100)
+
+    Butterfly_Evolutionary_Adaptations = models.TextField()
+    Butterfly_Defence_Key = models.CharField(max_length=100)
+
+    Butterfly_Fun_Facts = models.TextField()
+
+    Butterfly_Lifespan = models.CharField(max_length=50)
+    Butterfly_Lifespan_Details = models.TextField(blank=True, null=True)
+
+    Butterfly_Length = models.CharField(max_length=50)
+    Butterfly_Length_Details = models.TextField(blank=True, null=True)
+
+    Butterfly_Wingspan_sort = models.IntegerField(default=0)
+    Butterfly_Wingspan = models.CharField(max_length=50)
+    Butterfly_Wingspan_Details = models.TextField(blank=True, null=True)
+
+    Butterfly_Weight = models.CharField(max_length=50)
+    Butterfly_Weight_Details = models.TextField(blank=True, null=True)
+
+    Butterfly_Conservation_Status = models.CharField(max_length=100)
+    Butterfly_Conservation_Status_SVGKey = models.CharField(max_length=20)
+    Butterfly_Conservation_Description = models.TextField()
+
+    # Media (web convention: uploaded files via .url, matching Bird/Flora)
+    Butterfly_Animation = models.FileField(upload_to="Animations/Butterflies/Single_Butterfly/", blank=True, null=True)
+    Butterfly_Image1 = models.ImageField(upload_to="Images/Butterflies/", blank=True, null=True)
+    Butterfly_Image2 = models.ImageField(upload_to="Images/Butterfly_wings/", blank=True, null=True)
+    Butterfly_Button_Media = models.FileField(upload_to="Animations/Butterflies/Buttons/", blank=True, null=True)
+    Butterfly_Button_Thumb = models.FileField(upload_to="Animations/Butterflies/Single Butterflies/", blank=True, null=True)
+    Butterfly_Map_Image = models.ImageField(upload_to="Images/Butterfly_Maps/", blank=True, null=True)
+
+    Butterfly_Quiz_Question = models.TextField(blank=True, null=True)
+    Butterfly_Quiz_OptionA = models.CharField(max_length=255, blank=True, null=True)
+    Butterfly_Quiz_OptionB = models.CharField(max_length=255, blank=True, null=True)
+    Butterfly_Quiz_OptionC = models.CharField(max_length=255, blank=True, null=True)
+    Butterfly_Quiz_OptionD = models.CharField(max_length=255, blank=True, null=True)
+    Butterfly_Quiz_Correct = models.CharField(max_length=1, choices=[
+        ('A', 'Option A'),
+        ('B', 'Option B'),
+        ('C', 'Option C'),
+        ('D', 'Option D'),
+    ], blank=True, null=True)
+
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.Butterfly_Name)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.Butterfly_Name
 
 
 class Story(models.Model):
