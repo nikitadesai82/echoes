@@ -20,7 +20,7 @@
       {{ flora.Flora_Family }}
     </div>
     <div class="Bird_name">
-      <span class="inner2 gsap-hidden">{{ flora.Flora_Name }}</span> 
+      <span class="inner2 gsap-hidden">{{ flora.Flora_Name }}</span>
     </div>
     <div class="Other_names gsap-hidden">AKA: {{ flora.Flora_AKA }}</div>
   </div>
@@ -36,17 +36,21 @@
           {{ flora.Flora_Geo_Range }}
         </div>
         <div class="bird-map gsap-hidden">
+          {% if flora.Flora_Map_Image %}
           <img
             src="{{ flora.Flora_Map_Image.url }}"
             alt="{{ flora.Flora_Name }} geographic range map"
             class="bird-map-img"
           />
+          {% endif %}
         </div>
       </div>
     </div>
           <div class="Tree-basicinfo-box2">
             <div class="Tree-animation gsap-hidden">
+              {% if flora.Flora_Media_2 %}
               <img src="{{ flora.Flora_Media_2.url }}" alt="Tree Animation" />
+              {% endif %}
             </div>
           </div>
           <div class="Tree-basicinfo-box3">
@@ -721,7 +725,9 @@
 
         <!-- âœ… TREE IMAGE -->
         <div class="tree-mobile-image">
+          {% if flora.Flora_Media_2 %}
           <img src="{{ flora.Flora_Media_2.url }}" alt="Tree Image" />
+          {% endif %}
         </div>
         <div class="Tree-base ">
         <img src="{% static 'img/tree_base.webp' %}" alt="Tree Base Picture" />
@@ -743,11 +749,13 @@
           </div>
 <!-- mobile map -->
               <div class="bird-map gsap-hidden">
+                {% if flora.Flora_Map_Image %}
                 <img
                   src="{{ flora.Flora_Map_Image.url }}"
                   alt="{{ flora.Flora_Name }} geographic range map"
                   class="bird-map-img"
                 />
+                {% endif %}
               </div>
         </div>
 
@@ -1263,9 +1271,11 @@
       </div>
       <div class="treebottom">
         <div class="fadeUpOnScroll tree_secondimg">
+          {% if flora.Flora_Media_1 %}
           <video autoplay muted loop playsinline preload="metadata" id="floraVideo">
           <source data-src="{{ flora.Flora_Media_1.url }}" type="video/mp4" />
       </video>
+          {% endif %}
         </div>
         <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -1290,9 +1300,12 @@
       {{ flora.Flora_Parts|linebreaksbr }}
     </div>
   </div>
-  <div class="fadeUpOnScroll tree-ani hide-on-mobile">
-	<img src="{% static 'img/treegirl.webp' %}">
-  </div>
+<div class="fadeUpOnScroll tree-ani hide-on-mobile">
+    <video autoplay muted loop playsinline poster="{% static 'img/treegirl.webp' %}">
+        <source src="{% static 'video/treegirl.webm' %}" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+</div>
 </div>
 <div class="tree-bottom-box">
   <div class="bottom-box-col2">

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from datetime import time
-from .models import Bird, Flora, Story, NatureTrailSchedule, NatureTrailMedia
+from .models import Bird, Flora, Butterfly, Story, NatureTrailSchedule, NatureTrailMedia
 
 # CSV IMPORT
 from import_export import resources
@@ -125,6 +125,37 @@ class FloraResource(resources.ModelResource):
         import_id_fields = ['Flora_Name']
 
 
+class ButterflyResource(resources.ModelResource):
+    class Meta:
+        model = Butterfly
+        import_id_fields = ['Butterfly_Name']
+
+    # The source spreadsheet's file/image columns don't line up 1:1 with the
+    # model, so fix them up before import-export maps columns to fields.
+    def before_import_row(self, row, **kwargs):
+        # Column is named "Butterfly_Maps" in the sheet; the model field is
+        # "Butterfly_Map_Image". Without this, import-export can't match the
+        # column to a field and silently drops it, leaving every butterfly's
+        # map blank.
+        if 'Butterfly_Maps' in row and not row.get('Butterfly_Map_Image'):
+            row['Butterfly_Map_Image'] = row.pop('Butterfly_Maps')
+
+        # The sheet uses Windows-style backslash paths (e.g.
+        # "Images\Butterflies\Baronet01.webp"). Django storage/URLs need
+        # forward slashes, or the resulting file URL breaks.
+        path_fields = [
+            'Butterfly_Animation',
+            'Butterfly_Image1',
+            'Butterfly_Image2',
+            'Butterfly_Button_Media',
+            'Butterfly_Map_Image',
+        ]
+        for field in path_fields:
+            value = row.get(field)
+            if value:
+                row[field] = value.replace('\\', '/')
+
+
 # =========================
 # BIRD ADMIN (CSV ENABLED)
 # =========================
@@ -139,6 +170,14 @@ class BirdAdmin(ImportExportModelAdmin):
 @admin.register(Flora)
 class FloraAdmin(ImportExportModelAdmin):
     resource_class = FloraResource
+
+
+# =========================
+# BUTTERFLY ADMIN (CSV ENABLED)
+# =========================
+@admin.register(Butterfly)
+class ButterflyAdmin(ImportExportModelAdmin):
+    resource_class = ButterflyResource
 
 
 # =========================

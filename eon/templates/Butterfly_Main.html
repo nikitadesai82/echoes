@@ -1,0 +1,1474 @@
+{% extends "webbase.html" %}{% block body_class %}page-butterfly-main{% endblock %} {% load static %} {% block overlay_content %}
+
+<script>
+	document.documentElement.classList.remove('loading');
+</script>
+<div class="Birdpage-firstbox">
+	<div class="Bird_namebox">
+		<div class="Scientific_name gsap-hidden">
+			SCIENTIFIC NAME: {{ butterfly.Butterfly_Scientific_Name }}, FAMILY: {{butterfly.Butterfly_Family }}
+		</div>
+		<div class="Bird_name">
+			<span class="inner2 gsap-hidden">{{ butterfly.Butterfly_Name }}</span>
+		</div>
+		<div class="Other_names gsap-hidden">
+			AKA: {{ butterfly.Butterfly_AKA }}
+		</div>
+	</div>
+</div>
+<div class="tree-desktop-only1">
+<div class="Bird-basicinfo">
+	<div class="Info-titles">
+		<div class="Info-title gsap-hidden">LENGTH</div>
+		<div class="Info-title gsap-hidden">WINGSPAN</div>
+		<div class="Info-title gsap-hidden">WEIGHT</div>
+		<div class="Info-title gsap-hidden">LIFESPAN</div>
+	</div>
+	<div class="Info-details">
+		<div class="Info-detail gsap-hidden">{{ butterfly.Butterfly_Length }}</div>
+		<div class="Info-detail gsap-hidden">
+			{{ butterfly.Butterfly_Wingspan }}
+		</div>
+		<div class="Info-detail gsap-hidden">{{ butterfly.Butterfly_Weight }}</div>
+		<div class="Info-detail gsap-hidden">
+			{{ butterfly.Butterfly_Lifespan }}
+		</div>
+	</div>
+	<div class="Info-details-text">
+		{% if butterfly.Butterfly_Length_Details %}
+		<div class="Info-detail-text gsap-hidden">
+			{{ butterfly.Butterfly_Length_Details }}
+		</div>
+		{% endif %} {% if butterfly.Butterfly_Wingspan_Details %}
+		<div class="Info-detail-text gsap-hidden">
+			{{ butterfly.Butterfly_Wingspan_Details }}
+		</div>
+		{% endif %} {% if butterfly.Butterfly_Weight_Details %}
+		<div class="Info-detail-text gsap-hidden">
+			{{ butterfly.Butterfly_Weight_Details }}
+		</div>
+		{% endif %} {% if butterfly.Butterfly_Lifespan_Details %}
+		<div class="Info-detail-text gsap-hidden">
+			{{ butterfly.Butterfly_Lifespan_Details }}
+		</div>
+		{% endif %}
+	</div>
+</div>
+</div>
+<div class="tree-tab-mobile-only">
+	<div class="Bird-basicinfo-grid">
+		<!-- LENGTH -->
+		<div class="Info-block">
+			<div class="Info-title">LENGTH</div>
+			<div class="Info-detail">{{ butterfly.Butterfly_Length }}</div>
+
+			{% if butterfly.Butterfly_Length_Details %}
+			<div class="Info-detail-text">{{ butterfly.Butterfly_Length_Details }}</div>
+			{% endif %}
+		</div>
+
+		<!-- WINGSPAN -->
+		<div class="Info-block">
+			<div class="Info-title">WINGSPAN</div>
+			<div class="Info-detail">{{ butterfly.Butterfly_Wingspan }}</div>
+
+			{% if butterfly.Butterfly_Wingspan_Details %}
+			<div class="Info-detail-text">{{ butterfly.Butterfly_Wingspan_Details }}</div>
+			{% endif %}
+		</div>
+
+		<!-- WEIGHT -->
+		<div class="Info-block">
+			<div class="Info-title">WEIGHT</div>
+			<div class="Info-detail">{{ butterfly.Butterfly_Weight }}</div>
+
+			{% if butterfly.Butterfly_Weight_Details %}
+			<div class="Info-detail-text">{{ butterfly.Butterfly_Weight_Details }}</div>
+			{% endif %}
+		</div>
+
+		<!-- LIFESPAN -->
+		<div class="Info-block">
+			<div class="Info-title">LIFESPAN</div>
+			<div class="Info-detail">{{ butterfly.Butterfly_Lifespan }}</div>
+
+			{% if butterfly.Butterfly_Lifespan_Details %}
+			<div class="Info-detail-text">{{ butterfly.Butterfly_Lifespan_Details }}</div>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<div class="Birdpage-secondbox">
+	<div class="Birdpage-secondbox_1 geo-box">
+		<div class="Info-title gsap-hidden">GEOGRAPHIC RANGE</div>
+		<div class="Info-detail-text6 gsap-hidden">
+			{{ butterfly.Butterfly_Geographic_Range }}
+		</div>
+		<div class="bird-map gsap-hidden">
+			{% if butterfly.Butterfly_Map_Image %}
+			<img
+				src="{{ butterfly.Butterfly_Map_Image.url }}"
+				alt="{{ butterfly.Butterfly_Name }} geographic range map"
+				class="bird-map-img"
+			/>
+			{% endif %}
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			// Fetch sublayer IDs (zones) from Django
+			let zones = '{{ geo_range|escapejs }}';
+
+			try {
+				zones = JSON.parse(zones);
+			} catch {
+				zones = zones
+					.split(',')
+					.map((z) => z.trim())
+					.filter((z) => z.length > 0);
+			}
+
+			console.log('Sublayers to turn ON:', zones);
+
+			// Main layer that must remain on
+			const baseMap = document.getElementById('Base_Map');
+
+			const majorLayers = [
+				'Continents',
+				'Range_Regions',
+				'MicroZones',
+				'Range_Countries',
+			];
+
+			// 1️⃣ Turn Base_Map ON always
+			if (baseMap) {
+				baseMap.style.display = 'inline';
+			}
+
+			// 2️⃣ Hide all major layers
+			majorLayers.forEach((id) => {
+				const layer = document.getElementById(id);
+				if (layer) {
+					console.log(`Hiding major layer: ${id}`);
+					layer.style.display = 'none';
+				}
+			});
+
+			// 3️⃣ For each major layer, show only the matching *sublayers*
+			majorLayers.forEach((layerId) => {
+				const layer = document.getElementById(layerId);
+				if (!layer) return;
+
+				// find all direct/nested sublayers that have IDs
+				const sublayers = layer.querySelectorAll('[id]');
+
+				sublayers.forEach((sl) => {
+					if (zones.includes(sl.id)) {
+						console.log(`Showing sublayer: ${sl.id}`);
+
+						// turn major layer ON (because it contains visible content)
+						layer.style.display = 'inline';
+
+						// show the specific sublayer
+						sl.style.display = 'inline';
+					} else {
+						sl.style.display = 'none';
+					}
+				});
+			});
+		});
+	</script>
+	<style>
+		.highlight-shape {
+			fill: #ff5252 !important;
+			stroke: none !important;
+			transition: 0.3s ease;
+		}
+	</style>
+
+	<div class="Birdpage-secondbox_1 anim-box">
+		<div class="birdanimationbox">
+			{% if butterfly.Butterfly_Animation %}
+			<video autoplay muted loop playsinline>
+				<source
+					src="{{ butterfly.Butterfly_Animation.url }}"
+					type="video/webm"
+				/>
+				Your browser does not support the video tag.
+			</video>
+			{% endif %}
+		</div>
+	</div>
+	<div class="Birdpage-secondbox_1 status-box">
+		<div class="Info-title gsap-hidden">CONSERVATION STATUS</div>
+		<div class="Info-detail-text2 gsap-hidden">
+			Least Concern on the
+			<span ><a class="iucn-link" href="https://www.iucnredlist.org/about/faqs#What%20are%20the%20Red%20List%20Categories%20and%20Criteria">IUCN Red List</a></span>
+
+			<div class="iucn-popup">
+				<div class="iucn-box">
+					<button class="iucn-close" aria-label="Close popup">×</button>
+
+					<!-- Title -->
+					<h2 class="iucn-title">IUCN RED LIST</h2>
+
+					<!-- Description -->
+					<p class="iucn-text">
+						Established in 1964, The IUCN Red List is a critical indicator of
+						the health of the world’s biodiversity. Species are classified by
+						the IUCN Red List into nine groups, through criteria such as rate of
+						decline, population size and area of geographic distribution as:
+					</p>
+
+					<!-- Bullet List -->
+					<ul class="iucn-list">
+						<li>
+							Extinct
+							<b>(EX)</b>
+							– This species is no longer extant
+						</li>
+						<li>
+							Extinct in the wild
+							<b>(EW)</b>
+							– Survives only in captivity, or through cultivation often outside
+							native range
+						</li>
+						<li>
+							Critically endangered
+							<b>(CR)</b>
+							– In an extremely critical state
+						</li>
+						<li>
+							Endangered
+							<b>(EN)</b>
+							– Very high risk of extinction in the wild
+						</li>
+						<li>
+							Vulnerable
+							<b>(VU)</b>
+							– At high risk of unnatural (human-caused) extinction
+						</li>
+						<li>
+							Near Threatened
+							<b>(NT)</b>
+							– Close to being endangered in the near future
+						</li>
+						<li>
+							Least Concern
+							<b>(LC)</b>
+							– Widespread and abundant in the wild
+						</li>
+						<li>
+							Data Deficient
+							<b>(DD)</b>
+							– Inadequate information to assess extinction risk
+						</li>
+						<li>
+							Not Evaluated
+							<b>(NE)</b>
+							– Has not yet been assessed
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		{% if butterfly.Butterfly_Conservation_Status != "Not Evaluated" %}
+		<div class="conservation-svg gsap-hidden">
+			<div id="svgStatus" data-status="{{ status_key }}"></div>
+			<script>
+				const SVG_STATUS_FROM_DB =
+					"{{ svg_status|default_if_none:''|escapejs }}";
+			</script>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 708 200">
+				<defs>
+					<style>
+						.cls-1a {
+							fill: #717171;
+						}
+
+						.cls-1a,
+						.cls-2a,
+						.cls-3a,
+						.cls-4a,
+						.cls-5a,
+						.cls-6,
+						.cls-7,
+						.cls-8,
+						.cls-9,
+						.cls-10,
+						.cls-11,
+						.cls-12,
+						.cls-13 {
+							stroke-width: 0px;
+						}
+
+						.cls-2a {
+							fill: #fcc;
+						}
+
+						.cls-3a {
+							fill: #ffc;
+						}
+
+						.cls-4a {
+							fill: #c33;
+						}
+
+						.cls-14 {
+							isolation: isolate;
+						}
+
+						.cls-6 {
+							fill: #747071;
+						}
+
+						.cls-7 {
+							fill: #c63;
+						}
+
+						.cls-8 {
+							fill: #9c9;
+						}
+
+						.cls-9 {
+							fill: #c90;
+						}
+
+						.cls-10 {
+							fill: #fff;
+						}
+
+						.cls-11 {
+							fill: #fc9;
+						}
+
+						.cls-12 {
+							fill: #066;
+						}
+
+						.cls-13 {
+							fill: #4d4a4a;
+						}
+					</style>
+				</defs>
+				<g id="Main_Layer" data-name="Main Layer">
+					<g class="cls-14">
+						<path
+							class="cls-6"
+							d="M630.8,172c-.19,0-.32-.16-.32-.32v-21.76c0-.19.13-.32.32-.32h4.03c.19,0,.32.13.32.32v17.95h10.37c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-14.72Z"
+						/>
+						<path
+							class="cls-6"
+							d="M658.74,149.22c2.24,0,4.16.32,5.28.74.26.1.42.35.42.54v3.39c0,.32-.32.35-.67.26-1.34-.42-2.97-.58-4.7-.58-4.13,0-6.5,2.46-6.5,7.26s2.62,7.29,6.5,7.29c1.54,0,3.17-.22,4.83-.61.51-.13.7.03.7.26v3.3c0,.26-.13.48-.38.58-1.09.48-3.1.74-5.76.74-6.62,0-10.82-3.97-10.82-11.49,0-9.25,5.82-11.68,11.1-11.68Z"
+						/>
+					</g>
+					<g id="Extinct" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-13"
+								d="M4.49,72c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h14.33c.19,0,.32.13.32.32v2.02c0,.19-.13.32-.32.32H7.08v7.04h10.85c.19,0,.32.13.32.32v1.98c0,.19-.13.32-.32.32H7.08v7.42h12.06c.19,0,.32.13.32.32v2.02c0,.19-.13.32-.32.32H4.49Z"
+							/>
+							<path
+								class="cls-13"
+								d="M34.18,72c-.26,0-.45-.16-.58-.32l-4.38-6.08-4.26,6.08c-.13.16-.26.32-.51.32h-2.34c-.22,0-.38-.26-.26-.42l5.82-8.16-5.44-7.55c-.13-.19-.03-.38.29-.38h2.24c.22,0,.42.1.54.29l4.03,5.6,3.87-5.6c.13-.19.22-.29.45-.29h2.37c.29,0,.38.22.29.38l-5.44,7.65,5.76,7.97c.13.16.1.51-.29.51h-2.18Z"
+							/>
+							<path
+								class="cls-13"
+								d="M49.13,71.68c0,.16-.1.26-.26.32-.54.19-1.66.38-2.91.38-2.85,0-4.51-1.47-4.51-4.86v-9.66h-2.85c-.16,0-.29-.13-.29-.32v-1.76c0-.16.13-.29.29-.29h2.85v-3.36c0-.19.1-.32.22-.35l2.11-.74c.22-.06.38.03.38.26v4.19h4.42c.16,0,.29.13.29.29v1.76c0,.19-.13.32-.29.32h-4.42v9.18c0,2.08.77,2.85,2.34,2.85.93,0,1.76-.13,2.18-.19.22-.06.45-.06.45.19v1.79Z"
+							/>
+							<path
+								class="cls-13"
+								d="M53,51.84c-.16,0-.29-.13-.29-.32v-2.43c0-.19.13-.32.29-.32h2.53c.19,0,.32.13.32.32v2.43c0,.19-.13.32-.32.32h-2.53ZM53.22,72c-.19,0-.32-.13-.32-.32v-15.87c0-.19.13-.32.32-.32h2.08c.19,0,.32.13.32.32v15.87c0,.19-.13.32-.32.32h-2.08Z"
+							/>
+							<path
+								class="cls-13"
+								d="M72.1,72c-.19,0-.32-.13-.32-.32v-9.7c0-3.01-1.22-4.42-3.71-4.42s-4.26,1.79-4.26,5.57v8.54c0,.19-.13.32-.32.32h-2.11c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.32.13.35.29l.19,2.21c1.12-1.92,2.94-2.88,5.25-2.88,3.87,0,5.86,2.18,5.86,6.33v10.24c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M91.21,71.36c0,.16-.1.32-.32.42-.8.32-2.4.61-4.35.61-4.93,0-8.13-2.94-8.13-8.54,0-6.91,4.38-8.74,8.26-8.74,1.66,0,3.33.29,4.13.61.22.1.32.26.32.42v1.76c0,.26-.22.26-.42.22-1.09-.29-2.4-.54-3.68-.54-3.23,0-5.79,1.54-5.79,6.14,0,4.35,2.53,6.24,5.63,6.24,1.44,0,2.72-.26,3.94-.58.19-.06.42-.03.42.22v1.76Z"
+							/>
+							<path
+								class="cls-13"
+								d="M104.68,71.68c0,.16-.1.26-.26.32-.54.19-1.66.38-2.91.38-2.85,0-4.51-1.47-4.51-4.86v-9.66h-2.85c-.16,0-.29-.13-.29-.32v-1.76c0-.16.13-.29.29-.29h2.85v-3.36c0-.19.1-.32.22-.35l2.11-.74c.22-.06.38.03.38.26v4.19h4.42c.16,0,.29.13.29.29v1.76c0,.19-.13.32-.29.32h-4.42v9.18c0,2.08.77,2.85,2.34,2.85.93,0,1.76-.13,2.18-.19.22-.06.45-.06.45.19v1.79Z"
+							/>
+						</g>
+					</g>
+					<g id="Threatened" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-13"
+								d="M264.5,72c-.19,0-.32-.13-.32-.32v-19.42h-6.88c-.19,0-.32-.13-.32-.32v-2.02c0-.19.13-.32.32-.32h16.7c.19,0,.32.13.32.32v2.02c0,.19-.13.32-.32.32h-6.88v19.42c0,.19-.13.32-.32.32h-2.3Z"
+							/>
+							<path
+								class="cls-13"
+								d="M287.99,72c-.19,0-.32-.13-.32-.32v-9.7c0-3.01-1.22-4.42-3.71-4.42s-4.26,1.79-4.26,5.57v8.54c0,.19-.13.32-.32.32h-2.11c-.19,0-.32-.13-.32-.32v-22.62c0-.16.13-.29.29-.29h2.14c.16,0,.29.13.32.29v8.7c1.28-1.95,2.88-2.66,4.86-2.66,3.87,0,5.86,2.18,5.86,6.33v10.24c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M295.54,72c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.35.1.35.29l.22,2.3c.83-1.79,2.4-2.98,4.45-2.98.51,0,1.02.03,1.47.16.32.06.42.13.42.51v1.76c0,.22-.16.26-.35.22-.51-.1-1.12-.13-1.57-.13-2.37,0-4.06,1.63-4.06,5.5v8.54c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M314.29,72.38c-4.9,0-8.42-2.72-8.42-8.54s2.82-8.74,7.26-8.74c4.06,0,6.82,2.11,6.82,7.78,0,.48-.03.99-.06,1.22-.03.19-.19.32-.38.32h-10.81c.22,4,2.85,5.54,6.02,5.54,1.44,0,2.85-.26,4.06-.58.19-.06.42-.03.42.22v1.76c0,.16-.1.32-.32.42-.8.32-2.56.61-4.58.61ZM308.72,62.34h8.51c0-3.1-1.38-4.77-3.97-4.77-2.43,0-4.16,1.41-4.54,4.77Z"
+							/>
+							<path
+								class="cls-13"
+								d="M334.8,72c-.22,0-.38-.13-.42-.29l-.26-2.08c-1.09,1.95-3.23,2.75-5.5,2.75-3.14,0-5.25-1.63-5.25-4.64,0-3.26,2.08-5.06,7.04-5.28l3.46-.16v-.64c0-2.59-1.15-4.1-4.38-4.1-1.63,0-2.75.19-4.38.54-.26.06-.51.03-.51-.29v-1.63c0-.26.13-.38.35-.45,1.18-.38,3.04-.64,4.99-.64,4.74,0,6.66,2.62,6.66,6.3v10.3c0,.16-.13.29-.29.29h-1.5ZM333.87,64.38l-3.52.16c-3.01.16-4.29,1.15-4.29,2.94s1.22,2.62,3.07,2.62c2.59,0,4.74-1.7,4.74-4.77v-.96Z"
+							/>
+							<path
+								class="cls-13"
+								d="M350.51,71.68c0,.16-.1.26-.26.32-.54.19-1.66.38-2.91.38-2.85,0-4.51-1.47-4.51-4.86v-9.66h-2.85c-.16,0-.29-.13-.29-.32v-1.76c0-.16.13-.29.29-.29h2.85v-3.36c0-.19.1-.32.22-.35l2.11-.74c.22-.06.38.03.38.26v4.19h4.42c.16,0,.29.13.29.29v1.76c0,.19-.13.32-.29.32h-4.42v9.18c0,2.08.77,2.85,2.34,2.85.93,0,1.76-.13,2.18-.19.22-.06.45-.06.45.19v1.79Z"
+							/>
+							<path
+								class="cls-13"
+								d="M360.95,72.38c-4.9,0-8.42-2.72-8.42-8.54s2.82-8.74,7.26-8.74c4.06,0,6.82,2.11,6.82,7.78,0,.48-.03.99-.06,1.22-.03.19-.19.32-.38.32h-10.81c.22,4,2.85,5.54,6.02,5.54,1.44,0,2.85-.26,4.06-.58.19-.06.42-.03.42.22v1.76c0,.16-.1.32-.32.42-.8.32-2.56.61-4.58.61ZM355.38,62.34h8.51c0-3.1-1.38-4.77-3.97-4.77-2.43,0-4.16,1.41-4.54,4.77Z"
+							/>
+							<path
+								class="cls-13"
+								d="M381.97,72c-.19,0-.32-.13-.32-.32v-9.7c0-3.01-1.22-4.42-3.71-4.42s-4.26,1.79-4.26,5.57v8.54c0,.19-.13.32-.32.32h-2.11c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.32.13.35.29l.19,2.21c1.12-1.92,2.94-2.88,5.25-2.88,3.87,0,5.86,2.18,5.86,6.33v10.24c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M396.69,72.38c-4.9,0-8.42-2.72-8.42-8.54s2.82-8.74,7.26-8.74c4.06,0,6.82,2.11,6.82,7.78,0,.48-.03.99-.06,1.22-.03.19-.19.32-.38.32h-10.82c.22,4,2.85,5.54,6.02,5.54,1.44,0,2.85-.26,4.06-.58.19-.06.42-.03.42.22v1.76c0,.16-.1.32-.32.42-.8.32-2.56.61-4.58.61ZM391.12,62.34h8.51c0-3.1-1.38-4.77-3.97-4.77-2.43,0-4.16,1.41-4.54,4.77Z"
+							/>
+							<path
+								class="cls-13"
+								d="M418.96,72c-.19,0-.35-.13-.35-.29l-.22-2.18c-1.38,2.05-3.17,2.85-5.54,2.85-4.48,0-7.1-3.58-7.1-8.64,0-5.79,3.26-8.64,7.17-8.64,2.3,0,4,.99,5.12,2.62v-8.64c0-.19.13-.32.32-.32h2.11c.16,0,.29.13.29.32v22.62c0,.16-.13.29-.29.29h-1.5ZM418.1,63.78c0-4.22-1.82-6.3-4.67-6.3-3.01,0-4.86,2.21-4.86,6.3s1.86,6.24,4.86,6.24,4.67-1.92,4.67-6.24Z"
+							/>
+						</g>
+					</g>
+					<g id="Least_Concern" data-name="Least Concern" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-13"
+								d="M612.66,32c-.19,0-.32-.16-.32-.32V9.92c0-.19.13-.32.32-.32h2.27c.19,0,.32.13.32.32v19.42h11.65c.19,0,.32.13.32.32v2.02c0,.19-.13.32-.32.32h-14.24Z"
+							/>
+							<path
+								class="cls-13"
+								d="M637.46,32.38c-4.9,0-8.42-2.72-8.42-8.54s2.82-8.74,7.26-8.74c4.06,0,6.82,2.11,6.82,7.78,0,.48-.03.99-.06,1.22-.03.19-.19.32-.38.32h-10.81c.22,4,2.85,5.54,6.02,5.54,1.44,0,2.85-.26,4.06-.58.19-.06.42-.03.42.22v1.76c0,.16-.1.32-.32.42-.8.32-2.56.61-4.58.61ZM631.89,22.34h8.51c0-3.1-1.38-4.77-3.97-4.77-2.43,0-4.16,1.41-4.54,4.77Z"
+							/>
+							<path
+								class="cls-13"
+								d="M657.97,32c-.22,0-.38-.13-.42-.29l-.26-2.08c-1.09,1.95-3.23,2.75-5.5,2.75-3.14,0-5.25-1.63-5.25-4.64,0-3.26,2.08-5.06,7.04-5.28l3.46-.16v-.64c0-2.59-1.15-4.1-4.38-4.1-1.63,0-2.75.19-4.38.54-.26.06-.51.03-.51-.29v-1.63c0-.26.13-.38.35-.45,1.18-.38,3.04-.64,4.99-.64,4.74,0,6.66,2.62,6.66,6.3v10.3c0,.16-.13.29-.29.29h-1.5ZM657.05,24.38l-3.52.16c-3.01.16-4.29,1.15-4.29,2.94s1.22,2.62,3.07,2.62c2.59,0,4.74-1.7,4.74-4.77v-.96Z"
+							/>
+							<path
+								class="cls-13"
+								d="M663.77,29.54c0-.26.19-.29.42-.22,1.22.32,2.43.64,4.54.64,3.29,0,4.45-.8,4.45-2.3,0-3.81-9.25-1.57-9.25-7.78,0-2.88,1.92-4.77,6.3-4.77,1.79,0,3.74.32,4.45.61.22.1.32.26.32.42v1.76c0,.26-.22.26-.42.22-.99-.29-2.59-.54-4.29-.54-2.66,0-3.74.83-3.74,2.21,0,3.81,9.25,1.57,9.25,7.84,0,2.82-1.82,4.74-6.94,4.77-2.27,0-4.06-.35-4.77-.67-.22-.1-.32-.22-.32-.42v-1.76Z"
+							/>
+							<path
+								class="cls-13"
+								d="M688.5,31.68c0,.16-.1.26-.26.32-.54.19-1.66.38-2.91.38-2.85,0-4.51-1.47-4.51-4.86v-9.66h-2.85c-.16,0-.29-.13-.29-.32v-1.76c0-.16.13-.29.29-.29h2.85v-3.36c0-.19.1-.32.22-.35l2.11-.74c.22-.06.38.03.38.26v4.19h4.42c.16,0,.29.13.29.29v1.76c0,.19-.13.32-.29.32h-4.42v9.18c0,2.08.77,2.85,2.34,2.85.93,0,1.76-.13,2.18-.19.22-.06.45-.06.45.19v1.79Z"
+							/>
+						</g>
+						<g class="cls-14">
+							<path
+								class="cls-13"
+								d="M602.38,49.22c2.33,0,4.22.35,5.38.83.26.1.42.26.42.48v1.86c0,.32-.22.38-.54.29-1.34-.42-3.07-.74-5.09-.74-4.8,0-7.87,2.91-7.87,8.83s3.07,8.93,8.1,8.93c1.82,0,3.55-.38,5.06-.77.35-.1.48.06.48.32v1.82c0,.19-.13.38-.42.48-1.02.45-3.04.83-5.6.83-6.56,0-10.69-3.94-10.69-11.46,0-9.25,5.73-11.71,10.78-11.71Z"
+							/>
+							<path
+								class="cls-13"
+								d="M610.41,63.74c0-5.09,2.75-8.64,7.74-8.64s7.74,3.55,7.74,8.64-2.75,8.64-7.74,8.64-7.74-3.55-7.74-8.64ZM623.08,63.71c0-4.03-1.86-6.18-4.93-6.18s-4.93,2.14-4.93,6.18,1.86,6.24,4.93,6.24,4.93-2.14,4.93-6.24Z"
+							/>
+							<path
+								class="cls-13"
+								d="M641.13,72c-.19,0-.32-.13-.32-.32v-9.7c0-3.01-1.21-4.42-3.71-4.42s-4.26,1.79-4.26,5.57v8.54c0,.19-.13.32-.32.32h-2.11c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.32.13.35.29l.19,2.21c1.12-1.92,2.94-2.88,5.25-2.88,3.87,0,5.86,2.18,5.86,6.33v10.24c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M660.23,71.36c0,.16-.1.32-.32.42-.8.32-2.4.61-4.35.61-4.93,0-8.13-2.94-8.13-8.54,0-6.91,4.38-8.74,8.26-8.74,1.66,0,3.33.29,4.13.61.22.1.32.26.32.42v1.76c0,.26-.22.26-.42.22-1.09-.29-2.4-.54-3.68-.54-3.23,0-5.79,1.54-5.79,6.14,0,4.35,2.53,6.24,5.63,6.24,1.44,0,2.72-.26,3.94-.58.19-.06.42-.03.42.22v1.76Z"
+							/>
+							<path
+								class="cls-13"
+								d="M671.46,72.38c-4.9,0-8.42-2.72-8.42-8.54s2.82-8.74,7.26-8.74c4.06,0,6.81,2.11,6.81,7.78,0,.48-.03.99-.06,1.22-.03.19-.19.32-.38.32h-10.82c.22,4,2.85,5.54,6.02,5.54,1.44,0,2.85-.26,4.06-.58.19-.06.42-.03.42.22v1.76c0,.16-.1.32-.32.42-.8.32-2.56.61-4.58.61ZM665.9,62.34h8.51c0-3.1-1.38-4.77-3.97-4.77-2.43,0-4.16,1.41-4.54,4.77Z"
+							/>
+							<path
+								class="cls-13"
+								d="M681.77,72c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.35.1.35.29l.22,2.3c.83-1.79,2.4-2.98,4.45-2.98.51,0,1.02.03,1.47.16.32.06.42.13.42.51v1.76c0,.22-.16.26-.35.22-.51-.1-1.12-.13-1.57-.13-2.37,0-4.06,1.63-4.06,5.5v8.54c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+							<path
+								class="cls-13"
+								d="M704.36,72c-.19,0-.32-.13-.32-.32v-9.7c0-3.01-1.22-4.42-3.71-4.42s-4.26,1.79-4.26,5.57v8.54c0,.19-.13.32-.32.32h-2.11c-.19,0-.32-.13-.32-.32v-15.9c0-.16.13-.29.29-.29h1.54c.19,0,.32.13.35.29l.19,2.21c1.12-1.92,2.94-2.88,5.25-2.88,3.87,0,5.86,2.18,5.86,6.33v10.24c0,.19-.13.32-.32.32h-2.11Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_5"
+						data-name="Path 5"
+						class="cls-6"
+						d="M548.52,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,12.14,5.11,26.12,3.09,36.32-5.25,2-1.66,3.81-3.53,5.42-5.57,1.6-2.03,2.97-4.23,4.09-6.55,4.39-9.17,4.65-19.78.7-29.16-5.55-13.15-18.44-21.69-32.71-21.68M548.52,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<g id="NT" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M542.9,172c-.26,0-.38-.16-.45-.32l-7.74-15.07v15.07c0,.19-.13.32-.32.32h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h5.18c.26,0,.38.16.45.32l7.81,15.17v-15.17c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v21.76c0,.19-.13.32-.32.32h-5.25Z"
+							/>
+							<path
+								class="cls-6"
+								d="M558.87,172c-.19,0-.32-.13-.32-.32v-17.95h-6.72c-.19,0-.32-.13-.32-.32v-3.49c0-.19.13-.32.32-.32h18.11c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-6.72v17.95c0,.19-.13.32-.32.32h-4.03Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_6"
+						data-name="Path 6"
+						class="cls-6"
+						d="M449.52,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,18.07,7.62,38.9-.85,46.52-18.92,7.62-18.06-.84-38.87-18.88-46.5-4.37-1.85-9.07-2.8-13.82-2.79M449.52,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<g id="VU" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M436.24,172c-.16,0-.32-.13-.38-.29l-7.33-21.66c-.1-.22-.03-.45.19-.45h4.1c.16,0,.35.13.38.29l5.06,16.09,5.06-16.09c.06-.16.22-.29.38-.29h4.1c.22,0,.29.22.19.45l-7.33,21.66c-.06.16-.22.29-.38.29h-4.03Z"
+							/>
+							<path
+								class="cls-6"
+								d="M464.53,149.92c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v12.54c0,6.59-2.62,9.92-9.22,9.92s-9.21-3.33-9.21-9.92v-12.54c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v12.51c0,3.97,1.57,5.63,4.54,5.63s4.54-1.66,4.54-5.63v-12.51Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_6-2"
+						data-name="Path 6-2"
+						class="cls-6"
+						d="M350.65,124c-19.48.01-35.25,15.82-35.24,35.29.01,14.15,8.48,26.93,21.52,32.45,17.94,7.58,38.63-.82,46.21-18.76,7.58-17.94-.82-38.63-18.76-46.21-4.34-1.84-9.01-2.78-13.72-2.77M350.65,120c21.68,0,39.25,17.57,39.25,39.25s-17.57,39.25-39.25,39.25-39.25-17.57-39.25-39.25c0-21.68,17.57-39.25,39.25-39.25h0Z"
+					/>
+					<g id="EN" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M332.05,171c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+							/>
+							<path
+								class="cls-6"
+								d="M364.44,171c-.26,0-.38-.16-.45-.32l-7.74-15.07v15.07c0,.19-.13.32-.32.32h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h5.18c.26,0,.38.16.45.32l7.81,15.17v-15.17c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v21.76c0,.19-.13.32-.32.32h-5.25Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_5-2"
+						data-name="Path 5-2"
+						class="cls-6"
+						d="M251.52,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,18.07,7.62,38.9-.85,46.52-18.92,7.62-18.06-.84-38.87-18.88-46.5-4.37-1.85-9.07-2.8-13.82-2.79M251.52,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<g id="CR" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M243.35,149.22c2.24,0,4.16.32,5.28.74.26.1.42.35.42.54v3.39c0,.32-.32.35-.67.26-1.34-.42-2.98-.58-4.7-.58-4.13,0-6.5,2.46-6.5,7.26s2.62,7.29,6.5,7.29c1.54,0,3.17-.22,4.83-.61.51-.13.7.03.7.26v3.3c0,.26-.13.48-.38.58-1.09.48-3.1.74-5.76.74-6.62,0-10.81-3.97-10.81-11.49,0-9.25,5.82-11.68,11.1-11.68Z"
+							/>
+							<path
+								class="cls-6"
+								d="M258.58,172h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h9.31c5.41,0,7.71,2.82,7.71,6.62,0,3.01-1.31,5.7-4.83,6.66l5.31,8.67c.19.26.06.45-.13.45h-4.61c-.19,0-.42-.1-.51-.26l-4.48-7.84h-3.42v7.78c0,.19-.13.32-.32.32ZM263.26,159.75c2.14,0,3.39-1.09,3.39-2.94s-1.18-3.1-3.39-3.1h-4.35v6.05h4.35Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_6-3"
+						data-name="Path 6-3"
+						class="cls-6"
+						d="M152.52,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,18.07,7.62,38.9-.85,46.52-18.92,7.62-18.06-.84-38.87-18.88-46.5-4.37-1.85-9.07-2.8-13.82-2.79M152.52,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<g id="EW" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M131.17,172c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+							/>
+							<path
+								class="cls-6"
+								d="M166.88,172c-.13,0-.26-.13-.32-.29l-3.71-13.31-3.68,13.31c-.06.16-.19.29-.32.29h-4.16c-.13,0-.26-.13-.29-.29l-5.76-21.66c-.1-.29.06-.45.22-.45h4.16c.1,0,.26.13.29.29l3.46,14.27,3.78-14.27c.03-.16.22-.29.35-.29h3.97c.13,0,.29.13.32.29l3.78,14.27,3.46-14.27c.06-.16.19-.29.29-.29h4.13c.26,0,.32.19.26.45l-5.76,21.66c-.03.16-.16.29-.29.29h-4.16Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_6-4"
+						data-name="Path 6-4"
+						class="cls-6"
+						d="M53.52,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,18.07,7.62,38.9-.85,46.52-18.92,7.62-18.06-.84-38.87-18.88-46.5-4.37-1.85-9.07-2.8-13.82-2.79M53.52,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<g id="EX" class="cls-14">
+						<g class="cls-14">
+							<path
+								class="cls-6"
+								d="M35.65,172c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+							/>
+							<path
+								class="cls-6"
+								d="M68.9,172c-.26,0-.45-.22-.58-.45l-4.74-7.17-4.74,7.17c-.13.22-.32.45-.58.45h-4.58c-.19,0-.45-.19-.26-.51l7.3-10.88-6.94-10.59c-.13-.19-.03-.42.16-.42h4.74c.22,0,.35.06.58.42l4.32,6.75,4.32-6.75c.22-.35.35-.42.58-.42h4.74c.19,0,.29.22.16.42l-6.94,10.59,7.3,10.88c.19.32-.06.51-.26.51h-4.58Z"
+							/>
+						</g>
+					</g>
+					<path
+						id="Path_7"
+						data-name="Path 7"
+						class="cls-6"
+						d="M53.77,111.58c-1.1,0-2-.9-2-2v-25.08c0-1.1.9-2,2-2s2,.9,2,2v25.08c0,1.1-.9,2-2,2Z"
+					/>
+					<path
+						id="Path_8"
+						data-name="Path 8"
+						class="cls-6"
+						d="M647.77,111.58c-1.1,0-2-.9-2-2v-25.08c0-1.1.9-2,2-2s2,.9,2,2v25.08c0,1.1-.9,2-2,2Z"
+					/>
+					<path
+						id="Path_5-2"
+						data-name="Path 5"
+						class="cls-6"
+						d="M647.77,124c-19.61.01-35.5,15.92-35.49,35.54.01,14.25,8.54,27.12,21.67,32.68,12.14,5.11,26.12,3.09,36.32-5.25,2-1.66,3.81-3.53,5.42-5.57,1.6-2.03,2.97-4.23,4.09-6.55,4.39-9.17,4.65-19.78.7-29.16-5.55-13.15-18.44-21.69-32.71-21.68M647.77,120c21.82,0,39.5,17.68,39.5,39.5s-17.68,39.5-39.5,39.5-39.5-17.68-39.5-39.5,17.68-39.5,39.5-39.5Z"
+					/>
+					<path
+						class="cls-1a"
+						d="M213.48,106.28c4.02-9.37,12.32-11.13,21.52-11.14,32.32-.03,64.64-.08,96.96.04,7.02.03,13.15-1.29,17.31-7.78,4.12,6.65,10.38,7.79,17.37,7.77,32.32-.09,64.64-.15,96.96.08,4.68.03,9.52,1.21,13.98,2.72,4.32,1.46,6.59,5.03,6.73,10.2-7.51-5.36-15.68-5.87-24.13-5.84-31.99.13-63.97-.02-95.96.11-6.28.03-11.52-1.27-15.04-7.2-3.13,5.74-8.08,7.2-14.09,7.18-33.99-.09-67.97-.06-101.96-.03-7.36,0-14.14,1.72-19.64,6.78v-2.89Z"
+					/>
+				</g>
+				<g id="Status">
+					<g id="LC" data-status="LC">
+						<path
+							id="Path_3"
+							data-name="Path 3"
+							class="cls-12"
+							d="M647.77,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="LC-2" data-name="LC" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-10"
+									d="M630.8,172c-.19,0-.32-.16-.32-.32v-21.76c0-.19.13-.32.32-.32h4.03c.19,0,.32.13.32.32v17.95h10.37c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-14.72Z"
+								/>
+								<path
+									class="cls-10"
+									d="M658.74,149.22c2.24,0,4.16.32,5.28.74.26.1.42.35.42.54v3.39c0,.32-.32.35-.67.26-1.34-.42-2.97-.58-4.7-.58-4.13,0-6.5,2.46-6.5,7.26s2.62,7.29,6.5,7.29c1.54,0,3.17-.22,4.83-.61.51-.13.7.03.7.26v3.3c0,.26-.13.48-.38.58-1.09.48-3.1.74-5.76.74-6.62,0-10.82-3.97-10.82-11.49,0-9.25,5.82-11.68,11.1-11.68Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="NT" data-name="NT" data-status="NT">
+						<path
+							id="Path_3-2"
+							data-name="Path 3"
+							class="cls-12"
+							d="M548.52,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="NT-3" data-name="NT" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-8"
+									d="M542.9,172c-.26,0-.38-.16-.45-.32l-7.74-15.07v15.07c0,.19-.13.32-.32.32h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h5.18c.26,0,.38.16.45.32l7.81,15.17v-15.17c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v21.76c0,.19-.13.32-.32.32h-5.25Z"
+								/>
+								<path
+									class="cls-8"
+									d="M558.87,172c-.19,0-.32-.13-.32-.32v-17.95h-6.72c-.19,0-.32-.13-.32-.32v-3.49c0-.19.13-.32.32-.32h18.11c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-6.72v17.95c0,.19-.13.32-.32.32h-4.03Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="VU" data-name="VU" data-status="VU">
+						<path
+							id="Path_3-3"
+							data-name="Path 3"
+							class="cls-9"
+							d="M449.52,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="VU-3" data-name="VU" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-3a"
+									d="M436.24,172c-.16,0-.32-.13-.38-.29l-7.33-21.66c-.1-.22-.03-.45.19-.45h4.1c.16,0,.35.13.38.29l5.06,16.09,5.06-16.09c.06-.16.22-.29.38-.29h4.1c.22,0,.29.22.19.45l-7.33,21.66c-.06.16-.22.29-.38.29h-4.03Z"
+								/>
+								<path
+									class="cls-3a"
+									d="M464.53,149.92c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v12.54c0,6.59-2.62,9.92-9.22,9.92s-9.21-3.33-9.21-9.92v-12.54c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v12.51c0,3.97,1.57,5.63,4.54,5.63s4.54-1.66,4.54-5.63v-12.51Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="EN" data-name="EN" data-status="EN">
+						<path
+							id="Path_3-4"
+							data-name="Path 3"
+							class="cls-7"
+							d="M350.65,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="EN-3" data-name="EN" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-11"
+									d="M332.05,171c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+								/>
+								<path
+									class="cls-11"
+									d="M364.44,171c-.26,0-.38-.16-.45-.32l-7.74-15.07v15.07c0,.19-.13.32-.32.32h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h5.18c.26,0,.38.16.45.32l7.81,15.17v-15.17c0-.16.13-.32.32-.32h4.03c.19,0,.32.16.32.32v21.76c0,.19-.13.32-.32.32h-5.25Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="CR" data-name="CR" data-status="CR">
+						<path
+							id="Path_3-5"
+							data-name="Path 3"
+							class="cls-4a"
+							d="M251.52,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="CR-3" data-name="CR" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-2a"
+									d="M243.35,149.22c2.24,0,4.16.32,5.28.74.26.1.42.35.42.54v3.39c0,.32-.32.35-.67.26-1.34-.42-2.98-.58-4.7-.58-4.13,0-6.5,2.46-6.5,7.26s2.62,7.29,6.5,7.29c1.54,0,3.17-.22,4.83-.61.51-.13.7.03.7.26v3.3c0,.26-.13.48-.38.58-1.09.48-3.1.74-5.76.74-6.62,0-10.81-3.97-10.81-11.49,0-9.25,5.82-11.68,11.1-11.68Z"
+								/>
+								<path
+									class="cls-2a"
+									d="M258.58,172h-4.03c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h9.31c5.41,0,7.71,2.82,7.71,6.62,0,3.01-1.31,5.7-4.83,6.66l5.31,8.67c.19.26.06.45-.13.45h-4.61c-.19,0-.42-.1-.51-.26l-4.48-7.84h-3.42v7.78c0,.19-.13.32-.32.32ZM263.26,159.75c2.14,0,3.39-1.09,3.39-2.94s-1.18-3.1-3.39-3.1h-4.35v6.05h4.35Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="EW" data-name="EW" data-status="EW">
+						<path
+							id="Path_3-6"
+							data-name="Path 3"
+							class="cls-5a"
+							d="M152.52,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="EW-3" data-name="EW" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-10"
+									d="M131.17,172c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+								/>
+								<path
+									class="cls-10"
+									d="M166.88,172c-.13,0-.26-.13-.32-.29l-3.71-13.31-3.68,13.31c-.06.16-.19.29-.32.29h-4.16c-.13,0-.26-.13-.29-.29l-5.76-21.66c-.1-.29.06-.45.22-.45h4.16c.1,0,.26.13.29.29l3.46,14.27,3.78-14.27c.03-.16.22-.29.35-.29h3.97c.13,0,.29.13.32.29l3.78,14.27,3.46-14.27c.06-.16.19-.29.29-.29h4.13c.26,0,.32.19.26.45l-5.76,21.66c-.03.16-.16.29-.29.29h-4.16Z"
+								/>
+							</g>
+						</g>
+					</g>
+					<g id="EX" data-name="EX" data-status="EX">
+						<path
+							id="Path_3-7"
+							data-name="Path 3"
+							class="cls-5a"
+							d="M53.52,123.5c19.88,0,36,16.12,36,36s-16.12,36-36,36-36-16.12-36-36,16.12-36,36-36Z"
+						/>
+						<g id="EX-3" data-name="EX" class="cls-14">
+							<g class="cls-14">
+								<path
+									class="cls-4a"
+									d="M35.65,172c-.19,0-.32-.13-.32-.32v-21.76c0-.16.13-.32.32-.32h15.04c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.69v4.83h10.05c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-10.05v5.18h11.01c.19,0,.32.13.32.32v3.49c0,.19-.13.32-.32.32h-15.36Z"
+								/>
+								<path
+									class="cls-4a"
+									d="M68.9,172c-.26,0-.45-.22-.58-.45l-4.74-7.17-4.74,7.17c-.13.22-.32.45-.58.45h-4.58c-.19,0-.45-.19-.26-.51l7.3-10.88-6.94-10.59c-.13-.19-.03-.42.16-.42h4.74c.22,0,.35.06.58.42l4.32,6.75,4.32-6.75c.22-.35.35-.42.58-.42h4.74c.19,0,.29.22.16.42l-6.94,10.59,7.3,10.88c.19.32-.06.51-.26.51h-4.58Z"
+								/>
+							</g>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</div>
+		{% endif %}
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const svgStatus = SVG_STATUS_FROM_DB.toUpperCase();
+
+			console.log('SVG Status from DB:', svgStatus);
+
+			if (!svgStatus) {
+				console.warn('No conservation status provided from DB.');
+				return;
+			}
+
+			// Find the <g id="Status"> container
+			const statusGroup = document.querySelector('#Status');
+			if (!statusGroup) {
+				console.warn('SVG group #Status not found.');
+				return;
+			}
+
+			// Find all children that define a conservation status
+			const statusItems = statusGroup.querySelectorAll('[data-status]');
+
+			statusItems.forEach((item) => {
+				const thisStatus = item.getAttribute('data-status');
+
+				if (thisStatus === svgStatus) {
+					console.log('Showing:', thisStatus);
+					item.style.display = 'inline'; // SHOW this status
+				} else {
+					item.style.display = 'none'; // HIDE others
+				}
+			});
+		});
+	</script>
+	<div class="media-box">
+		<div class="media-boxrow1">
+
+			<!-- Photo link -->
+			{% if butterfly.Butterfly_Image1 %}
+			<a
+				href="{% url 'butterfly_gallery' butterfly.id %}?type=photo"
+				class="media-box1"
+			>
+				<div class="icon gsap-hidden">
+					<img src="{% static 'img/photo.png' %}" alt="View photos" />
+				</div>
+				<div class="media-head gsap-hidden">See Photo</div>
+			</a>
+			{% endif %}
+
+			<!-- Video link -->
+			{% if butterfly.Butterfly_Video %}
+			<a
+				href="{% url 'butterfly_gallery' butterfly.id %}?type=video"
+				class="media-box1"
+			>
+				<div class="icon gsap-hidden">
+					<img src="{% static 'img/video.png' %}" alt="Watch video" />
+				</div>
+				<div class="media-head gsap-hidden">Watch Video</div>
+			</a>
+			{% endif %}
+		</div>
+	</div>
+</div>
+<div class="bird-page-girl hide-on-mobile">
+	<video loop playsinline preload="auto">
+		<source src="{% static 'video/Butterfly-girl.webm' %}" type="video/webm" />
+	</video>
+</div>
+<div class="butterfly-page-girl hide-on-mobile">
+	<video autoplay muted loop playsinline poster="{% static 'img/butterflypage-bg.webp' %}">
+		<source src="{% static 'video/butterflypage-bg.webm' %}" type="video/webm" />
+	</video>
+</div>
+
+<div class="butterfly-page-main-bg hide-on-mobile">
+	<img src="{% static 'img/Butterfly-bg.png' %}" />
+</div>
+<div class="butterfly-bottom-flow">
+<div class="bottom-box">
+	<div class="bottom-box-col">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/General.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">GENERAL DESCRIPTION</div>
+		<div class="fade-section Info-detail-text3">
+			{{ butterfly.Butterfly_Description|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+	<div class="bottom-box-col">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Behaviour.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">BEHAVIOUR</div>
+		<div class="fade-section Info-detail-text3">
+			{{ butterfly.Butterfly_Behaviour|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+	<div class="bottom-box-col">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Migration2.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">MIGRATION</div>
+		<div class="fade-section Info-detail-text3">
+			{{ butterfly.Butterfly_Migration|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+	<div class="bottom-box-col hide-on-mobile"></div>
+</div>
+{% if butterfly.Butterfly_Image2 %}
+<div class="butterfly-second-img">
+    <img src="{{ butterfly.Butterfly_Image2.url }}" alt="{{ butterfly.Butterfly_Name }} wing detail" />
+</div>
+{% endif %}
+<div class="bottom-box2">
+	<div class="bottom-box-col2">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Nesting2.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">NESTING & MATING</div>
+		<div class="fade-section Info-detail-text3">
+			{{ butterfly.Butterfly_Nesting_Mating|linebreaks }}
+		</div>
+	</div>
+	<div class="bottom-box-col2">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Evolution.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">EVOLUTIONARY ADAPTATIONS</div>
+		<div class="fade-section Info-detail-text4" data-target="PlumageText">
+			{{ butterfly.Butterfly_Evolutionary_Adaptations|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+	<div class="bottom-box-col2">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Feeding.png' %}" />
+		</div>
+		<div class="fade-section Info-title">DIET & FEEDING BEHAVIOUR</div>
+		<div class="fade-section Info-detail-text4" data-target="DietText">
+			{{ butterfly.Butterfly_Feeding_Behaviour|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+	<div class="bottom-box-col2">
+		<div class="fadeUpOnScroll bottom-box-icon">
+			<img src="{% static 'img/Habitat2.png' %}" />
+		</div>
+		<div class="fade-section Bottom-Info-title">HABITAT</div>
+		<div class="fade-section Info-detail-text4" data-target="HabitatText">
+			{{ butterfly.Butterfly_Habitat|linebreaks }}
+		</div>
+		<span class="fade-section read-more-btn">Read more</span>
+	</div>
+</div>
+</div>
+<div class="fadeUpOnScroll bird-bottombox">
+	<div class="bird-bootombox-col">
+		<div class="doyouknow">
+			<div class="fadeUpOnScroll doyouknowimg">
+				<img src="{% static 'img/doyouknow.png' %}" alt="DO YOU KNOW?" />
+			</div>
+			<div class="doyouknow-text">
+				<div class="fade-section earthchallenge-text">DO YOU KNOW?</div>
+				<div class="fade-section doyouknow-detail">
+					{{ butterfly.Butterfly_Fun_Facts }}
+				</div>
+			</div>
+		</div>
+		<div class="bird-bootombox-border">
+			<img src="{% static 'img/Border.png' %}" />
+		</div>
+	</div>
+	<div class="bird-bootombox-col">
+		<div class="doyouknow">
+			<div class="fadeUpOnScroll doyouknowimg">
+				<img src="{% static 'img/Q&A_1.png' %}" alt="DO YOU KNOW?" />
+			</div>
+			<div class="doyouknow-text">
+				<div class="fade-section earthchallenge-text">EARTH CHALLENGE</div>
+
+				<div class="fade-section doyouknow-detail">
+					{{ butterfly.Butterfly_Quiz_Question }}
+
+					<div class="radio-container">
+						<label>
+							<input type="radio" name="mcq" value="A" />
+							<span class="custom-radio"></span>
+							{{ butterfly.Butterfly_Quiz_OptionA }}
+						</label>
+
+						<label>
+							<input type="radio" name="mcq" value="B" />
+							<span class="custom-radio"></span>
+							{{ butterfly.Butterfly_Quiz_OptionB }}
+						</label>
+
+						<label>
+							<input type="radio" name="mcq" value="C" />
+							<span class="custom-radio"></span>
+							{{ butterfly.Butterfly_Quiz_OptionC }}
+						</label>
+
+						<label>
+							<input type="radio" name="mcq" value="D" />
+							<span class="custom-radio"></span>
+							{{ butterfly.Butterfly_Quiz_OptionD }}
+						</label>
+					</div>
+
+					<button id="mcq-submit" class="mcq-submit" disabled>SUBMIT</button>
+				</div>
+
+				<!-- ✅ Correct animation -->
+				<video
+					id="mcq-correct-video"
+					class="mcq-video"
+					src="{% static 'video/correct.mp4' %}"
+					playsinline
+					preload="auto"
+				></video>
+
+				<!-- ❌ Wrong animation -->
+				<video
+					id="mcq-wrong-video"
+					class="mcq-video"
+					src="{% static 'video/Wrong.mp4' %}"
+					playsinline
+					preload="auto"
+				></video>
+			</div>
+		</div>
+		<div class="bird-bootombox-border">
+			<img src="{% static 'img/Border.png' %}" />
+		</div>
+	</div>
+</div>
+<div data-page-music="{% static 'audio/Birdpage.mp3' %}"></div>
+
+<script>
+	const video = document.getElementById('birdVideo');
+
+	video.addEventListener('click', () => {
+		if (video.paused) {
+			video.play();
+		} else {
+			video.pause();
+		}
+	});
+</script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		document.querySelectorAll('.bottom-box-col, .bottom-box-col2').forEach((block) => {
+			const textDiv = block.querySelector('.Info-detail-text3, .Info-detail-text4');
+			const btn = block.querySelector('.read-more-btn');
+
+			// Mobile accordion: responsive.css hides these sections and shows
+			// a +/- icon via .bottom-box-col(2)::after, driven by an "open"
+			// class on the row. Nothing was ever wiring that class up.
+			block.addEventListener('click', (e) => {
+				if (e.target.closest('.read-more-btn')) return;
+				block.classList.toggle('open');
+			});
+
+			if (!textDiv || !btn) return;
+
+			// Get computed styles
+			const style = window.getComputedStyle(textDiv);
+			const lineHeight = parseFloat(style.lineHeight);
+
+			if (!lineHeight) return;
+
+			// Calculate number of lines
+			const totalLines = Math.round(textDiv.scrollHeight / lineHeight);
+
+			// Hide button if not needed
+			if (totalLines <= 6) {
+				btn.style.display = 'none';
+				return;
+			}
+
+			// Toggle expand / collapse
+			btn.addEventListener('click', () => {
+				const expanded = textDiv.classList.toggle('expanded');
+				btn.textContent = expanded ? 'Close' : 'Read more';
+			});
+		});
+	});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const containers = document.querySelectorAll('.Info-detail-text2');
+
+		containers.forEach((container) => {
+			const trigger = container.querySelector('.iucn-trigger');
+			const closeBtn = container.querySelector('.iucn-close');
+			const popup = container.querySelector('.iucn-popup');
+
+			if (trigger) {
+				trigger.addEventListener('click', function (e) {
+					e.stopPropagation();
+
+					// Close other popups
+					containers.forEach((c) => c.classList.remove('active'));
+
+					// Open this one
+					container.classList.add('active');
+				});
+			}
+
+			if (closeBtn) {
+				closeBtn.addEventListener('click', function (e) {
+					e.stopPropagation();
+					container.classList.remove('active');
+				});
+			}
+
+			// Prevent clicks inside popup from closing it
+			if (popup) {
+				popup.addEventListener('click', function (e) {
+					e.stopPropagation();
+				});
+			}
+		});
+
+		// ✅ Clicking anywhere outside closes all
+		document.addEventListener('click', function () {
+			containers.forEach((c) => c.classList.remove('active'));
+		});
+	});
+</script>
+
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<script>
+	/* ---------------------------------------------------
+   HIDE PAGE UNTIL GSAP IS READY
+--------------------------------------------------- */
+	document.documentElement.classList.add('loading');
+
+	document.addEventListener('DOMContentLoaded', () => {
+		gsap.registerPlugin(ScrollTrigger);
+
+		requestAnimationFrame(() => {
+			// Reveal page
+			gsap.set('body', { visibility: 'visible' });
+			document.documentElement.classList.remove('loading');
+
+			/* ---------------------------------------------------
+       MASTER TIMELINE
+    --------------------------------------------------- */
+			const master = gsap.timeline({
+				defaults: { ease: 'power3.out' },
+			});
+
+			/* STEP 1 — TEXT SLIDE UP */
+			master.fromTo(
+				'.inner2',
+				{ yPercent: 100, opacity: 0 },
+				{ yPercent: 0, opacity: 1, duration: 0.6 },
+			);
+
+			/* STEP 2 — BOX FADE INS */
+			master
+				.fromTo(
+					'.Scientific_name',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6 },
+					'-=0.3',
+				)
+				.fromTo(
+					'.Other_names',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6 },
+					'<',
+				)
+
+				.fromTo(
+					'.Info-titles .Info-title',
+					{ opacity: 0 },
+					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+					0.6,
+				)
+
+				.fromTo(
+					'.Info-details .Info-detail',
+					{ opacity: 0 },
+					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+					0.6,
+				)
+
+				.fromTo(
+					'.Info-details-text .Info-detail-text',
+					{ opacity: 0 },
+					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+					0.6,
+				)
+
+				.fromTo(
+					'.Birdpage-secondbox_1 .Info-title',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6, stagger: 0.3 },
+					0.6,
+				)
+
+				.fromTo(
+					'.Info-detail-text2',
+					{ opacity: 0 },
+					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+					0.6,
+				)
+
+				.fromTo(
+					'.Info-detail-text6',
+					{ opacity: 0 },
+					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.15 },
+					0.9,
+				)
+
+				.fromTo(
+					'.bird-map',
+					{ opacity: 0 },
+					{ opacity: 1, duration: 0.6, stagger: 0.15 },
+					0.6,
+				)
+
+				.fromTo(
+					'.birdanimationbox',
+					{ opacity: 0, y: 40, scale: 0.7 },
+					{ opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(2.5)' },
+					0.7,
+				)
+
+				.fromTo(
+					'.conservation-svg',
+					{ opacity: 0, scale: 0.9 },
+					{ opacity: 1, duration: 0.6 },
+					0.9,
+				)
+
+				.fromTo(
+					'.icon',
+					{ opacity: 0, scale: 0.9 },
+					{ opacity: 1, duration: 0.6, stagger: 0.15 },
+					0.9,
+				)
+
+				.fromTo(
+					'.media-head',
+					{ opacity: 0, scale: 0.9 },
+					{ opacity: 1, duration: 0.6 },
+					0.9,
+				)
+
+				.fromTo(
+					'.butterfly-page-main-bg',
+					{ opacity: 0, y: 50 },
+					{ opacity: 1, y: 0, duration: 0.6 },
+					0.9,
+				);
+
+			/* ---------------------------------------------------
+       SCROLL ANIMATIONS
+    --------------------------------------------------- */
+			gsap.utils.toArray('.reveal').forEach((el) => {
+				gsap.from(el, {
+					opacity: 0,
+					scale: 0.95,
+					duration: 1.4,
+					ease: 'expo.out',
+					scrollTrigger: {
+						trigger: el,
+						start: 'top 85%',
+						end: 'top 30%',
+						toggleActions: 'play none none none',
+						once: true,
+					},
+				});
+			});
+
+			gsap.utils.toArray('.fade-section').forEach((el) => {
+				gsap.from(el, {
+					opacity: 0,
+					y: 50,
+					duration: 0.6,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: el,
+						start: 'top 85%',
+						end: 'top 30%',
+						toggleActions: 'play none none none',
+						once: true,
+					},
+				});
+			});
+
+			gsap.utils.toArray('.btn-fill-circle').forEach((btn) => {
+				gsap
+					.timeline({
+						scrollTrigger: {
+							trigger: btn,
+							start: 'top 85%',
+							end: 'top 30%',
+							toggleActions: 'play none none none',
+							once: true,
+						},
+					})
+					.fromTo(
+						btn,
+						{ '--circle': 0 },
+						{ '--circle': 1.2, duration: 0.7, ease: 'power2.out' },
+					);
+			});
+			gsap.utils.toArray('.fadeUpOnScroll').forEach((el) => {
+				gsap.fromTo(
+					el,
+					{
+						opacity: 0,
+						y: 50,
+						visibility: 'hidden',
+					},
+					{
+						opacity: 1,
+						y: 0,
+						visibility: 'visible',
+						duration: 0.6,
+						ease: 'power3.out',
+						scrollTrigger: {
+							trigger: el,
+							start: 'top 85%',
+							end: 'top 30%',
+							toggleActions: 'play none none none',
+							once: true,
+						},
+					},
+				);
+			});
+		});
+	});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const trigger = document.querySelector('.bird-audio-trigger');
+		const audio = document.getElementById('birdCallAudio');
+		const video = document.querySelector('.bird-audio-video');
+
+		if (!trigger || !audio || !video) return;
+
+		let unlocked = false;
+		let isPlaying = false;
+
+		/* 🔓 Unlock audio (browser autoplay policy) */
+		function unlockAudio() {
+			if (unlocked) return;
+
+			audio.volume = 0.9;
+			audio
+				.play()
+				.then(() => {
+					audio.pause();
+					audio.currentTime = 0;
+					unlocked = true;
+				})
+				.catch(() => {});
+
+			document.removeEventListener('pointerdown', unlockAudio, true);
+		}
+		document.addEventListener('pointerdown', unlockAudio, true);
+
+		/* ⏹ HARD STOP (audio + animation) */
+		function hardStopBirdMedia() {
+			isPlaying = false;
+			trigger.classList.remove('is-playing');
+
+			// Stop audio
+			audio.pause();
+			audio.currentTime = 0;
+
+			// Stop animation video (DO NOT call load)
+			video.pause();
+			video.currentTime = 0;
+			video.removeAttribute('loop');
+		}
+
+		/* ▶️ / ⏸ Toggle play */
+		trigger.addEventListener('click', () => {
+			if (!unlocked) return;
+
+			if (!isPlaying) {
+				isPlaying = true;
+				trigger.classList.add('is-playing');
+
+				video.setAttribute('loop', '');
+				audio.play().catch(() => {});
+				video.play().catch(() => {});
+			} else {
+				hardStopBirdMedia();
+			}
+		});
+
+		/* ⏹ When audio ends */
+		audio.addEventListener('ended', hardStopBirdMedia);
+
+		/* 👀 Stop if trigger goes off screen */
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (!entry.isIntersecting && isPlaying) {
+					hardStopBirdMedia();
+				}
+			},
+			{ threshold: 0.2 },
+		);
+		observer.observe(trigger);
+
+		/* 🚪 STOP immediately when navigating to gallery pages */
+		document.querySelectorAll('a[href*="bird_gallery"]').forEach((link) => {
+			link.addEventListener('pointerdown', hardStopBirdMedia, true);
+			link.addEventListener('click', hardStopBirdMedia, true);
+		});
+
+		/* 🚨 STOP on page navigation / tab switch */
+		window.addEventListener('beforeunload', hardStopBirdMedia);
+		document.addEventListener('visibilitychange', () => {
+			if (document.hidden) {
+				hardStopBirdMedia();
+			}
+		});
+	});
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const submitBtn = document.getElementById('mcq-submit');
+		const correctAnswer = '{{ butterfly.Butterfly_Quiz_Correct }}';
+
+		const correctVideo = document.getElementById('mcq-correct-video');
+		const wrongVideo = document.getElementById('mcq-wrong-video');
+		const radios = document.querySelectorAll('input[name="mcq"]');
+
+		// Enable submit button as soon as any option is picked
+		radios.forEach((radio) => {
+			radio.addEventListener('change', () => {
+				submitBtn.disabled = false;
+			});
+		});
+
+		submitBtn.addEventListener('click', () => {
+			const selected = document.querySelector('input[name="mcq"]:checked');
+			if (!selected) return;
+
+			// Check answer
+			const isCorrect = selected.value === correctAnswer;
+
+			if (isCorrect) {
+				playVideo(correctVideo);
+			} else {
+				playVideo(wrongVideo);
+			}
+
+			// Note: We do NOT disable radios or the button here,
+			// allowing the user to select and submit again immediately.
+		});
+
+		function playVideo(videoToPlay) {
+			// Reset and hide both videos first
+			[correctVideo, wrongVideo].forEach((v) => {
+				v.pause();
+				v.currentTime = 0;
+				v.classList.remove('show');
+			});
+
+			// Show and play the requested video
+			videoToPlay.classList.add('show');
+			videoToPlay.play().catch((e) => console.log('Autoplay prevented:', e));
+		}
+	});
+</script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const bgVideo = document.getElementById('birdBgVideo');
+		if (!bgVideo) return;
+
+		function resumeBgVideo() {
+			// 🚫 Don't autoplay if ScrollTrigger is controlling it
+			if (!ScrollTrigger) return;
+
+			const trigger = ScrollTrigger.getById('birdBgTrigger');
+			if (trigger && trigger.isActive) {
+				bgVideo.play().catch(() => {});
+			}
+		}
+
+		window.addEventListener('pageshow', resumeBgVideo);
+	});
+</script>
+
+{% endblock %}

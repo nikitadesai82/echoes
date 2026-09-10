@@ -106,6 +106,9 @@
               <a href="{% url 'birds_list' %}" class="menu-item">
                 Birds of Hiranandani Estate
               </a>
+							<a href="{% url 'butterfly_list' %}" class="menu-item">
+									Butterflies of Hiranandani Estate
+								</a>
               <a href="{% url 'flora_list' %}" class="menu-item">
                 Flora of Hiranandani Estate
               </a>
@@ -180,7 +183,7 @@
               <span>— Leonardo da Vinci</span>
             </div>
             <div class="fade-section left_2">
-              <span class="inner2">Echoes of Nature</span>
+              <span>Echoes of Nature</span>
             </div>
             <div class="fade-section left_3">
               <div class="play-button">
@@ -384,7 +387,7 @@
 
               <audio
                 id="audioPlayer"
-                src="{% static 'audio/Echoes of Nature.wav' %}"
+                src="{% static 'Audio/Echoes of Nature.wav' %}"
               ></audio>
             </div>
           </div>
@@ -427,7 +430,6 @@
               <div class="fade-section video-text-3">
                 <span>
                   Meet the colourful, feathered residents
-                  <br />
                   and discover more about them.
                 </span>
               </div>
@@ -439,7 +441,7 @@
             travelled thousands of miles to spend the winter here.
           </div>
           </div>
-          
+
           <div class="right_3">
             <a href="{% url 'flora_list' %}" class="media-link">
               <div class="bird-video bounce-up">
@@ -451,7 +453,7 @@
               <div class="fade-section video-text">COME MEET</div>
 
               <div class="video-text2 btn-fill-left">
-                <span class="inner2">THE GREEN GIANTS!</span>
+                <span>THE GREEN GIANTS!</span>
               </div>
 
               <div class="fade-section video-text-3">
@@ -469,7 +471,36 @@
           </div>
           </div>
 
-          
+					<div class="right_3">
+            <a href="{% url 'butterfly_list' %}" class="media-link">
+              <div class="bird-video bounce-up">
+                <div class="video-container">
+                  <img src="{% static 'img/Butterfly-button.png' %}">
+                </div>
+              </div>
+
+              <div class="fade-section video-text">COME DISCOVER</div>
+
+              <div class="video-text2 btn-fill-left">
+                <span>WHO'S FLUTTERING?</span>
+              </div>
+
+              <div class="fade-section video-text-3">
+                <span>
+                  Get to know the dazzling butterflies, from tiny
+										blues to giant swallowtails.
+                </span>
+              </div>
+            </a>
+						<div class="fade-section right_4">
+           Several species of butterfly flutter through these gardens here and pathways. Come, find out which one’s have crossed an ocean to meet you, which can mimic a dead leaf and which beauty is the State Butterfly of Maharashtra.
+
+          </div>
+          </div>
+
+
+
+
         </div>
       </div>
       <div class="middle-section">
@@ -690,6 +721,9 @@
         <div class="footerwebcol2_2"><a href="{% url 'home' %}">Home</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Deepdive' %}">Echoes of Nature</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'birds_list' %}">Birds of Hiranandani, Thane</a></div>
+				<div class="footerwebcol2_3"><a href="{% url 'butterfly_list' %}">
+									Butterflies of Hiranandani Estate
+								</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'flora_list' %}">Trees of Hiranandani, Thane</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Naturetrail' %}">Nature Trail</a></div>
         <div class="footerwebcol2_3"><a href="{% url 'Birdwatching' %}">Birdwatching</a></div>
@@ -707,30 +741,39 @@
         <div class="footerwebcol4">
           <div class="footerwebcol2_1">CONNECT WITH US</div>
           <div class="footer-icons">
-          <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
-						<div class="footer-icon">
-							<img src="{% static 'img/Facebook.png' %}" alt="Facebook" />
-						</div>
-					</a>
-
-					<a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
-						<div class="footer-icon">
-							<img src="{% static 'img/Instagram.png' %}" alt="Instagram" />
-						</div>
-					</a>
-
-					<a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
-						<div class="footer-icon">
-							<img src="{% static 'img/Youtube.png' %}" alt="YouTube" />
-						</div>
-					</a>
-
-					<a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
-						<div class="footer-icon">
-							<img src="{% static 'img/Linkedin.png' %}" alt="LinkedIn" />
-						</div>
-					</a>
-          </div>
+  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Facebook.png' %}"
+           data-default="{% static 'img/Facebook.png' %}"
+           data-hover="{% static 'img/Facebook_active.png' %}"
+           alt="Facebook" />
+    </div>
+  </a>
+  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Instagram.png' %}"
+           data-default="{% static 'img/Instagram.png' %}"
+           data-hover="{% static 'img/Instagram_active.png' %}"
+           alt="Instagram" />
+    </div>
+  </a>
+  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Youtube.png' %}"
+           data-default="{% static 'img/Youtube.png' %}"
+           data-hover="{% static 'img/Youtube_active.png' %}"
+           alt="YouTube" />
+    </div>
+  </a>
+  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
+    <div class="footer-icon">
+      <img src="{% static 'img/Linkedin.png' %}"
+           data-default="{% static 'img/Linkedin.png' %}"
+           data-hover="{% static 'img/Linkedin_active.png' %}"
+           alt="LinkedIn" />
+    </div>
+  </a>
+</div>
           <div class="footerwebcol4_1">
             <div class="footerwebcol2_1">ECHOES OF NATURE</div>
             This immersive experience is created for public education and

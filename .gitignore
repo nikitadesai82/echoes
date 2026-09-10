@@ -1,4 +1,8 @@
-media/
-venv/
-.env
+@"
 __pycache__/
+*.pyc
+.vs/
+echo/
+eon/media/
+*.sqlite3
+"@ | Set-Content .gitignore

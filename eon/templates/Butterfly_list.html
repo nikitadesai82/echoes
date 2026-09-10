@@ -1,4 +1,4 @@
-{% extends "webbase.html" %}{% block body_class %}page-birds-list{% endblock %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %}{% block body_class %}page-butterfly-list{% endblock %} {% load static %} {% block overlay_content %}
 <script>
 	document.documentElement.classList.remove('loading');
 </script>
@@ -6,29 +6,25 @@
 <div class="Bird_list_firstbox">
 	<div class="Bird_list_intro">
 		<span class="Bird_list_title_inner">
-			Who’s Chirping? Spot, Listen & Discover
+			Who’s Fluttering? Spot, Watch & Discover
 		</span>
 	</div>
 	<div class="Bird_list_title">
-		<span class="Bird_list_title_inner">Birds of Hiranandani Estate</span>
+		<span class="Bird_list_title_inner">Butterflies of Hiranandani Estate</span>
 	</div>
 	<div class="Bird_list_subtitle">
-		From tiny sunbirds to majestic herons, learn about the feathered fellows
-		living at Hiranandani Estate, Thane. Sort and filter the list to discover
-		who are the day singers, night flyers and visiting migrants. Then, just tap
-		on a bird to know more about its every chirp and flutter.
+		From jewel-winged blues to bold orange tigers, meet the butterflies that
+		drift through Hiranandani Estate, Thane. Sort and filter the list to discover
+		their colours, who stays resident, who travels with the seasons and how each
+		defends itself. Then, just tap on a butterfly to know more about its every
+		flutter.
 	</div>
 </div>
 <div class="Bird_list_secondbox">
 	<div class="filter-ui">
 		<div class="filter-dropdowns">
-			<button class="filter-toggle" id="activeTimeToggle">
-				Active Time
-				<span class="arrow"></span>
-			</button>
-
-			<button class="filter-toggle" id="dietToggle">
-				Diet
+			<button class="filter-toggle" id="colourToggle">
+				Colour
 				<span class="arrow"></span>
 			</button>
 
@@ -36,80 +32,52 @@
 				Migration
 				<span class="arrow"></span>
 			</button>
+
+			<button class="filter-toggle" id="defenceToggle">
+				Defence
+				<span class="arrow"></span>
+			</button>
 		</div>
 
-		<div class="filter-options" id="activeTimeOptions" style="display: none">
-			<label>
-				<input type="radio" name="activeTime" value="Crepuscular" />
-				Crepuscular
-			</label>
-			<label>
-				<input type="radio" name="activeTime" value="Diurnal" />
-				Diurnal
-			</label>
-			<label>
-				<input type="radio" name="activeTime" value="Nocturnal" />
-				Nocturnal
-			</label>
-		</div>
-
-		<div class="filter-options" id="dietOptions" style="display: none">
-			<label>
-				<input type="radio" name="diet" value="Carnivore" />
-				Carnivorous
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Granivore" />
-				Granivorous
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Herbivore" />
-				Herbivorous
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Insectivore" />
-				Insectivorous
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Nectarivore" />
-				Nectarivorous
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Omnivore" />
-				Omnivore
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Piscivore" />
-				Piscivore
-			</label>
-			<label>
-				<input type="radio" name="diet" value="Scavenger" />
-				Scavenger
-			</label>
+		<div class="filter-options" id="colourOptions" style="display: none">
+			<label><input type="radio" name="colour" value="Blue" /> Blue</label>
+			<label><input type="radio" name="colour" value="Brown" /> Brown</label>
+			<label><input type="radio" name="colour" value="Orange" /> Orange</label>
+			<label><input type="radio" name="colour" value="Yellow" /> Yellow</label>
+			<label><input type="radio" name="colour" value="Black" /> Black</label>
+			<label><input type="radio" name="colour" value="White" /> White</label>
 		</div>
 
 		<div class="filter-options" id="migrationOptions" style="display: none">
 			<label>
-				<input type="radio" name="migration" value="Migratory" />
-				Migratory
+				<input type="radio" name="migration" value="Resident" />
+				Resident
 			</label>
 			<label>
-				<input type="radio" name="migration" value="Non-migratory" />
-				Non-migratory
+				<input type="radio" name="migration" value="Seasonal Traveller" />
+				Seasonal Traveller
 			</label>
+		</div>
+
+		<div class="filter-options" id="defenceOptions" style="display: none">
+			<label><input type="radio" name="defence" value="Camouflage" /> Camouflage</label>
+			<label><input type="radio" name="defence" value="Mimicry" /> Mimicry</label>
+			<label><input type="radio" name="defence" value="Warning Coloration" /> Warning Coloration</label>
+			<label><input type="radio" name="defence" value="Toxic" /> Toxic</label>
 		</div>
 
 		<div id="selectedFilters"></div>
 	</div>
 	<div class="filter-desc hide-on-mobile">
-	<div class="filter-desc-head">BIRD ACTIVITY TIME</div>
-Diurnal: Active mainly during the daytime<br>
-Nocturnal: Active mainly at night<br>
-Crepuscular: Active mostly at dawn and dusk<br>
-</div>
+		<div class="filter-desc-head">BUTTERFLY DEFENCE</div>
+		Camouflage: Blends in with its surroundings<br />
+		Mimicry: Imitates other species to avoid predators<br />
+		Warning Coloration: Bright colours that warn it is harmful<br />
+		Toxic: Carries toxins that make it unpleasant to eat
+	</div>
 	<div class="Arch-box">
-	<video autoplay muted loop playsinline>
-							<source src="{% static 'video/birdlistgirl.mp4' %}"type="video/mp4">
+		<video autoplay muted loop playsinline>
+			<source src="{% static 'video/birdlistgirl.mp4' %}" type="video/mp4" />
 		</video>
 	</div>
 	<div class="Sort-box sort-dropdown" onclick="toggleDropdown()">
@@ -154,54 +122,43 @@ Crepuscular: Active mostly at dawn and dusk<br>
 			</div>
 		</div>
 	</div>
-	<div class="filter-desc-right hide-on-mobile">
-	<div class="filter-desc-head">BIRD DIET TYPES</div>
-Insectivore: Eat insects<br>
-Herbivore: Eat plants, leaves, or fruits<br>
-Carnivore: Eat other animals<br>
-Scavenger: Feed on dead animals<br>
-Piscivore: Eat fish<br>
-Nectivore: Feed on flower nectar<br>
-Grainivore: Eat grains and seeds<br>
-Omnivore: Eat both plants and animals
-</div>
 </div>
 <div class="bird-gallery">
-  {% if birds %}
-    {% for bird in birds %}
-      <a href="{% url 'bird_detail' bird.slug %}" class="bird-item">
-        {% if bird.Bird_Button_Media %}
+  {% if butterflies %}
+    {% for butterfly in butterflies %}
+      <a href="{% url 'butterfly_detail' butterfly.slug %}" class="bird-item">
+        {% if butterfly.Butterfly_Button_Media %}
   <img
     class="info-video"
-    src="{{ bird.Bird_Button_Media.url }}"
+    src="{{ butterfly.Butterfly_Button_Media.url }}"
     width="460"
     height="460"
-    alt="{{ bird.Bird_Name }} preview"
+    alt="{{ butterfly.Butterfly_Name }} preview"
     loading="lazy"
   />
 {% endif %}
-        <div class="bird-name">{{ bird.Bird_Name }}</div>
+        <div class="bird-name">{{ butterfly.Butterfly_Name }}</div>
       </a>
     {% endfor %}
   {% else %}
     <div class="no-results">
-      “Empty nest! Try adjusting the filters.”
+      “No flutters yet! Try adjusting the filters.”
     </div>
   {% endif %}
 </div>
 
 
 <script>
-	const selected = { activeTime: null, diet: null, migration: null };
+	const selected = { colour: null, migration: null, defence: null };
 
-	document.getElementById('activeTimeToggle').onclick = () =>
-		toggleFilter('activeTimeOptions', 'activeTimeToggle');
-
-	document.getElementById('dietToggle').onclick = () =>
-		toggleFilter('dietOptions', 'dietToggle');
+	document.getElementById('colourToggle').onclick = () =>
+		toggleFilter('colourOptions', 'colourToggle');
 
 	document.getElementById('migrationToggle').onclick = () =>
 		toggleFilter('migrationOptions', 'migrationToggle');
+
+	document.getElementById('defenceToggle').onclick = () =>
+		toggleFilter('defenceOptions', 'defenceToggle');
 
 	function toggleFilter(targetId, buttonId) {
 		const box = document.getElementById(targetId);
@@ -217,10 +174,9 @@ Omnivore: Eat both plants and animals
 	}
 
 	function reopenLastSelectedFilter() {
-		const orderedFilters = ['activeTime', 'diet', 'migration'];
+		const orderedFilters = ['colour', 'migration', 'defence'];
 		let lastSelected = null;
 
-		// Check URL in original order → last one found wins
 		const url = new URL(window.location.href);
 		orderedFilters.forEach((f) => {
 			if (url.searchParams.get(f)) lastSelected = f;
@@ -277,7 +233,7 @@ Omnivore: Eat both plants and animals
 		});
 	}
 
-	['activeTime', 'diet', 'migration'].forEach((filter) => {
+	['colour', 'migration', 'defence'].forEach((filter) => {
 		document.querySelectorAll(`input[name="${filter}"]`).forEach((radio) => {
 			radio.onchange = function () {
 				selected[filter] = radio.value;
@@ -294,7 +250,7 @@ Omnivore: Eat both plants and animals
 	document.addEventListener('DOMContentLoaded', () => {
 		const url = new URL(window.location.href);
 
-		['activeTime', 'diet', 'migration'].forEach((filter) => {
+		['colour', 'migration', 'defence'].forEach((filter) => {
 			const value = url.searchParams.get(filter);
 			if (value) {
 				const radio = document.querySelector(
@@ -306,7 +262,7 @@ Omnivore: Eat both plants and animals
 		});
 
 		updateSelectedFilters();
-		reopenLastSelectedFilter(); // ⭐ only the latest filter stays open
+		reopenLastSelectedFilter();
 	});
 
 	document.addEventListener('click', function (e) {
@@ -334,7 +290,6 @@ Omnivore: Eat both plants and animals
 		const url = new URL(window.location.href);
 		let sort = url.searchParams.get('sort') || 'az';
 
-		// Force default az in URL (without reload)
 		if (!url.searchParams.get('sort')) {
 			url.searchParams.set('sort', 'az');
 			window.history.replaceState({}, '', url);
@@ -347,10 +302,8 @@ Omnivore: Eat both plants and animals
 			large: 'Sort by: Size: Large to Small',
 		};
 
-		// Update heading label
 		document.getElementById('selected-sort').innerText = labelMap[sort];
 
-		// Hide currently active option
 		document.querySelectorAll('.drop-content').forEach((opt) => {
 			opt.style.display = opt.dataset.sort === sort ? 'none' : 'flex';
 		});
@@ -371,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const options = {
     root: null,
     rootMargin: '200px 0px',
-    threshold: 0.25          
+    threshold: 0.25
   };
 
   const observer = new IntersectionObserver(handleIntersections, options);
@@ -385,38 +338,15 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       const video = entry.target;
       if (entry.isIntersecting) {
-        if (!video.dataset.loaded) {
-          const src = video.dataset.src;
-          if (src) {
-            const source = document.createElement('source');
-            source.src = src;
-            video.appendChild(source);
-            video.dataset.loaded = "true";
-            video.load();
-          }
+        if (typeof video.play === 'function') {
+          video.play && video.play().catch(() => {});
         }
-
-        video.play().catch(() => {  });
       } else {
-        if (!video.paused) {
+        if (typeof video.pause === 'function' && !video.paused) {
           video.pause();
         }
-
       }
     });
-  }
-
-  function unloadVideo(video) {
-    if (video.dataset.loaded) {
-      video.pause();
-      const sources = video.querySelectorAll('source');
-      sources.forEach(s => s.remove());
-      try {
-        video.removeAttribute('src');
-        video.load();
-      } catch (e) {}
-      delete video.dataset.loaded;
-    }
   }
 });
 </script>
@@ -478,13 +408,13 @@ document.addEventListener("DOMContentLoaded", () => {
           '-=0.55',
         )
 				.fromTo(
-          ".filter-desc-right",
+          ".filter-desc-right-butterfly",
           { opacity: 0},
           { opacity: 1,duration: 0.5 },
           '-=0.55',
         )
 
-			/*BIRD GRID — ROW BASED ANIMATION*/
+			/*GRID — ROW BASED ANIMATION*/
 			const items = [...document.querySelectorAll('.bird-item')];
 			let rows = [];
 			let currentRowTop = null;
@@ -524,7 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				);
 			}
 
-			// OTHER ROWS — SCROLL IN + REVERSE ON SCROLL UP
+			// OTHER ROWS — SCROLL IN
 			rows.slice(1).forEach((row) => {
 				gsap.fromTo(
 					row,
@@ -577,11 +507,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 </script>
 <!-- ══════════════════════════════════════════
-     MOBILE SORT & FILTER BAR  —  Birds
+     MOBILE SORT & FILTER BAR  —  Butterflies
      Only visible on ≤768px (CSS controls display)
 ══════════════════════════════════════════ -->
-
-<!-- Bottom bar -->
 
  <div class="mobile-sort-filter-bar">
   <button class="mobile-bar-btn" id="mobileFilterBtn">
@@ -607,29 +535,28 @@ document.addEventListener("DOMContentLoaded", () => {
 <div class="mobile-bottom-sheet1" id="mobileFilterSheet">
   <div class="mobile-sheet-handle"></div>
 
-  <div class="mobile-sheet-section-label">Active Time</div>
-  <div class="filter-options mobile-sheet-options" id="m-activeTimeOptions">
-    <label><input type="radio" name="activeTime_m" value="Crepuscular"> Crepuscular</label>
-    <label><input type="radio" name="activeTime_m" value="Diurnal"> Diurnal</label>
-    <label><input type="radio" name="activeTime_m" value="Nocturnal"> Nocturnal</label>
-  </div>
-
-  <div class="mobile-sheet-section-label">Diet</div>
-  <div class="filter-options mobile-sheet-options" id="m-dietOptions">
-    <label><input type="radio" name="diet_m" value="Carnivore"> Carnivorous</label>
-    <label><input type="radio" name="diet_m" value="Granivore"> Granivorous</label>
-    <label><input type="radio" name="diet_m" value="Herbivore"> Herbivorous</label>
-    <label><input type="radio" name="diet_m" value="Insectivore"> Insectivorous</label>
-    <label><input type="radio" name="diet_m" value="Nectarivore"> Nectarivorous</label>
-    <label><input type="radio" name="diet_m" value="Omnivore"> Omnivore</label>
-    <label><input type="radio" name="diet_m" value="Piscivore"> Piscivore</label>
-    <label><input type="radio" name="diet_m" value="Scavenger"> Scavenger</label>
+  <div class="mobile-sheet-section-label">Colour</div>
+  <div class="filter-options mobile-sheet-options" id="m-colourOptions">
+    <label><input type="radio" name="colour_m" value="Blue"> Blue</label>
+    <label><input type="radio" name="colour_m" value="Brown"> Brown</label>
+    <label><input type="radio" name="colour_m" value="Orange"> Orange</label>
+    <label><input type="radio" name="colour_m" value="Yellow"> Yellow</label>
+    <label><input type="radio" name="colour_m" value="Black"> Black</label>
+    <label><input type="radio" name="colour_m" value="White"> White</label>
   </div>
 
   <div class="mobile-sheet-section-label">Migration</div>
   <div class="filter-options mobile-sheet-options" id="m-migrationOptions">
-    <label><input type="radio" name="migration_m" value="Migratory"> Migratory</label>
-    <label><input type="radio" name="migration_m" value="Non-migratory"> Non-migratory</label>
+    <label><input type="radio" name="migration_m" value="Resident"> Resident</label>
+    <label><input type="radio" name="migration_m" value="Seasonal Traveller"> Seasonal Traveller</label>
+  </div>
+
+  <div class="mobile-sheet-section-label">Defence</div>
+  <div class="filter-options mobile-sheet-options" id="m-defenceOptions">
+    <label><input type="radio" name="defence_m" value="Camouflage"> Camouflage</label>
+    <label><input type="radio" name="defence_m" value="Mimicry"> Mimicry</label>
+    <label><input type="radio" name="defence_m" value="Warning Coloration"> Warning Coloration</label>
+    <label><input type="radio" name="defence_m" value="Toxic"> Toxic</label>
   </div>
 
   <div class="mobile-sheet-actions">
@@ -684,7 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ── Apply button ── */
   document.getElementById('mobileFilterApply').onclick = function () {
     const url = new URL(window.location.href);
-    ['activeTime', 'diet', 'migration'].forEach(filter => {
+    ['colour', 'migration', 'defence'].forEach(filter => {
       const checked = document.querySelector(`input[name="${filter}_m"]:checked`);
       if (checked) {
         url.searchParams.set(filter, checked.value);
@@ -699,7 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener('DOMContentLoaded', () => {
     const url = new URL(window.location.href);
 
-    ['activeTime', 'diet', 'migration'].forEach(filter => {
+    ['colour', 'migration', 'defence'].forEach(filter => {
       const val = url.searchParams.get(filter);
       if (val) {
         const r = document.querySelector(`input[name="${filter}_m"][value="${val}"]`);
@@ -721,10 +648,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 </script>
 
-<!-- Add section-label style (shared across both pages) -->
-<style>
-
-</style>
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		const bg = document.querySelector('.Bird-image');
