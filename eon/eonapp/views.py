@@ -3,7 +3,7 @@ from django.db.models import FloatField, Value
 from django.db.models import F
 from django.utils.timezone import localdate
 from django.db.models.functions import Cast, Substr, StrIndex, Trim
-from .models import Bird,Flora,Story,NatureTrailSchedule, NatureTrailMedia
+from .models import Bird,Flora,Butterfly,Story,NatureTrailSchedule, NatureTrailMedia
 
 def home(request):
     return render(request, "home.html")
@@ -97,6 +97,50 @@ def flora_detail(request, flora_id):
         "svg_status": flora.Flora_Conservation_Status_SVGKey,  # <-- IMPORTANT
         "geo_range": flora.Flora_Zones,
     })
+
+
+def butterfly_list(request):
+    butterflies = Butterfly.objects.all()
+
+    colour = request.GET.get('colour')
+    migration = request.GET.get('migration')
+    defence = request.GET.get('defence')
+    sort = request.GET.get('sort') or "az"
+
+    if colour:
+        butterflies = butterflies.filter(Butterfly_Colour_Key__icontains=colour)
+
+    if migration:
+        butterflies = butterflies.filter(Butterfly_Migration_Key__iexact=migration)
+
+    if defence:
+        butterflies = butterflies.filter(Butterfly_Defence_Key__icontains=defence)
+
+    if sort == "az":
+        butterflies = butterflies.order_by("Butterfly_Name")
+    elif sort == "za":
+        butterflies = butterflies.order_by("-Butterfly_Name")
+    elif sort in ["small", "large"]:
+        butterflies = butterflies.order_by(
+            "Butterfly_Wingspan_sort" if sort == "small" else "-Butterfly_Wingspan_sort"
+        )
+
+    return render(request, "Butterfly_list.html", {"butterflies": butterflies})
+
+
+def butterfly_detail(request, slug):
+    butterfly = get_object_or_404(Butterfly, slug=slug)
+    return render(request, "Butterfly_Main.html", {
+        "butterfly": butterfly,
+        "svg_status": butterfly.Butterfly_Conservation_Status_SVGKey,
+        "geo_range": butterfly.Butterfly_Zones,
+    })
+
+
+def butterfly_gallery(request, butterfly_id):
+    butterfly = get_object_or_404(Butterfly, id=butterfly_id)
+    return render(request, 'gallery.html', {'butterfly': butterfly})
+
 
 def Deepdive(request):
     return render(request, "Deepdive.html")
