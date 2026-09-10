@@ -110,6 +110,7 @@
     <div class="Info-detail-text6 gsap-hidden">
       {{ bird.Bird_Geographic_Range }}
     </div>
+{% if bird.Bird_Map_Image %}
 <div class="bird-map gsap-hidden">
   <img
     src="{{ bird.Bird_Map_Image.url }}"
@@ -117,13 +118,16 @@
     class="bird-map-img"
   />
 </div>
+{% endif %}
 </div>
 
   <div class="Birdpage-secondbox_1 anim-box">
     <div class="birdanimationbox">
+      {% if bird.Bird_Animation %}
       <video autoplay muted loop playsinline preload="metadata" id="birdVideo">
     <source data-src="{{ bird.Bird_Animation.url }}" type="video/mp4" />
 </video>
+      {% endif %}
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const video = document.getElementById("birdVideo");
@@ -778,56 +782,15 @@ document.addEventListener("DOMContentLoaded", function () {
       </a>
       {% endif %}
     </div>
-    
+
   </div>
 </div>
 <div class="bird-page-girl hide-on-mobile">
-<img src="{% static 'img/birdpage-bg.webp' %}">
+    <video autoplay muted loop playsinline poster="{% static 'img/birdpage-bg.webp' %}">
+    <source src="{% static 'video/birdpage-bg.webm' %}" type="video/webm" />
+
+</video>
 </div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const birdVideo = document.getElementById("birdBgVideo");
-    if (!birdVideo) return;
-
-    const source = birdVideo.querySelector("source");
-    let videoLoaded = false;
-    let gsapInitialized = false;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !gsapInitialized) {
-
-                gsapInitialized = true;
-
-                if (!videoLoaded) {
-                    source.src = source.dataset.src;
-                    birdVideo.load();
-                    videoLoaded = true;
-                }
-
-                gsap.registerPlugin(ScrollTrigger);
-
-                ScrollTrigger.create({
-                    trigger: ".bird-page-girl",
-                    start: "top 70%",
-                    end: "bottom 25%",
-
-                    onEnter: () => birdVideo.play().catch(()=>{}),
-                    onEnterBack: () => birdVideo.play().catch(()=>{}),
-                    onLeave: () => birdVideo.pause(),
-                    onLeaveBack: () => birdVideo.pause(),
-                });
-
-                observer.disconnect();
-            }
-        });
-    });
-
-    observer.observe(document.querySelector(".bird-page-girl"));
-});
-</script>
 
 <div class="bird-page-main-bg hide-on-mobile">
   <img loading="lazy" src="{% static 'img/birdpage-bg1.webp' %}" />
