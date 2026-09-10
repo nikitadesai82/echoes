@@ -1,125 +1,414 @@
-@media (max-width: 3840px){
-	.video-text {
-		padding-bottom: 0.5vh;
-	}
+@media (max-width: 3600px)and (min-height: 1600px) {
+	  .animation-inner {
+    margin-top: 12vh;
+  }
+	.deepdive-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64.77vh;
+  width: 8.438vw;
+  height: 4.63vh;
+  border-radius: 1.5vw;
+  font-family: "Boreal", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(19px, 0.9375vw, 36px);
+  text-decoration: none;
+  background: #802650;
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  position: absolute;
+  margin-left: 46vw;
 }
-@media (max-width: 3600px) and (min-height: 1600px) {
-  .deepdive-container {
-    padding-top: 97vh;
-  }
-
-  .gallery-name {
-    font-size: 46px;
-  }
-  .mcq-video {
-    margin-top: 0rem;
-  }
+.deepdive-container{
+	padding-top: 97vh;
+}
+.gallery-name {
+  font-size: 46px;
+}
+.sort-header {
+  padding-top: 1.5rem;
+}
+.mcq-video {
+  margin-top: -19.6rem;
+}
+.animation-inner {
+  margin-top: 10vh;
+}
 }
 @media (max-width: 3200px) {
-  .filter-options input[type="radio"] {
-    accent-color: #841c2d;
-    height: 1.5vh;
-    width: 1.5vh;
-  }
-
-  .mcq-submit {
-    margin-top: 2.4rem;
-  }
-  .mcq-video {
-    margin-top: 0rem;
-  }
-  .mcq-video2 {
-    margin-left: 22vw;
-    margin-top: -3rem;
-  }
-}
-@media (max-width: 2580px) {
-  .filter-options input[type="radio"] {
-    accent-color: #841c2d;
-    height: 1.5vh;
-    width: 1.5vh;
+  .deepdive-link {
+    font-size: 20px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
   }
   .dropdown-mask {
-    width: 17.02vw;
+    width: 400px;
   }
-  .mcq-submit {
-    margin-top: 2.4rem;
+  .drop-content {
+    padding-right: 2.5rem;
+		height: 5vh;
   }
-  .mcq-video {
-    margin-top: 0rem;
+  .filter-toggle {
+    padding: 5px 14px;
+		width:6.02vw
   }
-  .mcq-video2 {
-    margin-left: 22vw;
-    margin-top: -3rem;
+  .filter-toggle.open {
+    padding: 5px 14px;
+    border: 0.12rem solid #a4a1a1;
   }
-  .deepdive-container {
-    padding-top: 96vh;
+  .filter-toggle:hover {
+    padding: 5px 14px;
   }
+	.filter-options input[type="radio"] {
+  accent-color: #841c2d;
+  height: 1.5vh;
+  width: 1.5vh;
+}
+  .selected-chip {
+    padding: 7px 14px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 1.2rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
+}@media (max-width: 2580px) {
+  .deepdive-link {
+    font-size: 20px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+		margin-top: 65vh;
+  }
+  .dropdown-mask {
+    width: 334px;
+  }
+  .drop-content {
+    padding-right: 2.5rem;
+  }
+  .filter-toggle {
+    padding: 5px 14px;
+  }
+  .filter-toggle.open {
+    padding: 5px 14px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 5px 14px;
+  }
+	.filter-options input[type="radio"] {
+  accent-color: #841c2d;
+  height: 1.5vh;
+  width: 1.5vh;
+ }
+  .selected-chip {
+    padding: 7px 14px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
+		  .animation-inner {
+    margin-top: 11.5vh;
+		height: 58vh;
+  }
+	.deepdive-container {
+  padding-top: 96vh;
+	}
 }
 @media (max-width: 2200px) {
-  .mcq-submit {
-    margin-top: 2.4rem;
+	.Sort-box.open {
+  max-height: 19.44vh;
+	}
+  .deepdive-link {
+    font-size: 16px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
   }
-  .mcq-video {
-    margin-top: 0rem;
+  .dropdown-mask {
+    width: 262px;
   }
-  .mcq-video2 {
-    margin-left: 22vw;
-    margin-top: -3rem;
+  .dropdown-content {
+    width: 12.02vw;
   }
+  .filter-toggle {
+    padding: 9px 12px;
+		font-size: 15px;
+  }
+  .filter-toggle.open {
+   padding: 9px 12px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 9px 12px;
+  }
+  .filter-options label {
+    font-size: 15px;
+  }
+  .selected-chip {
+    padding: 9px 12px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
 }
 @media (max-width: 1920px) {
-	.birdspagelink_1 {
-  width: 8.896vw;
+	.gallery-box4 {
+  width: 15.979vw;
 	}
-  .gallery-ani {
-    margin-top: 18vh;
-    height: 47.4vh;
-    width: 17.76vw;
-    z-index: 14;
-    position: absolute;
-    left: 78%;
-  }
-  .gallery-box4 {
-    width: 15.979vw;
-  }
-
-  .mcq-submit {
-    margin-top: 2.4rem;
-    padding: 0.6rem 1rem;
-  }
-  .mcq-video {
-    margin-top: 0rem;
-  }
-  .mcq-video2 {
-    margin-left: 22vw;
-    margin-top: -3rem;
-  }
+	.prev-next {
+  left: 28.3%;
 }
-@media (max-width: 1920px) and (max-height: 1000px) {
-  .menu-bg {
-    height: 32vh;
+.gallery-dots2 {
+  left: 55%;
+}
+
+	.filter-toggle {
+  min-width: 7.3vw;
+	}
+  .deepdive-link {
+    font-size: 16px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+		margin-top: 59.77vh;
+  }
+	  .animation-inner {
+    margin-top: 6vh;
+    height: 55vh;
+  }
+  .dropdown-mask {
+    width: 250px;
+  }
+  .drop-content {
+    padding-right: 2.5rem;
+  }
+  .filter-toggle {
+    padding: 5px 15px;
+  }
+  .filter-toggle.open {
+    padding: 5px 15px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 5px 15px;
+  }
+  .filter-options label {
+    font-size: 15px;
+  }
+  .selected-chip {
+    padding: 7px 15px;
+    border: 0.1rem solid #a4a1a1;
   }
 
-  .mcq-submit {
-    margin-top: 1.4rem;
-    padding: 0.6rem 1rem;
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
   }
-  .mcq-video {
-    margin-top: 0rem;
+  .arrow {
+    width: 9px;
+    height: 9px;
   }
-  .mcq-video2 {
-    margin-left: 22vw;
-    margin-top: -3rem;
+  .arrow::after {
+    width: 9px;
+    height: 9px;
   }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	padding: 0.6rem 1rem;
+
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
+}
+@media (max-width: 1920px) and (max-height:1000px) {
+	.filter-toggle {
+  min-width: 7.3vw;
+	}
+  .deepdive-link {
+    font-size: 16px;
+    margin-left: 46.5vw;
+    width: 7.438vw;
+    height: 4vh;
+		margin-top: 66.77vh;
+  }
+	  .animation-inner {
+    margin-top: 15vh;
+    height: 55vh;
+  }
+  .dropdown-mask {
+    width: 232px;
+  }
+	.menu-bg {
+  height: 32vh;
+}
+.dropdown-content {
+  opacity: 0;
+  position: absolute;
+  width: 12.02vw;
+  height: 31.703vh;
+  border-radius: 2vw;
+  overflow: hidden;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+  .drop-content {
+    padding-right: 2.5rem;
+  }
+  .filter-toggle {
+    padding: 5px 15px;
+  }
+  .filter-toggle.open {
+    padding: 5px 15px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle:hover {
+    padding: 5px 15px;
+  }
+  .filter-options label {
+    font-size: 15px;
+  }
+  .selected-chip {
+    padding: 7px 15px;
+    border: 0.1rem solid #a4a1a1;
+  }
+
+  .sort-header {
+    padding-top: 0.65rem;
+    padding-bottom: 0.4rem;
+  }
+  .arrow {
+    width: 9px;
+    height: 9px;
+  }
+  .arrow::after {
+    width: 9px;
+    height: 9px;
+  }
+  .filter-toggle .arrow::after {
+    width: 7px;
+    height: 7px;
+  }
+	.mcq-submit{
+	margin-top: 1.4rem;
+	padding: 0.6rem 1rem;
+	}
+	.mcq-video {
+  margin-top: -11rem;
+	}
+	.mcq-video2 {
+  margin-left: 22vw;
+  margin-top: -3rem;
+	}
 }
 @media (max-width: 1680px) {
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 13vw;
+    height: 31.703vh;
+  }
+  .dropdown-mask {
+    width: 220px;
+  }
   .menu-item {
     padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
   }
   .menu-bg {
     height: 31.5vh;
   }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 63vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
+  }
   .naturetrail-link {
     width: 14.68vw;
     font-size: 13px;
@@ -141,6 +430,60 @@
   .right_5 {
     height: auto;
   }
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 12vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 4vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 8px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+  }
+  .filter-desc-right {
+    padding-left: 74.5vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 19.24vh;
+  }
   .filter-desc-head {
     font-size: 16px;
   }
@@ -157,15 +500,41 @@
     font-size: 12px;
   }
   .mcq-video {
-    margin-top: 0px;
+    margin-top: -145px;
+  }
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+  }
+  .Sort-box2.open {
+    max-height: 10vh;
+  }
+  .sort-header {
+    padding-top: 0.75rem;
+    padding-bottom: 0.4rem;
   }
 }
-@media (max-width: 1680px) and (min-height: 920px) {
+@media (max-width: 1680px) and (min-height:920px) {
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 13vw;
+    height: 31.703vh;
+  }
+  .dropdown-mask {
+    width: 220px;
+  }
   .menu-item {
     padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
   }
   .menu-bg {
-    height: 33.5vh;
+    height: 31.5vh;
+  }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 58vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
   }
   .naturetrail-link {
     width: 14.68vw;
@@ -188,6 +557,60 @@
   .right_5 {
     height: auto;
   }
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 6vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 4vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 8px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+  }
+  .filter-desc-right {
+    padding-left: 74.5vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 19.24vh;
+  }
   .filter-desc-head {
     font-size: 16px;
   }
@@ -204,16 +627,42 @@
     font-size: 12px;
   }
   .mcq-video {
-    margin-top: 0px;
+    margin-top: -145px;
+  }
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+  }
+  .Sort-box2.open {
+    max-height: 10vh;
+  }
+  .sort-header {
+    padding-top: 0.75rem;
+    padding-bottom: 0.4rem;
   }
 }
 @media (max-width: 1580px) {
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 14vw;
+    height: 31.703vh;
+  }
+  .dropdown-mask {
+    width: 220px;
+  }
   .menu-item {
     padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
   }
   .menu-bg {
     height: 31.5vh;
   }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 55vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
+  }
   .naturetrail-link {
     width: 14.68vw;
     font-size: 13px;
@@ -235,6 +684,60 @@
   .right_5 {
     height: auto;
   }
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 3vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 4vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 8px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+  }
+  .filter-desc-right {
+    padding-left: 72.3vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 19.24vh;
+  }
   .filter-desc-head {
     font-size: 16px;
   }
@@ -251,37 +754,62 @@
     font-size: 12px;
   }
   .mcq-video {
-    margin-top: 0px;
+    margin-top: -145px;
   }
-  .bird-bootombox-col {
-    height: 30vh;
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
   }
-  .doyouknow-text {
-    height: 26vh;
+  .Sort-box2.open {
+    max-height: 10vh;
   }
-  .doyouknow-text1 {
-    height: 26vh;
+  .sort-header {
+    padding-top: 0.75rem;
+    padding-bottom: 0.4rem;
   }
-  .radio-container label {
+	.bird-bootombox-col{
+		height: 30vh;
+	}
+		.doyouknow-text{
+			height: 26vh;
+		}
+		.doyouknow-text1{
+			height: 26vh;
+		}
+		  .radio-container label {
     font-size: 13px;
     flex: 100%;
-    line-height: 0;
+		line-height: 0;
   }
 }
 @media (max-width: 1580px) and (max-height: 750px) {
-  .bird-page-girl {
+	.bird-page-girl {
+  position: absolute;
+  width: 23vw;
+  z-index: 15;
+  margin-top: 19vh;
+  margin-left: 58vw;
+}
+  .dropdown-content {
+    opacity: 0;
     position: absolute;
-    width: 23vw;
-    z-index: 15;
-    margin-top: 19vh;
-    margin-left: 58vw;
+    width: 14vw;
+    height: 34.703vh;
   }
-
+  .dropdown-mask {
+    width: 220px;
+  }
   .menu-item {
     padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
   }
   .menu-bg {
     height: 34.5vh;
+  }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 72vh;
+    margin-left: 46.5vw;
+    width: 8.938vw;
   }
   .naturetrail-link {
     width: 14.68vw;
@@ -304,128 +832,197 @@
   .right_5 {
     height: auto;
   }
-  .filter-desc-head {
-    font-size: 16px;
+  .animation-inner {
+    min-height: 57vh;
+    width: 28vw;
+    margin-top: 16vh;
+    margin-left: 4vw;
   }
-  .bird-name {
-    font-size: 15px;
+  .filter-toggle:hover {
+    padding: 5px 4px;
   }
-  .Scientific_name {
-    font-family: "Boreal", sans-serif;
-    font-size: 15px;
-  }
-  .gallery-name {
-    font-size: 20px;
-  }
-  .mcq-submit {
-    width: 7vw;
-    font-size: 12px;
-    margin-top: 4.1rem;
-    padding: 0.4rem 1.2rem;
-  }
-  .radio-container label {
-    font-size: 12px;
-  }
-  .mcq-video {
-    margin-top: 0px;
-  }
-  .bird-bootombox-col {
-    height: 30vh;
-  }
-  .doyouknow-text {
-    height: 26vh;
-  }
-  .doyouknow-text1 {
-    height: 26vh;
-  }
-  .radio-container label {
+  .filter-toggle {
+    height: 5vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
     font-size: 13px;
-    flex: 100%;
-    line-height: 0;
   }
-  .MD-message-link {
-    font-size: 11px;
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
   }
-}
-@media (max-width: 1520px) {
-}
-
-@media (max-width: 1440px) {
-	.treespagelink {
-  padding-left: 12vw;
-}
-	.dropdown-mask{
-		right: 9.35vw;
-	}
-  .sort-label {
-    padding-top: 0%;
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
   }
-  .Sort-box2.open {
-    max-height: clamp(60px, 3.9vw, 146px);
-    border-radius: 1.5vw;
-    transition-duration: 0.3s;
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
   }
-  .drop-content2 {
-    height: clamp(28px, 1.8vw, 70px);
-    align-items: center;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    padding-right: clamp(5px, 0.2vw, 36px);
+  .arrow::after {
+    width: 8px;
+    height: 8px;
   }
-  .btn-fill-left {
-    border-radius: 2.5vw;
+  .filter-options label {
+    font-size: 13px;
   }
-  .story-sound {
-    margin-top: 3.5vh;
+  .selected-chip {
+    padding: 5px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
   }
-  .naturetrail-imgblock {
-    height: 15.98vw;
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+		max-height: 6.629vh;
+  }
+  .filter-desc-right {
+    padding-left: 73.5vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
   }
   .Sort-box.open {
-    max-height: clamp(115px, 7.58vw, 440px);
+    max-height: 21vh;
   }
-
-  .story {
-    width: 14.593vw;
-    border: clamp(1px, 0.15vw, 1.5px) solid #707070;
+  .filter-desc-head {
+    font-size: 16px;
   }
-  .shot-location {
-    margin-top: 41.7vh;
-    width: 13vw;
+  .bird-name {
+    font-size: 15px;
   }
-  .naturetrail-gallery-picturetab {
-    margin-top: 38.87vh;
+	.Scientific_name {
+  font-family: "Boreal", sans-serif;
+  font-size: 15px;
+	}
+	.gallery-name {
+  font-size: 20px;
+	}
+  .mcq-submit {
+    width: 7vw;
+    font-size: 12px;
+    margin-top: 4.1rem;
+    padding: 0.4rem 1.2rem;
   }
-  .gallery-videotab {
-    margin-top: 18.8vh;
+  .radio-container label {
+    font-size: 12px;
   }
-  .gallery-box2-wrap {
+  .mcq-video {
+    margin-top: -125px;
+  }
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+  }
+  .Sort-box2.open {
+    max-height: 10vh;
+  }
+  .sort-header {
+    padding-top: 0.85rem;
+    padding-bottom: 0.4rem;
+  }
+	.dropdown-menu {
+  width: 100%;
+  margin-top: 0.2rem;
+	}
+	.bird-bootombox-col{
+		height: 30vh;
+	}
+		.doyouknow-text{
+			height: 26vh;
+		}
+		.doyouknow-text1{
+			height: 26vh;
+		}
+		  .radio-container label {
+    font-size: 13px;
+    flex: 100%;
+		line-height: 0;
+  }
+	.MD-message-link {
+		font-size: 11px;
+	}
+}
+@media (max-width: 1520px) {
+  .animation-inner {
     height: 50vh;
+    width: 28vw;
+    margin-top: 7vh;
+    margin-left: 4vw;
   }
-  .row-top {
-    font-size: 18px;
-  }
-  .MD-message-link {
+	.deepdive-link {
+    font-size: 13.5px;
+    margin-top: 58vh;
+	}
+}
+
+
+@media (max-width: 1440px) {
+	.shot-location {
+  margin-top: 41.7vh;
+	width: 13vw;
+	}
+	.prev-next {
+  margin-top: 21vh;
+	}
+	.naturetrail-gallery-picturetab {
+  margin-top: 33.87vh;
+	}
+	.gallery-videotab {
+  margin-top: 13.8vh;
+	}
+	.gallery-box2 {
+  width: 50vw;
+  height: 45vh;
+	}
+	#videoBox {
+  height: 45vh;
+}
+.gallery-dots2 {
+  margin-top: 41vh;
+}
+.gallery-extra {
+  margin-top: 37vh;
+}
+	.row-top {
+  font-size: 18px;
+	}
+	  .MD-message-link {
     font-size: 11px;
   }
-
+  .dropdown-content {
+    opacity: 0;
+    position: absolute;
+    width: 15vw;
+    height: 31.703vh;
+  }
+  .dropdown-mask {
+    width: 216px;
+  }
   .menu-item {
     padding: clamp(8px, 1.2vh, 26px) clamp(28px, 1.6vw, 46px);
   }
   .menu-bg {
-    height: 34.5vh;
+    height: 31.5vh;
+  }
+  .deepdive-link {
+    font-size: 13.5px;
+    margin-top: 55vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
   }
   .naturetrail-link {
-    width: 15.68vw;
+    width: 14.68vw;
     font-size: 13px;
   }
   .birdwatch-link {
-    width: 15.68vw;
+    width: 14.68vw;
     font-size: 13px;
   }
   .urbanlegend-link {
-    width: 15.68vw;
+    width: 14.68vw;
     font-size: 13px;
   }
   .left_6 {
@@ -437,9 +1034,63 @@
   .right_5 {
     height: auto;
   }
-  .gallery-name {
-    min-height: 7vh;
-    font-size: 20px;
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 3vh;
+    margin-left: 4vw;
+  }
+  .filter-toggle:hover {
+    padding: 5px 4px;
+  }
+  .filter-toggle {
+    height: 4vh;
+    padding: 5px 4px;
+    min-width: 7.5vw;
+    font-size: 13px;
+  }
+  .filter-toggle.open {
+    padding: 5px 4px;
+    border: 0.12rem solid #a4a1a1;
+  }
+  .filter-toggle .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .arrow {
+    width: 8px;
+    height: 8px;
+    margin-left: 0;
+  }
+  .arrow::after {
+    width: 8px;
+    height: 8px;
+  }
+  .filter-options label {
+    font-size: 13px;
+  }
+  .selected-chip {
+    padding: 8px 9px;
+    border: 0.1rem solid #a4a1a1;
+    min-height: 4vh;
+  }
+	.gallery-name {
+  min-height: 2.507vh;
+  font-size: 20px;
+	}
+  .Sort-box {
+    width: 16.32vw;
+    margin-left: 7.1vw;
+  }
+  .filter-desc-right {
+    padding-left: 72.3vw;
+    padding-top: 23.8vh;
+  }
+  .drop-content {
+    padding-right: 2rem;
+  }
+  .Sort-box.open {
+    max-height: 20.24vh;
   }
   .filter-desc-head {
     font-size: 16px;
@@ -457,48 +1108,81 @@
     font-size: 12px;
   }
   .mcq-video {
-    margin-top: 0px;
+    margin-top: -145px;
   }
-  .bird-bootombox-col {
-    height: 30vh;
+  .Sort-box2 {
+    margin-left: -2vw;
+    width: 16.32vw;
+		max-height: 5.629vh;
   }
-  .doyouknow-text {
-    height: 26vh;
+  .Sort-box2.open {
+    max-height: 10vh;
   }
-  .doyouknow-text1 {
-    height: 26vh;
+  .sort-header {
+    padding-top: 0.75rem;
+    padding-bottom: 0.4rem;
   }
-  .radio-container label {
+	.bird-bootombox-col{
+		height: 30vh;
+	}
+		.doyouknow-text{
+			height: 26vh;
+		}
+		.doyouknow-text1{
+			height: 26vh;
+		}
+		  .radio-container label {
     font-size: 13px;
     flex: 100%;
-    line-height: 0;
+		line-height: 0;
   }
 }
 @media (max-width: 1430px) and (max-height: 850px) {
+  .animation-inner {
+    height: 50vh;
+    width: 28vw;
+    margin-top: 8vh;
+    margin-left: 4vw;
+  }
+	.deepdive-link {
+    font-size: 13.5px;
+    margin-top: 59vh;
+    margin-left: 45.5vw;
+    width: 9.438vw;
+  }
+
+
 }
 @media (max-width: 1366px) {
-  .Sort-box.open {
-    max-height: clamp(114px, 7.58vw, 440px);
-  }
+		.prev-next {
+  margin-top: 20vh;
+	}
   .Sort-box2.open {
-    max-height: clamp(59px, 3.9vw, 146px);
+    max-height: 9.6vh;
   }
-  .footerweb {
-    min-height: 51.296vh;
+  .animation-inner {
+    height: 55vh;
+    width: 28vw;
+    margin-top: 6vh;
+    margin-left: 4vw;
   }
-  .copyright {
-    padding-top: 41vh;
+  .deepdive-link {
+    font-size: 12px;
+    margin-left: 46vw;
+    width: 8.438vw;
+    height: 4vh;
+    margin-top: 59.77vh;
   }
   .birdwatch-link {
-    font-size: 12px;
+    font-size: 10px;
     min-height: 5.3vh;
   }
   .naturetrail-link {
-    font-size: 12px;
+    font-size: 10px;
     min-height: 5.3vh;
   }
   .urbanlegend-link {
-    font-size: 12px;
+    font-size: 10px;
     min-height: 5.3vh;
   }
   .left_6 {
@@ -510,17 +1194,19 @@
   .right_5 {
     height: auto;
   }
-
+  .dropdown-mask {
+    width: 186px;
+  }
+  .dropdown-content {
+    height: 31.7vh;
+    width: 13.5vw;
+  }
   .menu-item {
     padding: clamp(5px, 1.2vh, 26px) clamp(28px, 1.6vw, 60px);
     font-size: 11px;
   }
   .menu-bg {
-    height: 39vh;
-  }
-	.dropdown-mask {
-    width: 18.02vw;
-		right: 8.8vw;
+    height: 32vh;
   }
   .left_5 {
     font-size: 12px;
@@ -528,10 +1214,69 @@
   .right_4 {
     font-size: 12px;
   }
+  .filter-toggle {
+    font-size: 12px;
+    height: 4.5vh;
+    padding: 5px 7px;
+    min-width: 7.2vw;
+  }
+  .filter-toggle .arrow::after {
+    width: 5px;
+    height: 5px;
+  }
+  .filter-toggle .arrow {
+    width: auto;
+  }
+  .filter-toggle.open {
+    border: 0.1rem solid #a4a1a1;
+    padding: 5px 7px;
+  }
+  .filter-toggle:hover {
+    padding: 5px 7px;
+  }
+  .filter-options label {
+    font-size: 12px;
+  }
+  .selected-chip {
+    border: 0.1rem solid #a4a1a1;
+    padding: 6px 7px;
+    font-size: 12px;
+  }
+  .selected-chip span {
+    margin-top: 0.05rem;
+  }
   .filter-options input[type="radio"] {
     accent-color: #841c2d;
     height: 1.8vh;
     width: 1.8vh;
+  }
+  .Sort-box {
+    font-size: 12px;
+    width: 16.32vw;
+    margin-left: 7.1vw;
+		max-height: 5.629vh;
+  }
+  .sort-header {
+    padding-bottom: 0;
+  }
+  .sort-label {
+    padding-right: 0;
+  }
+  .arrow {
+    width: 6px;
+    height: 6px;
+    margin-left: 0.5rem;
+  }
+  .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .drop-content {
+    padding-right: 1rem;
+  }
+  .filter-desc-right {
+    padding-left: 71.3vw;
+    padding-top: 21.8vh;
   }
   .bird-name {
     font-size: 14px;
@@ -548,13 +1293,13 @@
   .media-box1 {
     width: 6.52vw;
     padding-bottom: 15px;
-    height: auto;
+		height: auto;
   }
   .radio-container label {
     font-size: 11px;
   }
   .story {
-    font-size: 12px;
+    font-size: 11px;
     border: 0.5px solid #707070;
   }
   .mcq-video2 {
@@ -565,15 +1310,14 @@
   }
   .mcq-video {
     margin-left: 22vw;
-    margin-top: 0rem;
+    margin-top: -7.4rem;
   }
-  .Scientific_name {
-    font-family: "Boreal", sans-serif;
-    font-size: 13px;
-  }
+	.Scientific_name {
+  font-family: "Boreal", sans-serif;
+  font-size: 15px;
+	}
   .gallery-name {
-    font-size: 18px;
-		min-height: auto;
+    font-size: 17px;
   }
   .row-top {
     font-size: 16px;
@@ -584,72 +1328,46 @@
   .filter-desc-head {
     font-size: 16px;
   }
+	 .sort-header {
+    padding-top: 0.75rem;
+	 }
 }
 
 @media (max-width: 1280px) {
-  .Sort-box2.open {
-    max-height: clamp(56px, 3.9vw, 146px);
-  }
-  .drop-content2 {
-    height: clamp(26px, 1.8vw, 70px);
-    align-items: center;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    padding-right: clamp(2px, 0.2vw, 36px);
-  }
-  .naturetrail-imgblock {
-    height: 17.98vw;
-  }
-  .video-text {
-    padding-bottom: 3px;
-  }
-  .portal-wrapper {
-    position: relative;
-    width: 57vw;
-    margin-top: 0vh;
-    z-index: 2;
-  }
-  .birdspagelink_1 {
-    width: 10.896vw;
-    height: auto;
-    transition: transform 0.3s ease;
-    transform-origin: center;
-    padding-top: 50px;
-  }
-  .filter-desc-right {
-    padding-left: 73.8vw;
-  }
-	.filter-desc-right-butterfly {
-    padding-left: 66.8vw;
-  }
-  .video-text-3 {
-    font-size: 10px;
-  }
-  .Sort-box.open {
-    max-height: clamp(113px, 7.58vw, 440px);
-  }
-  .Sort-box {
-    margin-left: 8vw;
-  }
-  .bird-page-girl {
+	.bird-page-girl {
     position: absolute;
-    width: 32vw;
+    width: 23vw;
     z-index: 15;
-    margin-top: 12vh;
-    margin-left: 50vw;
+    margin-top: 26vh;
+    margin-left: 58vw;
+  }
+  .animation-inner {
+    height: 55vh;
+    width: 28vw;
+    margin-top: 4.2vh;
+    margin-left: 4vw;
+  }
+  .deepdive-link {
+    font-size: 12px;
+    margin-top: 58.77vh;
+  }
+  .treebox {
+    height: auto;
   }
   .birdwatch-link {
-    font-size: 11px;
+    font-size: 9px;
     min-height: 5.3vh;
   }
   .naturetrail-link {
-    font-size: 11px;
+    font-size: 9px;
     min-height: 5.3vh;
   }
   .urbanlegend-link {
-    font-size: 11px;
+    font-size: 9px;
     min-height: 5.3vh;
+  }
+  .video-text-3 {
+    font-size: 0.88vw;
   }
   .left_6 {
     height: auto;
@@ -664,20 +1382,90 @@
     font-size: 18px;
   }
   .right_2 {
-    font-size: 15px;
+    font-size: 16px;
   }
-
+  .dropdown-mask {
+    width: 177px;
+  }
+  .dropdown-content {
+    height: 31.7vh;
+		width: 13vw;
+  }
+	
   .menu-item {
     padding: clamp(5px, 1.2vh, 26px) clamp(28px, 1.6vw, 60px);
+    font-size: 9px;
+  }
+  .filter-toggle {
     font-size: 11px;
+    height: 4.5vh;
+    padding: 5px 7px;
+    min-width: 7.2vw;
+  }
+  .filter-toggle .arrow::after {
+    width: 3px;
+    height: 3px;
+  }
+  .filter-toggle .arrow {
+    width: auto;
+  }
+  .filter-toggle.open {
+    border: 0.1rem solid #a4a1a1;
+    padding: 5px 7px;
+  }
+  .filter-toggle:hover {
+    padding: 5px 7px;
+  }
+  .filter-options label {
+    font-size: 11px;
+  }
+  .selected-chip {
+    border: 0.1rem solid #a4a1a1;
+    padding: 7px 7px;
+    font-size: 11px;
+  }
+  .selected-chip span {
+    margin-top: 0.05rem;
   }
   .filter-options input[type="radio"] {
     accent-color: #841c2d;
     height: 1.8vh;
     width: 1.8vh;
   }
+  .Sort-box {
+    font-size: 12px;
+    width: 16.32vw;
+    margin-left: 7.1vw;
+		max-height: 5.2vh;
+  }
+  .sort-header {
+    padding-bottom: 0;
+  }
+  .sort-label {
+    padding-right: 0;
+  }
+  .arrow {
+    width: 6px;
+    height: 6px;
+    margin-left: 0.5rem;
+  }
+  .arrow::after {
+    width: 6px;
+    height: 6px;
+  }
+  .drop-content {
+    padding-right: 1rem;
+  }
+  .Sort-box.open {
+    max-height: 18.9vh;
+  }
   .filter-desc-head {
     font-size: 13px;
+  }
+  .filter-desc-right {
+    padding-left: 71.6vw;
+    padding-top: 20.8vh;
+    font-size: 12px;
   }
   .bird-name {
     font-size: 12px;
@@ -693,13 +1481,13 @@
     margin-top: 75px;
   }
   .Scientific_name {
-    font-size: 12px;
+    font-size: 13px;
   }
   .Other_names {
     font-size: 13px;
   }
   .Info-title {
-    font-size: 15px;
+    font-size: 16px;
   }
   .media-box1 {
     min-width: 6.52vw;
@@ -715,20 +1503,19 @@
     font-size: 10px;
   }
   .day {
-    font-size: 15px;
+    font-size: 16px;
   }
   .stop {
-    font-size: 15px;
+    font-size: 16px;
   }
   .activity {
-    font-size: 15px;
+    font-size: 16px;
   }
   .row-top {
-    font-size: 15px;
-    text-align: left;
+    font-size: 16px;
   }
   .MD-message-link {
-    font-size: 11px;
+    font-size: 9px;
   }
   .urbanlegendsbox1 {
     margin-top: 10.8vh;
@@ -756,200 +1543,124 @@
   }
   .mcq-video {
     margin-left: 22vw;
-    margin-top: -0rem;
+    margin-top: -7.4rem;
   }
   .gallery-name {
     font-size: 17px;
   }
 }
-@media (max-width: 1280px) and (min-height: 750px) {
-}
-@media (max-width: 1160px) and (min-height: 800px) {
-  .bird-gallery {
-    margin-top: 0;
+@media (max-width: 1280px) and (min-height:750px) {
+	 .animation-inner {
+    height: 55vh;
+    width: 28vw;
+    margin-top: 0vh;
+    margin-left: 4vw;
   }
-  .filter-desc {
-    padding-top: 31vh;
-  }
-  .row-top {
-    font-size: 13px;
-  }
-  .story {
-    width: 13.593vw;
-  }
-  .copyright {
-    z-index: -5;
+	.deepdive-link {
+    font-size: 12px;
+    margin-top: 52.77vh;
   }
 }
-@media (max-width: 1160px) and (min-height: 800px) {
-  .bird-gallery {
-    margin-top: 0;
+@media (max-width: 1160px) and (min-height:800px){
+	.hero-fallback {
+  display: none;
+  width: 100%;
+}
+.deepdive-link {
+    font-size: 12px;
+    margin-top: 50.77vh;
   }
-  .filter-desc {
-    padding-top: 31vh;
+	  .animation-inner {
+    height: 49vh;
+    width: 28vw;
+    margin-top: 0vh;
+    margin-left: 3vw;
   }
-  .row-top {
+	.video-text-2 {
+  height: 4.5vh;
+	}
+	 .Sort-box.open {
+    max-height: 19.9vh;
+  }
+	.bird-gallery {
+		margin-top:0;
+	}
+	.filter-desc-right {
+    padding-left: 70.1vw;
+	}
+	.filter-desc {
+  padding-top: 31vh;
+}
+ .row-top {
     font-size: 13px;
   }
-  .story {
-    width: 13.593vw;
+	.story {
+  width: 13.593vw;
+	}
+	.copyright {
+		z-index: -5;
+	}
+}
+@media (max-width: 1160px) and (min-height:800px){
+	.hero-fallback {
+  display: none;
+  width: 100%;
+}
+.deepdive-link {
+    font-size: 12px;
+    margin-top: 50.77vh;
   }
-  .copyright {
-    z-index: -5;
+	  .animation-inner {
+    height: 49vh;
+    width: 28vw;
+    margin-top: 0vh;
+    margin-left: 3vw;
   }
+	.video-text-2 {
+  height: 4.5vh;
+	}
+	 .Sort-box.open {
+    max-height: 19.9vh;
+  }
+	.bird-gallery {
+		margin-top:0;
+	}
+	.filter-desc-right {
+    padding-left: 70.1vw;
+	}
+	.filter-desc {
+  padding-top: 31vh;
+}
+ .row-top {
+    font-size: 13px;
+  }
+	.story {
+  width: 13.593vw;
+	}
+	.copyright {
+		z-index: -5;
+	}
 }
 @media (max-width: 1024px) {
-  .dropdown-mask {
-    pointer-events: none;
-  }
-
-
-  .dropdown-content {
-    display: block !important;
-    visibility: hidden;
-    opacity: 0;
-    transform: none !important;
-    transition: opacity 0.3s ease;
-  }
-
-  .dropdown-content.is-visible {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .naturetrail-gallery-mainbox .gallery-box2-wrap {
-    position: relative;
-    width: 100%;
-    height: auto;
-    margin-left: 1.614583vw;
-    flex-shrink: 0;
-  }
-
-  .hide-tab {
-    display: none;
-  }
-  .show-tab {
-    display: block;
-  }
-  .mobile-bottom-sheet1 {
-    display: block;
-  }
-  .page-birds-list .after-footer-gap,
-  .page-flora-list .after-footer-gap {
-    height: 6.32vh !important;
-    display: block !important;
-  }
-  .mobile-story-selector {
-    display: block !important;
-    width: 60%;
-    background: #802650;
-    border-radius: 36px;
-    overflow: hidden;
-  }
-
-  .mobile-story-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: #802650;
-    border-radius: 0;
-    padding: 12px 50px;
-    cursor: pointer;
-    box-sizing: border-box;
-    height: 6vh;
-  }
-
-  .mobile-story-selector.open .mobile-story-trigger {
-    border-radius: 0;
-  }
-
-  .mobile-story-label {
-    flex: 1;
-    font-family: "boreal", sans-serif;
-    font-size: 22px;
-    font-style: italic;
-    color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .mobile-story-chevron {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    color: #fff;
-    transition: transform 0.25s ease;
-  }
-
-  .mobile-story-selector.open .mobile-story-chevron {
-    transform: rotate(180deg);
-  }
-
-  .mobile-story-dropdown {
-    display: flex;
-    flex-direction: column;
-    background: #ede4d8;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-  }
-
-  .mobile-story-selector.open .mobile-story-dropdown {
-    max-height: 500px;
-  }
-
-  .mobile-story-option {
-    padding: 14px 50px;
-    font-family: "boreal", sans-serif;
-    font-size: 22px;
-    font-style: italic;
-    color: #bd8e74;
-    cursor: pointer;
-    border-top: 1px solid #bd8e74;
-    transition:
-      background 0.2s,
-      color 0.2s;
-  }
-
-  .mobile-story-option:hover,
-  .mobile-story-option:active {
-    background: #802650;
-    color: #fff;
-  }
-
-  .mobile-story-option.active {
-    color: #fff;
-    font-weight: 600;
-  }
-  .after-footer-gap {
-    display: none;
-  }
-  .Logo {
-    width: 200px;
-  }
-  .mobile-bottom-sheet {
-    display: block;
-  }
-  .Disclaimer {
-    width: 90%;
+	.Disclaimer{
+		width: 90%;
     margin: 0px auto;
     left: auto;
-    font-size: 20px;
-  }
-  .Disclaimer1 {
-    width: 90%;
+		font-size: 20px;
+	}
+	.Disclaimer1{
+		width: 90%;
     margin: 0px auto;
-    margin-top: 0px;
     left: auto;
-    font-size: 20px;
-    max-width: 100%;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    text-align: center;
-    padding: 2vh;
-  }
+		font-size: 20px;
+	}
+	.animation-fallback {
+		display: none;
+	margin-top: 2vh;
+			height: 14vh;
+			width: 44vw;
+			margin-left: 26vw;
+	}
   html {
     overflow-x: hidden;
   }
@@ -957,6 +1668,14 @@
   body {
     overflow-x: hidden;
     position: relative;
+  }
+  #Echoes_of_Nature_home {
+    font-size: 28vw;
+    opacity: 1;
+    margin-left: 0;
+    width: 100%;
+    top: -4vh;
+    text-align: center;
   }
   /* Hide desktop-only icons */
   .tree-mobile-only {
@@ -972,9 +1691,9 @@
     margin: 20px auto 0 auto;
     flex-direction: column;
   }
-  .hide-on-tab-mobile:not(.keep-menu) {
-    display: none !important;
-  }
+.hide-on-tab-mobile:not(.keep-menu) {
+  display: none !important;
+}
   .hide-on-desktop {
     display: none;
   }
@@ -993,29 +1712,18 @@
   }
 
   /* Dropdown full width */
-  /* Dropdown full width for tablet/mobile */
   .dropdown-mask {
-    position: fixed;
-    top: 80px;
-    right: 5%;
-    width: 50%;
-    min-width: unset;
-    height: auto;
-    overflow: visible;
-    z-index: 10000;
-  }
+    width: 90vw !important;
+    position: absolute; /* or fixed depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
 
+    right: 1vw;
+  }
   .dropdown-content {
-    display: block; /* ← ADD THIS to override the global display:none */
-    position: relative;
-    width: 100%;
-    opacity: 1;
-    transform: none;
-    visibility: hidden;
-  }
-
-  .dropdown-content.is-visible {
-    visibility: visible;
+    width: 40vw !important;
+    position: absolute;
+    left: 59%;
   }
 
   .menu-item {
@@ -1027,7 +1735,7 @@
   /* Scroll button reposition */
   #scrollUpBtn {
     right: 1.5rem;
-    bottom: 6rem;
+    bottom: 2rem;
     width: 3rem;
     height: 3rem;
   }
@@ -1076,9 +1784,8 @@
     left: 10%;
   }
   .selection-box {
-    width: 100%;
-    margin-left: 0;
-    display: none; /* hide individual buttons on mobile */
+    width: 50%;
+    margin-left: 25%;
   }
   /* Main box stacks */
   .urbanlegendsbox2 {
@@ -1111,10 +1818,10 @@
   /* Text readable */
   .urbanlegend-text {
     width: 100%;
+    padding-top: 0;
     display: flex;
     flex-direction: column;
     height: auto;
-    padding-top: 30px;
   }
 
   .story_name {
@@ -1130,13 +1837,12 @@
     padding-right: 0;
     line-height: 1.7;
     order: 3;
-    padding-top: 40px;
   }
 
   /* Audio full width */
   .story-sound {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 25px;
     justify-content: flex-start;
     order: 2;
   }
@@ -1151,12 +1857,31 @@
    MOBILE DROPDOWN (≤ 800px)
    Matches XD Layout
 	=========================================== */
+  .dropdown-mask {
+    position: absolute;
+    top: 7vh;
+    height: auto;
+
+    overflow: visible;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* Dropdown box */
+  .dropdown-content {
+    opacity: 1;
+    width: 220px;
+    height: auto;
+    border-radius: 22px;
+    overflow: hidden;
+    transform: none !important;
+  }
 
   /* Background panel */
   .menu-bg {
     width: 100%;
     background: #802650;
-    border-radius: 36px;
+    border-radius: 22px;
     height: auto;
     /*  display: flex;
     flex-direction: column; */
@@ -1167,7 +1892,7 @@
     width: 100%;
     height: auto;
 
-    padding: 15px 28px;
+    padding: 14px 28px;
 
     font-size: 22px;
     line-height: 1.4;
@@ -1209,22 +1934,20 @@
     flex-direction: column;
     align-items: flex-start;
 
-    padding: 30px 30px;
+    padding: 50px 30px;
     border-radius: 35px;
 
     height: auto;
     gap: 40px;
     position: relative;
-    z-index: 0;
   }
 
   /* Left bird image stays but moves inside */
   .footerweb-img {
-    width: 138px;
+    width: 155px;
     height: auto;
     margin: 0;
     position: absolute;
-    padding-top: 17%;
   }
 
   /* Columns become full width stacked */
@@ -1232,7 +1955,7 @@
   .footerwebcol2,
   .footerwebcol3,
   .footerwebcol4 {
-    width: 61%;
+    width: 50%;
     margin: 0;
     margin-left: 0px;
     height: auto;
@@ -1248,7 +1971,7 @@
 
   /* Address text */
   .footerwebcol1_1 {
-    font-size: 22px;
+    font-size: 25px;
     line-height: 1.6;
     height: auto;
     text-align: left;
@@ -1256,7 +1979,7 @@
 
   /* Copyright */
   .footerwebcol1_2 {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 20px;
     height: auto;
     text-align: left;
@@ -1264,7 +1987,7 @@
 
   /* Sitemap heading */
   .footerwebcol2_1 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 12px;
     text-align: left;
   }
@@ -1272,7 +1995,7 @@
   /* Sitemap links */
   .footerwebcol2_2,
   .footerwebcol2_3 {
-    font-size: 22px;
+    font-size: 25px;
     margin-top: 8px;
     height: auto;
     text-align: left;
@@ -1281,7 +2004,7 @@
   /* Disclaimer links */
   .footerwebcol3 .footerwebcol2_2,
   .footerwebcol3 .footerwebcol2_3 {
-    font-size: 22px;
+    font-size: 25px;
     margin-top: 8px;
     text-align: left;
   }
@@ -1302,14 +2025,13 @@
   /* Tomorrow Matters logo */
   .tommorrow-logo {
     width: 280px;
-    padding-top: 25px;
-    padding-bottom: 5px;
+    padding-top: 15px;
   }
 
   /* Footer description text */
   .footerwebcol4_1,
   .footerwebcol4_2 {
-    font-size: 22px;
+    font-size: 25px;
     line-height: 1.5;
     width: 100%;
     text-align: left;
@@ -1326,7 +2048,7 @@
   /* Small bird bottom right */
   .footerweb-img3 {
     width: 150px;
-    right: 30%;
+    right: 34%;
     bottom: 42%;
     margin: 0;
   }
@@ -1334,14 +2056,14 @@
   /* Another bird slightly above */
   .footerweb-img2 {
     width: 120px;
-    right: 13%;
+    right: 15%;
     bottom: 32%;
     margin: 0;
   }
 
   /* Flower stays on right edge */
   .footerweb-img4 {
-    width: 290px;
+    width: 320px;
     height: auto;
     right: 0;
     bottom: 0;
@@ -1350,9 +2072,9 @@
   .copyright {
     position: relative; /* remove absolute */
     padding: 0; /* reset desktop padding */
-    margin-top: 24px; /* spacing from above content */
+    margin-top: 25px; /* spacing from above content */
 
-    font-size: 22px;
+    font-size: 25px;
     line-height: 1.4;
     margin-left: 20%;
     text-align: left;
@@ -1367,7 +2089,7 @@
 
   .Bird_list_intro {
     font-size: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0.08em;
   }
 
   .Bird_list_title {
@@ -1438,7 +2160,6 @@
     margin: 25px auto 0 auto;
     position: relative;
     padding: 0;
-    cursor: pointer;
   }
 
   .Naturetrail-map img {
@@ -1453,7 +2174,7 @@
 
   .naturetrailbox2 {
     width: 90%;
-    margin: 0px auto;
+    margin: 30px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
@@ -1463,26 +2184,25 @@
     width: 100%;
     padding: 0;
     min-height: auto;
-    padding-top: 40px;
   }
 
   .stop {
-    font-size: 26px;
+    font-size: 30px;
   }
 
   .stop-time {
-    font-size: 26px;
+    font-size: 30px;
     margin-top: 6px;
   }
 
   .birds-to-watch {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     margin-top: 10px;
   }
 
   .activity {
-    font-size: 26px;
+    font-size: 30px;
     margin-top: 10px;
     font-style: italic;
   }
@@ -1508,7 +2228,7 @@
   }
 
   .birdwatching-box-left1 {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 10px;
   }
 
@@ -1519,7 +2239,7 @@
   }
 
   .birdwatching-box-left5 {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     margin-top: 12px;
     width: 65%;
@@ -1540,12 +2260,11 @@
   }
 
   .row-top {
-    font-size: 26px;
-    padding-top: 20px;
+    font-size: 30px;
   }
 
   .birdwatching-row-bottom {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.5;
     margin-top: 4px;
   }
@@ -1580,36 +2299,33 @@
     height: auto;
     margin: 0;
     gap: 12px;
-    order: 2;
   }
 
   .naturetrail-gallery-picturetab,
   .naturetrail-gallery-videotab {
     width: 100%;
-    height: 65px;
-    font-size: 22px;
+    height: 80px;
+    font-size: 24px;
     border-radius: 30px;
     margin: 0;
   }
 
   /* Media becomes full width card */
-  .gallery-box2-wrap {
+  .gallery-box2 {
     width: 100%;
     max-height: 518px;
-    height: auto;
+    border-radius: 30px;
+    overflow: hidden;
     margin: 0;
-  }
-  .gallery-box2 {
-    border-radius: 20px;
+		height: auto;
   }
 
   #photoBox {
     width: 100%;
-    height: -webkit-fill-available;
   }
   #videoBox {
     width: 100%;
-    height: -webkit-fill-available;
+    height: 38vh;
   }
   #videoBox .gallery-slide {
     position: relative;
@@ -1645,7 +2361,6 @@
     align-items: center;
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 60px;
   }
 
   .naturetrail-img2 {
@@ -1661,28 +2376,28 @@
   }
 
   .naturetrail-text1 {
-    font-size: 22px;
+    font-size: 24px;
     width: 100%;
     justify-content: center;
   }
 
   .naturetrail-text2 {
-    font-size: 64px;
+    font-size: 42px;
     line-height: 1.1;
-    margin-top: 10px;
+    margin-top: 6px;
     width: 100%;
     text-align: center;
   }
 
   .naturetrail-text3 {
-    font-size: 22px;
-    margin-top: 0px;
+    font-size: 24px;
+    margin-top: 10px;
     width: 100%;
     text-align: center;
   }
 
   .naturetrail-text4 {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     margin-top: 14px;
     width: 100%;
@@ -1698,12 +2413,12 @@
   }
   /* CTA button full width */
   .btn-fill-left {
-    width: 60%;
+    width: 50%;
     height: 80px;
     border-radius: 60px;
     font-size: 24px;
-    margin-top: 40px;
-    margin-left: 20%;
+    margin-top: 18px;
+    margin-left: 25%;
   }
 
   /* Hide right-side girl video on mobile */
@@ -1724,14 +2439,13 @@
   .firstlayer-col {
     width: 100%;
     text-align: center;
-    font-size: 22px;
-    padding-bottom: 35px;
+    font-size: 24px;
   }
   .bird-sighting {
-    font-size: 22px;
+    font-size: 24px;
   }
   .time-text {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 40px;
   }
   .stop-image {
@@ -1745,7 +2459,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 10px;
   }
   .naturetrail-img {
     width: 280px;
@@ -1760,7 +2474,7 @@
   .birdwatching-box-right {
     width: 100%;
     margin: auto;
-    margin-top: 90px;
+    margin-top: 40px;
   }
   .birdwatching-bottombox {
     width: 90%;
@@ -1768,7 +2482,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: 10px;
   }
   .bird-box {
     width: 280px;
@@ -1807,6 +2521,13 @@
   }
 
   /* Sort dropdown AFTER filters */
+  .Sort-box {
+    order: 2;
+  }
+  .Sort-box2 {
+    order: 2;
+    font-size: 21px;
+  }
 
   /* Bird gallery LAST */
   .bird-gallery {
@@ -1815,6 +2536,9 @@
 
   /* Optional: descriptions after gallery */
   .filter-desc,
+  .filter-desc-right {
+    order: 5;
+  }
   /* -----------------------------
      FILTER UI MOBILE
   ----------------------------- */
@@ -1831,6 +2555,31 @@
     width: 50%;
   }
 
+  .filter-toggle {
+    width: 33%;
+    min-width: auto;
+    font-size: 21px;
+    padding: 0px 0px;
+    border-radius: 30px;
+    height: 50px;
+  }
+  .filter-toggle:hover {
+    padding: 0px 0px;
+    border-radius: 30px;
+    background: #802650;
+    height: 50px;
+  }
+  .filter-options label {
+    font-size: 20px;
+  }
+  .filter-toggle.open {
+    border: 0.2px solid #a4a1a1;
+    border-radius: 30px;
+    padding: 0px 0px;
+    background: #ede4d8;
+    color: #4d4a4a;
+    height: 50px;
+  }
   .filter-options {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -1840,12 +2589,46 @@
     padding: 20px 0px 10px 0px;
     width: 50%;
   }
+  .filter-toggle .arrow {
+    height: 7px;
+    width: 7px;
+  }
+  .filter-toggle .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
+  #selectedFilters {
+    height: auto;
+    margin-top: 12px;
+  }
+
+  .selected-chip {
+    font-size: 18px;
+    padding: 10px 12px;
+    border-radius: 30px;
+    border: 1px solid #a4a1a1;
+    margin: 0;
+    height: 50px;
+    width: 16%;
+  }
+  .selected-chip span {
+    margin-top: 0.1rem;
+    font-size: 25px;
+  }
 
   /* -----------------------------
      REMOVE DESKTOP ABSOLUTE TEXT
   ----------------------------- */
   .filter-desc,
-  .filter-desc-head {
+  .filter-desc-right {
+    position: static;
+    padding: 0;
+    margin-top: 30px;
+    text-align: left;
+    font-size: 20px;
+    width: 100%;
+  }
+	.filter-desc-head {
     font-size: 20px;
   }
   /* -----------------------------
@@ -1877,7 +2660,55 @@
   /* -----------------------------
      SORT DROPDOWN MOBILE
   ----------------------------- */
+  .Sort-box {
+    width: 46%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 50px;
+    max-height: 66px;
+    margin-left: 53.5%;
+  }
 
+  .sort-header {
+    padding: 15px 16px;
+  }
+  .Sort-box.open {
+    height: 245px;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+  }
+  .Sort-box2 {
+    width: 46%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 50px;
+    max-height: 66px;
+    margin-left: 53.5%;
+  }
+  .Sort-box2.open {
+    height: auto;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+    max-height: 182px;
+  }
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  .drop-content {
+    height: 60px;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding-right: 1rem;
+  }
+  .arrow {
+    height: 7px;
+    width: 7px;
+    margin-left: 0.5rem;
+  }
+  .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
   /* -----------------------------
      BIRD GALLERY MOBILE GRID
   ----------------------------- */
@@ -1891,7 +2722,7 @@
   }
 
   .bird-item {
-    padding-top: 25px;
+    padding-top: 10px;
   }
 
   .info-video {
@@ -1904,6 +2735,9 @@
     width: 100%;
     text-align: center;
     margin-top: 6px;
+  }
+  .Sort-box {
+    font-size: 24px;
   }
   /* -----------------------------
      EMPTY RESULTS MESSAGE
@@ -1928,13 +2762,13 @@
     padding: 0;
   }
   .Scientific_name {
-    font-size: 22px;
+    font-size: 21px;
   }
   .Bird_name {
     font-size: 72px;
   }
   .Other_names {
-    font-size: 22px;
+    font-size: 21px;
   }
   .tree-mobile-toprow {
     display: flex;
@@ -1948,7 +2782,7 @@
     gap: 6vw;
   }
   .Info-title {
-    font-size: 26px;
+    font-size: 30px;
     width: auto;
   }
   .Info-detail {
@@ -1959,21 +2793,13 @@
   }
   .Info-detail-text2 {
     width: auto;
-    font-size: 22px;
+    font-size: 24px;
   }
   .bird-page-main-bg {
     width: 100%;
     margin: 0;
     height: auto;
   }
-	 .butterfly-page-main-bg {
-    width: 100%;
-    margin: 0;
-    height: auto;
-  }
-	.butterfly-page-girl {
-  margin-top: 8vh;
-	}
   .bird-page-girl {
     position: absolute;
     width: 42vw;
@@ -1993,7 +2819,7 @@
 
   .tree-mobile-image {
     text-align: center;
-    margin: 11vh 0;
+    margin: 6vh 0;
     order: 4;
   }
 
@@ -2008,7 +2834,7 @@
     order: 1;
     width: 50%;
     margin-left: 35%;
-    margin-top: -23%;
+    margin-top: -12%;
   }
 
   .tree-mobile-photo img {
@@ -2039,7 +2865,7 @@
     width: 40%;
     height: auto;
     position: absolute;
-    margin-top: -52%;
+    margin-top: -37%;
     margin-left: 50%;
   }
   .treebottom {
@@ -2047,7 +2873,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin: 150px auto 0 auto;
-    padding-bottom: 60px;
   }
   .tree_secondimg {
     width: 100%;
@@ -2066,7 +2891,7 @@
   /* Title stays visible */
   .treebottom-text .Bottom-Info-title {
     width: 100%;
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -2078,7 +2903,7 @@
     display: block;
     margin-top: 12px;
 
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -2094,7 +2919,7 @@
     gap: 50px;
     min-height: auto;
     max-height: none;
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
   }
 
   /* EACH SECTION ROW */
@@ -2114,7 +2939,7 @@
     display: flex;
     flex-direction: column;
     min-height: 0;
-    padding: 20px 0;
+    padding: 18px 0;
 
     position: relative;
     cursor: pointer;
@@ -2128,11 +2953,11 @@
   /* TITLE ROW STYLE */
   .Bottom-Info-title {
     width: 100%;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 500;
-    letter-spacing: 0px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    padding-top: 20px;
+
     color: #bd8e74;
   }
 
@@ -2147,8 +2972,7 @@
   /* HIDE READ MORE BUTTON */
   .read-more-btn {
     display: block;
-    font-size: 16px;
-    padding-top: 10px;
+    font-size: 21px;
   }
 
   /* OPEN STATE (WHEN CLICKED) */
@@ -2156,7 +2980,7 @@
     display: block;
     margin-top: 12px;
     max-height: 21vh;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -2164,9 +2988,9 @@
   /* OPEN STATE (WHEN CLICKED) */
   .Info-detail-text3 {
     display: block;
-    margin-top: 0px;
+    margin-top: 12px;
     max-height: none;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -2178,19 +3002,18 @@
     z-index: 5;
   }
   .bird-watch-link {
-    width: 60%;
+    width: 50%;
     height: 80px;
     border-radius: 60px;
-    font-size: 26px;
-    left: 20%;
-    margin-top: 5.77vh;
+    font-size: 24px;
+    left: 25%;
   }
   .bird-bottombox {
     width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 20px;
     height: auto;
   }
   .bird-bootombox-col {
@@ -2200,14 +3023,13 @@
     flex-direction: column;
     background: #fff3e6;
     border-radius: 1.5vw;
-    padding-top: 20px;
   }
   .doyouknow {
     display: flex;
     flex-direction: row;
   }
   .doyouknowimg {
-    width: 350px;
+    width: 280px;
     height: auto;
     margin: auto;
   }
@@ -2225,9 +3047,8 @@
     width: 100%;
     text-align: left;
     height: auto;
-    min-height: 0;
-    font-size: 22px;
-    margin-top: 6.903vh;
+    min-height: 130px;
+    font-size: 24px;
   }
   .bird-bootombox-border {
     width: 100%;
@@ -2235,35 +3056,21 @@
     margin-top: -40px;
   }
   .radio-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 16px; /* increased column gap so right-column text isn't cramped */
     width: 100%;
-    margin-top: 30px;
-    align-items: start;
-    height: auto; /* each cell sticks to its row's top */
+    margin: auto;
+    margin-top: 10px;
+    height: auto;
   }
-
   .radio-container label {
-    display: flex;
-    align-items: flex-start; /* radio pins to top of its own text */
-    gap: 8px;
-    font-size: 22px;
-    line-height: 1.3;
-    align-self: start;
-    text-align: left; /* overrides any row-level stretching */
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    align-items: baseline;
+    font-size: 24px;
   }
-
-  .option-text {
-    flex: 1; /* fills remaining width — second line wraps from text start */
-  }
-
   .custom-radio {
     width: 16px;
     height: 16px;
-    min-width: 16px;
-    flex-shrink: 0;
-    margin-top: 7px; /* reduced: aligns circle with cap-height of first text line */
   }
   .radio-container input[type="radio"]:checked + .custom-radio::after {
     content: "";
@@ -2271,7 +3078,7 @@
     height: 16px;
   }
   .mcq-submit {
-    margin: 20px 0 0 0; /* reduced fixed margin — flows naturally below radio grid */
+    margin: 30px 0 0 5px;
     width: 150px;
     font-size: 22px;
     position: relative;
@@ -2279,24 +3086,21 @@
   .doyouknow-text1 {
     width: 100%;
     text-align: center;
-    min-height: 0;
+    min-height: 240px;
     height: auto;
-    flex-wrap: nowrap; /* prevent submit button from wrapping into a side column */
-    flex-direction: column; /* ensure vertical stacking always */
-    padding-bottom: 24px;
   }
   .mcq-video2 {
     display: table-row-group;
-    width: 100px;
+	width: 90px;
     border-radius: 1rem;
-    margin-left: 50%;
-    top: 17.5%;
+    margin-left: 65%;
+    top: 18.5%;
   }
-  .mcq-video {
-    width: 100px;
+	.mcq-video {
+    width: 90px;
     border-radius: 1rem;
-    margin-left: 50%;
-    top: 56.5%;
+    margin-left: 65%;
+    top: 65.5%;
     height: auto;
   }
   .Bird-basicinfo-grid {
@@ -2315,7 +3119,7 @@
   }
 
   .Info-detail-text {
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.5;
     color: #4d4a4a;
     width: 100%;
@@ -2400,7 +3204,7 @@
 
   /* Text under icon */
   .media-head {
-    font-size: 22px;
+    font-size: 24px;
     font-family: "Boreal", sans-serif;
     color: #4d4a4a;
     font-weight: 400;
@@ -2409,7 +3213,7 @@
     height: auto;
     min-height: 0;
     width: auto;
-    font-size: 22px;
+    font-size: 24px;
   }
   .bottom-box {
     width: 90%;
@@ -2419,7 +3223,7 @@
     gap: 50px;
     min-height: auto;
     max-height: none;
-    padding: 80px 0 0 0;
+    padding: 20px 0 0 0;
   }
   .bottom-box-icon {
     width: 160px;
@@ -2429,9 +3233,9 @@
   /* -----------------------------------
      DEEPDIVE PAGE
   ----------------------------------- */
-  .portal-video {
-    object-position: left center;
-  }
+	.portal-video {
+		object-position: left center;
+	}
   .deepdivefirstbox {
     width: 90%;
     margin: 10px auto 0 auto;
@@ -2447,26 +3251,16 @@
     height: 250px;
   }
   .left_1 {
-    font-size: 20px;
+    font-size: 21px;
   }
   .left_2 {
-    font-size: 96px;
+    font-size: 112px;
   }
   .right_1 {
-    font-size: 26px;
-  }
-  .video-text {
-    font-size: 22px;
-    width: 100%;
-  }
-  .video-text-3 {
-    font-size: 22px;
-    width: 90%;
-    padding-top: 5px;
-		margin: auto;
+    font-size: 30px;
   }
   .right_2 {
-    font-size: 24px;
+    font-size: 30px;
   }
   .left_3 {
     width: 80%;
@@ -2488,7 +3282,7 @@
   }
   .deepdive-secondbox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: auto;
     width: 90%;
     gap: 30px;
@@ -2499,18 +3293,26 @@
     padding-top: 50px;
   }
   .bird-video {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 100%;
     object-fit: cover;
     margin: auto;
   }
+  .video-text {
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+  }
+  .video-text-3 {
+    width: 100%;
+    height: auto;
+  }
   .left_5 {
-    width: 90%;
+    width: 100%;
     height: auto;
     padding-top: 10px;
     font-size: 22px;
-		margin: auto;
   }
   .right_3 {
     width: 100%;
@@ -2519,20 +3321,18 @@
     margin: auto;
   }
   .video-text2 {
-    width: 60%;
-    height: 80px;
-    border-radius: 60px;
+    width: 80%;
+    height: 52px;
+    border-radius: 30px;
     font-size: 24px;
-    margin-top: 12px;
-    margin-left: 20%;
+    margin-top: 18px;
+    margin-left: 10%;
   }
   .right_4 {
-    width: 90%;
+    width: 100%;
     height: auto;
     padding-top: 10px;
     font-size: 22px;
-		margin-top: auto;
-		margin: auto;
   }
   .hiranandani-box {
     width: 60%;
@@ -2540,12 +3340,12 @@
     margin-top: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 110px;
+    margin-top: 60px;
     height: auto;
   }
   .hiranandani-img-box {
-    width: 496px;
-    height: auto;
+    width: 600px;
+    height: 600px;
     border-radius: 100%;
     object-fit: cover;
     margin: auto;
@@ -2557,27 +3357,25 @@
   }
   .hiranandani-text-1 {
     margin: auto;
-    font-size: 22px;
-    padding-top: 40px;
+    font-size: 24px;
+    padding-top: 30px;
   }
   .hiranandani-text-3 {
-    font-size: 22px;
-    padding-top: 10px;
+    font-size: 24px;
   }
   .hiranandani-text-2 {
-    font-size: 96px;
-    padding-top: 10px;
+    font-size: 112px;
   }
   .hiranandani-text-4 {
     height: auto;
     margin-top: 24px;
-    font-size: 22px;
+    font-size: 24px;
   }
   .deepdive-container2 {
     width: 90%;
     margin: auto;
     height: auto;
-    padding-top: 80px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
   }
@@ -2608,7 +3406,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 30px;
     margin: auto;
   }
   .right-section2 {
@@ -2621,7 +3419,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 80px;
+    padding-top: 30px;
   }
   .right_6 {
     height: auto;
@@ -2634,13 +3432,117 @@
      HOME PAGE
   ----------------------------------- */
 
+  .home-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .center-container {
+    position: initial;
+    width: 100%;
+    height: auto;
+    order: 1;
+  }
+  .portal-mask {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 70px auto;
+  }
+  .animation-box {
+    margin: 250px 0px auto 150px;
+    width: auto;
+    height: 210px;
+  }
+  .animation-inner {
+    height: 554px;
+    width: 500px;
+    margin-left: 24%;
+    margin-top: 11vh;
+		min-height: auto;
+  }
+  .home-ui {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+  }
+  .right-text {
+		width: 46%;
+    margin-top: 92%;
+    margin-left: 50%;
+    line-height: 28px;
+    font-size: 24px;
+  }
+  .home-ui2 {
+    order: 1;
+  }
+  .buttons-home {
+    width: 90%;
+    height: auto;
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-top: 40px;
+  }
+  .birdspagelink {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0.46875vw;
+    margin: 0;
+    position: inherit;
+  }
+  .treespagelink {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+  .deepdive-link {
+    margin: 530px auto auto auto;
+    margin-left: 42.2%;
+    width: 15%;
+    font-size: 16px;
+    max-height: 40px;
+    border-radius: 32px;
+  }
+  .left-text {
+    margin: 40px 20px auto 20px;
+    height: auto;
+    width: 50%;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 48px;
+  }
+  .treebox {
+    width: 100%;
+    height: auto;
+  }
+  .birdspagelink_1 {
+    width: 380px;
+    height: auto;
+  }
+  .video-text-2 {
+    width: 90%;
+    margin: 5px 0px 10px 0px;
+    border-radius: 60px;
+    height: 80px;
+    font-size: 24px;
+  }
+  .video-text-3 {
+    font-size: 22px;
+  }
   .gallery-mainbox {
     width: 90%;
     margin: 12vh auto auto auto;
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 
   /* Break gallery-box4 wrapper */
@@ -2650,7 +3552,7 @@
 
   /* Top text */
   .gallery-box4_1 {
-    order: 0;
+    order: 1;
     margin: 0;
     text-align: left;
     height: auto;
@@ -2659,25 +3561,21 @@
 
   /* Slider */
   .gallery-box2 {
-    order: 1;
+    order: 2;
     margin-top: 30px;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    max-width: auto;
   }
 
   /* Shot location */
   .shot-location {
-    margin-top: 78%;
+    margin-top: 320px;
     text-align: left;
     width: 100%;
-    font-size: 22px;
   }
   .close-icon {
     height: 50px;
     width: 50px;
     margin-left: 95%;
-    margin-top: -65%;
+    margin-top: 75px;
   }
   .gallery-name {
     font-size: 36px;
@@ -2691,15 +3589,15 @@
     margin-top: 20px;
     width: 100%;
     text-align: center;
-    border-radius: 40px;
+    border-radius: 32px;
   }
 
   #photoTab {
     order: 5;
-    margin-top: 0px;
+    margin-top: 10px;
     width: 100%;
     text-align: center;
-    border-radius: 40px;
+    border-radius: 32px;
   }
 
   /* Navigation */
@@ -2726,81 +3624,132 @@
     height: 1rem;
   }
 }
-@media (max-width: 830px) {
-  .tree-ani {
+@media (max-width: 830px){
+	.animation-fallback {
+		display: none;
+	margin-top: -1vh;
+    height: 14vh;
+    width: 44vw;
+    margin-left: 22vw;
+	}
+	 .tree-ani {
     width: 40%;
     height: auto;
     position: absolute;
     margin-top: -52%;
     margin-left: 50%;
   }
-  .bird-watch-link {
+	  .bird-watch-link {
     width: 50%;
     height: 80px;
     border-radius: 60px;
     font-size: 22px;
     left: 25%;
   }
-  .bird-page-girl {
+	.bird-page-girl {
     position: absolute;
     width: 38vw;
     z-index: 15;
     margin-top: 0vh;
     margin-left: 45vw;
   }
-
-  .menu-item {
+	  .deepdive-link {
+    margin: 468px auto auto auto;
+    margin-left: auto;
+    margin-left: 42.2%;
+    width: 15%;
+    font-size: 16px;
+    max-height: 40px;
+    border-radius: 32px;
+		}
+		  .animation-inner {
+    height: 522px;
+    width: 500px;
+    margin-left: 17%;
+    margin-top: 0vh;
+		min-height: auto;
+  }
+	  .dropdown-content {
+    width: 41vw !important;
+		}
+		  .menu-item {
     font-size: 20px;
+			}
+			 .video-text-3 {
+    font-size: 17px;
   }
-  .left_5 {
+	  .left_5 {
     font-size: 21px;
   }
-  .right_4 {
+	 .right_4 {
     font-size: 21px;
   }
-  .video-text2 {
+	.video-text2 {
     font-size: 22px;
-    margin-top: 12px;
+		margin-top: 12px;
   }
-  .hiranandani-box {
+	  .video-text {
+    width: 100%;
+    height: auto;
+    font-size: 21px;
+  }
+	  .hiranandani-box {
     width: 74%;
-  }
-  .btn-fill-left {
+		}
+		.btn-fill-left {
     font-size: 22px;
     margin-top: 10px;
-  }
-  .footerweb-img3 {
+		}
+		 .footerweb-img3 {
     width: 150px;
     right: 23%;
-  }
-  .naturetrail-text4 {
+		 }
+		 .naturetrail-text4 {
     padding-bottom: 20px;
+  }
+	  .Sort-box {
+    font-size: 22px;
+  }
+	  .Sort-box.open {
+    max-height: 19.9vh;
+  }
+	  .filter-toggle {
+    font-size: 18px;
+		}
+		  .filter-options label {
+    font-size: 18px;
+  }
+	.selected-chip {
+    width: auto;
+  }
+	.selected-chip span {
+    margin-top: 0rem;
+    font-size: 25px;
   }
 }
 /* =========================================================
    MOBILE (<800px)
 ========================================================= */
-
-@media (max-width: 750px) {
-  .Disclaimer {
-    width: 100%;
+@media (max-width: 800px) {
+	.animation-fallback {
+		display: none;
+		margin-top: 0vh;
+		height: 14vh;
+		width: 25vw;
+		margin-left: 4vw;
+	}
+	.Disclaimer{
+		width: 90%;
     margin: 0px auto;
     left: auto;
-    font-size: 14px;
-    padding-top: 0px;
-    padding-bottom: 30px;
-    text-align: left;
-  }
-  .Disclaimer1 {
-    width: 90%;
+		font-size: 12px;
+	}
+	.Disclaimer1{
+		width: 90%;
     margin: 0px auto;
     left: auto;
-    font-size: 14px;
-    padding: 0;
-    max-width: none;
-    text-align: left;
-    margin-top: 40px;
-  }
+		font-size: 12px;
+	}
   html {
     overflow-x: hidden;
   }
@@ -2813,25 +3762,25 @@
   .hide-on-mobile {
     display: none !important;
   }
-  .hide-on-tab-mobile:not(.keep-menu) {
-    display: none !important;
-  }
+.hide-on-tab-mobile:not(.keep-menu) {
+  display: none !important;
+}
 
-  .credit-row2 {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-  }
-  .credit-bird {
-    list-style: disc;
-    padding-left: 2.5rem;
-    margin: 1rem 0;
-    font-family: "Boreal", sans-serif;
-    font-size: clamp(13px, 0.73vw, 28px);
-    line-height: 1.5;
-    color: #4d4a4a;
-    width: 100%;
-  }
+.credit-row2 {
+  display: flex;
+  flex-direction: column;
+	margin: auto;
+}
+.credit-bird {
+  list-style: disc;
+  padding-left: 2.5rem;
+  margin: 1rem 0;
+  font-family: "Boreal", sans-serif;
+  font-size: clamp(13px, 0.73vw, 28px);
+  line-height: 1.5;
+  color: #4d4a4a;
+  width: 100%;
+}
   /* Navbar becomes compact */
   .top-nav {
     position: absolute;
@@ -2839,7 +3788,7 @@
     left: 0;
     right: 0;
     padding: 16px 20px;
-    z-index: 999;
+    z-index: 9999;
   }
 
   #Logo {
@@ -2847,6 +3796,22 @@
   }
 
   /* Dropdown full width */
+  .dropdown-mask {
+    width: 90vw !important;
+    position: absolute; /* or fixed depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
+
+    right: 1vw;
+  }
+  .dropdown-content {
+    width: 90vw !important;
+    position: absolute; /* or fixed depending on your layout */
+    left: 50%;
+    transform: translateX(-50%);
+
+    right: 1vw;
+  }
 
   .menu-item {
     font-size: 16px;
@@ -2857,7 +3822,7 @@
   /* Scroll button reposition */
   #scrollUpBtn {
     right: 1.5rem;
-    bottom: 5rem;
+    bottom: 3rem;
     width: 3rem;
     height: 3rem;
   }
@@ -2882,7 +3847,7 @@
   }
 
   .urbanlegendsbox1_1 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .urbanlegendsbox1_2 {
@@ -2891,7 +3856,7 @@
   }
 
   .urbanlegendsbox1_3 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 12px;
   }
@@ -2901,7 +3866,7 @@
     position: relative;
     width: 90%;
     height: auto;
-    margin: 10px auto 0 auto;
+    margin: 30px auto 0 auto;
     top: 0;
     right: 0;
     left: 0;
@@ -2918,93 +3883,13 @@
   .selection-box {
     width: 100%;
     margin-left: 0;
-    display: none; /* hide individual buttons on mobile */
   }
-
-  /* Mobile story selector — dropdown */
-  .mobile-story-selector {
-    display: block !important;
+  /* Story buttons full width */
+  .story {
     width: 100%;
-    margin-left: 0%;
-    background: #802650;
-    border-radius: 30px;
-    overflow: hidden;
-  }
-
-  .mobile-story-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: #802650;
-    border-radius: 0;
-    padding: 12px 20px;
-    cursor: pointer;
-    box-sizing: border-box;
-  }
-
-  .mobile-story-selector.open .mobile-story-trigger {
-    border-radius: 0;
-  }
-
-  .mobile-story-label {
-    flex: 1;
-    font-family: "boreal", sans-serif;
     font-size: 15px;
-    font-style: italic;
-    color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .mobile-story-chevron {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    color: #fff;
-    transition: transform 0.25s ease;
-  }
-
-  .mobile-story-selector.open .mobile-story-chevron {
-    transform: rotate(180deg);
-  }
-
-  .mobile-story-dropdown {
-    display: flex;
-    flex-direction: column;
-    background: #ede4d8;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.35s ease;
-  }
-
-  .mobile-story-selector.open .mobile-story-dropdown {
-    max-height: 500px;
-  }
-
-  .mobile-story-option {
-    padding: 16px 22px;
-    font-family: "boreal", sans-serif;
-    font-size: 14px;
-    font-style: italic;
-    color: #bd8e74;
-    cursor: pointer;
-    border-top: 1px solid #bd8e74;
-    transition:
-      background 0.2s,
-      color 0.2s;
-  }
-
-  .mobile-story-option:hover,
-  .mobile-story-option:active {
-    background: #802650;
-    color: #fff;
-  }
-
-  .mobile-story-option.active {
-    color: #bd8e74;
-    font-weight: 600;
+    padding: 14px 18px;
+    border-radius: 30px;
   }
 
   /* Image scales */
@@ -3028,13 +3913,13 @@
   }
 
   .story_name {
-    font-size: 42px;
+    font-size: 34px;
     height: auto;
     order: 1;
   }
 
   .story_text {
-    font-size: 14px;
+    font-size: 16px;
     max-height: none;
     overflow: visible;
     padding-right: 0;
@@ -3060,18 +3945,35 @@
    MOBILE DROPDOWN (≤ 800px)
    Matches XD Layout
 =========================================== */
+  .dropdown-mask {
+    position: absolute;
+    top: 7vh;
+    height: auto;
 
+    overflow: visible;
+    pointer-events: none;
+    z-index: 9999;
+  }
   .menu-bg a:first-child {
     height: 6vh;
+  }
+  /* Dropdown box */
+  .dropdown-content {
+    opacity: 1;
+    width: 220px;
+    height: auto;
+    border-radius: 22px;
+    overflow: hidden;
+    left: 0;
+    transform: none !important;
   }
 
   /* Background panel */
   .menu-bg {
     width: 100%;
     background: #802650;
-    border-radius: 30px;
+    border-radius: 22px;
     height: auto;
-    overflow: hidden;
     /*  display: flex;
     flex-direction: column; */
   }
@@ -3107,9 +4009,8 @@
 
   /* Rounded Bottom */
   .menu-bg a:last-child {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-    height: 6.5vh;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
   }
 
   /* ==========================================================
@@ -3126,7 +4027,7 @@
 
     padding: 50px 30px;
     border-radius: 35px;
-    z-index: 0;
+
     height: auto;
     gap: 40px;
     position: relative;
@@ -3166,7 +4067,7 @@
 
   /* Copyright */
   .footerwebcol1_2 {
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 20px;
     height: auto;
     text-align: left;
@@ -3174,7 +4075,7 @@
 
   /* Sitemap heading */
   .footerwebcol2_1 {
-    font-size: 14px;
+    font-size: 15px;
     margin-bottom: 12px;
     text-align: left;
   }
@@ -3259,7 +4160,7 @@
     padding: 0; /* reset desktop padding */
     margin-top: 25px; /* spacing from above content */
     margin-left: auto;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.4;
 
     text-align: left;
@@ -3273,8 +4174,8 @@
   }
 
   .Bird_list_intro {
-    font-size: 14px;
-    letter-spacing: 0em;
+    font-size: 16px;
+    letter-spacing: 0.08em;
   }
 
   .Bird_list_title {
@@ -3361,20 +4262,17 @@
     width: 90%;
     margin: 0px auto;
     flex-direction: column;
-    gap: 15px;
-    display: flex;
-    padding-top: 30px;
+    gap: 25px;
   }
 
   .column3 {
     width: 100%;
     padding: 0;
     min-height: auto;
-    padding-bottom: 30px;
   }
 
   .stop {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .stop-time {
@@ -3383,17 +4281,15 @@
   }
 
   .birds-to-watch {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
-    margin-top: 0px;
-    color: #4d4a4a;
+    margin-top: 10px;
   }
 
   .activity {
-    font-size: 16px;
+    font-size: 15px;
     margin-top: 10px;
     font-style: italic;
-    padding-bottom: 9px;
   }
 
   /* Hide empty placeholder columns */
@@ -3409,7 +4305,7 @@
     width: 90%;
     margin: 0px auto 0 auto;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 0;
   }
 
   .nature-tips {
@@ -3418,20 +4314,20 @@
   }
 
   .birdwatching-box-left1 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 10px;
   }
 
   .birdwatching-box-left2 {
-    font-size: 42px;
+    font-size: 36px;
     line-height: 1.1;
     margin-top: 6px;
   }
 
   .birdwatching-box-left5 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
-    margin-top: 5px;
+    margin-top: 12px;
     width: 100%;
   }
 
@@ -3450,12 +4346,11 @@
   }
 
   .row-top {
-    font-size: 18px;
-    padding-top: 15px;
+    font-size: 16px;
   }
 
   .birdwatching-row-bottom {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
     margin-top: 4px;
   }
@@ -3466,7 +4361,7 @@
 
   .naturetrailbox4 {
     width: 90%;
-    margin: 60px auto 0px auto;
+    margin: 20px auto 30px auto;
     text-align: center;
   }
 
@@ -3489,8 +4384,8 @@
     flex-direction: column;
     height: auto;
     margin: 0;
-    gap: 6px;
-    order: 3;
+    gap: 12px;
+		order: 3;
   }
 
   .naturetrail-gallery-picturetab,
@@ -3503,20 +4398,17 @@
   }
 
   /* Media becomes full width card */
-  .gallery-box2-wrap {
-    width: 90vw;
-    aspect-ratio: 16 / 9;
-    max-width: 400px;
-    margin: 0;
-    height: auto;
-  }
   .gallery-box2 {
-    border-radius: 20px;
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 0;
+		height: 270px;
   }
 
   #photoBox {
     width: 100%;
-    height: 100%;
+		height: 100%;
   }
   #videoBox {
     width: 100%;
@@ -3568,11 +4460,10 @@
     width: 100%;
     margin-top: 10px;
     text-align: left;
-    padding-bottom: 30px;
   }
 
   .naturetrail-text1 {
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     justify-content: center;
   }
@@ -3586,15 +4477,14 @@
   }
 
   .naturetrail-text3 {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 0px;
     width: 100%;
     text-align: center;
-    padding-top: 5px;
   }
 
   .naturetrail-text4 {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6;
     margin-top: 14px;
     width: 100%;
@@ -3629,14 +4519,14 @@
   .firstlayer-col {
     width: 100%;
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
   }
   .bird-sighting {
-    font-size: 14px;
+    font-size: 15px;
   }
   .time-text {
-    font-size: 14px;
-    margin-top: 15px;
+    font-size: 15px;
+    margin-top: 10px;
   }
   .stop-image {
     width: 250px;
@@ -3709,6 +4599,12 @@
   }
 
   /* Sort dropdown AFTER filters */
+  .Sort-box {
+    order: 2;
+  }
+  .Sort-box2 {
+    order: 2;
+  }
 
   /* Bird gallery LAST */
   .bird-gallery {
@@ -3717,6 +4613,9 @@
 
   /* Optional: descriptions after gallery */
   .filter-desc,
+  .filter-desc-right {
+    order: 5;
+  }
   /* -----------------------------
      FILTER UI MOBILE
   ----------------------------- */
@@ -3734,15 +4633,71 @@
     width: auto;
   }
 
+  .filter-toggle {
+    width: 30%;
+    min-width: auto;
+    font-size: 13px;
+    padding: 0px 0px;
+    border-radius: 20px;
+    height: 30px;
+  }
+  .filter-toggle:hover {
+    padding: 0px 0px;
+    border-radius: 20px;
+    background: #802650;
+    height: auto;
+  }
+  .filter-toggle.open {
+    border: 0.2px solid #a4a1a1;
+    border-radius: 20px;
+    padding: 0px 0px;
+    background: #ede4d8;
+    color: #4d4a4a;
+    height: 30px;
+  }
   .filter-options {
     gap: 10px;
     padding: 20px 0px 10px 0px;
+  }
+  .filter-toggle .arrow {
+    height: 7px;
+    width: 7px;
+  }
+  .filter-toggle .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
+  #selectedFilters {
+    height: auto;
+    margin-top: 12px;
+  }
+
+  .selected-chip {
+    font-size: 13px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid #a4a1a1;
+    margin: 0;
+    height: auto;
+    width: auto;
+  }
+  .selected-chip span {
+    margin-top: 0.1rem;
+    font-size: 15px;
   }
 
   /* -----------------------------
      REMOVE DESKTOP ABSOLUTE TEXT
   ----------------------------- */
   .filter-desc,
+  .filter-desc-right {
+    position: static;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 15px;
+    width: 100%;
+  }
 
   /* -----------------------------
      ARCH VIDEO MOBILE
@@ -3769,10 +4724,63 @@
     height: auto;
     border-radius: 12px;
   }
+  .Sort-box {
+    font-size: 14px;
+  }
+  .filter-options label {
+    font-size: 15px;
+  }
   /* -----------------------------
      SORT DROPDOWN MOBILE
   ----------------------------- */
+  .Sort-box {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 30px;
+    max-height: 52px;
+  }
 
+  .sort-header {
+    padding: 16px 16px;
+  }
+  .Sort-box.open {
+    height: 182px;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+    max-height: 182px;
+  }
+  .Sort-box2 {
+    width: 100%;
+    margin: 0px 0px 20px 0px;
+    border-radius: 30px;
+    max-height: 52px;
+    font-size: 15px;
+  }
+  .Sort-box2.open {
+    height: 98px;
+    border-radius: 25px;
+    transition-duration: 0.3s;
+    max-height: 182px;
+  }
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  .drop-content {
+    height: 44px;
+    align-items: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding-right: 1rem;
+  }
+  .arrow {
+    height: 7px;
+    width: 7px;
+  }
+  .arrow::after {
+    height: 7px;
+    width: 7px;
+  }
   /* -----------------------------
      BIRD GALLERY MOBILE GRID
   ----------------------------- */
@@ -3785,7 +4793,7 @@
   }
 
   .bird-item {
-    padding-top: 25px;
+    padding-top: 10px;
   }
 
   .info-video {
@@ -3795,10 +4803,10 @@
   }
 
   .bird-name {
-    font-size: 16px;
+    font-size: 15px;
     width: 100%;
     text-align: center;
-    margin-top: 0px;
+    margin-top: 6px;
   }
 
   /* -----------------------------
@@ -3841,13 +4849,13 @@
     padding: 0;
   }
   .Scientific_name {
-    font-size: 14px;
+    font-size: 18px;
   }
   .Other_names {
-    font-size: 14px;
+    font-size: 18px;
   }
   .Bird_name {
-    font-size: 42px;
+    font-size: 36px;
   }
   .tab {
     display: flex;
@@ -3859,19 +4867,18 @@
     gap: 6vw;
   }
   .Info-title {
-    font-size: 18px;
+    font-size: 16px;
     width: auto;
   }
   .Info-detail {
     height: auto;
     min-height: 0;
-    font-size: 42px;
+    font-size: 28px;
     width: auto;
-    line-height: 0.8em;
   }
   .Info-detail-text2 {
     width: auto;
-    font-size: 14px;
+    font-size: 15px;
   }
   .bird-map {
     width: auto;
@@ -3928,7 +4935,6 @@
     display: flex;
     flex-direction: column;
     margin: 20px auto 0 auto;
-    padding-bottom: 0px;
   }
   .tree_secondimg {
     width: 100%;
@@ -3949,7 +4955,7 @@
   /* Title stays visible */
   .treebottom-text .Bottom-Info-title {
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -3979,7 +4985,7 @@
     display: block;
     margin-top: 12px;
 
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -4035,11 +5041,11 @@
   /* TITLE ROW STYLE */
   .Bottom-Info-title {
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding-top: 0px;
+
     color: #bd8e74;
   }
 
@@ -4073,7 +5079,7 @@
     display: block;
     margin-top: 12px;
     max-height: none;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -4097,7 +5103,7 @@
     display: block;
     margin-top: 12px;
     max-height: none;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: #4d4a4a;
   }
@@ -4117,16 +5123,14 @@
     border-radius: 30px;
     font-size: 16px;
     left: 0;
-    margin-top: 60px;
   }
   .bird-bottombox {
     width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
+    padding-top: 20px;
     height: auto;
-		gap: 30px;
   }
   .bird-bootombox-col {
     height: auto;
@@ -4148,24 +5152,19 @@
   .earthchallenge-text {
     width: 100%;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
   }
   .doyouknow-text {
     width: 100%;
     text-align: center;
     height: auto;
   }
-  .earthchallenge-text {
-    position: relative;
-  }
   .doyouknow-detail {
     width: 100%;
     text-align: center;
     height: auto;
-    min-height: 0px;
-    font-size: 14px;
-    padding-bottom: 20px;
-    margin-top: 10px;
+    min-height: 130px;
+    font-size: 15px;
   }
   .bird-bootombox-border {
     width: 100%;
@@ -4173,77 +5172,53 @@
     margin-top: -40px;
   }
   .radio-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 30px;
     width: 100%;
-    margin-top: 14px;
+    margin: auto;
+    margin-top: 10px;
+    height: auto;
   }
-
   .radio-container label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    line-height: 1.4;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    align-items: baseline;
+    font-size: 15px;
+		padding-bottom: 10px;
   }
-
-  .option-text {
-    flex: 1;
-  }
-
   .custom-radio {
-    width: 18px;
-    height: 18px;
-    min-width: 18px;
-    flex-shrink: 0;
-    margin-top: 1px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
   }
-
-  /* ✅ Only ONE ::after rule — no position absolute */
   .radio-container input[type="radio"]:checked + .custom-radio::after {
     content: "";
-    width: 10px;
-    height: 9px;
-    border-radius: 50%;
-    background: #911a4a;
-    display: block;
-    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
   }
-
   .mcq-submit {
-    margin: 16px 0 0 0; /* reduced fixed margin — flows naturally below radio grid */
-    width: 140px;
-    font-size: 14px;
+    margin: 7px 0 0 5px;
+    width: 120px;
+    font-size: 15px;
     position: relative;
   }
   .doyouknow-text1 {
     width: 100%;
     text-align: center;
-    min-height: 0;
+    min-height: 240px;
     height: auto;
-    flex-wrap: nowrap; /* prevent submit button from wrapping into a side column */
-    flex-direction: column;
-    padding-bottom: 16px;
   }
   .mcq-video2 {
-    display: table-row-group;
+display: table-row-group;
     width: 75px;
     border-radius: 1rem;
     margin-left: 270px;
     top: 7%;
   }
-  .mcq-video {
+.mcq-video {
     display: table-row-group;
     width: 75px;
     border-radius: 1rem;
     margin-left: 270px;
-    top: 50%;
+    top: 62%;
   }
   .Bird-basicinfo-grid {
     display: grid;
@@ -4261,11 +5236,10 @@
   }
 
   .Info-detail-text {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
     color: #4d4a4a;
     width: 100%;
-    padding-top: 5px;
   }
   .Birdpage-secondbox {
     flex-direction: column;
@@ -4312,7 +5286,7 @@
   }
   .media-boxrow1 {
     width: 100%;
-    padding-bottom: 10px;
+		padding-bottom: 10px;
   }
   .media-boxrow2 {
     width: 100%;
@@ -4320,7 +5294,7 @@
   .Birdpage-secondbox_1 {
     width: 100%;
     height: auto;
-    padding-top: 0px;
+    padding-top: 20px;
   }
   /* Each media item */
   .media-box1 {
@@ -4351,7 +5325,7 @@
 
   /* Text under icon */
   .media-head {
-    font-size: 14px;
+    font-size: 16px;
     font-family: "Boreal", sans-serif;
     color: #4d4a4a;
     font-weight: 400;
@@ -4360,7 +5334,7 @@
     height: auto;
     min-height: 0;
     width: auto;
-    font-size: 14px;
+    font-size: 15px;
   }
   .bottom-box {
     width: 90%;
@@ -4373,23 +5347,13 @@
     padding: 20px 0 0 0;
   }
 
-  .butterfly-bottom-flow {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .butterfly-second-img {
-    order: -1;
-  }
-
   /* -----------------------------------
      DEEPDIVE PAGE
   ----------------------------------- */
   .deepdive-bg {
-    position: absolute;
-    height: 50vh;
-  }
-  .deepdive-container {
+  position: absolute;
+  height: 50vh;
+	}.deepdive-container {
     padding-top: 48vh;
   }
   .deepdivefirstbox {
@@ -4399,7 +5363,7 @@
     flex-direction: column;
   }
   .left_1 {
-    font-size: 14px;
+    font-size: 15px;
   }
   .left_2 {
     font-size: 56px;
@@ -4434,7 +5398,6 @@
     flex-direction: column;
     margin: auto;
     width: 90%;
-    padding-top: 70px;
   }
   .right_1 {
     font-size: 20px;
@@ -4454,11 +5417,20 @@
     object-fit: cover;
     margin: auto;
   }
+  .video-text {
+    width: 100%;
+    height: auto;
+    font-size: 13px;
+  }
+  .video-text-3 {
+    width: 100%;
+    height: auto;
+  }
   .left_5 {
     width: 100%;
     height: auto;
     padding-top: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .right_3 {
     width: 100%;
@@ -4470,14 +5442,14 @@
     width: 100%;
     height: auto;
     padding-top: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .hiranandani-box {
     width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
-    margin-top: 90px;
+    margin-top: 30px;
     height: auto;
   }
   .hiranandani-img-box {
@@ -4495,24 +5467,24 @@
   .hiranandani-text-1 {
     margin: auto;
     padding-top: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .hiranandani-text-2 {
     font-size: 56px;
   }
   .hiranandani-text-3 {
-    font-size: 14px;
+    font-size: 15px;
   }
   .hiranandani-text-4 {
     height: auto;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
   .deepdive-container2 {
     width: 90%;
     margin: auto;
     height: auto;
-    padding-top: 80px;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
   }
@@ -4533,13 +5505,13 @@
     display: flex;
     flex-direction: column;
     gap: 2.25vw;
-    margin-top: 40px;
+    margin-top: 6.944vh;
   }
   .naturetrail-imgblock {
     width: 130px;
     height: auto;
     margin: auto;
-    display: block;
+		display: block;
   }
   .naturetrail-textblock {
     width: 100%;
@@ -4559,7 +5531,7 @@
     width: 100%;
     margin-left: auto;
     height: auto;
-    padding-bottom: 30px;
+		padding-bottom: 30px;
   }
   .right_5i {
     height: auto;
@@ -4572,13 +5544,123 @@
      HOME PAGE
   ----------------------------------- */
 
+  .home-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  #Echoes_of_Nature_home {
+    font-size: 33vw;
+    left: 0;
+  }
+  .center-container {
+    position: initial;
+    width: 100%;
+    height: auto;
+    order: 1;
+  }
+  .portal-mask {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 70px auto;
+  }
+  .animation-box {
+    margin: 120px 0px auto 130px;
+    width: auto;
+    height: 210px;
+  }
+  .animation-inner {
+		height: 250px;
+    width: 195px;
+    margin-left: 0;
+    margin-top: 4vh;
+		min-height: auto;
+  }
+  .home-ui {
+    display: flex;
+    flex-direction: column;
+    order: 2;
+  }
+  .right-text {
+    width: 48%;
+    margin-top: 404px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
+  }
+  .home-ui2 {
+    order: 1;
+  }
+  .buttons-home {
+    width: 90%;
+    height: auto;
+    order: 5;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding-top: 20px;
+		gap: 10px;
+  }
+  .birdspagelink {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0.46875vw;
+    margin: 0;
+    position: inherit;
+  }
+  .treespagelink {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+  }
+  .deepdive-link {
+margin: 265px auto auto auto;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
+  }
+  .left-text {
+    margin: 40px 20px auto 20px;
+    height: auto;
+    width: 50%;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 23px;
+  }
+  .treebox {
+    width: 100%;
+    height: auto;
+  }
+  .birdspagelink_1 {
+    width: 125px;
+    height: auto;
+  }
+  .video-text-2 {
+    width: 95%;
+    margin: 5px 0px 10px 0px;
+    border-radius: 30px;
+    height: 35px;
+    font-size: 13px;
+  }
+  .video-text-3 {
+    font-size: 15px;
+  }
   .gallery-mainbox {
     width: 90%;
     margin: 12vh auto auto auto;
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 2px;
   }
 
   /* Break gallery-box4 wrapper */
@@ -4588,7 +5670,7 @@
 
   /* Top text */
   .gallery-box4_1 {
-    order: 0;
+    order: 1;
     margin: 0;
     text-align: left;
     height: auto;
@@ -4602,29 +5684,27 @@
 
   /* Shot location */
   .shot-location {
-    margin-top: 360px;
+    margin-top: 350px;
     text-align: left;
     width: 100%;
-    font-size: 14px;
   }
   .close-icon {
     height: 20px;
     width: 20px;
     margin-left: 94%;
-    margin-top: -62%;
+    margin-top: 28%;
   }
   .gallery-name {
-    font-size: 22px;
-		min-height: auto;
+    font-size: 24px;
   }
   .gallery-alias {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   /* Tabs */
   #videoTab {
     order: 4;
-    margin-top: 45px;
+    margin-top: 20px;
     width: 100%;
     text-align: center;
     border-radius: 32px;
@@ -4632,7 +5712,7 @@
 
   #photoTab {
     order: 5;
-    margin-top: 5px;
+    margin-top: 10px;
     width: 100%;
     text-align: center;
     border-radius: 32px;
@@ -4663,1101 +5743,105 @@
   }
 }
 @media (max-width: 480px) {
-  .dropdown-mask {
-    position: fixed;
-    top: 6.2%;
-    right: 20px;
-    width: 90%;
-    min-width: unset;
-    height: auto;
-    overflow: visible; /* ← crucial: stop clipping */
-    z-index: 10000;
-    display: block;
-  }
-  /* Footer container becomes vertical card */
-  .footerweb {
-    width: 90%;
-    margin: 20px auto;
-    flex-direction: column;
-    align-items: flex-start;
-
-    padding: 50px 30px;
-    border-radius: 35px;
-    z-index: 0;
-    height: auto;
-    gap: 40px;
-    position: relative;
-  }
-
-  /* Left bird image stays but moves inside */
-  .footerweb-img {
-    width: 55px;
-    height: auto;
-    margin: 0;
-  }
-
-  /* Columns become full width stacked */
-  .footerwebcol1,
-  .footerwebcol2,
-  .footerwebcol3,
-  .footerwebcol4 {
-    width: 100%;
-    margin: 0;
-    height: auto;
-    text-align: left;
-  }
-
-  /* Footer logo scaling */
-  .footer-logo {
-    width: 180px;
-    height: auto;
-  }
-
-  /* Address text */
-  .footerwebcol1_1 {
-    font-size: 13px;
-    line-height: 1.6;
-    height: auto;
-    text-align: left;
-    margin-top: 2.966vh;
-  }
-
-  /* Copyright */
-  .footerwebcol1_2 {
-    font-size: 14px;
-    margin-top: 20px;
-    height: auto;
-    text-align: left;
-  }
-
-  /* Sitemap heading */
-  .footerwebcol2_1 {
-    font-size: 14px;
-    margin-bottom: 12px;
-    text-align: left;
-  }
-
-  /* Sitemap links */
-  .footerwebcol2_2,
-  .footerwebcol2_3 {
-    font-size: 13px;
-    margin-top: 8px;
-    height: auto;
-    text-align: left;
-  }
-
-  /* Disclaimer links */
-  .footerwebcol3 .footerwebcol2_2,
-  .footerwebcol3 .footerwebcol2_3 {
-    font-size: 13px;
-    margin-top: 8px;
-    text-align: left;
-  }
-
-  /* Social icons row */
-  .footer-icons {
-    width: 100%;
-    gap: 16px;
-    margin-top: 15px;
-    justify-content: left;
-  }
-
-  .footer-icon {
-    width: 34px;
-    height: 34px;
-  }
-
-  /* Tomorrow Matters logo */
-  .tommorrow-logo {
-    width: 200px;
-    padding-top: 15px;
-  }
-
-  /* Footer description text */
-  .footerwebcol4_1,
-  .footerwebcol4_2 {
-    font-size: 13px;
-    line-height: 1.5;
-    width: 100%;
-    text-align: left;
-  }
-
-  /* Decorative birds and flowers reposition */
-  .footerweb-img2,
-  .footerweb-img3,
-  .footerweb-img4 {
-    display: block;
-    position: absolute;
-  }
-
-  /* Small bird bottom right */
-  .footerweb-img3 {
-    width: 110px;
-    right: 20px;
-    margin: 0;
-  }
-
-  /* Another bird slightly above */
-  .footerweb-img2 {
-    width: 70px;
-    right: 9px;
-    margin: 0;
-  }
-
-  /* Flower stays on right edge */
-  .footerweb-img4 {
-    width: 120px;
-    height: auto;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-  }
-  .copyright {
-    position: relative; /* remove absolute */
-    padding: 0; /* reset desktop padding */
-    margin-top: 25px; /* spacing from above content */
+.animation-fallback {
+  display: none;
+		margin-top: 5vh;
+    height: 14vh;
+    width: 46vw;
+    margin-left: 11vw;
+}
+  .deepdive-link {
+    margin: 300px auto auto auto;
     margin-left: auto;
-    font-size: 14px;
-    line-height: 1.4;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
+  }
 
-    text-align: left;
-    width: 100%;
+	.animation-inner {
+    height: 274px;
+    width: 218px;
+    margin-left: 40px;
+    margin-top: 8.5vh;
+    min-height: auto;
   }
-  .after-footer-gap {
-    height: 0;
+.right-text {
+    width: 48%;
+    margin-top: 465px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
   }
-  /* Hint badge on the map */
-  .Naturetrail-map {
-    position: relative;
-    cursor: pointer;
-  }
+
 }
 @media (max-width: 450px) {
+.animation-fallback {
+  display: none;
+		margin-top: 3vh;
+    height: 14vh;
+    width: 46vw;
+    margin-left: 4vw;
+}
+  .deepdive-link {
+    margin: 279px auto auto auto;
+    margin-left: auto;
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
+  }
+
+	.animation-inner {
+    height: 250px;
+    width: 195px;
+    margin-left: 40px;
+    margin-top: 6.5vh;
+		min-height: auto;
+  }
+.right-text {
+    width: 48%;
+    margin-top: 420px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
+  }
+
 }
 @media (max-width: 400px) {
+	.hero-fallback {
+  display: none;
+  width: 100%;
 }
 
-/* ══════════════════════════════════════════
-   NEW HOME — Tablet & Mobile (≤1024px)
-   Grid → column layout, scrollable page
-   Matches XD: Home_1024_x_768 & Mobile_800_x_1280
-══════════════════════════════════════════ */
-@media (max-width: 1024px) {
-  .home-container {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    overflow: visible;
-  }
-
-  /* Hide desktop columns */
-  .home-col--left {
-    display: none;
-  }
-  .home-col--right {
-    display: none;
-  }
-
-  /* Center column fills full width */
-  .home-col--center {
-    width: 100%;
-    order: 1;
-  }
-
-  /* Portal fills screen width with padding */
-  .portal-wrapper {
-    width: 92%;
-    margin-top: 6vh;
-  }
-
-  .portal-wrapper .portal-mask {
-    width: 100%;
-  }
-
-  /* Girl animation — adjust for mobile portal */
-  .portal-wrapper .animation-box {
-    top: 41%;
-    left: 35%;
-    width: 52%;
-    height: 75%;
-  }
-
-  /* DEEP DIVE button — wider pill, centered */
-  .portal-wrapper .deepdive-link {
-    bottom: 19%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: clamp(100px, 18%, 200px);
-    font-size: 17px;
-    height: clamp(24px, 5vw, 40px);
-    border-radius: 32px;
-  }
-
-  /* Watermark title */
-  #Echoes_of_Nature_home {
-    font-size: 28vw;
-    padding-top: 0;
-  }
-
-  /* Right description — shows below portal */
-  .home-ui2 {
-    display: block;
-    order: 2;
-    padding: 0 5vw;
-  }
-
-  .home-ui2 .right-text {
-    width: 51%;
-    max-width: none;
-    margin-left: auto;
-    margin-right: 0;
-    margin-top: 95px;
-    font-size: 22px;
-    line-height: 1.2;
-    text-align: left;
-  }
-
-  /* Commitment text — mobile version */
-  .mobile-commitment {
-    display: block;
-    order: 3;
-    padding: 10px 5vw 10px;
-  }
-
-  .mobile-commitment .left-text {
-    margin: 0;
-    width: auto;
-    font-size: 48px;
-    line-height: 1.35;
-  }
-
-  /* Bird + Tree link buttons side by side */
-  .buttons-home.tree-mobile-only {
-    display: flex !important;
-    order: 4;
-    width: 90%;
-    margin: 15px auto 30px;
-    gap: 50px;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .buttons-home .treespagelink,
-  .buttons-home .birdspagelink {
-    width: 45%;
-    height: auto;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .buttons-home .treebox {
-    width: 100%;
-    font-size: clamp(12px, 1.6vw, 18px);
-  }
-	.video-text-2 {
-		color: #fff;
-	}
-  .buttons-home .birdspagelink_1 {
-    width: clamp(350px, 22vw, 380px);
-    height: auto;
-		padding-top: inherit;
-  }
-
-  .buttons-home .video-text {
-    width: 100%;
-    font-size: 22px;
-    justify-content: center;
-  }
-
-  .buttons-home .video-text-2 {
-    width: 90%;
-    font-size: clamp(22px, 1.6vw, 24px);
-    height: auto;
-    padding: 18px 16px;
-    border-radius: 32px;
-    opacity: 1;
-    background: #802650;
-    clip-path: none;
-  }
-  .buttons-home .video-text-2:hover {
-    background: #bd8e74;
-  }
-  .buttons-home .video-text-3 {
-    width: 100%;
-    font-size: 22px;
-  }
-}
-
-/* ══════════════════════════════════════════
-   Small tablets & large phones (≤800px)
-══════════════════════════════════════════ */
-@media (max-width: 759px) {
-  .dropdown-mask {
-    position: fixed;
-    top: 7.2%;
-    right: 20px;
-    width: 90%;
-    min-width: unset;
-    height: auto;
-    overflow: hidden;
-    z-index: 10000;
-  }
-
-  .dropdown-content {
-    display: block;
-    position: relative;
-    width: 100%;
-    opacity: 1;
-    transform: none;
-  }
-  .portal-wrapper {
-    width: 95%;
-  }
-
-  .portal-wrapper .animation-box {
-    top: 30%;
-    left: 28%;
-    width: 54%;
-    height: 76%;
-  }
-
-  .portal-wrapper .deepdive-link {
-    bottom: 12%;
-    width: clamp(90px, 30%, 180px);
-    font-size: clamp(8px, 2.2vw, 14px);
-    height: clamp(22px, 4.5vw, 36px);
-  }
-
-  #Echoes_of_Nature_home {
-    font-size: 30vw;
-  }
-
-  .home-ui2 .right-text {
-    width: 65%;
-    font-size: clamp(12px, 2.2vw, 18px);
-    line-height: 1.45;
-    margin-top: 60px;
-  }
-
-  .mobile-commitment .left-text {
-    font-size: clamp(20px, 4.5vw, 34px);
-  }
-
-  .buttons-home.tree-mobile-only {
-    gap: 15px;
-    width: 92%;
-    margin: 10px auto 25px;
-  }
-
-  .buttons-home .birdspagelink_1 {
-    width: clamp(90px, 24vw, 170px);
-  }
-
-  .buttons-home .video-text-2 {
-    width: 92%;
-    font-size: clamp(10px, 2vw, 15px);
-    padding: 7px 12px;
-  }
-}
-/* ══════════════════════════════════════════
-   BIRD / FLORA LIST — Tablet (769px–1024px)
-   Arch image centred, filter-desc below it,
-   Sort & Filter via bottom bar (same as mobile)
-══════════════════════════════════════════ */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .mobile-sheet-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 300;
-  }
-
-  .mobile-sheet-backdrop.open {
-    display: block;
-  }
-
-  /* ── Bottom sheet panel ── */
-  .mobile-bottom-sheet1 {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff3e6;
-    border-radius: 20px 20px 0 0;
-    z-index: 400;
-    padding: 24px 24px 150px;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .mobile-bottom-sheet1.open {
-    transform: translateY(0);
-  }
-
-  .mobile-bottom-sheet {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff3e6;
-    border-radius: 20px 20px 0 0;
-    z-index: 400;
-    padding: 24px 24px 24px;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .mobile-bottom-sheet.open {
-    transform: translateY(0);
-  }
-
-  .mobile-sheet-handle {
-    width: 40px;
-    height: 4px;
-    border-radius: 2px;
-    background: #bd8e74;
-    margin: 0 auto 20px;
-  }
-
-  .mobile-sheet-title {
-    font-family: "benton-modern-display", serif;
-    font-size: 20px;
-    color: #802650;
-    margin-bottom: 16px;
-    font-style: italic;
-  }
-
-  /* Filter options inside filter sheet */
-  .mobile-bottom-sheet1 .filter-options {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 0;
-    padding: 0px;
-    padding-top: 0px;
-    width: 100%;
-    padding-top: 10px;
-  }
-
-  .mobile-bottom-sheet1 .filter-options label {
-    font-size: 24px;
-    gap: 10px;
-    padding: 0px 0px;
-    border-radius: 12px;
-    min-width: 0;
-  }
-  .mobile-sheet-section-label {
-    font-family: "Boreal", sans-serif;
-    font-size: 26px;
-    color: #bd8e74;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 15px;
-    margin-top: 20px;
-  }
-  .mobile-bottom-sheet1 .filter-options input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #841c2d;
-  }
-
-  /* Selected chip inside sheet */
-  .mobile-sheet-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  /* Sort options inside sheet */
-  .mobile-sort-option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(189, 142, 116, 0.2);
-    font-family: "Boreal", sans-serif;
-    font-size: 24px;
-    color: #4d4a4a;
-    cursor: pointer;
-  }
-
-  .mobile-sort-option.active {
-    color: #bd8e74;
-  }
-
-  .mobile-sort-option:last-child {
-    border-bottom: none;
-  }
-  /* ── Hide desktop row layout completely ── */
-  .Bird_list_secondbox .filter-ui,
-  .Bird_list_secondbox .filter-desc,
-  .Bird_list_secondbox .filter-desc-right,
-	.Bird_list_secondbox .filter-desc-right-butterfly,
-  .Bird_list_secondbox .Sort-box,
-  .Bird_list_secondbox .Sort-box2 {
-    display: none !important;
-  }
-
-  /* Stack secondbox as column */
-  .Bird_list_secondbox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 20px;
-    padding: 0;
-  }
-
-  /* ── Arch-box: centred, reasonable tablet size ── */
-  .Arch-box {
-    order: 1;
-    width: 76%;
-    height: auto;
-    margin: 0 auto;
-  }
-  .Arch-box video {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-  .Arch-box1 {
-    order: 1;
-    width: 70%;
-    height: auto;
-    margin: 0 auto;
-  }
-  .Arch-box1 video {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-
-  /* ── filter-desc: show below Arch-box, centred ── */
-  .filter-desc {
-    order: 2;
-    display: block !important;
-    position: static !important;
-    padding: 16px 0 0 0 !important;
-    width: 70%;
-    margin: 0 auto;
-    font-size: 14px;
-    text-align: left;
-    color: #4d4a4a;
-  }
-
-  /* ── First box ── */
-  .Bird_list_firstbox {
-    width: 80%;
-    margin: clamp(28px, 7vh, 80px) auto 0;
-    text-align: center;
-  }
-
-  .Bird_list_title {
-    font-size: 72px;
-  }
-
-  .Bird_list_subtitle,
-  .Bird_list_intro {
-    font-size: 22px;
-  }
-
-  /* ── Gallery: 3 columns, padding for fixed bar ── */
-  .bird-gallery {
-    grid-template-columns: repeat(3, 1fr);
-    width: 92%;
-    margin: 20px auto 0;
-    padding-bottom: 110px;
-  }
-
-  .info-video {
-    width: 29vw;
-    height: 29vw;
-  }
-
-  .bird-name {
-    font-size: 26px;
-    width: 26vw;
-  }
-  .mobile-bar-divider {
-    width: 3px;
-    height: 60px;
-    background: #bd8e74;
-    flex-shrink: 0;
-    margin-top: 12px;
-    margin-bottom: 12px;
-  }
-  /* ── Show the bottom bar on tablet too ── */
-  .mobile-sort-filter-bar {
-    display: flex !important;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 200;
-    gap: 0%;
-    background: #fff3e6;
-    pointer-events: auto;
-    width: 100%;
-    padding: 0%;
-    border-top: 1.5px solid #bd8e74;
-  }
-  .mobile-sheet-actions {
-    display: flex !important;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 200;
-    gap: 0%;
-    background: #fff3e6;
-    pointer-events: auto;
-    width: 100%;
-    padding: 0%;
-    border-top: 1.5px solid #bd8e74;
-  }
-
-  /* Close — ghost outline pill */
-  .sheet-action-close {
-    flex: 1;
-    background: transparent !important;
-    color: #4d4a4a !important;
-    box-shadow: none !important;
-    min-width: 0;
-  }
-
-  /* Apply — filled maroon pill */
-  .sheet-action-apply {
-    color: #802650 !important;
-  }
-  .mobile-bar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: transparent;
-    color: #4d4a4a;
-    font-family: "Boreal", sans-serif;
-    font-size: 24px;
-    border: none;
-    border-radius: 32px;
-    padding: 12px 32px;
-    cursor: pointer;
-    letter-spacing: 0.03em;
-    min-width: 50%;
-  }
-}
-/* ══════════════════════════════════════════
-   BIRD / FLORA LIST — Mobile (≤ 768px)
-   Bottom Sort & Filter bar matching XD
-══════════════════════════════════════════ */
-@media (max-width: 768px) {
-  .mobile-sheet-section-label {
-    font-family: "Boreal", sans-serif;
-    font-size: 16px;
-    color: #bd8e74;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 10px;
-    padding-top: 20px;
-  }
-  .mobile-sheet-options {
-    display: flex !important;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
-    margin-top: 0;
-  }
-  /* ── Hide desktop filter/sort/video UI ── */
-  .Bird_list_secondbox .filter-ui,
-  .Bird_list_secondbox .filter-desc,
-  .Bird_list_secondbox .Sort-box2 {
-    display: none !important;
-  }
-
-  .Bird_list_secondbox {
-    flex-direction: column;
-    margin-top: 16px;
-    min-height: 0;
-    padding: 0;
-  }
-  .Bird_list_secondbox .Sort-box {
-    display: none !important;
-  }
-  /* ── First box — title/subtitle ── */
-  .Bird_list_firstbox {
-    width: 88%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: clamp(100px, 5vh, 100px);
-  }
-
-  .Bird_list_title {
-    font-size: 42px;
-  }
-
-  .Bird_list_subtitle {
-    font-size: 14px;
-    margin-top: 8px;
-  }
-
-  .Bird_list_intro {
-    font-size: clamp(16px, 3vw, 15=6px);
-  }
-
-  /* ── Gallery grid — 2 columns ── */
-
-  .mobile-bar-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    background: transparent;
-    color: #4d4a4a;
-    font-family: "Boreal", sans-serif;
-    font-size: 15px;
-    border: none;
-    border-radius: 32px;
-    padding: 12px 32px;
-    cursor: pointer;
-    letter-spacing: 0.03em;
-    min-width: 50%;
-  }
-
-  /* ── Bottom sheet backdrop ── */
-  .mobile-sheet-backdrop {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    z-index: 300;
-  }
-
-  .mobile-sheet-backdrop.open {
-    display: block;
-  }
-
-  /* ── Bottom sheet panel ── */
-  .mobile-bottom-sheet1 {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff3e6;
-    border-radius: 20px 20px 0 0;
-    z-index: 400;
-    padding: 24px 24px 90px;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .mobile-bottom-sheet1.open {
-    transform: translateY(0);
-  }
-
-  .mobile-bottom-sheet {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #fff3e6;
-    border-radius: 20px 20px 0 0;
-    z-index: 400;
-    padding: 24px 24px 24px;
-    transform: translateY(100%);
-    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-
-  .mobile-bottom-sheet.open {
-    transform: translateY(0);
-  }
-
-  .mobile-sheet-handle {
-    width: 40px;
-    height: 4px;
-    border-radius: 2px;
-    background: #bd8e74;
-    margin: 0 auto 20px;
-  }
-
-  .mobile-sheet-title {
-    font-family: "benton-modern-display", serif;
-    font-size: 20px;
-    color: #802650;
-    margin-bottom: 16px;
-    font-style: italic;
-  }
-
-  /* Filter options inside filter sheet */
-  .mobile-bottom-sheet1 .filter-options {
-    display: grid !important;
-    grid-template-columns: 160px 160px;
-    gap: 12px;
-    margin-top: 0;
-    padding: 0;
-  }
-
-  .mobile-bottom-sheet1 .filter-options label {
-    font-size: 14px;
-    gap: 10px;
-    padding: 0px 0px;
-    border-radius: 12px;
-    min-width: 0;
-  }
-
-  .mobile-bottom-sheet1 .filter-options input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #841c2d;
-  }
-
-  /* Selected chip inside sheet */
-  .mobile-sheet-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  /* Sort options inside sheet */
-  .mobile-sort-option {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(189, 142, 116, 0.2);
-    font-family: "Boreal", sans-serif;
-    font-size: 14px;
-    color: #4d4a4a;
-    cursor: pointer;
-  }
-
-  .mobile-sort-option.active {
-    color: #bd8e74;
-  }
-
-  .mobile-sort-option:last-child {
-    border-bottom: none;
-  }
-  .mobile-sort-filter-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .mobile-bar-divider {
-    width: 2px;
-    height: 40px;
-    background: #bd8e74;
-    flex-shrink: 0;
-  }
-
-  .mobile-bar-btn {
-    /* remove margin-left: 4.5% */
+	.animation-inner {
+    height: 250px;
+    width: 195px;
     margin-left: 0;
-    /* rest stays the same */
+    margin-top: 4vh;
+		min-height: auto;
   }
-  .bird-gallery {
-    grid-template-columns: repeat(2, 1fr);
-    width: 100%;
+
+.right-text {
+    width: 48%;
+    margin-top: 404px;
+    margin-left: 48%;
+    line-height: 12px;
+    font-size: 13px;
+  }
+	 .deepdive-link {
+    margin: 265px auto auto auto;
     margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-    padding-bottom: 110px; /* ← was 90px, now clears the bar fully */
+    margin-left: auto;
+    margin-left: 40.2%;
+    width: 20%;
+    font-size: 9px;
+    max-height: 21px;
+    border-radius: 32px;
   }
 
-  /* Fix: bar pinned to viewport bottom, never scrolls */
-  .mobile-sort-filter-bar {
-    display: flex !important;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 200;
-    gap: 4%;
-    background: #fff3e6;
-    pointer-events: auto;
-    width: 100%;
-    padding: 2%;
-    border-top: 1.5px solid #bd8e74;
-  }
-}
-
-/* ══════════════════════════════════════════
-   Phones (≤480px)
-══════════════════════════════════════════ */
-@media (max-width: 480px) {
-  .portal-wrapper {
-    width: 98%;
-    margin-top: 7vh;
-  }
-
-  .portal-wrapper .animation-box {
-    top: 40%;
-    left: 33%;
-    width: 56%;
-    height: 78%;
-  }
-
-  .portal-wrapper .deepdive-link {
-    bottom: 20%;
-    width: 21.5%;
-    font-size: clamp(7px, 2.3vw, 12px);
-    height: clamp(20px, 5.5vw, 32px);
-  }
-
-  .home-ui2 .right-text {
-    width: 51%;
-    font-size: clamp(13px, 2.5vw, 16px);
-    line-height: 1.15;
-  }
-
-  .mobile-commitment .left-text {
-    font-size: clamp(23px, 5vw, 30px);
-    line-height: 1.3;
-  }
-
-  .buttons-home.tree-mobile-only {
-    width: 94%;
-    gap: 10px;
-    margin: 10px auto 20px;
-  }
-
-  .buttons-home .birdspagelink_1 {
-    width: clamp(170px, 28vw, 170px);
-  }
-
-  .buttons-home .video-text-2 {
-    width: 95%;
-    font-size: clamp(12px, 2.5vw, 14px);
-    padding: 10px 10px;
-  }
-
-  .buttons-home .video-text-3 {
-    font-size: clamp(12px, 2vw, 13px);
-  }
-  .buttons-home .video-text {
-    width: 100%;
-    font-size: clamp(13px, 1.4vw, 15px);
-    justify-content: center;
-  }
-  .video-text {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-  }
-  .video-text-3 {
-    font-size: 14px;
-    width: 100%;
-  }
-}
-@media (max-width: 480px) {
-  /* ── Credits page ── */
-
-  /* Close + Apply action bar — fixed to bottom of filter sheet */
-  .mobile-sheet-actions {
-    display: flex !important;
-    position: fixed;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 200;
-    gap: 0%;
-    background: #fff3e6;
-    pointer-events: auto;
-    width: 100%;
-    padding: 2%;
-    border-top: 1.5px solid #bd8e74;
-  }
-
-  /* Close — ghost outline pill */
-  .sheet-action-close {
-    flex: 1;
-    background: transparent !important;
-    color: #4d4a4a !important;
-    box-shadow: none !important;
-    min-width: 0;
-  }
-
-  /* Apply — filled maroon pill */
-  .sheet-action-apply {
-    color: #802650 !important;
-  }
-
-  .credit-container {
-    flex-direction: column;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-
-  .credit-main-head {
-    font-size: 42px;
-    padding-top: 100px;
-    text-align: center;
-  }
-
-  .credit-row1 {
-    width: 100%;
-    margin-left: 0;
-    padding-top: 2vh;
-    text-align: left;
-  }
-
-  .credit-row2 {
-    flex-direction: column;
-    width: 100%;
-    margin-left: 0;
-    gap: 20px;
-    padding-top: 2vh;
-  }
-
-  .credit-row3 {
-    width: 100%;
-  }
-
-  .credit-head {
-    font-size: 18px;
-  }
-
-  .credit-text {
-    font-size: 14px;
-    line-height: 1.6;
-    padding-bottom: 1.5vh;
-  }
-
-  .credit-bird {
-    width: 100%;
-    font-size: 14px;
-    padding-left: 1.5rem;
-    line-height: 1.6;
-  }
-
-  .credit-intro {
-    margin-left: -1.5rem;
-  }
-}
-@media (max-width: 380px) {
-  .close-icon {
-    height: 20px;
-    width: 20px;
-    margin-left: 94%;
-    margin-top: -67%;
-  }
-  .shot-location {
-    margin-top: 380px;
-  }
 }

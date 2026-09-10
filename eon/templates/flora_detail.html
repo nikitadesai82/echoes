@@ -36,13 +36,11 @@
           {{ flora.Flora_Geo_Range }}
         </div>
         <div class="bird-map gsap-hidden">
-          {% if flora.Flora_Map_Image %}
           <img
             src="{{ flora.Flora_Map_Image.url }}"
             alt="{{ flora.Flora_Name }} geographic range map"
             class="bird-map-img"
           />
-          {% endif %}
         </div>
       </div>
     </div>
@@ -749,13 +747,11 @@
           </div>
 <!-- mobile map -->
               <div class="bird-map gsap-hidden">
-                {% if flora.Flora_Map_Image %}
                 <img
                   src="{{ flora.Flora_Map_Image.url }}"
                   alt="{{ flora.Flora_Name }} geographic range map"
                   class="bird-map-img"
                 />
-                {% endif %}
               </div>
         </div>
 
@@ -1386,15 +1382,6 @@
     </div>
     <span class="fade-section read-more-btn">Read more</span>
   </div>
-</div>
-<div class="birdpage-link">
-  <a
-    class="btn-fill-circle bird-watch-link"
-    href="{% url 'Naturetrail' %}"
-    aria-label="Bird Watching at Hiranandani"
-  >
-    UPCOMING NATURE TRAILS
-  </a>
 </div>
 <script>
 document.querySelectorAll(".bottom-box-col2,.treebottom-text").forEach((box) => {
