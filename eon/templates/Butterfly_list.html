@@ -59,22 +59,24 @@
 			</label>
 		</div>
 
-		<div class="filter-options" id="defenceOptions" style="display: none">
-			<label><input type="radio" name="defence" value="Camouflage" /> Camouflage</label>
-			<label><input type="radio" name="defence" value="Mimicry" /> Mimicry</label>
-			<label><input type="radio" name="defence" value="Warning Coloration" /> Warning Coloration</label>
-			<label><input type="radio" name="defence" value="Toxic" /> Toxic</label>
-		</div>
+		<div class="filter-options" id="defenceOptions" style="display:none;">
+    <label><input type="radio" name="defence" value="Camouflage"> Camouflage</label>
+    <label><input type="radio" name="defence" value="Eyespots"> Eyespots</label>
+    <label><input type="radio" name="defence" value="Mimicry"> Mimicry</label>
+		<label><input type="radio" name="defence" value="Speed"> Speed</label>
+		<label><input type="radio" name="defence" value="Toxic"> Toxic</label>
+</div>
 
 		<div id="selectedFilters"></div>
 	</div>
 	<div class="filter-desc hide-on-mobile">
 		<div class="filter-desc-head">BUTTERFLY DEFENCE</div>
-		Camouflage: Blends in with its surroundings<br />
-		Mimicry: Imitates other species to avoid predators<br />
-		Warning Coloration: Bright colours that warn it is harmful<br />
-		Toxic: Carries toxins that make it unpleasant to eat
-	</div>
+Camouflage: Blends in with its surroundings<br />
+Eyespots: Markings that confuse or deter predators<br />
+Mimicry: Imitates other species to avoid predators<br />
+Speed: Uses rapid flight to escape predators<br />
+Toxic: Carries toxins that make it unpleasant to eat
+</div>
 	<div class="Arch-box">
 		<video autoplay muted loop playsinline>
 			<source src="{% static 'video/birdlistgirl.mp4' %}" type="video/mp4" />
@@ -554,10 +556,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="mobile-sheet-section-label">Defence</div>
   <div class="filter-options mobile-sheet-options" id="m-defenceOptions">
     <label><input type="radio" name="defence_m" value="Camouflage"> Camouflage</label>
+    <label><input type="radio" name="defence_m" value="Eyespots"> Eyespots</label>
     <label><input type="radio" name="defence_m" value="Mimicry"> Mimicry</label>
-    <label><input type="radio" name="defence_m" value="Warning Coloration"> Warning Coloration</label>
-    <label><input type="radio" name="defence_m" value="Toxic"> Toxic</label>
-  </div>
+		<label><input type="radio" name="defence_m" value="Speed"> Speed</label>
+		<label><input type="radio" name="defence_m" value="Toxic"> Toxic</label>
+</div>
 
   <div class="mobile-sheet-actions">
     <button class="mobile-bar-btn sheet-action-close" onclick="closeSheets()">CLOSE</button>
