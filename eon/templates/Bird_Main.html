@@ -785,12 +785,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   </div>
 </div>
-<div class="bird-page-girl hide-on-mobile">
-    <video autoplay muted loop playsinline poster="{% static 'img/birdpage-bg.webp' %}">
-    <source src="{% static 'video/birdpage-bg.webm' %}" type="video/webm" />
-
-</video>
-</div>
+<div class="bird-page-girl hide-on-mobile"> <img src="{% static 'img/birdpage-bg.webp' %}"> </div>
 
 <div class="bird-page-main-bg hide-on-mobile">
   <img loading="lazy" src="{% static 'img/birdpage-bg1.webp' %}" />
@@ -1441,6 +1436,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.addEventListener("pageshow", resumeBgVideo);
+  });
+</script>
+
+<script>
+  // Safari can decode these WebM clips but not their transparency, so the
+  // raw video shows with an opaque background baked in. Force the poster
+  // image instead of letting Safari attempt playback.
+  document.addEventListener("DOMContentLoaded", () => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (!isSafari) return;
+    document
+      .querySelectorAll(
+        ".bird-page-girl video[poster], .butterfly-page-girl video[poster], .tree-ani video[poster]",
+      )
+      .forEach((video) => {
+        const posterSrc = video.getAttribute("poster");
+        if (!posterSrc) return;
+        const img = document.createElement("img");
+        img.src = posterSrc;
+        img.alt = "";
+        video.replaceWith(img);
+      });
   });
 </script>
 

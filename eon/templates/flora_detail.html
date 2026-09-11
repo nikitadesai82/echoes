@@ -1859,4 +1859,26 @@ ScrollTrigger.batch(".fade-section", {
     );
   });
 </script>
+
+<script>
+  // Safari can decode these WebM clips but not their transparency, so the
+  // raw video shows with an opaque background baked in. Force the poster
+  // image instead of letting Safari attempt playback.
+  document.addEventListener("DOMContentLoaded", () => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (!isSafari) return;
+    document
+      .querySelectorAll(
+        ".bird-page-girl video[poster], .butterfly-page-girl video[poster], .tree-ani video[poster]",
+      )
+      .forEach((video) => {
+        const posterSrc = video.getAttribute("poster");
+        if (!posterSrc) return;
+        const img = document.createElement("img");
+        img.src = posterSrc;
+        img.alt = "";
+        video.replaceWith(img);
+      });
+  });
+</script>
 {% endblock %}
