@@ -77,12 +77,12 @@ Mimicry: Imitates other species to avoid predators<br />
 Speed: Uses rapid flight to escape predators<br />
 Toxic: Carries toxins that make it unpleasant to eat
 </div>
-	<div class="Arch-box">
+	<div class="Arch-box2">
 		<video autoplay muted loop playsinline>
-			<source src="{% static 'video/birdlistgirl.mp4' %}" type="video/mp4" />
+			<source src="{% static 'video/butterflylistgirl.mp4' %}" type="video/mp4" />
 		</video>
 	</div>
-	<div class="Sort-box sort-dropdown" onclick="toggleDropdown()">
+	<div class="Sort-box3 sort-dropdown" onclick="toggleDropdown()">
 		<div class="sort-header">
 			<div class="sort-label">
 				<span id="selected-sort" class="sort-type"></span>
@@ -277,7 +277,7 @@ Toxic: Carries toxins that make it unpleasant to eat
 	});
 
 	function toggleDropdown() {
-		document.querySelector('.Sort-box').classList.toggle('open');
+		document.querySelector('.Sort-box3').classList.toggle('open');
 	}
 
 	/* ---------------- APPLY SORT ---------------- */
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 
 			/*SORT BOX — WIDTH SCALE FROM CENTER*/
-			gsap.utils.toArray('.Sort-box').forEach((btn) => {
+			gsap.utils.toArray('.Sort-box3').forEach((btn) => {
 				const tl = gsap.timeline({
 					scrollTrigger: {
 						trigger: btn,
