@@ -3,24 +3,116 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="google-site-verification"
       content="N55FavPvUXGAoq9MHHLu8UyGvUztiwQIVuL55Cr1HFg"
     />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+
+    <title>Echoes of Nature – Birds, Butterflies &amp; Trees of Hiranandani Estate, Thane</title>
     <meta
       name="description"
-      content="Explore the birds, trees, butterflies and urban ecosystem of Hiranandani Estate, Thane. A sustainability initiative by House of Hiranandani."
+      content="Discover the birds, butterflies, trees, blooms and herbs of Hiranandani Estate, Thane. Walk the nature trail, use the birdwatcher's guide and see how the estate builds with nature. A sustainability initiative by House of Hiranandani."
     />
     <meta
       name="keywords"
-      content="Hiranandani Estate nature, birds Thane, urban ecosystem, flora fauna Hiranandani, Echoes of Nature"
+      content="Hiranandani Estate nature, birds of Thane, butterflies of Thane, trees of Hiranandani Estate, birdwatching Thane, nature trail Thane, urban biodiversity, urban ecosystem Mumbai, flora and fauna Hiranandani, House of Hiranandani sustainability, Echoes of Nature"
     />
-    <meta name="robots" content="index, follow" />
-    <title>Echoes of Nature</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="House of Hiranandani" />
+    <meta name="geo.region" content="IN-MH" />
+    <meta name="geo.placename" content="Hiranandani Estate, Thane" />
+    <link rel="canonical" href="https://echoesofnature.co.in/" />
+    <link rel="alternate" hreflang="en-in" href="https://echoesofnature.co.in/" />
+    <link rel="alternate" hreflang="x-default" href="https://echoesofnature.co.in/" />
+
+    <!-- Favicons: TODO add these files to static/img/ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+
+    <!-- Open Graph (WhatsApp / Facebook / LinkedIn previews) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in/" />
+    <meta property="og:title" content="Echoes of Nature – The Living Ecosystem of Hiranandani Estate, Thane" />
+    <meta property="og:description" content="Birds, butterflies, trees and a nature trail. Explore the urban biodiversity of Hiranandani Estate, Thane. A sustainability initiative by House of Hiranandani." />
+    <!-- TODO: create static/img/og-image.jpg at 1200x630 -->
+    <meta property="og:image" content="https://echoesofnature.co.in{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Birds and greenery of Hiranandani Estate, Thane" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Echoes of Nature – Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="Explore the birds, butterflies, trees and urban ecosystem of Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="https://echoesofnature.co.in{% static 'img/og-image.jpg' %}" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://echoesofnature.co.in/#website",
+            "url": "https://echoesofnature.co.in/",
+            "name": "Echoes of Nature",
+            "description": "An immersive educational guide to the birds, butterflies, trees and urban ecosystem of Hiranandani Estate, Thane.",
+            "inLanguage": "en-IN",
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" },
+            "about": { "@id": "https://echoesofnature.co.in/#place" }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in/#webpage",
+            "url": "https://echoesofnature.co.in/",
+            "name": "Echoes of Nature – Birds, Butterflies & Trees of Hiranandani Estate, Thane",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "about": { "@id": "https://echoesofnature.co.in/#place" },
+            "primaryImageOfPage": "https://echoesofnature.co.in{% static 'img/og-image.jpg' %}"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/",
+            "logo": "https://echoesofnature.co.in{% static 'img/footer-logo.png' %}",
+            "email": "property@houseofhiranandani.com",
+            "telephone": "+91-22-6209-3456",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Olympia, Central Avenue, Hiranandani Gardens, Powai",
+              "addressLocality": "Mumbai",
+              "postalCode": "400076",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.facebook.com/HouseofHiranandani",
+              "https://www.instagram.com/houseofhiranandani/",
+              "https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg",
+              "https://www.linkedin.com/company/house-of-hiranandani/"
+            ]
+          },
+          {
+            "@type": "Place",
+            "@id": "https://echoesofnature.co.in/#place",
+            "name": "Hiranandani Estate",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Thane",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
       rel="stylesheet"
       type="text/css"
@@ -33,7 +125,12 @@
     />
     <link rel="stylesheet" href="https://use.typekit.net/dqu3ozr.css" />
     <link rel="stylesheet" href="https://use.typekit.net/qnc6veg.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <style>
+      /* Headings added for SEO: keep them visually identical to the old divs.
+         :where() = zero specificity, so any rule in style.css still wins. */
+      :where(h1, h2, p).seo-heading { margin: 0; font: inherit; }
+    </style>
   </head>
 
   <body>
@@ -44,7 +141,7 @@
           ><img
             src="{% static 'img/Logo.png' %}"
             srcset="{% static 'img/Logo@2x.png' %} 2x"
-            alt="Logo"
+            alt="Echoes of Nature – Hiranandani Estate, Thane"
         /></a>
 
         <nav class="nav-icons">
@@ -129,16 +226,16 @@
         ═══════════════════════════════════════ -->
         <div class="home-col home-col--left">
           <div class="left-bird hide-on-tab-mobile">
-            <img src="{% static 'img/Bird-left-home.webp' %}" />
+            <img src="{% static 'img/Bird-left-home.webp' %}" alt="Bird perched on a branch at Hiranandani Estate" />
           </div>
           <div class="treespagelink hide-on-tab-mobile">
             <a href="{% url 'birds_list' %}">
               <div class="treebox">
                 <div class="birdspagelink_1">
-                  <img src="{% static 'img/Bird-button.webp' %}" />
+                  <img src="{% static 'img/Bird-button.webp' %}" alt="Birds of Hiranandani Estate, Thane" />
                 </div>
                 <div class="video-text">WANT TO KNOW</div>
-                <div class="video-text-2">WHO'S CHIRPING?</div>
+                <h2 class="video-text-2 seo-heading">WHO'S CHIRPING?</h2>
                 <div class="video-text-3">
                   <span
                     >Meet the colourful, feathered residents<br />and discover
@@ -157,17 +254,17 @@
         ═══════════════════════════════════════ -->
         <div class="home-col home-col--center">
           <!-- Background title watermark -->
-          <div id="Echoes_of_Nature_home">Echoes of Nature</div>
+          <h1 id="Echoes_of_Nature_home" class="seo-heading">Echoes of Nature</h1>
 
           <!-- Portal wrapper — the wreath sets the size, everything inside is relative -->
           <div class="portal-wrapper">
             <!-- The wreath frame image -->
-            <img class="portal-mask" src="{% static 'img/home.webp' %}" />
+            <img class="portal-mask" src="{% static 'img/home.webp' %}" alt="Leafy wreath framing the nature of Hiranandani Estate" />
 
             <!-- Girl animation — positioned relative to portal -->
             <div class="animation-box">
               <div class="animation-inner">
-                <video autoplay muted loop playsinline>
+                <video autoplay muted loop playsinline aria-label="Girl exploring nature at Hiranandani Estate">
                   <source
                     src="{% static 'video/home-animation.webm' %}"
                     type="video/webm"
@@ -175,7 +272,7 @@
                 </video>
               </div>
               <div class="animation-fallback" style="display: none">
-                <img src="{% static 'img/home-animation.webp' %}" alt="" />
+                <img src="{% static 'img/home-animation.webp' %}" alt="Girl exploring nature at Hiranandani Estate" />
               </div>
             </div>
 
@@ -189,10 +286,10 @@
               <a href="{% url 'flora_list' %}">
                 <div class="treebox">
                   <div class="birdspagelink_1">
-                    <img src="{% static 'img/Tree-button.webp' %}" />
+                    <img src="{% static 'img/Tree-button.webp' %}" alt="Trees and flora of Hiranandani Estate, Thane" />
                   </div>
                   <div class="video-text">COME MEET</div>
-                  <div class="video-text-2">THE GREEN GIANTS!</div>
+                  <h2 class="video-text-2 seo-heading">THE GREEN GIANTS!</h2>
                   <div class="video-text-3">
                     <span
                       >Get to know the leafy locals, from shady trees to
@@ -206,10 +303,10 @@
               <a href="{% url 'butterfly_list' %}">
                 <div class="treebox">
                   <div class="birdspagelink_1">
-                    <img src="{% static 'img/Butterfly-button.png' %}" />
+                    <img src="{% static 'img/Butterfly-button.png' %}" alt="Butterflies of Hiranandani Estate, Thane" />
                   </div>
                   <div class="video-text">WANT TO KNOW?</div>
-                  <div class="video-text-2">WHO'S FLUTTERING?</div>
+                  <h2 class="video-text-2 seo-heading">WHO'S FLUTTERING?</h2>
                   <div class="video-text-3">
                     <span
                       >Get to know the dazzling butterflies, from <br />tiny
@@ -226,20 +323,20 @@
              RIGHT COLUMN — description + flora link + bird
         ═══════════════════════════════════════ -->
         <div class="home-col home-col--right">
-          <div class="right-text1">
+          <h2 class="right-text1 seo-heading">
             Commitment.<br />
             Consciousness.<br />
             Care.
-          </div>
-          <div class="right-text hide-on-tab-mobile">
+          </h2>
+          <p class="right-text hide-on-tab-mobile seo-heading">
             Step into Hiranandani Estate, Thane and experience a thriving urban
             ecosystem of trees, plants, birds and butterflies. Here, every
             pathway and garden tells a story of thoughtfully nurtured flora and
             fauna.
-          </div>
+          </p>
 
           <div class="right-bird hide-on-tab-mobile">
-            <img src="{% static 'img/birdright.webp' %}" />
+            <img src="{% static 'img/birdright.webp' %}" alt="Colourful bird of Hiranandani Estate, Thane" />
           </div>
         </div>
 
@@ -274,14 +371,14 @@
             <a href="{% url 'birds_list' %}">
               <div class="treebox">
                 <div class="birdspagelink_1">
-                  <img src="{% static 'img/Bird-button.webp' %}" />
+                  <img src="{% static 'img/Bird-button.webp' %}" alt="Birds of Hiranandani Estate, Thane" />
                 </div>
                 <div class="video-text">WANT TO KNOW</div>
                 <div class="video-text-2">WHO'S CHIRPING?</div>
                 <div class="video-text-3">
                   <span
-                    >Get to know the leafy locals, from shady trees to beautiful
-                    blooms and amazing herbs.</span
+                    >Meet the colourful, feathered residents and discover more
+                    about them.</span
                   >
                 </div>
               </div>
@@ -291,7 +388,7 @@
             <a href="{% url 'flora_list' %}">
               <div class="treebox">
                 <div class="birdspagelink_1">
-                  <img src="{% static 'img/Tree-button.webp' %}" />
+                  <img src="{% static 'img/Tree-button.webp' %}" alt="Trees and flora of Hiranandani Estate, Thane" />
                 </div>
                 <div class="video-text">COME MEET</div>
                 <div class="video-text-2">THE GREEN GIANTS!</div>
@@ -309,7 +406,7 @@
           <a href="{% url 'butterfly_list' %}">
             <div class="treebox">
               <div class="birdspagelink_1">
-                <img src="{% static 'img/Butterfly-button.png' %}" />
+                <img src="{% static 'img/Butterfly-button.png' %}" alt="Butterflies of Hiranandani Estate, Thane" />
               </div>
               <div class="video-text">WANT TO KNOW?</div>
               <div class="video-text-2">WHO'S FLUTTERING?</div>
@@ -328,11 +425,11 @@
 
     <footer class="footerweb">
       <div class="footerweb-img hide-on-mobile">
-        <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+        <img src="{% static 'img/footerbird.webp' %}" alt="" />
       </div>
       <div class="footerwebcol1">
         <div class="footer-logo">
-          <img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
+          <img src="{% static 'img/footer-logo.png' %}" alt="House of Hiranandani logo" />
         </div>
         <div class="footerwebcol1_1">
           House of Hiranandani, Olympia
@@ -349,7 +446,7 @@
           >
           <br />
           <br />
-          <a href="https://www.houseofhiranandani.com/" target="_blank"
+          <a href="https://www.houseofhiranandani.com/" target="_blank" rel="noopener"
             >www.houseofhiranandani.com</a
           >
         </div>
@@ -398,12 +495,12 @@
         </div>
       </div>
       <div class="footerweb-img2">
-        <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+        <img src="{% static 'img/footerbird.webp' %}" alt="" />
       </div>
       <div class="footerwebcol4">
         <div class="footerwebcol2_1">CONNECT WITH US</div>
         <div class="footer-icons">
-          <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
+          <a href="https://www.facebook.com/HouseofHiranandani" target="_blank" rel="noopener">
             <div class="footer-icon">
               <img
                 src="{% static 'img/Facebook.png' %}"
@@ -415,7 +512,7 @@
           </a>
           <a
             href="https://www.instagram.com/houseofhiranandani/"
-            target="_blank"
+            target="_blank" rel="noopener"
           >
             <div class="footer-icon">
               <img
@@ -428,7 +525,7 @@
           </a>
           <a
             href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg"
-            target="_blank"
+            target="_blank" rel="noopener"
           >
             <div class="footer-icon">
               <img
@@ -441,7 +538,7 @@
           </a>
           <a
             href="https://www.linkedin.com/company/house-of-hiranandani/"
-            target="_blank"
+            target="_blank" rel="noopener"
           >
             <div class="footer-icon">
               <img
@@ -459,17 +556,17 @@
           non-commercial display and is brought to you by
         </div>
         <div class="tommorrow-logo">
-          <img src="{% static 'img/tommorrow-logo.png' %}" />
+          <img src="{% static 'img/tommorrow-logo.png' %}" alt="House of Hiranandani sustainability initiative logo" />
         </div>
         <div class="footerwebcol4_2">
           A Sustainability initiative by House of Hiranandani
         </div>
       </div>
       <div class="footerweb-img3">
-        <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+        <img src="{% static 'img/footerbird.webp' %}" alt="" />
       </div>
       <div class="footerweb-img4 hide-on-mobile">
-        <img src="{% static 'img/webfooterflower.webp' %}" alt="Footer logo" />
+        <img src="{% static 'img/webfooterflower.webp' %}" alt="" />
       </div>
       <div class="copyright">
         © 2026 House of Hiranandani. All rights reserved.
@@ -860,7 +957,7 @@
     </script>
 
     <audio id="globalClickSound" preload="auto">
-      <source src="{% static 'audio/click.wav' %}" type="audio/mpeg" />
+      <source src="{% static 'audio/click.wav' %}" type="audio/wav" />
     </audio>
 
     <script>
@@ -1026,27 +1123,5 @@
       });
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const videoWrap = document.querySelector(".animation-inner");
-        const fallbackWrap = document.querySelector(".animation-fallback");
-        const video = document.querySelector(".animation-inner video");
-
-        if (!videoWrap || !video || !fallbackWrap) return;
-
-        function showFallback() {
-          videoWrap.style.display = "none";
-          fallbackWrap.style.display = "block";
-        }
-
-        // Only Safari (no webm support) gets the PNG fallback
-        const isSafari = /^((?!chrome|android).)*safari/i.test(
-          navigator.userAgent,
-        );
-        if (isSafari || video.canPlayType("video/webm") === "") {
-          showFallback();
-        }
-      });
-    </script>
   </body>
 </html>
