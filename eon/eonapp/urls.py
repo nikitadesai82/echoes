@@ -24,6 +24,8 @@ urlpatterns = [
 		path("Privacy/",views.Privacy,name="Privacy"),
 		path("Terms/",views.Terms,name="Terms"),
     path("__exit_kiosk__/", views.exit_kiosk, name="exit_kiosk"),
+	path("sitemap.xml", seo.sitemap_xml, name="sitemap"),
+    path("robots.txt", seo.robots_txt, name="robots"),
 
 
 ]
