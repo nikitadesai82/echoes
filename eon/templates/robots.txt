@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+
+Sitemap: https://echoesofnature.co.in/sitemap.xml
