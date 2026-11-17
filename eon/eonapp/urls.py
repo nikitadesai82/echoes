@@ -1,4 +1,5 @@
 from django.urls import path
+from . import seo
 from . import views
 
 urlpatterns = [
