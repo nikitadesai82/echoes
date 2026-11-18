@@ -1,4 +1,58 @@
-{% extends "webbase.html" %} {% load static %} {% block overlay_content %} {% load static %}
+{% extends "webbase.html" %} {% load static %} {% block seo %}
+    <title>Building with Nature – How Hiranandani Estate, Thane Grew Green | Echoes of Nature</title>
+    <meta name="description" content="A behind-the-scenes look at how the lush landscapes of Hiranandani Estate, Thane came to life. Listen to stories from builders, horticulturists and naturalists about this thriving urban ecosystem." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'Urbanlegends' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'Urbanlegends' %}" />
+    <meta property="og:title" content="Building with Nature – Stories from Hiranandani Estate, Thane" />
+    <meta property="og:description" content="Hear from the builders, horticulturists and naturalists who shaped Hiranandani Estate’s green spaces." />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Building with Nature – Stories from Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="Hear from the builders, horticulturists and naturalists who shaped Hiranandani Estate’s green spaces." />
+    <meta name="twitter:image" content="{% static 'img/og-image.jpg' %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'Urbanlegends' %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'Urbanlegends' %}",
+            "name": "Building with Nature – How Hiranandani Estate, Thane Grew Green | Echoes of Nature",
+            "description": "A behind-the-scenes look at how the lush landscapes of Hiranandani Estate, Thane came to life. Listen to stories from builders, horticulturists and naturalists about this thriving urban ecosystem.",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "about": { "@type": "Place", "name": "Hiranandani Estate", "address": { "@type": "PostalAddress", "addressLocality": "Thane", "addressRegion": "Maharashtra", "addressCountry": "IN" } },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Building with Nature", "item": "https://echoesofnature.co.in{% url 'Urbanlegends' %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %} {% load static %}
 
 <div class="urbanlegendsbox1">
 	<div class="urbanlegendsbox1_1">GREEN BEGINNINGS</div>
@@ -514,4 +568,5 @@
 	document.addEventListener('DOMContentLoaded', initAudioPlayer);
 </script>
 
+<h1 class="eon-sr-only">Building with Nature – Stories of How Hiranandani Estate, Thane Grew Green</h1>
 {% endblock %}
