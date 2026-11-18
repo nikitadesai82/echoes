@@ -1,4 +1,66 @@
-{% extends "webbase.html" %}{% block body_class %}page-butterfly-list{% endblock %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %}{% block body_class %}page-butterfly-list{% endblock %} {% load static %} {% block seo %}
+    <title>Butterflies of Hiranandani Estate, Thane – Species Guide | Echoes of Nature</title>
+    <meta name="description" content="From jewel-winged blues to bold orange tigers, meet the butterflies of Hiranandani Estate, Thane. Filter by colour, migration and defence, then tap any butterfly to learn more about it." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'butterfly_list' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'butterfly_list' %}" />
+    <meta property="og:title" content="Butterflies of Hiranandani Estate, Thane – Who’s Fluttering?" />
+    <meta property="og:description" content="Blues, tigers, swallowtails and seasonal travellers: meet the butterflies of Hiranandani Estate, Thane." />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Butterflies of Hiranandani Estate, Thane – Who’s Fluttering?" />
+    <meta name="twitter:description" content="Blues, tigers, swallowtails and seasonal travellers: meet the butterflies of Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="{% static 'img/og-image.jpg' %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://echoesofnature.co.in{% url 'butterfly_list' %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'butterfly_list' %}",
+            "name": "Butterflies of Hiranandani Estate, Thane – Species Guide | Echoes of Nature",
+            "description": "From jewel-winged blues to bold orange tigers, meet the butterflies of Hiranandani Estate, Thane. Filter by colour, migration and defence, then tap any butterfly to learn more about it.",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "mainEntity": { "@id": "https://echoesofnature.co.in{% url 'butterfly_list' %}#list" },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://echoesofnature.co.in{% url 'butterfly_list' %}#list",
+            "name": "Butterflies of Hiranandani Estate, Thane",
+            "itemListElement": [{% for butterfly in butterflies %}
+              { "@type": "ListItem", "position": {{ forloop.counter }}, "name": "{{ butterfly.Butterfly_Name|escapejs }}", "url": "https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}" }{% if not forloop.last %},{% endif %}{% endfor %}
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Butterflies of Hiranandani Estate, Thane", "item": "https://echoesofnature.co.in{% url 'butterfly_list' %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %}
 <script>
 	document.documentElement.classList.remove('loading');
 </script>
@@ -135,7 +197,7 @@ Toxic: Carries toxins that make it unpleasant to eat
     src="{{ butterfly.Butterfly_Button_Media.url }}"
     width="460"
     height="460"
-    alt="{{ butterfly.Butterfly_Name }} preview"
+    alt="{{ butterfly.Butterfly_Name }}"
     loading="lazy"
   />
 {% endif %}
@@ -673,4 +735,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 </script>
 
+<h1 class="eon-sr-only">Butterflies of Hiranandani Estate, Thane – Species Guide</h1>
 {% endblock %}
