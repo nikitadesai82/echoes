@@ -1,4 +1,58 @@
-{% extends "webbase.html" %} {% load static %} {% block overlay_content %} {% load custom_filters %}
+{% extends "webbase.html" %} {% load static %} {% block seo %}
+    <title>Birdwatching at Hiranandani Estate, Thane – Best Spots & Timings | Echoes of Nature</title>
+    <meta name="description" content="Find the best birdwatching spots at Hiranandani Estate, Thane: Kavesar Lake, Central Park, the Nursery and Hill Area and Capri Garden, with likely sightings, the best times to visit and birding tips." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'Birdwatching' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'Birdwatching' %}" />
+    <meta property="og:title" content="A Birdwatcher’s Guide to Hiranandani Estate, Thane" />
+    <meta property="og:description" content="Four birding spots, the birds you can see at each, the best times to go and 11 birdwatching tips." />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="A Birdwatcher’s Guide to Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="Four birding spots, the birds you can see at each, the best times to go and 11 birdwatching tips." />
+    <meta name="twitter:image" content="{% static 'img/og-image.jpg' %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'Birdwatching' %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'Birdwatching' %}",
+            "name": "Birdwatching at Hiranandani Estate, Thane – Best Spots & Timings | Echoes of Nature",
+            "description": "Find the best birdwatching spots at Hiranandani Estate, Thane: Kavesar Lake, Central Park, the Nursery and Hill Area and Capri Garden, with likely sightings, the best times to visit and birding tips.",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "about": { "@type": "Place", "name": "Hiranandani Estate", "address": { "@type": "PostalAddress", "addressLocality": "Thane", "addressRegion": "Maharashtra", "addressCountry": "IN" } },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "A Birdwatcher’s Guide", "item": "https://echoesofnature.co.in{% url 'Birdwatching' %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %} {% load custom_filters %}
 <style>
 	.naturetrail-img,
 	.naturetrail-text .fade,
@@ -456,4 +510,5 @@
 	});
 </script>
 
+<h1 class="eon-sr-only">Birdwatching at Hiranandani Estate, Thane – Best Spots, Timings and Tips</h1>
 {% endblock %}
