@@ -8,7 +8,58 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Echoes of Nature</title>
+    <title>Echoes of Nature – Inside Hiranandani Estate’s 375-Acre Green Haven, Thane</title>
+    <meta name="description" content="Discover how Hiranandani Estate, Thane became a 375-acre green haven between Thane Creek and Sanjay Gandhi National Park, home to 40+ bird species, butterflies, native trees and revived water bodies." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'Deepdive' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'Deepdive' %}" />
+    <meta property="og:title" content="Echoes of Nature – The Living Landscape of Hiranandani Estate, Thane" />
+    <meta property="og:description" content="A 375-acre green haven in Thane: native trees, 40+ bird species, butterflies and revived lakes. A sustainability initiative by House of Hiranandani." />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Echoes of Nature – The Living Landscape of Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="A 375-acre green haven in Thane: native trees, 40+ bird species, butterflies and revived lakes. A sustainability initiative by House of Hiranandani." />
+    <meta name="twitter:image" content="{% static 'img/og-image.jpg' %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'Deepdive' %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'Deepdive' %}",
+            "name": "Echoes of Nature – Inside Hiranandani Estate’s 375-Acre Green Haven, Thane",
+            "description": "Discover how Hiranandani Estate, Thane became a 375-acre green haven between Thane Creek and Sanjay Gandhi National Park, home to 40+ bird species, butterflies, native trees and revived water bodies.",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "about": { "@type": "Place", "name": "Hiranandani Estate", "address": { "@type": "PostalAddress", "addressLocality": "Thane", "addressRegion": "Maharashtra", "addressCountry": "IN" } },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Echoes of Nature", "item": "https://echoesofnature.co.in{% url 'Deepdive' %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
     <link
       rel="preload"
       as="video"
@@ -47,7 +98,7 @@
         <img
           src="{% static 'img/footer-logo.png' %}"
           srcset="{% static 'img/footer-logo.png' %} 2x"
-          alt="Logo"
+          alt="House of Hiranandani – Echoes of Nature"
         />
       </a>
 
@@ -134,6 +185,7 @@
           id="deepdivePoster"
           src="{% static 'img/Echoes of Nature_1.jpg' %}"
           class="deepdive-poster"
+          alt="Echoes of Nature portal into the gardens of Hiranandani Estate"
         />
 
         <!-- Video underneath -->
@@ -176,7 +228,7 @@
         <div class="deepdivefirstbox">
           <div class="left-section">
             <div class="echoes-flower">
-              <img src="{% static 'img/Echoes-flower.webp' %}" />
+              <img src="{% static 'img/Echoes-flower.webp' %}" alt="" />
             </div>
             <div class="left_1">
               <span>Nature is the source of all true knowledge</span>
@@ -419,7 +471,7 @@
             <a href="{% url 'birds_list' %}" class="media-link">
               <div class="bird-video">
                 <div class="video-container bounce-up">
-                  <img src="{% static 'img/Bird-button.webp' %}">
+                  <img src="{% static 'img/Bird-button.webp' %}" alt="Birds of Hiranandani Estate, Thane">
                 </div>
               </div>
 
@@ -446,7 +498,7 @@
             <a href="{% url 'flora_list' %}" class="media-link">
               <div class="bird-video bounce-up">
                 <div class="video-container">
-                  <img src="{% static 'img/Tree-button.webp' %}">
+                  <img src="{% static 'img/Tree-button.webp' %}" alt="Trees and flowers of Hiranandani Estate, Thane">
                 </div>
               </div>
 
@@ -475,7 +527,7 @@
             <a href="{% url 'butterfly_list' %}" class="media-link">
               <div class="bird-video bounce-up">
                 <div class="video-container">
-                  <img src="{% static 'img/Butterfly-button.png' %}">
+                  <img src="{% static 'img/Butterfly-button.png' %}" alt="Butterflies of Hiranandani Estate, Thane">
                 </div>
               </div>
 
@@ -506,7 +558,7 @@
       <div class="middle-section">
         <div class="hiranandani-box">
           <div class="hiranandani-img-box bounce-up">
-            <img src="{% static 'img/Hiranandani.webp' %}" />
+            <img src="{% static 'img/Hiranandani.webp' %}" alt="Surendra Hiranandani, Chairman and Managing Director, House of Hiranandani" />
           </div>
           <div class="hiranandani-text-box">
             <div class="hiranandani-text-1 fade-section">GREEN VISIONARY</div>
@@ -533,7 +585,7 @@
         <div class="left-section2">
           <div class="left_6">
             <div class="naturetrail-imgblock">
-              <img src="{% static 'img/Naturetrail.webp' %}">
+              <img src="{% static 'img/Naturetrail.webp' %}" alt="Guided nature trail at Hiranandani Estate, Thane">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -563,7 +615,7 @@
           </div>
           <div class="left_7 hide-on-mobile">
             <div class="naturetrail-imgblock">
-              <img src="{% static 'img/UrbanLegends.webp' %}">
+              <img src="{% static 'img/UrbanLegends.webp' %}" alt="Stories of how the green spaces of Hiranandani Estate were created">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">GREEN BEGINNINGS</div>
@@ -591,7 +643,7 @@
           </div>
 					<div class="left_7i hide-on-desktop">
             <div class="naturetrail-imgblock hide-on-desktop">
-              <img src="{% static 'img/Birdwatching.webp' %}">
+              <img src="{% static 'img/Birdwatching.webp' %}" alt="Birdwatching at Hiranandani Estate, Thane">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -622,7 +674,7 @@
         <div class="right-section2">
           <div class="right_5 hide-on-mobile">
             <div class="naturetrail-imgblock">
-              <img src="{% static 'img/Birdwatching.webp' %}">
+              <img src="{% static 'img/Birdwatching.webp' %}" alt="Birdwatching at Hiranandani Estate, Thane">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">
@@ -651,7 +703,7 @@
           </div>
 					<div class="right_5i tree-mobile-only">
             <div class="naturetrail-imgblock tree-mobile-only">
-              <img src="{% static 'img/UrbanLegends.webp' %}">
+              <img src="{% static 'img/UrbanLegends.webp' %}" alt="Stories of how the green spaces of Hiranandani Estate were created">
             </div>
             <div class="naturetrail-textblock">
               <div class="fade-section naturetrail-text1">GREEN BEGINNINGS</div>
@@ -695,11 +747,11 @@
 
       <footer class="footerweb">
         <div class="footerweb-img hide-on-mobile">
-          <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+          <img src="{% static 'img/footerbird.webp' %}" alt="" />
         </div>
         <div class="footerwebcol1">
           <div class="footer-logo">
-            <img src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
+            <img src="{% static 'img/footer-logo.png' %}" alt="House of Hiranandani logo" />
           </div>
           <div class="footerwebcol1_1">
             House of Hiranandani, Olympia
@@ -713,7 +765,7 @@
             Email: <a href="mailto:property@houseofhiranandani.com">property@houseofhiranandani.com</a>
             <br />
             <br />
-            <a href="https://www.houseofhiranandani.com/" target="_blank">www.houseofhiranandani.com</a>
+            <a href="https://www.houseofhiranandani.com/" target="_blank" rel="noopener">www.houseofhiranandani.com</a>
           </div>
         </div>
       <div class="footerwebcol1">
@@ -736,12 +788,12 @@
         <div class="footerwebcol2_3"><a href="{% url 'Credits' %}">Credits & Usage</a></div>
         </div>
         <div class="footerweb-img2">
-          <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+          <img src="{% static 'img/footerbird.webp' %}" alt="" />
         </div>
         <div class="footerwebcol4">
           <div class="footerwebcol2_1">CONNECT WITH US</div>
           <div class="footer-icons">
-  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
+  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank" rel="noopener">
     <div class="footer-icon">
       <img src="{% static 'img/Facebook.png' %}"
            data-default="{% static 'img/Facebook.png' %}"
@@ -749,7 +801,7 @@
            alt="Facebook" />
     </div>
   </a>
-  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
+  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank" rel="noopener">
     <div class="footer-icon">
       <img src="{% static 'img/Instagram.png' %}"
            data-default="{% static 'img/Instagram.png' %}"
@@ -757,7 +809,7 @@
            alt="Instagram" />
     </div>
   </a>
-  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
+  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank" rel="noopener">
     <div class="footer-icon">
       <img src="{% static 'img/Youtube.png' %}"
            data-default="{% static 'img/Youtube.png' %}"
@@ -765,7 +817,7 @@
            alt="YouTube" />
     </div>
   </a>
-  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
+  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank" rel="noopener">
     <div class="footer-icon">
       <img src="{% static 'img/Linkedin.png' %}"
            data-default="{% static 'img/Linkedin.png' %}"
@@ -780,17 +832,17 @@
             non-commercial display and is brought to you by
           </div>
           <div class="tommorrow-logo">
-            <img src="{% static 'img/tommorrow-logo.png' %}" />
+            <img src="{% static 'img/tommorrow-logo.png' %}" alt="House of Hiranandani sustainability initiative logo" />
           </div>
           <div class="footerwebcol4_2">
             A Sustainability initiative by House of Hiranandani
           </div>
         </div>
         <div class="footerweb-img3">
-          <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
+          <img src="{% static 'img/footerbird.webp' %}" alt="" />
         </div>
         <div class="footerweb-img4 hide-on-mobile">
-          <img src="{% static 'img/webfooterflower.webp' %}" alt="Footer logo" />
+          <img src="{% static 'img/webfooterflower.webp' %}" alt="" />
         </div>
         <div class="copyright">
           © 2026 House of Hiranandani. All rights reserved.
@@ -909,5 +961,6 @@
     </script>
 
     <script src="{% static 'js/main.js' %}"></script>
+    <h1 class="eon-sr-only">Echoes of Nature – Hiranandani Estate, Thane: A 375-Acre Living Landscape</h1>
   </body>
 </html>
