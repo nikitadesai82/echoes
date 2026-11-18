@@ -1,4 +1,66 @@
-{% extends "webbase.html" %}{% block body_class %}page-flora-list{% endblock %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %}{% block body_class %}page-flora-list{% endblock %} {% load static %} {% block seo %}
+    <title>Trees & Plants of Hiranandani Estate, Thane – Flora Guide | Echoes of Nature</title>
+    <meta name="description" content="From shady giants to tiny wildflowers, explore the trees and plants of Hiranandani Estate, Thane. Filter evergreen, deciduous, native and introduced species, then tap a plant to learn about its flowers and fruits." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'flora_list' %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'flora_list' %}" />
+    <meta property="og:title" content="Trees & Plants of Hiranandani Estate, Thane – Meet the Green Giants" />
+    <meta property="og:description" content="Evergreens, native species and exotic guests: explore the flora of Hiranandani Estate, Thane." />
+    <meta property="og:image" content="{% static 'img/og-image.jpg' %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Trees & Plants of Hiranandani Estate, Thane – Meet the Green Giants" />
+    <meta name="twitter:description" content="Evergreens, native species and exotic guests: explore the flora of Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="{% static 'img/og-image.jpg' %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://echoesofnature.co.in{% url 'flora_list' %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'flora_list' %}",
+            "name": "Trees & Plants of Hiranandani Estate, Thane – Flora Guide | Echoes of Nature",
+            "description": "From shady giants to tiny wildflowers, explore the trees and plants of Hiranandani Estate, Thane. Filter evergreen, deciduous, native and introduced species, then tap a plant to learn about its flowers and fruits.",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "mainEntity": { "@id": "https://echoesofnature.co.in{% url 'flora_list' %}#list" },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://echoesofnature.co.in{% url 'flora_list' %}#list",
+            "name": "Trees and Plants of Hiranandani Estate, Thane",
+            "itemListElement": [{% for flora in floras %}
+              { "@type": "ListItem", "position": {{ forloop.counter }}, "name": "{{ flora.Flora_Name|escapejs }}", "url": "https://echoesofnature.co.in{% url 'flora_detail' flora.id %}" }{% if not forloop.last %},{% endif %}{% endfor %}
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Trees and Plants of Hiranandani Estate, Thane", "item": "https://echoesofnature.co.in{% url 'flora_list' %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %}
 <script>
   document.documentElement.classList.remove("loading");
 </script>
@@ -105,7 +167,7 @@ Aquatic Plants: Grow in water.
     src="{{ flora.Flora_Button_Media.url }}"
     width="460"
     height="460"
-    alt="{{ flora.Flora_Name }} preview"
+    alt="{{ flora.Flora_Name }}"
     loading="lazy"
   />
 
@@ -668,4 +730,5 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 </script>
+<h1 class="eon-sr-only">Trees and Plants of Hiranandani Estate, Thane – Flora Guide</h1>
 {% endblock %}
