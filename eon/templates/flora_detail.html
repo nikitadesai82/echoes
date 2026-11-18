@@ -1,4 +1,65 @@
-{% extends "webbase.html" %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %} {% load static %} {% block seo %}
+    <title>{{ flora.Flora_Name }} ({{ flora.Flora_Botanical_Name }}) – Trees & Plants of Hiranandani Estate, Thane | Echoes of Nature</title>
+    <meta name="description" content="{{ flora.Flora_Name }} ({{ flora.Flora_Botanical_Name }}){% if flora.Flora_AKA %}, also called {{ flora.Flora_AKA }}{% endif %}: bark, leaves, flowers and fruit, medicinal and cultural uses, and where this plant grows at Hiranandani Estate, Thane." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'flora_detail' flora.id %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'flora_detail' flora.id %}" />
+    <meta property="og:title" content="{{ flora.Flora_Name }} – Trees & Plants of Hiranandani Estate, Thane" />
+    <meta property="og:description" content="{{ flora.Flora_Name }} ({{ flora.Flora_Botanical_Name }}){% if flora.Flora_AKA %}, also called {{ flora.Flora_AKA }}{% endif %}: bark, leaves, flowers and fruit, medicinal and cultural uses, and where this plant grows at Hiranandani Estate, Thane." />
+    <meta property="og:image" content="{% if flora.Flora_Button_Media %}{% with u=flora.Flora_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ flora.Flora_Name }} – Trees & Plants of Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="{{ flora.Flora_Name }} ({{ flora.Flora_Botanical_Name }}){% if flora.Flora_AKA %}, also called {{ flora.Flora_AKA }}{% endif %}: bark, leaves, flowers and fruit, medicinal and cultural uses, and where this plant grows at Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="{% if flora.Flora_Button_Media %}{% with u=flora.Flora_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'flora_detail' flora.id %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'flora_detail' flora.id %}",
+            "name": "{{ flora.Flora_Name|escapejs }} ({{ flora.Flora_Botanical_Name|escapejs }}) – Trees & Plants of Hiranandani Estate, Thane",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "primaryImageOfPage": "{% if flora.Flora_Button_Media %}{% with u=flora.Flora_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}",
+            "about": {
+              "@type": "Taxon",
+              "name": "{{ flora.Flora_Botanical_Name|escapejs }}",
+              "taxonRank": "species",
+              "alternateName": ["{{ flora.Flora_Name|escapejs }}"{% if flora.Flora_AKA %}, "{{ flora.Flora_AKA|escapejs }}"{% endif %}]{% if flora.Flora_Family %},
+              "parentTaxon": { "@type": "Taxon", "name": "{{ flora.Flora_Family|escapejs }}", "taxonRank": "family" }{% endif %}
+            },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Flora of Hiranandani Estate", "item": "https://echoesofnature.co.in{% url 'flora_list' %}" },
+              { "@type": "ListItem", "position": 3, "name": "{{ flora.Flora_Name|escapejs }}", "item": "https://echoesofnature.co.in{% url 'flora_detail' flora.id %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %}
 <script>
   document.documentElement.classList.remove("loading");
 </script>
@@ -1881,4 +1942,5 @@ ScrollTrigger.batch(".fade-section", {
       });
   });
 </script>
+<h1 class="eon-sr-only">{{ flora.Flora_Name }} – Trees & Plants of Hiranandani Estate, Thane</h1>
 {% endblock %}
