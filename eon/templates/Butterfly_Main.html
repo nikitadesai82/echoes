@@ -1,4 +1,65 @@
-{% extends "webbase.html" %}{% block body_class %}page-butterfly-main{% endblock %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %}{% block body_class %}page-butterfly-main{% endblock %} {% load static %} {% block seo %}
+    <title>{{ butterfly.Butterfly_Name }} ({{ butterfly.Butterfly_Scientific_Name }}) – Butterflies of Hiranandani Estate, Thane | Echoes of Nature</title>
+    <meta name="description" content="{{ butterfly.Butterfly_Name }} ({{ butterfly.Butterfly_Scientific_Name }}){% if butterfly.Butterfly_AKA %}, also called {{ butterfly.Butterfly_AKA }}{% endif %}: wingspan, behaviour, host plants, life cycle, defences and where to spot this butterfly at Hiranandani Estate, Thane." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}" />
+    <meta property="og:title" content="{{ butterfly.Butterfly_Name }} – Butterflies of Hiranandani Estate, Thane" />
+    <meta property="og:description" content="{{ butterfly.Butterfly_Name }} ({{ butterfly.Butterfly_Scientific_Name }}){% if butterfly.Butterfly_AKA %}, also called {{ butterfly.Butterfly_AKA }}{% endif %}: wingspan, behaviour, host plants, life cycle, defences and where to spot this butterfly at Hiranandani Estate, Thane." />
+    <meta property="og:image" content="{% if butterfly.Butterfly_Button_Media %}{% with u=butterfly.Butterfly_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ butterfly.Butterfly_Name }} – Butterflies of Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="{{ butterfly.Butterfly_Name }} ({{ butterfly.Butterfly_Scientific_Name }}){% if butterfly.Butterfly_AKA %}, also called {{ butterfly.Butterfly_AKA }}{% endif %}: wingspan, behaviour, host plants, life cycle, defences and where to spot this butterfly at Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="{% if butterfly.Butterfly_Button_Media %}{% with u=butterfly.Butterfly_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}",
+            "name": "{{ butterfly.Butterfly_Name|escapejs }} ({{ butterfly.Butterfly_Scientific_Name|escapejs }}) – Butterflies of Hiranandani Estate, Thane",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "primaryImageOfPage": "{% if butterfly.Butterfly_Button_Media %}{% with u=butterfly.Butterfly_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}",
+            "about": {
+              "@type": "Taxon",
+              "name": "{{ butterfly.Butterfly_Scientific_Name|escapejs }}",
+              "taxonRank": "species",
+              "alternateName": ["{{ butterfly.Butterfly_Name|escapejs }}"{% if butterfly.Butterfly_AKA %}, "{{ butterfly.Butterfly_AKA|escapejs }}"{% endif %}]{% if butterfly.Butterfly_Family %},
+              "parentTaxon": { "@type": "Taxon", "name": "{{ butterfly.Butterfly_Family|escapejs }}", "taxonRank": "family" }{% endif %}
+            },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Butterflies of Hiranandani Estate", "item": "https://echoesofnature.co.in{% url 'butterfly_list' %}" },
+              { "@type": "ListItem", "position": 3, "name": "{{ butterfly.Butterfly_Name|escapejs }}", "item": "https://echoesofnature.co.in{% url 'butterfly_detail' butterfly.slug %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %}
 
 <script>
 	document.documentElement.classList.remove('loading');
@@ -1487,4 +1548,5 @@
   });
 </script>
 
+<h1 class="eon-sr-only">{{ butterfly.Butterfly_Name }} – Butterflies of Hiranandani Estate, Thane</h1>
 {% endblock %}
