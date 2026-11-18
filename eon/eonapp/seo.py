@@ -6,6 +6,9 @@ No settings.py change needed (does not use django.contrib.sitemaps).
 """
 from datetime import date
 
+from xml.sax.saxutils import escape
+
+from django.apps import apps
 from django.http import HttpResponse
 from django.urls import NoReverseMatch, reverse
 
@@ -28,6 +31,48 @@ PAGES = {
 }
 
 
+# Species detail pages: (field that identifies the model, url name, attribute used in the url)
+SPECIES = [
+    ("Bird_Name", "bird_detail", "slug"),
+    ("Butterfly_Name", "butterfly_detail", "slug"),
+    ("Flora_Name", "flora_detail", "id"),
+]
+
+
+def _url_entry(path, today, freq, priority):
+    return (
+        f"  <url>\n"
+        f"    <loc>{SITE}{escape(path)}</loc>\n"
+        f"    <lastmod>{today}</lastmod>\n"
+        f"    <changefreq>{freq}</changefreq>\n"
+        f"    <priority>{priority}</priority>\n"
+        f"  </url>"
+    )
+
+
+def _species_paths():
+    """Yield detail-page paths for every bird, butterfly and plant in the database.
+    Models are found by their field names, so no model imports are needed."""
+    try:
+        models = list(apps.get_app_config("eonapp").get_models())
+    except LookupError:
+        return
+    for field, url_name, attr in SPECIES:
+        for model in models:
+            if field not in {f.name for f in model._meta.get_fields()}:
+                continue
+            try:
+                for obj in model.objects.all().only("pk", *([attr] if attr != "id" else [])):
+                    value = getattr(obj, attr, None)
+                    if value:
+                        try:
+                            yield reverse(url_name, args=[value])
+                        except NoReverseMatch:
+                            break
+            except Exception:
+                pass  # never let one bad table break the sitemap
+
+
 def sitemap_xml(request):
     today = date.today().isoformat()
     urls = []
@@ -36,14 +81,9 @@ def sitemap_xml(request):
             path = reverse(name)
         except NoReverseMatch:
             continue  # skip any name that doesn't exist instead of crashing
-        urls.append(
-            f"  <url>\n"
-            f"    <loc>{SITE}{path}</loc>\n"
-            f"    <lastmod>{today}</lastmod>\n"
-            f"    <changefreq>{freq}</changefreq>\n"
-            f"    <priority>{priority}</priority>\n"
-            f"  </url>"
-        )
+        urls.append(_url_entry(path, today, freq, priority))
+    for path in _species_paths():
+        urls.append(_url_entry(path, today, "monthly", "0.7"))
     xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
