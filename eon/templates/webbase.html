@@ -5,14 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% block seo %}
-    <meta name="description" content="Explore the birds, trees, butterflies and urban ecosystem of Hiranandani Estate, Thane. A sustainability initiative by House of Hiranandani.">
-    <meta name="keywords" content="Hiranandani Estate nature, birds Thane, urban ecosystem, flora fauna Hiranandani, Echoes of Nature">
-    <meta name="robots" content="index, follow">
-    <title>Echoes of Nature – Hiranandani Estate, Thane</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
-    {% endblock %}
+	  <meta name="description" content="Explore the birds, trees, butterflies and urban ecosystem of Hiranandani Estate, Thane. A sustainability initiative by House of Hiranandani.">
+<meta name="keywords" content="Hiranandani Estate nature, birds Thane, urban ecosystem, flora fauna Hiranandani, Echoes of Nature">
+<meta name="robots" content="index, follow">
+    <title>Echoes of Nature</title>
     <link
       rel="stylesheet"
       type="text/css"
@@ -35,7 +31,7 @@
         <img
           src="{% static 'img/Logo.png' %}"
           srcset="{% static 'img/Logo@2x.png' %} 2x"
-          alt="House of Hiranandani – Echoes of Nature"
+          alt="Logo"
         />
       </a>
 
@@ -131,11 +127,11 @@
     </div>
     <footer class="footerweb">
       <div class="footerweb-img hide-on-mobile">
-        <img src="{% static 'img/footerbird.webp' %}" alt="" />
+        <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
       </div>
       <div class="footerwebcol1">
         <div class="footer-logo">
-          <img loading="lazy" src="{% static 'img/footer-logo.png' %}" alt="House of Hiranandani logo" />
+          <img loading="lazy" src="{% static 'img/footer-logo.png' %}" alt="Footer logo" />
         </div>
         <div class="footerwebcol1_1">
           House of Hiranandani, Olympia
@@ -148,7 +144,7 @@
           Call: +91 22620 93456<br /> Email: <a href="mailto:property@houseofhiranandani.com">property@houseofhiranandani.com</a>
           <br />
           <br />
-          <a href="https://www.houseofhiranandani.com/" target="_blank" rel="noopener">www.houseofhiranandani.com</a>
+          <a href="https://www.houseofhiranandani.com/" target="_blank">www.houseofhiranandani.com</a>
         </div>
 
       </div>
@@ -172,12 +168,12 @@
         <div class="footerwebcol2_3"><a href="{% url 'Credits' %}">Credits & Usage</a></div>
       </div>
       <div class="footerweb-img2">
-        <img src="{% static 'img/footerbird.webp' %}" alt="" />
+        <img src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
       </div>
       <div class="footerwebcol4">
         <div class="footerwebcol2_1">CONNECT WITH US</div>
         <div class="footer-icons">
-  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank" rel="noopener">
+  <a href="https://www.facebook.com/HouseofHiranandani" target="_blank">
     <div class="footer-icon">
       <img src="{% static 'img/Facebook.png' %}"
            data-default="{% static 'img/Facebook.png' %}"
@@ -185,7 +181,7 @@
            alt="Facebook" />
     </div>
   </a>
-  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank" rel="noopener">
+  <a href="https://www.instagram.com/houseofhiranandani/" target="_blank">
     <div class="footer-icon">
       <img src="{% static 'img/Instagram.png' %}"
            data-default="{% static 'img/Instagram.png' %}"
@@ -193,7 +189,7 @@
            alt="Instagram" />
     </div>
   </a>
-  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank" rel="noopener">
+  <a href="https://www.youtube.com/channel/UC5b7xMV-q5ZIkJf0SxtlRdg" target="_blank">
     <div class="footer-icon">
       <img src="{% static 'img/Youtube.png' %}"
            data-default="{% static 'img/Youtube.png' %}"
@@ -201,7 +197,7 @@
            alt="YouTube" />
     </div>
   </a>
-  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank" rel="noopener">
+  <a href="https://www.linkedin.com/company/house-of-hiranandani/" target="_blank">
     <div class="footer-icon">
       <img src="{% static 'img/Linkedin.png' %}"
            data-default="{% static 'img/Linkedin.png' %}"
@@ -217,17 +213,17 @@
           non-commercial display and is brought to you by
         </div>
         <div class="tommorrow-logo">
-          <img loading="lazy" src="{% static 'img/tommorrow-logo.png' %}" alt="House of Hiranandani sustainability initiative logo" />
+          <img loading="lazy" src="{% static 'img/tommorrow-logo.png' %}" />
         </div>
         <div class="footerwebcol4_2">
           A Sustainability initiative by House of Hiranandani
         </div>
       </div>
       <div class="footerweb-img3">
-        <img loading="lazy" src="{% static 'img/footerbird.webp' %}" alt="" />
+        <img loading="lazy" src="{% static 'img/footerbird.webp' %}" alt="Footer logo" />
       </div>
       <div class="footerweb-img4 hide-on-mobile">
-        <img loading="lazy" src="{% static 'img/webfooterflower.webp' %}" alt="" />
+        <img loading="lazy" src="{% static 'img/webfooterflower.webp' %}" alt="Footer logo" />
       </div>
 			<div class="copyright">
           © 2026 House of Hiranandani. All rights reserved.
