@@ -1,4 +1,65 @@
-{% extends "webbase.html" %} {% load static %} {% block overlay_content %}
+{% extends "webbase.html" %} {% load static %} {% block seo %}
+    <title>{{ bird.Bird_Name }} ({{ bird.Bird_Scientific_Name }}) – Birds of Hiranandani Estate, Thane | Echoes of Nature</title>
+    <meta name="description" content="{{ bird.Bird_Name }} ({{ bird.Bird_Scientific_Name }}){% if bird.Bird_AKA %}, also called {{ bird.Bird_AKA }}{% endif %}: size, call, habitat, diet, nesting, migration and where to spot this bird at Hiranandani Estate, Thane." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://echoesofnature.co.in{% url 'bird_detail' bird.slug %}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Echoes of Nature" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://echoesofnature.co.in{% url 'bird_detail' bird.slug %}" />
+    <meta property="og:title" content="{{ bird.Bird_Name }} – Birds of Hiranandani Estate, Thane" />
+    <meta property="og:description" content="{{ bird.Bird_Name }} ({{ bird.Bird_Scientific_Name }}){% if bird.Bird_AKA %}, also called {{ bird.Bird_AKA }}{% endif %}: size, call, habitat, diet, nesting, migration and where to spot this bird at Hiranandani Estate, Thane." />
+    <meta property="og:image" content="{% if bird.Bird_Button_Media %}{% with u=bird.Bird_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ bird.Bird_Name }} – Birds of Hiranandani Estate, Thane" />
+    <meta name="twitter:description" content="{{ bird.Bird_Name }} ({{ bird.Bird_Scientific_Name }}){% if bird.Bird_AKA %}, also called {{ bird.Bird_AKA }}{% endif %}: size, call, habitat, diet, nesting, migration and where to spot this bird at Hiranandani Estate, Thane." />
+    <meta name="twitter:image" content="{% if bird.Bird_Button_Media %}{% with u=bird.Bird_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "https://echoesofnature.co.in{% url 'bird_detail' bird.slug %}#webpage",
+            "url": "https://echoesofnature.co.in{% url 'bird_detail' bird.slug %}",
+            "name": "{{ bird.Bird_Name|escapejs }} ({{ bird.Bird_Scientific_Name|escapejs }}) – Birds of Hiranandani Estate, Thane",
+            "isPartOf": { "@id": "https://echoesofnature.co.in/#website" },
+            "primaryImageOfPage": "{% if bird.Bird_Button_Media %}{% with u=bird.Bird_Button_Media.url %}{% if u|slice:':4' == 'http' %}{{ u }}{% else %}https://echoesofnature.co.in{{ u }}{% endif %}{% endwith %}{% else %}{% static 'img/og-image.jpg' %}{% endif %}",
+            "about": {
+              "@type": "Taxon",
+              "name": "{{ bird.Bird_Scientific_Name|escapejs }}",
+              "taxonRank": "species",
+              "alternateName": ["{{ bird.Bird_Name|escapejs }}"{% if bird.Bird_AKA %}, "{{ bird.Bird_AKA|escapejs }}"{% endif %}]{% if bird.Bird_Family %},
+              "parentTaxon": { "@type": "Taxon", "name": "{{ bird.Bird_Family|escapejs }}", "taxonRank": "family" }{% endif %}
+            },
+            "publisher": { "@id": "https://echoesofnature.co.in/#org" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://echoesofnature.co.in/" },
+              { "@type": "ListItem", "position": 2, "name": "Birds of Hiranandani Estate", "item": "https://echoesofnature.co.in{% url 'birds_list' %}" },
+              { "@type": "ListItem", "position": 3, "name": "{{ bird.Bird_Name|escapejs }}", "item": "https://echoesofnature.co.in{% url 'bird_detail' bird.slug %}" }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://echoesofnature.co.in/#org",
+            "name": "House of Hiranandani",
+            "url": "https://www.houseofhiranandani.com/"
+          }
+        ]
+      }
+    </script>
+    <style>
+      .eon-sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    </style>
+{% endblock %}
+{% block overlay_content %}
 
 <script>
   document.documentElement.classList.add("loading");
@@ -1461,4 +1522,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 </script>
 
+<h1 class="eon-sr-only">{{ bird.Bird_Name }} – Birds of Hiranandani Estate, Thane</h1>
 {% endblock %}
